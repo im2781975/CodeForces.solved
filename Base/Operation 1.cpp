@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 int c = 0, odd = 0;
-
 int req(int x, int y) {
     if (y == 1)
         return x;
@@ -28,10 +26,10 @@ int req(int x, int y) {
     }
     return req(x, y);
 }
-
 int main() {
     int x, y;
     cin >> x >> y;
     cout << req(x, y);
+    // x= 1024 y=5
 }
 
