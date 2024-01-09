@@ -2,7 +2,8 @@
 #include <cmath>
 using namespace std;
 
-const int MAX_SIZE = 100; 
+const int MAX_SIZE = 100;
+
 void operate(int x[MAX_SIZE][MAX_SIZE], int y)
 {
     int s = 0, k = 0, m = 0;
@@ -19,6 +20,7 @@ void operate(int x[MAX_SIZE][MAX_SIZE], int y)
         }
     }
 }
+
 int main()
 {
     int x, y;
@@ -26,13 +28,29 @@ int main()
 
     int arr[MAX_SIZE][MAX_SIZE];
     operate(arr, y);
-    for (int i = 0; i < x; i++)
+
+    int n = 0;
+    while (cin >> n)
     {
-        for (int j = 0; j < y; j++)
+        int d = pow(3, n);
+        int **matrix = new int *[d];
+        for (int w = 0; w < d; ++w)
         {
-            cout << arr[i][j] << " ";
+            matrix[w] = new int[n];
+            operate(matrix**, n);
+            for (int r = 0; r < pow(3, n); r++)
+            {
+                for (int c = 0; c < n; c++)
+                    cout << matrix[r][c];
+                cout << "\n";
+            }
         }
+        for (int q = 0; q < d; ++q)
+            delete[] matrix[q];
+        delete[] matrix;
+        cout << endl;
     }
+
     return 0;
 }
 
