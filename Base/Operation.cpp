@@ -15,6 +15,16 @@ int countDigits(int x) {
     }
     return c;
 }
+int luck(int x)
+{
+    int y[]={4, 7, 47, 74, 444, 447, 474, 477, 744, 747, 774, 777};
+    for(int i =0; i <12 && y[i] <=x; i++)
+    {
+        if(x % y[i] == 0)
+            return 1;
+    }
+    return 0;
+}
 int rev(int n)
 {
     int odd;
@@ -29,7 +39,6 @@ int main() {
     
     cout << "\nTotal digits of that number is: " <<countDigits(n) ;
     cout<<"\nReverse of the number is: "<<rev(n);
+    cout<< "\nLuck is: " <<luck(n);
     return 0;
 }
-
-
