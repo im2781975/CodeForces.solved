@@ -32,6 +32,18 @@ int rev(int n)
         return odd;
     odd=(n/10)+(n%10)*pow(10, c++);
 }
+int Binary(int n)
+{
+    while(n > 0)
+    {
+        if(n % 2 ==1)
+        {
+            c++;
+        }
+        n=n/2;
+    }
+    return c;
+}
 int main() {
     long long int n;
     cin >> n;
@@ -40,5 +52,6 @@ int main() {
     cout << "\nTotal digits of that number is: " <<countDigits(n) ;
     cout<<"\nReverse of the number is: "<<rev(n);
     cout<< "\nLuck is: " <<luck(n);
+    cout<< "\nImplemented Binary: " << Binary(n);
     return 0;
 }
