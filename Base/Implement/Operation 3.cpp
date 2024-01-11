@@ -1,9 +1,10 @@
 #include <iostream>
+#include<vector>
 using namespace std;
-int main() {
+void First()
+{
     int x, z, c = 0, f = 0;
     cin >> x;
-
     int *y = new int[x];
     z = x;
     while (z-- > 0) {
@@ -21,9 +22,8 @@ int main() {
             break;
         }
     }
-
     if (c == 0) {
-        cout << "Ordered\n0\n";
+        cout << "\nOrdered\n";
     } else {
         c = 0;
         // Bubble Sort
@@ -36,14 +36,38 @@ int main() {
             }
         }
         f = 1;
-
-        // Output sorted array and number of swaps
         cout << y[0];
         while (x-- > 1) {
             cout << " " << y[f++];
         }
-        cout << "\n" << c << "\n";
+        cout << "\n" << c <<"\n" ;
     }
     delete[] y;
+}
+void Second()
+{
+    int x = 0, z = 0, m = 0, c = 0;
+    cin >> x;
+    z = x;
+    vector<char> y(x);
+
+    while (z-- > 0 && ++m) {
+        int f = 0, s = x;
+        while (s-- > 0) {
+            cin >> y[f++];
+            if (y[f - 1] == '#') {
+                cout << m << " " << f ;
+                c++;
+            }
+        }
+    }
+    if (c == 0) {
+        cout << "\nNo hiding places" ;
+    } else
+        cout << c ;
+}
+int main() {
+    First();
+    Second();
     return 0;
 }
