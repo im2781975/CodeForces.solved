@@ -66,8 +66,29 @@ void Second()
     } else
         cout << c ;
 }
+void Third()
+{
+    int k, n;
+    cin >> n >> k;
+
+    int b, g, r;
+    b = (8 * n) / k;
+    g = (5 * n) / k;
+    r = (2 * n) / k;
+
+    if (8 * n % k != 0)
+        b += 1;
+    if (5 * n % k != 0)
+        g += 1;
+    if (2 * n % k != 0)
+        r += 1;
+
+    int res = r + g + b;
+    cout << res;
+}
 int main() {
     First();
     Second();
+    Third();
     return 0;
 }
