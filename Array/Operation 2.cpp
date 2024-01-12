@@ -91,4 +91,35 @@ int main(){
     }
     return 0;
 }
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+    while(t){
+        long long n ;
+        cin >> n;
+        long long a[n] ;
+        long long b[n] ;
+
+        for(long long i = 0; i < n; i++){
+            cin >> a[i];
+        }
+        for(long long i = 0; i < n; i++){
+            cin >> b[i];
+        }
+        long long sum = 0 ;
+        for(long long i=0; i<n; i++){
+            if(a[i] > b[i]) swap(a[i], b[i]);
+        }
+        for(long long i=0; i<n-1; i++){
+            sum += abs(a[i+1] - a[i]) + abs(b[i+1] - b[i]);
+        }
+        cout << sum << endl;
+
+        t--;
+    }
+    return 0;
+}
 
