@@ -49,3 +49,10 @@ ll maxe(ll num, ll num2)
     }
     return true;
   }
+// void solve13(){
+    //   // https://codeforces.com/contest/1352/problem/C
+    //   ll n, k;
+    //   ll op = 0;
+    //   cin >> n >> k;
+    //   cout << k+(k-1)/(n-1)<< "\n";
+    // }
