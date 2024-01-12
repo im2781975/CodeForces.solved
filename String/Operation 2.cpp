@@ -17,4 +17,16 @@ void solve_ballonIcpc()
   }
   cout << tmp << "\n";
 }
-
+void solveContest1790ProblemA()
+  {
+    string s = "314159265358979323846264338327";
+    string ns;
+    cin >> ns;
+    int temp = 0;
+    for (int i = 0; i < ns.length(); i++)
+      if (ns[i] == s[i])
+        temp++;
+      else
+        break;
+    cout << temp << "\n";
+  }
