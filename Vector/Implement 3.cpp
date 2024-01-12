@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 void solve_div4c()
 {
   int n;
@@ -48,4 +50,41 @@ void solve_div4c()
     cout << temp2 << "\n";
   else
     cout << -1 << "\n";
+}
+void solve_dive3()
+{
+  int temp = 0;
+  char c;
+  int f = 0;
+  int n;
+  cin >> n;
+  vector<int> v1(n);
+  vector<char> v2(n);
+  for (int i = 0; i < n; i++)
+  {
+    int num;
+    cin >> v1[i];
+  }
+  for (int i = 0; i < n; i++)
+  {
+    char letter;
+    cin >> v2[i];
+  }
+
+  for (int j = 1; j < n; j++)
+  {
+    temp = v1[j];
+    c = v2[j];
+    for (int z = 0; z < n; z++)
+      if (v1[z] == temp && v2[z] != c)
+      {
+        f++;
+      }
+  }
+  if (f > 0)
+    cout << "NO"
+         << "\n";
+  else
+    cout << "YES"
+         << "\n";
 }
