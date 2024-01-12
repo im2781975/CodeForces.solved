@@ -61,4 +61,17 @@ int main() {
 
     return 0;
 }
+void solveee() {
+  ll n;
+  cin >> n;
+  vector<ll> v(n);
+  for (int i = 0; i < n; i++) {
+    cin >> v[i];
+  }
+  sort(v.begin(), v.end());
+  if (v[n - 1] * v[n - 2] >= v[0] * v[1])
+    cout << v[n - 1] * v[n - 2] << "\n";
+  else
+    cout << v[0] * v[1] << "\n";
+}
 
