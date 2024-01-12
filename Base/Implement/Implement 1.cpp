@@ -44,4 +44,35 @@ int main(){
     }
     return 0;
 }
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t){
+        int n ;
+        cin>>n;
+        // 22
+
+        int ans = 0 ; 
+        int ld = n%10 - 1 ;
+        ans += 10*ld;
+    
+        // ans = 10 
+
+        int k = n%10 ;
+        int cnt = 0 ;
+        int ptr = 1 ;
+        while(cnt<n){
+            cnt = cnt*10 + k ;
+            ans+=ptr ;
+            ptr++;
+        }
+        cout<<ans<<endl;
+
+        t--;
+    }
+    return 0;
+}
 
