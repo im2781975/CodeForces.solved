@@ -88,3 +88,62 @@ void solve_dive3()
     cout << "YES"
          << "\n";
 }
+void solvezzz()
+{
+  int n;
+  cin >> n;
+  bool stat1 = true;
+  bool stat2 = true;
+  bool stat3 = true;
+  bool stat4 = true;
+  vector<int> v(n);
+  vector<int> checker(n-1);
+  for (int i = 0; i < n; i++)
+  {
+    cin >> v[i];
+  }
+  for(auto elem : v){
+    if(elem > 0){
+      if(elem % 2 != 0) stat2=true;
+      else {
+        stat2 = false;
+        break;
+      }
+    }
+  }
+  for(auto elem : v){
+    if(elem > 0){
+      if(elem % 2 == 0) stat1=true;
+      else {
+        stat1 = false;
+        break;
+      }
+    }
+  }
+  for (int i = 0; i < n-1; i++)
+  {
+    checker[i] = abs(v[i] - v[i+1]);
+    v[i+1] = checker[i];
+  }
+  for(int i = 0; i < n-1; i++){
+    if(checker[i] > 0){
+      if(checker[i] % 2 != 0) stat3=true;
+      else {
+        stat3 = false;
+        break;
+      }
+    }
+  }
+  for(int i = 0; i < n-1; i++){
+    if(checker[i] > 0){
+      if(checker[i] % 2 == 0) stat4=true;
+      else {
+        stat4 = false;
+        break;
+      }
+    }
+  }
+  // if even
+  if(stat2 || stat1 || stat3 || stat4) cout << "YES" << "\n";
+  else cout << "NO" << "\n";
+}
