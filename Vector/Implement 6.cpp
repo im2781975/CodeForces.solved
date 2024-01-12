@@ -53,3 +53,141 @@ void solve1()
     }
     cout << sum << " " << subarray << "\n";
   }
+void solve4()
+  {
+    ////https://codeforces.com/contest/1772/problem/C
+    ll n, max;
+    cin >> n >> max;
+    ll nmax = 1;
+    ll temp = 1;
+    ll sum = n;
+    vector<ll> v;
+    while (nmax - 1 < max - n && n > 2)
+    {
+      v.pb(nmax);
+      temp++;
+      nmax += temp;
+      n--;
+    }
+    while (n > 0)
+    {
+      v.pb(max);
+      max--;
+      n--;
+    }
+    sort(v.begin(), v.end());
+    for (auto i : v)
+      cout << i << " ";
+    cout << "\n";
+    // cout << charac(v, v.size()) << "\n";
+  }
+  void solve5()
+  {
+    // https://codeforces.com/contest/1714/problem/A
+    ll n, h, m, temp = 100;
+    cin >> n >> h >> m;
+    vector<pair<ll, ll>> v(n);
+    vector<pair<ll, ll>> result(n);
+    vector<ll> sum;
+    for (int i = 0; i < n; i++)
+    {
+      cin >> v[i].first >> v[i].second;
+      int AlarmTime = v[i].first * 60 + v[i].second;
+      int BedTime = (h * 60) + m;
+      int Total = abs(AlarmTime - BedTime) / 60;
+      int Time_in_min = abs(BedTime - AlarmTime) - Total * 60;
+      result[i].first = Total;
+      result[i].second = Time_in_min;
+      if (Total > 12)
+      {
+        Total = (((24 * 60) - BedTime) + AlarmTime) / 60;
+        Time_in_min = abs((24 * 60 - (h * 60 + m) + AlarmTime) - Total * 60);
+        result[i].first = (((24 * 60) - BedTime) + AlarmTime) / 60;
+        result[i].second = abs((24 * 60 - (h * 60 + m) + AlarmTime) - Total * 60);
+      }
+      else if (v[i].first < h || h == v[i].first && m > v[i].second)
+      {
+        int anaT3bt = 24 * 60 - ((h * 60 + m) - (v[i].first * 60 + v[i].second));
+        result[i].first = anaT3bt / 60;
+        result[i].second = abs(60 - Time_in_min);
+      }
+    }
+    sort(result.begin(), result.end());
+    cout << result[0].first << " " << result[0].second << "\n";
+  }
+  void solve6()
+  {
+    // https://codeforces.com/contest/1690/problem/B
+    ll n;
+    cin >> n;
+    int temp = 0;
+    int count = 0;
+    bool f = false;
+    vector<pair<ll, ll>> v(n);
+    for (int i = 0; i < n; i++)
+    {
+      cin >> v[i].first;
+    }
+    for (int i = 0; i < n; i++)
+    {
+      cin >> v[i].second;
+    }
+    sort(v.begin(), v.end());
+    temp = v[n - 1].first - v[n - 1].second;
+    for (int i = 0; i < n; i++)
+    {
+      if (v[i].second > v[i].first)
+      {
+        f = false;
+        break;
+      }
+      if (v[i].first - temp < 0)
+        v[i].first = 0;
+      else
+        v[i].first -= temp;
+      if (v[i].first == v[i].second)
+      {
+        f = true;
+      }
+      else
+      {
+        f = false;
+        break;
+      }
+    }
+    if (f)
+      cout << "YES\n";
+    else
+      cout << "NO\n";
+  }
+  void solve7()
+  {
+    // https://codeforces.com/contest/1690/problem/C
+    ll n;
+    cin >> n;
+    vector<ll> start(n);
+    vector<ll> end(n);
+    vector<ll> result(n);
+    for (int i = 0; i < n; i++)
+    {
+      cin >> start[i];
+    }
+    for (int i = 0; i < n; i++)
+    {
+      cin >> end[i];
+    }
+    for (int j = 0; j < n; j++)
+    {
+      if (start[j] < end[j - 1] && j >= 1)
+      {
+        result[j] = (end[j] - end[j - 1]);
+      }
+      else
+      {
+        result[j] = (end[j] - start[j]);
+      }
+    }
+    for (auto i : result)
+      cout << i << " ";
+    cout << "\n";
+  }
