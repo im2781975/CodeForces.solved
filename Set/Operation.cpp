@@ -49,4 +49,12 @@ void solve_div3()
     cout << "NO"
          << "\n";
 }
-
+int charac(vector<ll> v, int size)
+  {
+    set<ll> diff;
+    for (int i = 0; i < size - 1; i++)
+    {
+      diff.insert(v[i + 1] - v[i]);
+    }
+    return diff.size();
+  }
