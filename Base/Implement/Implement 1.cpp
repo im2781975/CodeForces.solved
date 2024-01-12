@@ -75,4 +75,36 @@ int main(){
     }
     return 0;
 }
+#include<bits/stdc++.h>
+using namespace std;
 
+int main(){
+    int t;
+    cin>>t;
+    while(t){
+        t--;
+        int m , n ;
+        cin>>m>>n ;
+        if(m==1 && n==1){
+            cout<<"0"<<endl;
+            continue;
+        }
+        else if(m==1 && n==2 || m==2 && n==1){
+            cout<<"1"<<endl;
+            continue;
+        }
+        else if(m==1 && n>2 || m>2 && n==1){
+            cout<<"-1"<<endl;
+            continue;
+        }
+        else{
+            if(m%2==0 && n%2==0 || m%2==1 && n%2==1){
+                cout<<(max(m,n)-1)*2<<endl;
+            }
+            else{
+                cout<<(max(m,n)-1)*2-1<<endl;
+            }
+        }
+    }
+    return 0;
+}
