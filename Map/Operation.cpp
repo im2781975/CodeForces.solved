@@ -83,3 +83,41 @@ void solve_div4C()
       cout << temp << " ";
     }
     */
+void solve_LLRR()
+  {
+    ll n, temp = 0, temp1 = 0, temp2 = 0;
+    map<char, int> m;
+    cin >> n;
+    string s;
+    cin >> s;
+    int counter = 0;
+    int idx = 0;
+    int idx2 = 1;
+    int size = n / 2;
+    s[0] = 'R';
+    for (int j = 0; j < n; j++)
+    {
+      if (j <= size)
+      {
+        s[n - j] = 'L';
+        // cout << s[n-j-1] << " "  << n-j-1;
+      }
+      if (j > size)
+      {
+        s[j - (size + 1)] = 'R';
+        // cout << s[j-size] << " " << j-size <<" ";
+      }
+      for (int z = 0; z < n; z++)
+      {
+        if (s[z] == 'R')
+          temp += (n - 1) - z;
+        else
+          temp += z;
+      }
+      cout << temp << " ";
+      temp = 0;
+    }
+    cout << "\n";
+    // cout << idx;
+    // cout << s;
+  }
