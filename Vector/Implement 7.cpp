@@ -64,3 +64,35 @@ void solve12(){
       }
       return true;
     }
+    // void solve14(){
+    //   ll n;
+    //   cin >> n;
+    //   vector<ll>v(n);
+    //   for(int i = 0; i < n; i++) cin >> v[i];
+    //   sort(v.begin(), v.end());
+    //   cout << v[n-1] - v[0] << "\n";
+    //  }
+    bool sameDif(ll a , ll b, ll c){
+      int temp = b - a;
+      if(temp == c-b)return true;
+      return false;
+    }
+    void solve(){
+    ll n, k;
+    cin >> n >> k;
+    vector<ll>v(n);
+    ll idx = 0;
+    for(int i = 0; i < n; i++) {
+      cin >> v[i]; 
+    }
+    ll temp = v[k-1];
+    if(k > n)
+    {
+      cout << 0 << "\n";
+      return;
+    }
+    for(int i = 0; i < n; i++){
+      if(v[i] >= temp && v[i] > 0) idx = i+1;
+    }
+    cout << idx << "\n";
+    }
