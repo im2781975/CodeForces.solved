@@ -58,3 +58,26 @@ int main(){
     }
     return 0;
 }
+int main(){
+    int t;
+    cin>>t;
+    while(t){
+        int n ;
+        cin>>n;
+        int ans = 0 ;
+        string res = "";
+        int prev = 2 ;
+        while(ans < n){
+            if(prev == 2){
+                prev =1 ;
+            }
+            else{
+                prev = 2;
+            }
+            res+=to_string(prev);
+            ans+=prev;
+        }
+        t--;
+    }
+    return 0;
+}
