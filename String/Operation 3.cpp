@@ -43,4 +43,26 @@ int main(){
     }
     return 0;
 }
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t){
+        string s;
+        cin>>s;
+        string ans = ""; 
+        int index = 0 ;
+        for(int i=0;i<s.length();i++){
+            if(s.find(s[i], i+1)>=s.length()){
+                index = i;
+                break;
+            }
+        }       
+        cout<<s.substr(index)<<endl;
+        t--;
+    }
+    return 0;
+}
 
