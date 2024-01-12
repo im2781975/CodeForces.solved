@@ -58,3 +58,43 @@ int charac(vector<ll> v, int size)
     }
     return diff.size();
   }
+void solve8()
+  {
+    // https://codeforces.com/contest/1702/problem/B
+    string s;
+    cin >> s;
+    set<char> set({});
+    ll c = 0;
+    ll cpp = 0;
+    ll it = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+      map<char, int> m; // lollipops -> abracadabra ---> abr 3 ---abra--- abra
+      string ns;
+      for (int j = i; j < s.length(); j++)
+      {
+        if (m[s[j]] == 0)
+        {
+          c++;
+          m[s[j]]++;
+        }
+        if (c == 3)
+        {
+          if (m[s[j + 1]] == 0)
+          {
+            cpp++;
+            c = 0;
+            i = j;
+            break;
+          }
+        }
+        else
+        {
+          i = j;
+        }
+      }
+    }
+    if (c > 0)
+      c = 1;
+    cout << c + cpp << "\n";
+  }
