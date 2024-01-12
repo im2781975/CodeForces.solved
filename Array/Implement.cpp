@@ -66,4 +66,38 @@ void s()
     cout << 'B' << "\n";
   }
 }
+void solve_wheelBag() {
+  int n;
+  cin >> n;
+  int wheel[100];
+  
+  for (int i = 0; i < n; i++) {
+    cin >> wheel[i];
+  }
+  
+  for (int i = 0; i < n; i++) {
+    int count;
+    cin >> count;
+    
+    for (int j = 0; j < count; j++) {
+      char move;
+      cin >> move;
+      
+      if (move == 'U')
+        wheel[i]--;
+      else
+        wheel[i]++;
+    }
+    
+    if (wheel[i] < 0)
+      wheel[i] += 10;
+      
+    if (wheel[i] >= 10)
+      cout << wheel[i] % 10 << " ";
+    else
+      cout << wheel[i] << " ";
+  }
+  
+  cout << "\n";
+}
 
