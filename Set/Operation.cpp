@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 void solve_b_div4()
 {
   int n;
