@@ -101,3 +101,29 @@ int main(){
     }
     return 0;
 }
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+    while(t){
+        int n;
+        cin >> n;
+        int arr[n];
+        for(int i=0; i<n; i++){
+            cin >> arr[i];
+        }
+        int i = 0, j = n-1;
+        while(arr[i] == 0) i++;
+        while(arr[j] == 0) j--;
+        int ans = 0; 
+        while(i != j){
+            if(arr[i] == 0) ans++;
+            i++;
+        }
+        cout << ans << endl;
+        t--;
+    }
+    return 0;
+}
