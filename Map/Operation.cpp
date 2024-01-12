@@ -45,4 +45,33 @@ void hard_problem()
     }
     cout << display;
 }
-
+void solve_div4C()
+  {
+    int n;
+    int temp = 0;
+    cin >> n;
+    string v[3][n];
+    map<string, int> v2;
+    string t = "";
+    for (int i = 0; i < 3; i++)
+    {
+      for (int j = 0; j < n; j++)
+      {
+        cin >> v[i][j];
+        v2[v[i][j]]++;
+      }
+    }
+    for (int i = 0; i < 3; i++)
+    {
+      for (int z = 0; z < n; z++)
+      {
+        if (v2[v[i][z]] == 2)
+          temp += 1;
+        if (v2[v[i][z]] == 1)
+          temp += 3;
+      }
+      cout << temp << " ";
+      temp = 0;
+    }
+    cout << "\n";
+  }
