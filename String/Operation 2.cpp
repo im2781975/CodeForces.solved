@@ -81,3 +81,13 @@ int main(){
     }
     return 0;
 }
+#include<iostream>
+using namespace std;
+
+int main(){
+    char c = 'A' + 9;
+    string s;
+    s += c;
+    cout << s;
+    return 0;
+}
