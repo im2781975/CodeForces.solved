@@ -65,4 +65,41 @@ int main(){
     }
     return 0;
 }
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin >> t;
+    while(t){
+        string s;
+        cin >> s;
+        char prev = s[0]; 
+        int ans = 1;
+        bool res = true;
+        if(s.length() == 1)
+            res = false;
+        for(int i = 1; i < s.length(); i++){
+            if(s[i] == prev){
+                ans++;
+            }
+            else{
+                if(ans == 1){
+                    res = false;
+                    break;
+                }
+                else{
+                    prev = s[i];
+                    ans = 1;
+                }
+            }
+        }
+        if(res && ans != 1)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
+        t--;
+    }
+    return 0;
+}
 
