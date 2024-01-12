@@ -75,3 +75,11 @@ void solve_div4C()
     }
     cout << "\n";
   }
+/* for(int i = 0 ; i < 3 ; i++){
+      for(int j = 0;  j < n ; j++){
+      if(v2[i][j] == 2) temp +=1;
+      if(v2[i][j] == 1) temp +=3;
+      }
+      cout << temp << " ";
+    }
+    */
