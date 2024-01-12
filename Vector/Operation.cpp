@@ -88,4 +88,34 @@ int main(){
     }
     return 0;
 }
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int maxi = INT_MIN ;
+    for(auto i:arr){
+        maxi = max(maxi , i);
+    }
+    vector<int> maxelems ;
+    for(int i=0;i<n;i++){
+        if(arr[i]==maxi){
+            maxelems.push_back(i);
+        }
+    }
+    int size = maxelems.size();
+    int zero = size/2;
+    if(zero!=0){
+        int k = -1;
+        for(int i=zero-1 ;i>=0;i--){
+            
+        }
+    }
+    return 0;
+}
 
