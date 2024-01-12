@@ -36,4 +36,29 @@ void solve_div()
     }
   }
 }
+int main() {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    vector<char> v;
+    int i = 1;
+    int current = 0;
+    
+    while (i <= n) {
+        if (s[current] == s[i]) {
+            v.push_back(s[current]);
+            current = i + 1;
+            i++;
+        }
+        i++;
+    }
+    
+    for (auto i : v)
+        cout << i;
+
+    cout << endl;
+
+    return 0;
+}
 
