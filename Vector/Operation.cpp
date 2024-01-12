@@ -57,4 +57,35 @@ int main(){
     }
     return 0;
 }
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t){
+        long long int n , a , b ;
+        cin>>n>>a>>b ;
+        long long int arr[n]; 
+        for(int i=0;i<n;i++){
+            cin>>arr[i];
+        }
+        vector<long long int> prefix (n ,0 );
+        prefix[0] = arr[0] ;
+        for(int i=1;i<n;i++){
+            prefix[i] = prefix[i-1] + arr[i] ;
+        }
+        long long int ans = prefix[n-1]*b ;
+        long long int prev = b*arr[0];
+        for(int i=0;i<n;i++){
+            ans = min(ans , prev + arr[i]*a + (prefix[n-1]-prefix[i] - (n-i-1)*arr[i])*b); 
+            if(i+1!=n){
+                prev+=(arr[i+1]-arr[i])*b;
+            }
+        }
+        cout<<ans<<endl;
+        t--;
+    }
+    return 0;
+}
 
