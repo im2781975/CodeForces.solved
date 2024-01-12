@@ -14,4 +14,26 @@ void solvee() {
     sort(v.begin(), v.end());
     cout << static_cast<int>(v[n - 1]) - 48 << "\n";
 }
+void solve_div()
+{
+  char arr[8][8];
+  for (int i = 0; i < 8; i++)
+  {
+    for (int j = 0; j < 8; j++)
+    {
+      cin >> arr[i][j];
+    }
+  }
+  for (int i = 0; i < 8; i++)
+  {
+    for (int j = 0; j < 8; j++)
+    {
+      if (arr[i][j] == arr[i - 1][j - 1] && arr[i][j] == arr[i - 1][j + 1] && arr[i][j] == arr[i + 1][j - 1] && arr[i][j] == arr[i + 1][j + 1] && arr[i][j] == '#')
+      {
+        cout << i + 1 << " " << j + 1 << "\n";
+        break;
+      }
+    }
+  }
+}
 
