@@ -44,3 +44,40 @@ void problem2() {
         }
     }
 }
+void Forbidden_Integer() {
+    long long n, k, x;
+    cin >> n >> k >> x;
+    vector<long long> v(k);
+    vector<long long> res;
+
+    if (k == 1) {
+        cout << "NO" << endl;
+        return;
+    }
+
+    for (int i = 1; i <= k; i++) {
+        v[i - 1] = i;
+    }
+
+    sort(v.begin(), v.end());
+
+    for (int j = k - 1; j >= 0; j--) {
+        while (n >= v[j] && v[j] != x) {
+            n -= v[j];
+            res.push_back(v[j]);
+        }
+    }
+
+    if (n == 0) {
+        cout << "YES" << "\n";
+        cout << res.size() << "\n";
+
+        for (int i = 0; i < res.size(); i++) {
+            cout << res[i] << " ";
+        }
+
+        cout << endl;
+    } else {
+        cout << "NO" << "\n";
+    }
+}
