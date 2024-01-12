@@ -74,3 +74,50 @@ void solve3()
             << "\n";
     }
   }
+//Beautiful matrix
+#include <bits/stdc++.h>
+//#define pii pair<int,int>
+using namespace std;
+int main(){
+long long a[5][5],c,b;
+for(int i=0;i<5;i++){
+    for(int j=0;j<5;j++){
+    cin>>a[i][j];
+    if(a[i][j]==1){
+        b=i+1;
+        c=j+1;
+    }
+  }
+}
+//cout/abs;
+b=abs(3-b);
+c=abs(3-c);
+cout<<c+b<<endl;
+    return 0;
+}
+include <iostream>
+#include <vector>
+#include <algorithm>
+#include <set>
+#include <cmath>
+#include <map>
+//#include <bits>
+using namespace std;
+const int MAXN = 1e5;
+int ans;
+int main() {
+	ios::sync_with_stdio(false) , cin.tie(0) , cout.tie(0);
+	for(int i = 1 ; i <= 5 ; i++)
+	{
+		for(int j = 1 ; j <= 5 ; j++)
+		{
+			int a;
+			cin >> a;
+			if(a == 1)
+			{
+				ans = abs(3 - i) + abs(3 - j);
+			}
+		}
+	}
+	cout << ans;
+}
