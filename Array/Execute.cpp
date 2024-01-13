@@ -32,6 +32,40 @@ void MinSumDiagonal()
     }
     cout<< result;
 }
+void BeautifulMatrix()
+{// https://codeforces.com/contest/1772/problem/B
+    bool flag = false;
+    int arr[2][2];
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 2; j++)
+            cin >> arr[i][j];
+    }
+    if (arr[0][0] < arr[0][1] && arr[1][0] < arr[1][1] && arr[0][0] < arr[1][0] && arr[0][1] < arr[1][1];
+        cout << "YES\n";
+    else
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            int tmp1 = arr[1][0];
+            int tmp2 = arr[1][1];
+            int tmp3 = arr[0][0];
+            int tmp4 = arr[0][1];
+            arr[0][0] = tmp1;
+            arr[0][1] = tmp3;
+            arr[1][0] = tmp2;
+            arr[1][1] = tmp4;
+            if (arr[0][0] < arr[0][1] && arr[1][0] < arr[1][1] && arr[0][0] < arr[1][0] && arr[0][1] < arr[1][1])
+            {
+                cout << "YES\n";
+                flag = true;
+                break;
+            }
+        }
+        if (!flag)
+        cout << "NO\n"
+    }
+}
 int main()
 {
     MinSumDiagonal();
