@@ -100,6 +100,31 @@ void Manhattan distance()
         cout << ans ;
     }
 }
+void diffrence()
+{
+    //checks difference between the two largest elements 
+    int n;
+    cin >>n;
+    int arr[n];
+    for(int i=0; i<n; i++)
+        cin >>arr[i];
+        
+    sort(arr, arr+n, greater<int>());
+    if(n==1)
+    {
+        if(arr[0] > 1)
+            cout <<"No";
+        else
+            cout<< "Yes";
+    }
+    else
+    {
+        if(arr[0]-arr[1]<=1)
+            cout <<"Yes";
+        else
+            cout<< "No";
+    }
+}
 int main()
 {
     MinSumDiagonal();
