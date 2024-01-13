@@ -66,6 +66,26 @@ void BeautifulMatrix()
         cout << "NO\n"
     }
 }
+void Manhattan Distance()
+{
+    //Manhattan Distance misured by center of matrix
+    long long a[5][5], c, b;
+    for (int i = 0; i < 5; i++) 
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            cin >> a[i][j];
+            if (a[i][j] == 1) 
+            {
+                b = i + 1;
+                c = j + 1;
+            }
+        }
+    }
+    b = abs(3 - b);
+    c = abs(3 - c);
+    cout << c + b ;
+}
 int main()
 {
     MinSumDiagonal();
