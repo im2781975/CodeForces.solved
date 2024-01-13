@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main()
+void MinSumDiagonal()
 {
     //find the minimum sum of diagonals in a 2D array
     cout<< "Enter row & column number: ";
@@ -17,19 +17,22 @@ int main()
     }
     for(int i=0; i<n; i++)
     {
+        Max=0;
         for(int j=0; j<n; j++)
         {
             Max+=arr[i+j][j];
         }
         MAXROW=min(MAXROW, Max);
-        Max=0;
     }
+    cout<<MAXROW<<"\n";
     for(int i=0; i<n; i++)
     {
         for(int j=0; j<n; j++)
-        {
-            result=max(result, MAXROW);
-        }
+            result=max(result, Max);
     }
     cout<< result;
+}
+int main()
+{
+    MinSumDiagonal();
 }
