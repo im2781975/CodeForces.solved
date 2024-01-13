@@ -1,7 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long
 int main()
-  {
+{
+    //find the minimum sum of diagonals in a 2D array of size n by m?
     ll n, m;
     cin >> n >> m;
     ll chess[n][m];
@@ -26,11 +28,11 @@ int main()
       maxrr = min(maxrr, maxr);
       maxr = 0;
     }
-    cout << maxrr << "\n";
-    //  for(int i = 0; i < n ; i++){
-    //   for(int j =0 ; j < m ; j++){
-    //     result = max(result, maxr[i][j]);
-    //   }
-    //   }
-    //   cout << result << "\n";
+    //cout << maxrr << "\n";
+     for(int i = 0; i < n ; i++){
+       for(int j =0 ; j < m ; j++){
+           result = max(result, maxr[i][j]);
+       }
+       }
+       cout << result << "\n";
   }
