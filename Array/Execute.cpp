@@ -86,6 +86,20 @@ void Manhattan Distance()
     c = abs(3 - c);
     cout << c + b ;
 }
+void Manhattan distance()
+{
+    int a, ans;
+    for(int i=0; i<5; i++)
+    {
+        for(int j=0; j<5; j++)
+        {
+            cin >> a;
+            if(a == 1)
+                ans = abs(2 - i) + abs(2 - j);
+        }
+        cout << ans ;
+    }
+}
 int main()
 {
     MinSumDiagonal();
