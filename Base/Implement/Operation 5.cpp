@@ -40,4 +40,15 @@ if (ie > -1)
 }
 z = 0;
 cout << endl;
+----
+    long double l = 0, r = 0, x = 0, y = 0;
+cin >> l >> r;
+if (l < 1 || r < 1)
+    return 0;
+x = l * l;
+y = 0.5 * r * r;
+if (x <= y)
+    cout << "YES" << endl;
+else
+    cout << "NO" << endl;
 
