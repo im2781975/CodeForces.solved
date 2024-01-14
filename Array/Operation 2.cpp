@@ -139,3 +139,48 @@ int main(){
     cout<<count;
 return 0;
 }
+#include <iostream>
+
+int main() {
+    int x;
+    std::cin >> x;
+    char *y = new char[x];
+    int *s = new int[x];
+    int *r = new int[x];
+    int z = 0, i = 0, h = 26;
+    char a[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+    while (z++ < x)
+        std::cin >> y[z - 1];
+
+    for (z = 0; z < x; z++)
+        for (i = 0; i < h; i++)
+            if (y[z] == a[i])
+                s[z] = i + 1;
+
+    i = x;
+
+    for (z = 0; z < x; z++) {
+        int max = 0;
+        for (h = 0; h < x; h++)
+            if (s[h] >= s[max])
+                max = h;
+
+        r[max] = i--;
+        s[max] = 0;
+    }
+
+    z = 1;
+    std::cout << r[0];
+
+    while (z++ < x)
+        std::cout << " " << r[z - 1];
+
+    std::cout << std::endl;
+
+    delete[] y;
+    delete[] s;
+    delete[] r;
+
+    return 0;
+}
