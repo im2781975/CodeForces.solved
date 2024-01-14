@@ -39,4 +39,71 @@ if (f == 1 || f == 2 || f == 5 || f == 8 || f == 9)
     cout << "NO" << endl;
 else
     cout << "YES" << endl;
+---
+    long long x[3], c = 0;
+int y = 0;
+
+while (y++ < 3) cin >> x[y - 1];
+
+y = 0;
+int min = 0;
+
+while (y++ < 3) {
+    if (x[min] > x[y]) min = y;
+}
+
+int ff = 0;
+float ffs = x[min], sds = 10;
+
+while (ffs > 10) {
+    ffs /= 10;
+    ff++;
+}
+
+ffs = pow(sds, ff - 1);
+y = 0;
+
+while (y++ < 3) x[y - 1] -= ffs;
+
+while (true) {
+    if (x[0] == x[1] && x[0] == x[2]) {
+        c = c + x[0];
+        break;
+    }
+
+    if (x[0] > x[1] && x[0] > x[2]) {
+        swap(x[0], x[2]);
+        if (x[0] > x[1]) swap(x[0], x[1]);
+    }
+
+    if (x[0] > x[1] && x[0] <= x[2]) {
+        swap(x[0], x[1]);
+    }
+
+    if (x[0] > x[2] && x[0] <= x[1]) {
+        swap(x[0], x[2]);
+        swap(x[1], x[2]);
+    }
+
+    if (x[0] <= x[1] && x[0] <= x[2] && x[1] > x[2]) {
+        swap(x[2], x[1]);
+    }
+
+    if (x[0] == 0 && x[1] == 0) break;
+
+    if (x[0] + x[1] + x[2] > 3) {
+        x[2] -= 2;
+        x[1] -= 1;
+        c++;
+    } else {
+        if (x[0] + x[1] + x[2] == 3) {
+            c++;
+            break;
+        } else {
+            break;
+        }
+    }
+}
+
+cout << c + ffs << endl;
 
