@@ -65,4 +65,29 @@ int main(){
     }
     return 0;
 }
+int x, y, z;
+cin >> x;
+while (x-- > 0) {
+    cin >> y >> z;
+    int *a = new int[z];
+    int f = 0, s = 0, c = 0;
+    while (s++ < z) cin >> a[s - 1];
+    
+    for (int j = 0; j < z; j++) {
+        int min = j;
+        for (int i = j + 1; i < z; i++)
+            if (a[i] < a[min]) min = i;
+        swap(a[min], a[j]);
+    }
+
+    cout << a[0] << " " << a[z - 1] << endl;
+    s = 0;
+    while (s++ < z) {
+        if (f + a[s - 1] <= y) {
+            f += a[s - 1];
+            c++;
+        } else break;
+    }
+    cout << c << " " << f << endl;
+}
 
