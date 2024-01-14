@@ -41,7 +41,7 @@ void BeautifulMatrix()
         for (int j = 0; j < 2; j++)
             cin >> arr[i][j];
     }
-    if (arr[0][0] < arr[0][1] && arr[1][0] < arr[1][1] && arr[0][0] < arr[1][0] && arr[0][1] < arr[1][1];
+    if (arr[0][0] < arr[0][1] && arr[1][0] < arr[1][1] && arr[0][0] < arr[1][0] && arr[0][1] < arr[1][1])
         cout << "YES\n";
     else
     {
@@ -63,10 +63,10 @@ void BeautifulMatrix()
             }
         }
         if (!flag)
-        cout << "NO\n"
+        cout << "NO\n";
     }
 }
-void Manhattan Distance()
+void ManhattanDistance()
 {
     //Manhattan Distance misured by center of matrix
     long long a[5][5], c, b;
@@ -86,7 +86,7 @@ void Manhattan Distance()
     c = abs(3 - c);
     cout << c + b ;
 }
-void Manhattan distance()
+void Manhattandistance()
 {
     int a, ans;
     for(int i=0; i<5; i++)
@@ -192,8 +192,4 @@ void consecutive()
         i++;
     }
     cout <<ans;
-}
-int main()
-{
-    MinSumDiagonal();
 }
