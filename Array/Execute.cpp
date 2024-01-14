@@ -166,6 +166,33 @@ void SortElements()
     for(int i=0; i<n; i++)
         cout <<arr[i] <<" ";
 }
+void consecutive()
+{
+    //counts the consecutive zeros in the array between the 
+    //first and last non-zero elements and prints the result
+    int n;
+    cin >> n;
+    int arr[n];
+    for(int i=0; i<n; i++)
+        cin >> arr[i];
+    
+    int i=0, j=n-1, ans=0;
+    while(arr[i]==0)
+    {
+        i++;
+    }
+    while(arr[j]==0)
+    {
+        j--;
+    }
+    while(i!=j)
+    {
+        if(arr[i]==0)
+            ans++;
+        i++;
+    }
+    cout <<ans;
+}
 int main()
 {
     MinSumDiagonal();
