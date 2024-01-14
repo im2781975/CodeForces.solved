@@ -136,6 +136,36 @@ void OrGate()
         ans=ans | arr[i];
     cout << ans;
 }
+void SortElements()
+{
+    int n;
+    cin >>n;
+    int arr[n];
+    for(int i=0; i<n; i++)
+        cin >>arr[i];
+    for(int i=0; i<n-1; i++)
+    {
+        int j=i+1;
+        int mini=INT_MAX;
+        int idx=-1;
+        while(j < n)
+        {
+            if(arr[j] < arr[i] && arr[j] < mini)
+            {
+                mini=arr[j];
+                idx=j;
+            }
+            j++;
+        }
+        if(mini!=INT_MAX)
+        {
+            reverse(arr+i, arr+idx+1);
+                break;
+        }
+    }
+    for(int i=0; i<n; i++)
+        cout <<arr[i] <<" ";
+}
 int main()
 {
     MinSumDiagonal();
