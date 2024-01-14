@@ -92,3 +92,62 @@ void solve_wheelBag() {
     }
     cout << "\n";
 }
+void game() {
+    int n;
+    cin >> n;
+    char arr[1000][3];
+    char* ptr = new char[n];
+    int flag = 0, gr = 0, pi = 0, green = 0, pink = 0;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < 3; j++)
+            cin >> arr[i][j];
+    }
+    for (int i = 0; i < n; i++) {
+        int g = 0, rr = 0;
+        if (pi == 5) {
+            ptr[flag++] = 'g';
+            i++;
+            green++;
+            pi = 0;
+        }
+        if (gr == 5) {
+            ptr[flag++] = 'p';
+            i++;
+            pink++;
+            gr = 0;
+        }
+        for (int c = 0; c < 3; c++) {
+            if (arr[i][c] == 'G') {
+                g++;
+                break;
+            }
+            if (arr[i][c] == 'B') {
+                rr++;
+            }
+        }
+        if (g == 1) {
+            ptr[flag++] = 'g';
+            gr++;
+            green++;
+        }
+        if (rr == 3) {
+            ptr[flag++] = 'p';
+            pi++;
+            pink++;
+        }
+    }
+
+    gr = 0;
+    cout << pink * 3 << " " << green * 3 << endl;
+
+    while (gr++ < n) {
+        if (ptr[gr - 1] == 'g')
+            cout << "Green" << "\n";
+        if (ptr[gr - 1] == 'p')
+            cout << "Pink" << endl;
+    }
+    // Deallocate dynamically allocated memory
+    delete[] ptr;
+    return 0;
+}
