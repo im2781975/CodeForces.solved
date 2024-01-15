@@ -133,3 +133,87 @@ int main()
 	}
 	return 0;
 }
+int t,k,n,z=0;
+     cin>>n>>k>>t;
+     while(z++<n)
+     {
+    	 if(t>=k)
+    	 {
+    		 if(z==n) {cout<<k;
+    		 t=t-k;}
+    		 else{cout<<k<<" ";
+    		 t=t-k;
+    		 }
+    	 }
+    	 else{
+    		 if(t>0)
+    		 {
+    			 if(z==n) {cout<<t;
+    			     		 t=t-t;}
+    			     		 else{cout<<t<<" ";
+    			     		 t=t-t;
+    			     		 }
+    		 }
+    		 else{
+    			 if(z==n) {cout<<"0";
+    			     		}
+    			     		 else{cout<<"0"<<" ";
+
+    			     		 }
+    		 }
+    	 }
+     }
+------
+int x,y,z,g,f=0;
+     char c;
+     cin>>x;
+     while(f++<x)
+     {
+    	 cin>>y>>c>>z;
+    	 if(y%z==0) { if(f==x) cout<<y/z;
+		 else cout<<y/z<<endl;}
+    	 else{
+    	 if(z==1)
+    	 {
+    		 if(f==x) cout<<y;
+    		 else cout<<y<<endl;
+    	 }
+    	 else{
+    		 if(y==1)
+    		 {
+        		 if(f==x) cout<<y<<c<<z;
+        		 else cout<<y<<c<<z<<endl;
+    		 }
+    		 else{
+    			 if(y<z)  g=gcd(z,y);
+    			 else g=gcd(y,z);
+        		 if(f==x) cout<<y/g<<c<<z/g;
+        		 else cout<<y/g<<c<<z/g<<endl;
+    		 }
+    	 }
+     }}
+-----
+unsigned long long m,n,x;
+     cin>>n>>m;
+     x=m%n;
+     if(x==0) cout<<"Yes";
+     else cout<<"No";
+-----
+int x,z=0,y;
+  cin>>x;
+  while(z++<x)
+  {
+      cin>>y;
+      if(check(y)==1)
+      {
+          if(z==x) cout<<"Intelligent";
+          else cout<<"Intelligent"<<endl;
+      }
+      else{
+          if(z==x) cout<<"Stupid";
+           else cout<<"Stupid"<<endl;
+      }
+  }
+-----
+
+	
