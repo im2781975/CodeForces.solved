@@ -49,3 +49,48 @@ while( cin>>x){
     	 if(m==0) c++;
      }
      cout<<c;}
+------
+int n,b;
+     cin>>n>>b;
+     int res=n/b;
+     int x[3]={abs(res-1)*b,res*b,(res+1)*b};
+     int y[3]={abs(n-(abs(res-1)*b)),abs(n-(res*b)),((res+1)*b)-n};
+     int z=0,min=0;
+     while(z++<2)
+     {
+    	 if(y[z]<y[min]) min=z;
+    	 if(y[z]==y[min])
+    	 {
+    		 if(x[z]>x[min]) min=z;
+    	 }
+     }
+     cout<<x[min];
+------
+int n,v,x,m;
+     cin>>n>>v;
+     int yy[n],d=0;
+     while(d++<n) yy[d-1]=1;
+     for(int i=0;i<n;i++)
+     {
+    	 cin>>x;
+    	 for(int j=0;j<x;j++)
+    	 {
+    		 cin>>m;
+    		 if(v>m) yy[i]=0;
+    	 }
+     }
+
+     int z=0,c=0,r=-1;
+     while(z++<n)
+     {
+    	 if(yy[z-1]==0) c++;
+    	 if(c==1&&r==-1) r=z-1;
+     }
+     cout<<c<<endl;
+     if(c>0) cout<<r+1;
+     z=0;
+     while(z++<n)
+     {
+    	 if(z-1==r) continue;
+    	 if(yy[z-1]==0) cout<<" "<<z;
+-----
