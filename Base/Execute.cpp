@@ -10,4 +10,14 @@ void BasedCondition() {
     }
     cout << cnt;
 }
+void BasedCondition()
+{
+    int a, b, ans;
+    cin >>a >>b;
+    if(a==0)
+        ans=1;
+    else
+        ans = a + 2*b +1;
+    cout <<ans;
+}
 
