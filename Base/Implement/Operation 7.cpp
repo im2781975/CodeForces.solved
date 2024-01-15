@@ -159,4 +159,25 @@ int x;
     }
     cout<<d;
 ------
+//69A
+   /*int x,z=0,i=0,a=0,b=0,c=0,suma=0,sumb=0,sumc=0;
+   cin>>x;
+   while(z++<x)
+	   {
+	    cin>>a>>b>>c;
+	    suma+=a;
+	    sumb+=b;
+	    sumc+=c;
+	   }
+   if(suma==0&&sumb==0&&sumc==0) cout<<"YES";
+   else cout<<"NO";
+-----
+long long x,y,z,x2,y2,z2,c;
+   cin>>x>>y>>z;
+   x2=x/z,y2=y/z,c=x2*y2;
+   if(x%z) c+=y2;
+   if(y%z) c+=x2;
+   if(x%z&&y%z) c++;
+   cout<<c;
+------
 
