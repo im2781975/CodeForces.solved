@@ -20,4 +20,23 @@ void BasedCondition()
         ans = a + 2*b +1;
     cout <<ans;
 }
-
+void BasedCondition()
+{
+    int n;
+    cin >> n;
+    int ans = 0;
+    int x = n % 10 - 1;
+    ans += 10 * x;
+    
+    int k = n % 10;
+    int cnt = 0;
+    int ptr = 1;
+    
+    while (cnt <= n)
+    {
+        cnt = cnt % 10 + k;
+        ans += ptr;
+        ptr++;
+    }
+    cout << ans;
+}
