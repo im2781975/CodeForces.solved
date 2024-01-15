@@ -142,4 +142,37 @@ cout << x << endl;
 		float fff=fin[z-1]-arr[z-1];
 		cout<<"T(a) of p"<<z-1<<" = "<<fff;
 		cout<<"\nT(w) of p"<<z-1<<" = "<<fff-bur[z-1]<<endl;
-	}*/
+	}
+--------
+long long n,y,max=1,c=0;
+    cin>>n>>y;
+    long long x=n;
+    while(x<=y)
+    {
+    	n=x;
+    	c=1;
+    	 while(n>1)
+    	    {
+
+    	    	if(n%2!=0) n=3*n+1;
+    	    	else n=n/2;
+    	    	c++;
+    	    }
+    	 if(c>max) max=c;
+    	 x++;
+    }
+    cout<<max;
+--------
+int x,z=1,h=0,l=0,y,f;
+    cin>>x;
+    cin>>y;
+    while(z++<x)
+    {
+    	cin>>f;
+    	if(f>y) h++;
+    	if(f<y) l++;
+    	y=f;
+    }
+    cout<<h<<" "<<l;
+--------
+
