@@ -180,3 +180,27 @@ void MaxIdx()
     else
         cout << idx;
 }
+void CompareLength()
+{
+    //compare between two length
+    int n, k;
+    cin >>n >>k;
+    int arr[n];
+    for(int i=0; i<n; i++)
+        cin >>arr[i];
+    if(n > k)
+    {
+        cout << "No";
+            return 0;
+    }
+    int count=arr[0];
+    for(int i=0; i<n; i++)
+    {
+        if(arr[i] > arr[i+1])
+            count+=2*arr[i] - arr[i+1];
+    }
+    if(count +n <=k)
+        cout <<"Yes";
+    else
+        cout <<"No";
+}
