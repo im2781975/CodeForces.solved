@@ -75,4 +75,71 @@ while (c++ < n) {
 }
 
 cout << x << endl;
-
+-----
+    int x;
+	cout<<"enter no. of programs\n";
+	cin>>x;
+	float *arr=new float [x];
+	float *bur=new float [x];
+	float *burw=new float [x];
+	bool *boo=new bool [x];
+	float *fin=new float [x];
+	int z=0;
+	while(z++<x)
+	{
+		cout<<"enter the arrival time of p"<<z<<endl;
+		cin>>arr[z-1];
+		cout<<"and its burst time\n";
+		cin>>bur[z-1];
+	}
+	cout<<"enter the fixed time:\n";
+	int q=0;
+	cin>>q;
+	z=0;
+	float sum=0;
+	while(z++<x)
+	{
+		sum+=bur[z-1];
+		burw[z-1]=bur[z-1];
+		fin[z-1]=-1;
+	}
+	int c=0,min=0,mini=0;
+	while(c<sum)
+	{
+		z=0;
+		while(z++<x)
+		{
+			if(arr[z-1]<=c&&fin[z-1]==-1)
+			{
+				boo[z-1]==true;
+			}
+		}
+		min=-1,z=0;
+		while(z++<x)
+		{
+			if(min>bur[z-1]&&boo[z-1]==true)
+			{
+				mini=z-1;
+				min=bur[z-1];
+			}
+		}
+		if(bur[mini]>=q)
+		{
+			burw[mini]-=q;
+		}
+		else
+		{
+			burw[mini]=0;
+		}
+		if(bur[mini]==0)
+		{
+			fin[mini]=c;
+		}
+	}
+	z=0;
+	while(z++<x)
+	{
+		float fff=fin[z-1]-arr[z-1];
+		cout<<"T(a) of p"<<z-1<<" = "<<fff;
+		cout<<"\nT(w) of p"<<z-1<<" = "<<fff-bur[z-1]<<endl;
+	}*/
