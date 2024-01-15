@@ -92,3 +92,33 @@ int main()
     else cout<<"YES"<<endl;
     return 0;
 }
+#include<bits/stdc++.h>
+using namespace std;
+const int N = 0x3f3f3f3f;
+typedef long long ll;
+ll mp[2031][2031];
+
+
+int main()
+{
+	int i,j,k;
+	for(i=1;i<=2021;i++)
+		for(j=1;j<=2021;j++)
+			mp[i][j]=mp[j][i]=N; 
+	for(i=1;i<=2021;i++)
+		for(j=1;j<=2021;j++)
+			if(abs(i-j)<=21)
+				mp[i][j]=mp[j][i]=(i*j)/(__gcd(i,j));
+	for(k=1;k<=2021;k++)
+	{
+		for(i=1;i<=2021;i++)
+		{
+			for(j=1;j<=2021;j++)
+			{
+				if(mp[i][j]>mp[i][k]+mp[k][j]) mp[i][j]=mp[j][i]=mp[i][k]+mp[k][j];
+			}
+		}
+	}
+	cout<<mp[1][2021]<<endl;
+	return 0;
+}
