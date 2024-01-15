@@ -204,3 +204,29 @@ void CompareLength()
     else
         cout <<"No";
 }
+void CompareLength()
+{
+    int n, m, cnt=0;
+    cin >>n >>m;
+    int arr[n];
+    if(n > m)
+    {
+        cout<< "No";
+        return 0;
+    }
+    for(int i=0; i<n; i++)
+        cin >>arr[i];
+    
+    sort(arr, arr+n);
+    for(int i= 0; i< n-1; i++ )
+    {
+        cnt+= max(arr[i], arr[i+1]);
+    }
+    cnt+= max(arr[0], arr[n-1]);
+    cnt+= n;
+    cout<< cnt;
+    if(cnt > m)
+        cout<< "\nYes";
+    else
+        cout<< "\nNo";
+}
