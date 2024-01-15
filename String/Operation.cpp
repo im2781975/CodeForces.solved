@@ -74,3 +74,17 @@ int main()
     unique(s);
     return 0;
 }
+#include<string.h>
+#include<stdio.h>
+int main()
+{
+    char s[110];
+    gets(s);
+    int ans=0;
+    for(int i=0;i<strlen(s);i++)
+    {
+        if((int)s[i]>=48 && (int)s[i]<=57) ans++;
+    }
+    printf("%d",ans);
+    return 0;
+}
