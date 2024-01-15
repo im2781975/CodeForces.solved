@@ -40,3 +40,21 @@ void BasedCondition()
     }
     cout << ans;
 }
+void BasedCondition() 
+{
+    int x, y;
+    cin>> x >>y;
+    if(x == 1 && y == 1)
+        cout<< 0;
+    else if(x==1 && y==2 || x==2 && y==1)
+        cout<< 1;
+    else if(x==1 && y>2 || x>2 && y==1)
+        cout<< -1;
+    else
+    {
+        if(x%2==0 && y%2==0 || x%2==1 && y%2==1)
+            cout <<(max(x, y) -1)*2 ;
+        else
+            cout <<(max(x, y) -1)*2 -1;
+    }
+}
