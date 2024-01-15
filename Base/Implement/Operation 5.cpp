@@ -51,4 +51,28 @@ if (x <= y)
     cout << "YES" << endl;
 else
     cout << "NO" << endl;
+-----
+    int n = 0, x = 0, c = 0, s = 0;
+char y[3];
+
+cin >> n;
+
+while (c++ < n) {
+    cin >> y;
+    s = 0;
+
+    while (s++ < 2) {
+        if (y[s - 1] == '+') {
+            x++;
+            break;
+        }
+
+        if (y[s - 1] == '-' || y[s - 1] == '�') {
+            x--;
+            break;
+        }
+    }
+}
+
+cout << x << endl;
 
