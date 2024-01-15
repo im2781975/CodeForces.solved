@@ -94,3 +94,20 @@ int n,v,x,m;
     	 if(z-1==r) continue;
     	 if(yy[z-1]==0) cout<<" "<<z;
 -----
+long long z,f=0;
+sd: while( cin>>z)
+{
+  for(long long  y=2;y<35;y++)
+  {
+   f=0;
+   for(long long  x=2;x<=y&&f<z;x++)
+   {
+       f=pow(x,y)+pow(y,x);
+       if(f==z){
+           cout<<"YES"<<endl<<x<<" "<<y<<endl;
+          goto sd;
+       }
+   }
+  }
+  cout<<"NO"<<endl;}
+-----
