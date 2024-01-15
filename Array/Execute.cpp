@@ -244,5 +244,7 @@ void consecutive()
             ans++;
         }
     }
-    cout <<ans;
+    cout <<ans <<"\n";
+    for(int i=0; i<n; i++)
+        cout << arr[i] <<" ";
 }
