@@ -184,3 +184,12 @@ int main() {
 
     return 0;
 }
+long long n,p=0,z=0,f=0,k=0;
+     cin>>n;
+     char *c=new char[n];
+     cin>>c;
+     while(z++<n)
+    	 if(c[z-1]!='*') p++;
+     z=0,f=1,k=20-p;
+     while(z++<n-p) f=f*k--;
+     cout<<f;
