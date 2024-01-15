@@ -193,3 +193,36 @@ void consecutive()
     }
     cout <<ans;
 }
+void CompareSum {
+    //compare pair sum with an integer.if 'Yes',count++.
+    int n;
+    cin >> n;
+
+    while (n-- > 0) {
+        int y, z;
+        cin >> y >> z;
+
+        int *ptr = new int[z];
+        int a = 0, b = 0, c = 0;
+
+        while (b < z) {
+            cin >> ptr[b++];
+        }
+        
+        sort(ptr, ptr + z);
+        cout << ptr[0] << " " << ptr[z - 1];
+
+        b = 0;
+        while (b < z) {
+            if (a + ptr[b] <= y) {
+                a += ptr[b++];
+                c++;
+            } else {
+                break;
+            }
+        }
+        cout << " " << c << " " << a << endl;
+        delete[] ptr; 
+    }
+    return 0;
+}
