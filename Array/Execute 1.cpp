@@ -226,7 +226,7 @@ void CompareLength()
     cnt+= n;
     cout<< cnt;
     if(cnt > m)
-        cout<< "\nYes";
+        cout<< "\nNO";
     else
-        cout<< "\nNo";
+        cout<< "\nYES";
 }
