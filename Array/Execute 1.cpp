@@ -147,7 +147,36 @@ void game() {
         if (ptr[gr - 1] == 'p')
             cout << "Pink" << endl;
     }
-    // Deallocate dynamically allocated memory
     delete[] ptr;
     return 0;
+}
+void MaxIdx()
+{
+    int n;
+    cin >> n;
+    int arr[n];
+    for(int i=0; i<n; i++)
+        cin >> arr[i];
+        
+    int idx=0;
+    bool check=true;
+    for(int i=1; i<n; i++)
+    {
+        if(arr[i]!=arr[i-1])
+            check=false;
+        
+        if(arr[i] > arr[idx])
+            idx=i;
+    }
+    if(idx==0)
+    {
+        while(arr[idx+1]==arr[idx])
+        {
+            idx++;
+        }
+    }
+    if(check) 
+        cout << -1;
+    else
+        cout << idx;
 }
