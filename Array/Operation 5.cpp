@@ -25,3 +25,27 @@ float y=0,z[3],sum=0;
      if(sum>=70&&y<80) {cout<<"C"; return 0;}
      if(sum>=60&&y<70) {cout<<"D"; return 0;}
      if(sum<60) {cout<<"F"; return 0;}
+------
+int x;
+while( cin>>x){
+
+     int l[x],r[x];
+     int z=0,c=0;
+     while(z++<x) cin>>l[z-1];
+     z=0;
+     while(z++<x) cin>>r[z-1];
+     for(z=0;z<x;z++)
+     {
+    	 int m=0;
+    	 for(int f=0;f<x;f++)
+    	 {
+    		 if(l[z]==r[f])
+    		 {
+    			 r[f]=0;
+    			 m++;
+    			 break;
+    		 }
+    	 }
+    	 if(m==0) c++;
+     }
+     cout<<c;}
