@@ -148,3 +148,28 @@ void solve_div4c()
     else
         cout << -1 << "\n";
 }
+void solve()
+{
+    int n, tmp, tp, cnt=0;
+    cin >>n;
+    vector<int>vec(n);
+    vector<int>cev(n);
+    for(int i=0; i<n; i++)
+        cin >>vec[i];
+    for(int i=0; i<n; i++)
+        cin >>cev[i];
+    for(int i=0; i<n; i++)
+    {
+        tmp=vec[i];
+        tp=cev[i];
+        for(int j=0; j<n; j++)
+        {
+            if(vec[j]==tmp && cev[j]!=tp)
+                cnt++;
+        }
+    }
+    if(cnt > 0)
+        cout <<"No";
+    else
+        cout <<"Yes";
+}
