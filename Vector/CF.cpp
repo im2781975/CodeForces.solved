@@ -173,3 +173,46 @@ void solve()
     else
         cout <<"Yes";
 }
+void solve()
+{
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    vector<int> check(n - 1);
+    
+    bool a = false;
+    bool b = false;
+    bool c = false;
+    bool d = false;
+    for (int i = 0; i < n; i++)
+        cin >> vec[i];
+
+    for (int i = 0; i < n; i++)
+    {
+        if (vec[i] > 0)
+        {
+            if (vec[i] % 2 != 0)
+                b = true;
+            else
+                a = true;
+        }
+    }
+    for (int i = 0; i < n - 1; i++)
+        check[i] = abs(vec[i] - vec[i + 1]);
+
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (check[i] > 0)
+        {
+            if (check[i] % 2 != 0)
+                c = true;
+            else
+                d = true;
+        }
+    }
+    if (a || b || c || d)
+        cout << "Yes";
+    else
+        cout << "No";
+    return 0;
+}
