@@ -104,3 +104,47 @@ void BasedCondition() {
     else
         cout << vec[0] * vec[1] ;
 }
+void solve_div4c()
+{
+    int n, temp1, temp2, a=0, b=0, f, t, t2;
+    cin >> n;
+    vector<pair<int, string>> vec(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> vec[i].first >> vec[i].second;
+    }
+    sort(vec.begin(), vec.end());
+
+    bool first = true;
+    bool second = true;
+    for (int i = 0; i < n; i++)
+    {
+        if (vec[i].second == "11")
+        {
+            a++;
+            b++;
+            temp1 = vec[i].first;
+        }
+        else
+        {
+            if (vec[i].second == "01" && second)
+            {
+                a++;
+                t = vec[i].first;
+                second = false;
+            }
+            if (vec[i].second == "10" && first)
+            {
+                b++;
+                t2 = vec[j].first;
+                first = false;
+            }
+            temp1 = t + t2;
+        }
+        temp2 = min(temp2, temp1);
+    }
+    if (c1 > 0 && c2 > 0)
+        cout << temp2 << "\n";
+    else
+        cout << -1 << "\n";
+}
