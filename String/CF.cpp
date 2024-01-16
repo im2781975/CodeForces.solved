@@ -54,3 +54,24 @@ void MakePattern()
     cout << "Pattern not found";
     return 0;
 }
+void UniqueChar()
+{
+    int n;
+    cin >> n;
+    vector<char>vec;
+    string s;
+    cin >> s;
+    int i=1, cur=0;
+    while(i <= n)
+    {
+        if(s[cur] == s[i])
+        {
+            vec.push_back(s[i]);
+            cur=i+1;
+            i++;
+        }
+        i++;
+    }
+    for(int i=0; i<vec.size(); i++)
+        cout << vec[i] <<" ";
+}
