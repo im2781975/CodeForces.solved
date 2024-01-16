@@ -66,3 +66,29 @@ void solveContest1790ProblemB()
     }
     cout << "\n";
 }
+void div2BFibonachairs()
+{
+    int n, k;
+    cin >> n >> k;
+    int ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int a = n;
+        int b = n - i; 
+        for (int j = 2; j < k; j++)
+        {
+            int c = a - b; 
+            if (c >= 0 && b <= a)
+                ans++;
+            if (c >= 2)
+            {
+                a = b;
+                b = c;
+            }
+            else
+                break;
+        }
+    }
+    cout << ans;
+    return 0;
+}
