@@ -102,3 +102,46 @@ void IsPalindrome
             cout<<2;
     }
 }
+void SwitchPattern()
+{
+    char c;
+    int x, y;
+    while(cin >> c >> x >> y)
+    {
+        if(x < y)
+            swap(x, y);
+        switch(c)
+        {
+            case ('R'):
+            {
+                for(int i=0; i<y; i++)
+                {
+                    for(int j=0; j<x; j++)
+                        cout<<"*";
+                    cout<<"\n";
+                }
+                break;
+            }
+            case ('S'):
+            {
+                for(int i=0; i<y; i++)
+                {
+                    for(int j=0; j<x; j++)
+                        cout<<"*";
+                    cout<<"\n";
+                }
+                break;
+            }
+            case ('T'):
+            {
+                for(int i=0; i<x; i++)
+                {
+                    for(int j=0; j<=i; j++)
+                        cout<<"*";
+                    cout<<"\n";
+                }
+                break;
+            }
+        }
+    }
+}
