@@ -32,3 +32,35 @@ void count()
             cout << vec[i] <<" ";
     }
 }
+void Forbidden_Integer() {
+    int n, k, x;
+    cin >> n >> k >> x;
+    vector<int> v(k);
+    vector<int> res;
+
+    if (k == 1) {
+        cout << "NO\n";
+        return;
+    }
+    for (int i = 0; i < k; i++) 
+        v[i] = i + 1;
+        
+    sort(v.begin(), v.end());
+
+    for (int j = k - 1; j >= 0; j--) {
+        while (n >= v[j] && v[j] != x) {
+            n -= v[j];
+            res.push_back(v[j]);
+        }
+    }
+    if (n == 0) {
+        cout << "YES\n" ;
+        cout << res.size() << "\n";
+
+    for(int i=0; i<res.size(); i++)
+        cout<< res[i] <<" ";
+    }
+    else {
+        cout << "\nNO" ;
+    }
+}
