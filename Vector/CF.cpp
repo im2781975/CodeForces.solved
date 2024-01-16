@@ -91,3 +91,16 @@ void MaxDiffrence()
     sort(cev.begin(), cev.end());
     cout<< vec[x-1] + cev[x-1]-(vec[0] + cev[0]);
 }
+void BasedCondition() {
+    int n;
+    cin >> n;
+    vector<int> vec(n);
+    for (int i = 0; i < n; i++) 
+        cin >> vec[i];
+    
+    sort(vec.begin(), vec.end());
+    if (vec[n - 1] * vec[n - 2] >= vec[0] * vec[1])
+        cout << vec[n - 1] * vec[n - 2] ;
+    else
+        cout << vec[0] * vec[1] ;
+}
