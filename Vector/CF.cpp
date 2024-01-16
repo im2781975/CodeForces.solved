@@ -64,3 +64,30 @@ void Forbidden_Integer() {
         cout << "\nNO" ;
     }
 }
+void MaxDiffrence()
+{
+    //calculates the difference between the sum of the maximum elements
+    // and the sum of the minimum elements in each vector.
+    int n;
+    cin >>n;
+    int x=n/2;
+    vector<int>vec(x);
+    vector<int>cev(x);
+    if(n %2 ==0)
+    {
+        for(int i=0; i<n/2; i++)
+            cin >> vec[i];
+        for(int i=0; i<n/2; i++)
+            cin >> cev[i];
+    }
+    else
+    {
+        for(int i=0; i<n/2; i++)
+            cin >> vec[i];
+        for(int i=0; i<n/2; i++)
+            cin >> cev[i];
+    }
+    sort(vec.begin(), vec.end());
+    sort(cev.begin(), cev.end());
+    cout<< vec[x-1] + cev[x-1]-(vec[0] + cev[0]);
+}
