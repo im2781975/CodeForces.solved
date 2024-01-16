@@ -30,3 +30,27 @@ void ASCI()
         vec[i] = s[i];
     cout<< static_cast<int>(vec[n-1]);
 }
+void MakePattern()
+{
+    int n;
+    cin >> n;
+    char arr[n][n];
+    for(int i=0; i<n; i++)
+    {
+        for(int j=0; j<n; j++)
+            cin >> arr[i][j]; 
+    }
+    for(int i=1; i<n-1; i++)
+    {
+        for(int j=1; j<n-1; j++) 
+        {
+            if(arr[i][j]==arr[i-1][j-1] && arr[i][j]==arr[i+1][j+1] && arr[i][j]==arr[i+1][j-1] && arr[i][j]==arr[i-1][j+1] && arr[i][j]=='#')
+            {
+                cout << i+1 << " " << j+1 ;
+                return 0; 
+            }
+        }
+    }
+    cout << "Pattern not found";
+    return 0;
+}
