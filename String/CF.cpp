@@ -75,3 +75,30 @@ void UniqueChar()
     for(int i=0; i<vec.size(); i++)
         cout << vec[i] <<" ";
 }
+void IsPalindrome
+{
+    int n, k;
+    cin >>n >>k;
+    string s;
+    cin >> s;
+    if( k==0)
+        cout << 1 ;
+        //If k is zero, it outputs 1 because no changes are needed
+        //to make a string of any length a palindrome. 
+    else
+    {
+        bool ans=true;
+        for(int i=0; i< n/2; i++)
+        {
+            if(s[i]!= s[n - i- 1])
+            {
+                ans = false;
+                break;
+            }
+        }
+        if(ans || n==1)
+            cout<< 1;
+        else
+            cout<<2;
+    }
+}
