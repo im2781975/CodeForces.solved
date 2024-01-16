@@ -19,3 +19,14 @@ void occurance()
         cout<< "No";
     return 0;
 }
+void ASCI()
+{
+    int n;
+    cin >> n;
+    vector<char>vec(n);
+    string s;
+    cin >> s;
+    for(int i=0; i<n; i++)
+        vec[i] = s[i];
+    cout<< static_cast<int>(vec[n-1]);
+}
