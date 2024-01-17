@@ -44,3 +44,46 @@ void CheckFirstLast() {
     cout << "YES";
     return 0;
 }
+void PalindromeAddition() {
+    string s, s2;
+    cin >> s;
+    int i = 0, n = s.size() - 1, c = 0, count = 0;
+    char ch;
+    
+    while (true) {
+        c = 0, n = s.size() - 1, i = 0;
+        
+        while (i < s.size() / 2) {
+            if (s[i++] != s[n--]) {
+                c++;
+                break;
+            }
+        }
+        if (c == 0) break;
+        s2 = s;
+        i = 0, n = s.size() - 1;
+        
+        while (i < s.size() / 2) {
+            ch = s[i];
+            s[i] = s[n];
+            s[n] = ch;
+            i++;
+            n--;
+        }
+        i = 0;
+        int carry = 0;
+        
+        while (i < s.size()) {
+            ch = (s[i] - '0') + (s2[i] - '0') + carry;
+            s[i] = (ch % 10) + '0';
+            carry = ch / 10;
+            i++;
+        }
+        if (carry > 0) {
+            s.push_back(carry + '0');
+        }
+        count++;
+    }
+    cout << count << " " << s;
+    return 0;
+}
