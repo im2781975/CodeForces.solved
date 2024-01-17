@@ -191,3 +191,28 @@ void BasedCondition()
     }
     return 0;
 }
+void BasedCondition(){
+    string s;
+    int x;
+    cin >> s;
+    cin >> x;
+    int z = 0;
+    string k = "Final";
+
+    while (z++ < x) {
+        if (z == 1) {
+            cout << s << endl;
+            s += '-';
+            continue;
+        }
+        s += k;
+        if (z == x) {
+            s += "Wallahy";
+        }
+        cout << s;
+        if (z < x) {
+            cout << endl;
+        }
+    }
+    return 0;
+}
