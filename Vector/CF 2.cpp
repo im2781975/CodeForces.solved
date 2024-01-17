@@ -184,3 +184,37 @@ void tic_tac_toe() {
     }
     cout << t1 << "\n" << t2;
 }
+void solve(){
+    //https://codeforces.com/contest/1859/problem/B
+    int n;
+    cin >> n;
+    int s;
+    int op = 0;
+    int mn = 1e10;
+    int mx = 0;
+    int f = 0;
+    int sum = 0;
+    int temp = 0;
+    vector<vector<int>>v(n);
+    for(int i = 0 ; i < n ; i++){
+        cin >> s;
+        for(int j = 0 ; j < s ; j++){
+            int num;
+            cin >> num; 
+            v[i].push_back(num);
+            if(mn > num){
+                mn = num;
+                temp = i;
+                sum = num;
+            }
+        } 
+    }
+    for(int i = 0 ; i < n ; i++){
+        sort(v[i].begin() ,v[i].end());
+        sum+= v[i][1];
+    }
+    for(int i = 0 ; i < n ; i++){
+        op= max(op , sum - v[i][1]);
+    }
+    cout << op << "\n";
+}
