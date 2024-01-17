@@ -127,3 +127,17 @@ void BasedCondition() {
 
     return 0;
 }
+void SubStr() {
+    string s;
+    cin >> s;
+    int index = 0;
+
+    for (int i = 0; i < s.length(); i++) {
+        if (s.find(s[i], i + 1) >= s.length()) {
+            index = i;
+            break;
+        }
+    }
+    cout << s.substr(index) << endl;
+    return 0;
+}
