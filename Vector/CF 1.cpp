@@ -153,3 +153,28 @@ void solve3divA()
     }
     cout << "\n";
 }
+void solveDiv4C()
+{
+    //finding the minimum absolute difference in character positions between two strings of length
+    int a, b, res = 0, finalResult = 100000;
+    cin >> a >> b;
+    vector<string> s(a);
+    for (int i = 0; i < a; i++)
+    {
+        cin >> s[i];
+    }
+    for (int i = 0; i < a; i++)
+    {
+        for (int z = i + 1; z < a; z++)
+        {
+            res = 0;
+            for (int j = 0; j < b; j++)
+            {
+                if (z != i)
+                res += abs((s[i][j] - 'a') - (s[z][j] - 'a'));
+            }
+            finalResult = min(finalResult, res);
+        }
+    }
+    cout << finalResult << "\n";
+}
