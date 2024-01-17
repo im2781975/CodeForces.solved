@@ -247,3 +247,16 @@ void solve(){
     }
     cout << idx << "\n";
 }
+bool sameDif(int a , int b, int c){
+    int temp = b - a;
+    if(temp == c-b)
+        return true;
+    return false;
+}
+bool check(vector<int>v , int k){
+    for(int i = 0; i < v.size(); i++){
+        if(v[i] - k >0) 
+            return false;
+    }
+    return true;
+}
