@@ -92,3 +92,28 @@ void div2BFibonachairs()
     cout << ans;
     return 0;
 }
+void solveuwu()
+{
+    //convert a numeric string into corresponding alphabet characters.
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    vector<char> vec;
+    for (int i = 0; i < n; i++)
+    {
+        if (s[i + 2] == '0' && i + 2 < s.length() && s[i + 3] != '0')
+        {
+            int num = (s[i] - '0') * 10 + (s[i + 1] - '0');
+            vec.push_back(char(num + 'a' - 1));
+            i += 2;
+        }
+        else
+        {
+            int num = s[i] - '0';
+            vec.push_back(char(num + 'a' - 1));
+        }
+    }
+    for(int i=0; i<n; i++)
+        cout << vec[i] << " ";
+}
