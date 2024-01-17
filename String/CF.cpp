@@ -159,3 +159,26 @@ void ChangeFormat()
     for(int i=0; i<s.size(); i++)
         cout << s[i];
 }
+void unique()
+{
+    string s;
+    cin >>s;
+    int i=0, cnt=0, flag=0;
+    while(i < s.size())
+    {
+        if(s[i] == s[i+1])
+            cnt++;
+        else
+            cnt=0;
+        if(cnt >=6)
+        {
+            flag = 1;
+            break;
+        }
+        i++;
+    }
+    if(flag == 1)
+        cout << "Yes";
+    else
+        cout << "No";
+}
