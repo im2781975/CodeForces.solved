@@ -173,3 +173,21 @@ void ConsecutiveString() {
 
     return 0;
 }
+void BasedCondition()
+{
+    string s;
+    cin >> s;
+    for (int i = 0; i < s.size(); i++)
+    {
+        if (((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z')) && (s[i + 1] > '1' && s[i + 1] <= '9'))
+        {
+            int n = s[i + 1] - '0';
+            for (int j = 0; j < n; j++)
+                cout << s[i];
+            i++;
+        }
+        else if ((s[i] >= 'a' && s[i] <= 'z') || (s[i] >= 'A' && s[i] <= 'Z'))
+            cout << s[i];
+    }
+    return 0;
+}
