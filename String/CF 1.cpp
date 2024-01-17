@@ -43,48 +43,11 @@ void MakeCapital(string s)
         cout << caps(s);
     }
 }
-string unique(string s)
-{
-    int i=0, cnt=0, flag=0;
-    while(i < s.size())
-    {
-        if(s[i] == s[i+1])
-            cnt++;
-        else
-            cnt=0;
-        if(cnt >=6)
-        {
-            flag = 1;
-            break;
-        }
-        i++;
-    }
-    if(flag == 1)
-        cout << "Yes";
-    else
-        cout << "No";
-}
-
 int main()
 {
     string s;
     cin >> s;
-    //MakeCapital(s);
-    // cout<<caps(s);
-    unique(s);
-    return 0;
-}
-#include<string.h>
-#include<stdio.h>
-int main()
-{
-    char s[110];
-    gets(s);
-    int ans=0;
-    for(int i=0;i<strlen(s);i++)
-    {
-        if((int)s[i]>=48 && (int)s[i]<=57) ans++;
-    }
-    printf("%d",ans);
+    MakeCapital(s);
+    cout<<caps(s);
     return 0;
 }
