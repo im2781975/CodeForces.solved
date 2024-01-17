@@ -228,3 +228,22 @@ void solve()
     sort(v.begin(), v.end());
     cout << v[n-1] - v[0] << "\n";
 }
+void solve(){
+    int n, k;
+    cin >> n >> k;
+    vector<int>v(n);
+    int idx = 0;
+    for(int i = 0; i < n; i++) {
+        cin >> v[i]; 
+    }
+    int temp = v[k-1];
+    if(k > n)
+    {
+        cout << 0 << "\n";
+        return;
+    }
+    for(int i = 0; i < n; i++){
+        if(v[i] >= temp && v[i] >0) idx = i+1;
+    }
+    cout << idx << "\n";
+}
