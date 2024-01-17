@@ -117,3 +117,39 @@ void solveuwu()
     for(int i=0; i<n; i++)
         cout << vec[i] << " ";
 }
+void solve3divA()
+{
+    //find and output a combination of three numbers from the input vector 
+    //such that their sum is equal to the last element of the vector.
+    vector<int> v(7);
+    vector<int> res;
+    int temp = 0;
+    int f = 0;
+    int temp2 = 0;
+    int counter = 5;
+    for (int i = 0; i < 7; i++)
+        cin >> v[i];
+    int max = v[6];
+    if (v[0] + v[1] + v[2] == v[6])
+    {
+        cout << v[0] << " " << v[1] << " " << v[2];
+    }
+    else
+    {
+        for (int j = 0; j < 7; j++)
+        {
+            for (int i = j + 1; i < 7; i++)
+            {
+                for (int z = 0; z < 7; z++)
+                {
+                    if (v[j] + v[i] + v[z] == v[6])
+                    {
+                        cout << v[j] << " " << v[i] << " " << v[z] << "\n";
+              return;
+                    }
+                }
+            }
+        }
+    }
+    cout << "\n";
+}
