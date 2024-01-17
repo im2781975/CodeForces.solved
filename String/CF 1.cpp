@@ -152,6 +152,38 @@ void BasedCondition(){
     }
     return 0;
 }
+void BasedCondition(){
+    // https://codeforces.com/contest/1859/problem/A
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    int mx = 0;
+    bool f = false;
+    vector<int> b, c;
+
+    for(int i = 0; i < n; i++) {
+        cin >> v[i];
+        mx = max(mx, v[i]);
+    }
+
+    for(int i = 0; i < n; i++) {
+        if(v[i] == mx) c.push_back(v[i]);
+        else b.push_back(v[i]);
+    }
+
+    if(b.size() == 0 || c.size() == 0) {
+        cout << -1 << "\n";
+        return 0;
+    }
+
+    cout << b.size() << " " << c.size() << "\n";
+    for(auto i : b) cout << i << " ";
+    cout << "\n";
+    for(auto i : c) cout << i << " ";
+    cout << "\n";
+
+    return 0;
+}
 int main()
 {
     string s;
