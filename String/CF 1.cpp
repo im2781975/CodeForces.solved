@@ -124,6 +124,34 @@ void BasedCondition(){
     }
     return 0;
 }
+void BasedCondition(){
+    int n;
+    cin>>n;
+    vector<int> arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int maxi = INT_MIN ;
+    for(auto i:arr){
+        maxi = max(maxi , i);
+    }
+    vector<int> maxelems ;
+    for(int i=0;i<n;i++){
+        if(arr[i]==maxi){
+            maxelems.push_back(i);
+        }
+    }
+    int size = maxelems.size();
+    int zero = size/2;
+    if(zero!=0){
+        int k = -1;
+        for(int i=zero-1 ;i>=0;i--){
+            k = maxelems[i];
+            arr[k] = 0;
+        }
+    }
+    return 0;
+}
 int main()
 {
     string s;
