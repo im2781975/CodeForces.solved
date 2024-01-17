@@ -195,3 +195,34 @@ void CountDigit()
     cout << cnt;
     return 0;
 }
+void RemoveSubString()
+{
+    string a, b;
+    int i=0;
+    char ch=' ';
+    cin >> a;
+    int cnt=0;
+    while(i < a.size())
+    {
+        if(a[i] == 'W' && a[i+1] == 'U' && a[i+2] == 'B')
+        {
+            i +=3;
+            cnt++;
+        }
+        else
+        {
+            if(b.size()!=0 && cnt!=0)
+            {
+                b+=ch;
+                b+=a[i];
+            }
+            else
+            {
+                b+=a[i];
+                i++;
+                cnt=0;
+            }
+        }
+    }
+    cout << b;
+}
