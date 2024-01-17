@@ -216,3 +216,49 @@ void BasedCondition(){
     }
     return 0;
 }
+void BasedCondition() {
+    //takes input for the number of fruits (x), the names of the fruits (y), the number of people (f), 
+    // & the names and preferences of each person. The output will be the name of the person with the maximum number of preferred fruits.
+    int x, z = 0;
+    cin >> x;
+    string y[x];
+    
+    while (z++ < x)
+        cin >> y[z - 1];
+
+    int f, m;
+    cin >> f;
+    string name[f], d;
+    int scr[f];
+    z = 0;
+    while (z++ < f)
+        scr[z - 1] = 0;
+
+    z = 0;
+    
+    while (z++ < f) {
+        cin >> name[z - 1];
+        cin >> m;
+        int dd = 0;
+        while (dd++ < m) {
+            cin >> d;
+            int r = 0;
+
+            while (r++ < x)
+                if (d == y[r - 1])
+                    scr[z - 1]++;
+        }
+    }
+    int max = 0;
+    z = 1;
+    while (z++ < f) {
+        if (scr[z - 1] > scr[max])
+            max = z - 1;
+
+        if (scr[z - 1] == scr[max])
+            if (name[z - 1] < name[max])
+                max = z - 1;
+    }
+    cout << name[max];
+    return 0;
+}
