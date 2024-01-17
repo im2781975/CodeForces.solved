@@ -182,3 +182,16 @@ void unique()
     else
         cout << "No";
 }
+void CountDigit()
+{
+    string s;
+    cin >> s;
+    int cnt = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+        if (s[i]>=48 && s[i]<=57)
+            cnt++;
+    }
+    cout << cnt;
+    return 0;
+}
