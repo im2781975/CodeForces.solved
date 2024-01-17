@@ -91,7 +91,39 @@ void BasedCondition() {
     }
     cout << endl;
 }
+void BasedCondition(){
+    int t;
+    cin >> t;
+    
+    while(t){
+        int n, a, b;
+        cin >> n >> a >> b;
+        
+        int arr[n];
+        for(int i = 0; i < n; i++){
+            cin >> arr[i];
+        }
+        
+        vector<int> prefix(n, 0);
+        prefix[0] = arr[0];
 
+        for(int i = 1; i < n; i++){
+            prefix[i] = prefix[i - 1] + arr[i];
+        }
+
+        int ans = prefix[n - 1] * b;
+        int prev = b * arr[0];
+
+        for(int i = 0; i < n; i++){
+            ans = min(ans, prev + arr[i] * a + (prefix[n - 1] - prefix[i] - (n - i - 1) * arr[i]) * b);
+            if(i + 1 != n){
+                prev += (arr[i + 1] - arr[i]) * b;
+            }
+        }
+        cout << ans << endl;
+    }
+    return 0;
+}
 int main()
 {
     string s;
