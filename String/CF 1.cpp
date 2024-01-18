@@ -255,6 +255,78 @@ void solve1(){
     }
     cout <<ans ;
 }
+void solve(){
+    string x;
+    string v = "vaporeon", j = "jolteon", f = "flareon", e = "espeon", u = "umbreon", l = "leafeon", g = "glaceon", s = "sylveon";
+    cin >> x;
+    int z = 0, count[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+
+    while (z++ < 8) {
+        if (x[0] != '.') {
+            if (x[0] == v[0]) count[0]++;
+            if (x[0] == j[0]) count[1]++;
+            if (x[0] == f[0]) count[2]++;
+            if (x[0] == e[0]) count[3]++;
+            if (x[0] == u[0]) count[4]++;
+            if (x[0] == l[0]) count[5]++;
+            if (x[0] == g[0]) count[6]++;
+            if (x[0] == s[0]) count[7]++;
+            break;
+        }
+
+        if (x[z - 1] != '.') {
+            if (x[z - 1] == v[z - 1]) count[0]++;
+            if (x[z - 1] == j[z - 1]) count[1]++;
+            if (x[z - 1] == f[z - 1]) count[2]++;
+            if (x[z - 1] == e[z - 1]) count[3]++;
+            if (x[z - 1] == u[z - 1]) count[4]++;
+            if (x[z - 1] == l[z - 1]) count[5]++;
+            if (x[z - 1] == g[z - 1]) count[6]++;
+            if (x[z - 1] == s[z - 1]) count[7]++;
+        }
+    }
+
+    z = 0;
+    int max = 0;
+    while (z++ < 8)
+        if (count[z - 1] > count[max])
+            max = z - 1;
+
+    switch (max) {
+        case (0): {
+            cout << "vaporeon";
+            break;
+        }
+        case (1): {
+            cout << "jolteon";
+            break;
+        }
+        case (2): {
+            cout << "flareon";
+            break;
+        }
+        case (3): {
+            cout << "espeon";
+            break;
+        }
+        case (4): {
+            cout << "umbreon";
+            break;
+        }
+        case (5): {
+            cout << "leafeon";
+            break;
+        }
+        case (6): {
+            cout << "glaceon";
+            break;
+        }
+        case (7): {
+            cout << "sylveon";
+            break;
+        }
+    }
+}
 int main()
 {
     string s;
