@@ -51,3 +51,23 @@ void solve2() {
         cout << "Alas, Jon, You failed my test";
     return 0;
 }
+void solve3() {
+    int x;
+    string s;
+    cin >> x >> s;
+
+    if (s.size() <= x) {
+        cout << s;
+    } else {
+        cout << s[0];
+        if (s[0] == s[s.size() - 1] && s.size() - 1 > 0) {
+            cout << s.size() - 1;
+        } else {
+            if (s.size() - 2 > 0) {
+                cout << s.size() - 2 << s[s.size() - 1];
+            } else {
+                cout << s[s.size() - 1];
+            }
+        }
+    }
+}
