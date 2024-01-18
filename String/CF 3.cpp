@@ -288,3 +288,16 @@ void solve10() {
         cout << "NO";
     return 0;
 }
+void solve11() {
+    string s, d, r;
+    int z = 0;
+
+    cin >> s >> d;
+    while (z++ < s.size()) {
+        if (s[z - 1] == d[z - 1])
+            r += '0';
+        else
+            r += '1';
+    }
+    cout << r;
+}
