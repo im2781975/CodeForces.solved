@@ -23,3 +23,41 @@ void solve1()
     }
     cout << sum - subtracts << "\n";
 }
+void solve2()
+{
+    // https://codeforces.com/contest/1843/problem/B
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    int sum = 0;
+    int c = 0;
+    int subarray = 0;
+    bool flag = true;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> v[i];
+        sum += abs(v[i]);
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (v[i] == 0)
+            continue;
+        for (int z = i; z < n; z++)
+        {
+            if (v[z] <= 0)
+            {
+                flag = false;
+                i = z;
+            }
+            else
+                break;
+        }
+        if (!flag)
+        {
+            subarray++;
+            flag = true;
+            c++;
+        }
+    }
+    cout << sum << " " << subarray << "\n";
+}
