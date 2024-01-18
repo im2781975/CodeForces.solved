@@ -71,3 +71,25 @@ void solve3() {
         }
     }
 }
+void solve4() {
+    string s;
+    cin >> s;
+    int sum = 0, sumn = 0, z = 0;
+
+    while (z++ < s.size())
+        sum += (s[z - 1] - 48);
+
+    while (true) {
+        if (sum < 10)
+            break;
+        else {
+            sumn = 0;
+            while (sum > 0) {
+                sumn += sum % 10;
+                sum /= 10;
+            }
+            sum = sumn;
+        }
+    }
+    cout << sum;
+}
