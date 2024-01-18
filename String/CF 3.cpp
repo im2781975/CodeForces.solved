@@ -129,3 +129,28 @@ void solve6() {
     }
     cout << "YES";
 }
+void solve7() {
+    int x, z = 0, maxl = 0, maxch = 0, maxchi = 0;
+    cin >> x;
+    string s[x];
+
+    while (z++ < x)
+        cin >> s[z - 1];
+
+    z = 0;
+    while (z++ < x) {
+        if (s[z - 1].size() >= s[maxl].size())
+            maxl = z - 1;
+
+        int y = 0;
+        int sum = 0;
+        while (y++ < s[z - 1].size())
+            sum += (s[z - 1][y - 1] - 64);
+
+        if (sum >= maxch) {
+            maxch = sum;
+            maxchi = z - 1;
+        }
+    }
+    cout << s[maxchi] << "\n" << s[maxl];
+}
