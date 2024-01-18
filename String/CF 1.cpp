@@ -327,6 +327,26 @@ void solve(){
         }
     }
 }
+void solve1() {
+    int n;
+    string s;
+    cin >> n;
+    cin >> s;
+    int ans = 0;
+    int i = 0;
+    
+    while (i < s.size() - 1) {
+        if (s[i] == '0') {
+            if (s[i + 1] == '0') 
+                ans += 2;
+            else if (s[i + 1] == '1' && s[i + 2] == '0') 
+                ans += 1;
+        }
+        i++;
+    }
+    cout << ans << endl;
+}
+
 int main()
 {
     string s;
