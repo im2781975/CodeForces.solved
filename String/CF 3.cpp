@@ -103,3 +103,29 @@ void solve5() {
             c++;
         cout << c;
 }
+void solve6() {
+    string s;
+    int c = 0, d = 0, z = 0;
+    cin >> s;
+    while (true) {
+        if (s[z] == s[++z]) 
+            c++;
+        else 
+            break;
+    }
+    while (z < s.size()) {
+        d = 0;
+
+        while (z < s.size()) {
+            if (s[z] == s[++z]) 
+                d++;
+            else 
+                break;
+        }
+        if (c != d) {
+            cout << "NO";
+            return 0;
+        }
+    }
+    cout << "YES";
+}
