@@ -231,3 +231,27 @@ void solveE()
     temp = 0;
     temp2 = 0;
 }
+void solve9() {
+    string x, y = "heavy", z = "metal";
+    cin >> x;
+    long long h = -5, m, c = 0;
+
+    for (int i = 0;; i++) {
+        h = x.find(y, h + 5);
+
+        if (h > -1) {
+            m = x.length();
+
+            for (int j = 0;; j++) {
+                m = x.rfind(z, m - 1);
+
+                if (m > -1 && m > h + 4)
+                    c++;
+                else 
+                    break;
+            }
+        }else
+            break;
+    }
+    cout << c;
+}
