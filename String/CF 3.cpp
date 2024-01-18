@@ -255,3 +255,36 @@ void solve9() {
     }
     cout << c;
 }
+void solve10() {
+    string s;
+    cin >> s;
+    int z = 0, c = 0;
+    
+    while (z++ < s.size()) {
+        if (s[z-1] == 'h' && c == 0) {
+            c++;
+            continue;
+        }
+        if (s[z-1] == 'e' && c == 1) {
+            c++;
+            continue;
+        }
+        if (s[z-1] == 'l' && c == 2) {
+            c++;
+            continue;
+        }
+        if (s[z-1] == 'l' && c == 3) {
+            c++;
+            continue;
+        }
+        if (s[z-1] == 'o' && c == 4) {
+            c++;
+            break;
+        }
+    }
+    if (c == 5)
+        cout << "YES";
+    else
+        cout << "NO";
+    return 0;
+}
