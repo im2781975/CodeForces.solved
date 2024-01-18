@@ -163,3 +163,25 @@ void solve6()
     else
         cout << "NO\n";
 }
+void solve7()
+{
+    // https://codeforces.com/contest/1690/problem/C
+    int n;
+    cin >> n;
+    vector<int> start(n);
+    vector<int> end(n);
+    vector<int> result(n);
+    for (int i = 0; i < n; i++)
+        cin >> start[i];
+    for (int i = 0; i < n; i++)
+        cin >> end[i];
+    for (int j = 0; j < n; j++)
+    {
+        if (start[j] < end[j - 1] && j >= 1)
+            result[j] = (end[j] - end[j - 1]);
+        else
+            result[j] = (end[j] - start[j]);
+    }
+    for(int i=0; i<result.size(); i++)
+        cout << result[i] << " ";
+}
