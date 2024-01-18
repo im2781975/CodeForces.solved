@@ -154,3 +154,21 @@ void solve7() {
     }
     cout << s[maxchi] << "\n" << s[maxl];
 }
+void solve8() {
+    string s, d;
+    cin >> s;
+    for (int i = 0; i < s.size(); i++)
+        s[i] = tolower(s[i]);
+
+    int z = 0, f = 0;
+    while (z++ < s.size()) {
+        if (s[z - 1] != 'a' && s[z - 1] != 'u' && s[z - 1] != 'o' && s[z - 1] != 'i' && s[z - 1] != 'e' && s[z - 1] != 'y') {
+            d[f] = '.';
+            d[f + 1] = s[z - 1];
+            f += 2;
+        }
+    }
+    z = 0;
+    while (z++ < f)
+        cout << d[z - 1];
+}
