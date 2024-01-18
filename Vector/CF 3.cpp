@@ -61,3 +61,31 @@ void solve2()
     }
     cout << sum << " " << subarray << "\n";
 }
+void solve4()
+{
+    //https://codeforces.com/contest/1772/problem/C
+    int n, max;
+    cin >> n >> max;
+    int nmax = 1;
+    int temp = 1;
+    int sum = n;
+    vector<int> v;
+    while (nmax - 1 < max - n && n > 2)
+    {
+        v.push_back(nmax);
+        temp++;
+        nmax += temp;
+        n--;
+    }
+    while (n > 0)
+    {
+      v.push_back(max);
+      max--;
+      n--;
+    }
+    sort(v.begin(), v.end());
+    for(int i=0; i<vec.size(); i++)
+        cout << vec[i] <<" ";
+    cout << "\n";
+    // cout << charac(v, v.size()) << "\n";
+  }
