@@ -93,3 +93,13 @@ void solve4() {
     }
     cout << sum;
 }
+void solve5() {
+    string x, y;
+    cin >> x >> y;
+
+    int z = 0, c = 0;
+    while (z++ < x.size())
+        if (x[z - 1] != y[z - 1])
+            c++;
+        cout << c;
+}
