@@ -267,3 +267,92 @@ void solve8() {
     }
     cout << c + ffs << endl;
 }
+void solve9() {
+    int x;
+    cout << "Enter number of programs\n";
+    cin >> x;
+
+    float *arr = new float[x];
+    float *bur = new float[x];
+    float *bur2 = new float[x];
+    float *prr = new float[x];
+    float *end = new float[x];
+    int z = 0, prrr = 0;
+
+    while (z++ < x) {
+        cout << "Enter the arrival time of p" << z << endl;
+        cin >> arr[z - 1];
+        cout << "And its burst time\n";
+        cin >> bur[z - 1];
+        bur2[z - 1] = bur[z - 1];
+        prrr += bur[z - 1];
+        cout << "And its priority\n";
+        cin >> prr[z - 1];
+    }
+
+    arr[x] = 1000000;
+    int c = 0, s = 0, min = 0, miny = 0;
+    float *fin = new float[x];
+    z = 0;
+    int max = 0;
+
+    while (s++ < x) {
+        end[s - 1] = 0;
+    }
+
+    s = 0;
+    
+    while (c < prrr) {
+        s = 0, min = 0;
+        
+        while (s++ < x) {
+            if (arr[s - 1] <= c && end[s - 1] == 0 && prr[s - 1] < prr[min] && bur[s - 1] > 0)
+                min = s - 1;
+        }
+
+        s = 0;
+
+        if (c >= arr[max]) miny = x;
+        else miny = min + 1;
+
+        while (s++ < x) {
+            if (arr[miny] >= arr[s - 1] && arr[s - 1] >= 0 && s - 1 != min)
+                miny = s - 1;
+        }
+
+        bur[min]--;
+        c++;
+
+        if (bur[min] == 0) {
+            end[min] = 1;
+            fin[min] = c;
+            prr[min] = 100000;
+        }
+    }
+
+    z = 0;
+    while (z++ < x)
+        cout << fin[z - 1] << endl;
+
+    z = 0;
+    float suma = 0, sumw = 0;
+
+    while (z++ < x) {
+        float t = fin[z - 1] - arr[z - 1];
+        float w = t - bur2[z - 1];
+        cout << "The T(a) of p" << z << " = " << t << endl << "And its T(w) = " << w << endl;
+        suma += t;
+        sumw += w;
+    }
+
+    cout << "Average T(a) = " << suma / x << "\n and average T(w) = " << sumw / x << endl;
+
+    delete[] arr;
+    delete[] bur;
+    delete[] bur2;
+    delete[] prr;
+    delete[] end;
+    delete[] fin;
+
+    return 0;
+}
