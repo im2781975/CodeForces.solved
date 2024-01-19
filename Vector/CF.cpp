@@ -1,36 +1,32 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
-void count()
+void CountConsecutive()
 {
     //counts consecutive zeros and outputs the length of the 
     //longest such consecutive zero sequence for each test case
-    vector<int>vec;
-    int n, x;
+    int n, x, tmp=0;
     cin >> n;
+    vector<int>vec(n);
     for(int i=0; i<n; i++)
     {
-        vec.erase(vec.begin(), vec.end());
-        int tmp=0, tmp1=0;
         cin >>x;
-        for(int j=0; j<x; j++)
+        vec.erase(vec.begin(), vec.end());
+        if(x==0)
         {
-            int binary;
-            cin >>binary;
-            if(binary==0)
-            {
-                tmp++;
-                vec.push_back(tmp);
-            }
-            else
-            {
-                vec.push_back(tmp);
-                tmp=0;
-            }
+            tmp++;
+            vec.push_back(tmp);
         }
-        sort(vec.begin(), vec.end());
-        for(int i=0; i<vec.size(); i++)
-            cout << vec[i] <<" ";
+        else
+        {
+            vec.push_back(tmp);
+            tmp=0;
+        }
     }
+    sort(vec.begin(), vec.end());
+    for(int i=0; i<vec.size(); i++)
+        cout << vec[i] <<" ";
 }
 void Forbidden_Integer() {
     int n, k, x;
