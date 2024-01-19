@@ -115,4 +115,35 @@ void solve4(){
 
     return 0;
 }
+void solve5() {
+    int x;
+    while (cin >> x) {
+        int l[x], r[x];
+        int z = 0, c = 0;
+        while (z < x) {
+            cin >> l[z];
+            z++;
+        }
 
+        z = 0;
+        while (z < x) {
+            cin >> r[z];
+            z++;
+        }
+        for (z = 0; z < x; z++) {
+            int m = 0;
+            for (int f = 0; f < x; f++) {
+                if (l[z] == r[f]) {
+                    r[f] = 0;
+                    m++;
+                    break;
+                }
+            }
+            if (m == 0) {
+                c++;
+            }
+        }
+        cout << c << "\n";
+    }
+    return 0;
+}
