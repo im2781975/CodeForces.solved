@@ -267,3 +267,30 @@ void solve9() {
 
     return 0;
 }
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+void solve10() {
+    int y[102], z[102], i, j, f = 0, d = 0;
+    while (cin >> y[d++]);
+    d--;
+    if (d == 1) {
+        cout << -1;
+        return 0;
+    }
+    for (i = 0; i < d; i++)
+        for (j = i + 1; j < d; j++)
+            z[f++] = gcd(y[i], y[j]);
+
+    i = 0, j = 0;
+    while (i++ < f)
+        if (z[i - 1] > j)
+            j = z[i - 1];
+    cout << j;
+    return 0;
+}
