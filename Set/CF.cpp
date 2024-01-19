@@ -43,3 +43,11 @@ void solve_div3()
     else
         cout << "NO\n";
 }
+void diff() {
+    vector<int> vec = {1, 3, 7, 10, 15};
+    int n = vec.size();
+    set<int> diff;
+    for (int i = 0; i < n - 1; i++)
+        diff.insert(vec[i + 1] - vec[i]);
+    cout << diff.size();
+}
