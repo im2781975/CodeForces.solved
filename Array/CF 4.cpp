@@ -111,3 +111,28 @@ void solve2(){
             cout << endl;
     }
 }
+void solve2() {
+    int x;
+    cin >> x;
+    int y[x][x];
+
+    for (int i = 0; i < x; i++) {
+        int f = i, d = 1;
+        for (int k = 0; k <= i; k++) {
+            y[f][x - d] = i + 1;
+            if (i + 1 != x)
+                y[x - d][f] = i + 1;
+            d++, f--;
+        }
+    }
+
+    for (int i = 0; i < x; i++) {
+        for (int k = 0; k < x; k++) {
+            cout << y[i][k];
+            if (k != x - 1)
+                cout << " ";
+        }
+        if (i != x - 1)
+            cout << endl;
+    }
+}
