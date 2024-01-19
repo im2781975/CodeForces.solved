@@ -25,4 +25,28 @@ void solve1() {
     }
     cout << l + 1 << " " << k;
 }
+void solve2() {
+    int x, z = 0, even = 0, odd = 0, eve = 0, od = 0;
+    cin >> x;
+    int y[x];
+    
+    while (z < x)
+        cin >> y[z++];
+    
+    z = 0;
+    while (z++ < x) {
+        if (y[z - 1] % 2 == 0) {
+            even++;
+            eve = z - 1;
+        } else {
+            odd++;
+            od = z - 1;
+        }
+    }
+    if (even == 1) 
+        cout << eve + 1;
+    else 
+        cout << od + 1;
+    return 0;
+}
 
