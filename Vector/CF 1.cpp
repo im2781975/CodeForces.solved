@@ -20,9 +20,7 @@ void solveDiv2A()
     if(flag)
     {
         for(int i=1; i<n; i++)
-        {
-            tmp=min(tmp, v[i]-vec[i-1]);
-        }
+            tmp=min(tmp, vec[i]-vec[i-1]);
         cout <<tmp/2 +1;
     }
     else
