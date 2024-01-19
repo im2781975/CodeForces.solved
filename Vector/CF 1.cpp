@@ -41,7 +41,7 @@ void solveContest1790ProblemB()
             while (r >= sides[j] && sides[j] <= s - r)
             {
                 r -= sides[j];
-                result.pb(sides[j]);
+                result.push_back(sides[j]);
                 temp2++;
             }
         }
@@ -54,15 +54,13 @@ void solveContest1790ProblemB()
             if (result.size() == n - 1)
                 break;
             result[i]--;
-            result.pb(1);
+            result.push_back(1);
         }
     }
+    // Add the remaining value to the result vector
     result.push_back(s - temp);
-    for (auto j : result)
-    {
-      cout << j << " ";
-    }
-    cout << "\n";
+    for (int i = 0; i < n; i++)
+        cout << result[i] << " ";
 }
 void div2BFibonachairs()
 {
