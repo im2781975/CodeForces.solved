@@ -294,3 +294,36 @@ void solve10() {
     cout << j;
     return 0;
 }
+
+void solve11() {
+    int a, b, c, x = 0, y = 0, d, z = 0;
+    double f = 0;
+    cin >> a >> b;
+    // Calculate the sum of reversed digits for a
+    while (a > 0) {
+        if (a % 10 != 0) x += ((a % 10) * pow(10, f++));
+        a /= 10;
+    }
+    f = 0;
+    // Calculate the sum of reversed digits for b
+    while (b > 0) {
+        if (b % 10 != 0) y += ((b % 10) * pow(10, f++));
+        b /= 10;
+    }
+    f = 0;
+    // Calculate the sum of reversed digits for the sum of a and b
+    c = x + y;
+    while (c > 0) {
+        if (c % 10 != 0) z += ((c % 10) * pow(10, f++));
+        c /= 10;
+    }
+    // Check if the reversed sum of a and b is equal to the reversed sum
+    // of their digits
+    d = x + y;
+    if (z == d) {
+        cout << "YES";
+    } else {
+        cout << "NO";
+    }
+    return 0;
+}
