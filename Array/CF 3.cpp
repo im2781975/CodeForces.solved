@@ -147,3 +147,24 @@ void solve5() {
     }
     return 0;
 }
+void solve6() {
+    int n, b;
+    cin >> n >> b;
+    int res = n / b;
+
+    int x[3] = {abs(res - 1) * b, res * b, (res + 1) * b};
+    int y[3] = {abs(n - (abs(res - 1) * b)), abs(n - (res * b)), ((res + 1) * b) - n};
+
+    int z = 0, min = 0;
+
+    while (z++ < 2) {
+        if (y[z] < y[min]) 
+            min = z;
+        if (y[z] == y[min]) {
+            if (x[z] > x[min])
+                min = z;
+        }
+    }
+    cout << x[min];
+    return 0;
+}
