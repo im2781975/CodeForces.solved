@@ -66,3 +66,27 @@ void solve10()
             cout << "NO\n";
     }
 }
+void solve11()
+{
+    int n;
+    cin >> n;
+    string op = "";
+    int t = 0;
+    string s;
+    cin >> s;
+    map<string, int> m;
+    for (int i = 1; i < n; i++)
+    {
+        string temp;
+        temp += s[i - 1];
+        temp += s[i];
+        m[temp]++;
+        if (t < m[temp])
+        {
+            t = m[temp];
+            op = temp;
+        }
+        temp = "";
+    }
+    cout << op << "\n";
+}
