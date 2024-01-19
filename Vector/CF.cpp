@@ -28,23 +28,22 @@ void CountConsecutive()
     for(int i=0; i<vec.size(); i++)
         cout << vec[i] <<" ";
 }
-void Forbidden_Integer() {
+void Forbidden_Integer() 
+{
     //takes three integer inputs (n, k, and x) and performs some operations to determine
     //if it's possible to represent n as a sum of distinct integers from 1 to k excluding the integer x
     int n, k, x;
     cin >> n >> k >> x;
     vector<int> v(k);
     vector<int> res;
-
-    if (k == 1) {
-        cout << "NO\n";
+    if (n < 0 || k < 2 || x < 1 || x > k)
+    {
+        cout << "Invalid inputs\n";
         return;
     }
     for (int i = 0; i < k; i++) 
         v[i] = i + 1;
-        
     sort(v.begin(), v.end());
-
     for (int j = k - 1; j >= 0; j--) {
         while (n >= v[j] && v[j] != x) {
             n -= v[j];
