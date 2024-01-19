@@ -100,8 +100,6 @@ void solve4() {
     }
     cout << sum << endl;
 }
-#include <iostream>
-using namespace std;
 void solve5() {
     int x;
     cin >> x;
