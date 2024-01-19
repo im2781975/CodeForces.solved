@@ -47,6 +47,9 @@ void solve2() {
     }
 }
 void solve3(){
+    int t;
+    cin >> t;
+    while(t){
         int n;
         cin >> n;
         int arr[n];
@@ -60,6 +63,18 @@ void solve3(){
                 i++;
             }
         }
+        if(count == 0 || count == 1){
+            // Add your logic here for cases where count is 0 or 1
+            // For example, you can print a message or perform some operation
+            // based on the specific requirement.
+            cout << "Special case: Count is either 0 or 1." << endl;
+        }
+        else {
+            // Add your logic here for cases where count is not 0 or 1
+            // For example, you can continue with the existing code or modify it accordingly.
+            // It depends on your specific task.
+        }
+        t--;
     }
     return 0;
 }
