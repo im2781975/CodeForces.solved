@@ -356,3 +356,60 @@ void solve9() {
 
     return 0;
 }
+void solve10() {
+    int x;
+    cout << "enter no of process";
+    cin >> x;
+
+    int all[x][3], max[x][3], ava[1][3];
+
+    int i, j;
+    for (i = 0; i < x; i++) {
+        cout << "enter the allocation of P" << i + 1 << " separated each digit with a space\n";
+        for (j = 0; j < 3; j++)
+            cin >> all[i][j];
+    }
+
+    for (i = 0; i < x; i++) {
+        cout << "enter the max. of P" << i + 1 << " separated each digit with a space\n";
+        for (j = 0; j < 3; j++)
+            cin >> max[i][j];
+    }
+
+    cout << "enter the available separated each digit with a space\n";
+    cin >> ava[0][0] >> ava[0][1] >> ava[0][2];
+
+    for (i = 0; i < x; i++) {
+        for (j = 0; j < 3; j++)
+            max[i][j] -= all[i][j];
+    }
+
+    int z = 0, c = 0, min = 0;
+    while (z++ < x) {
+        for (i = 0; i < x; i++) {
+            c = 0;
+            for (j = 0; j < 3; j++) {
+                if (max[i][j] <= ava[0][j] && max[i][0] != -1)
+                    c++;
+                if (c == 3) {
+                    min = i;
+                    goto dd;
+                }
+            }
+        }
+    dd:
+        if (c < 3) {
+            cout << "The system is not in a safe state\n";
+            return 0;
+        }
+
+        for (i = 0; i < 3; i++)
+            ava[0][i] += all[min][i];
+
+        max[min][0] = -1;
+        cout << "P" << min + 1 << " & new work=" << ava[0][0] << " " << ava[0][1] << " " << ava[0][2];
+
+        if (z != x)
+            cout << " --->";
+    }
+}
