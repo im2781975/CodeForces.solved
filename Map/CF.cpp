@@ -1,5 +1,27 @@
 #include<bits/stdc++.h>
 using namespace std;
+void solve7() {
+    int n;
+    cin >> n;
+    map<int, int> m;
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+        m[arr[i]]++;
+    }
+    bool ans = false;
+    for (auto i : m) {
+        if (i.second >= 3) {
+            ans = true;
+            cout << i.first << endl;
+            break;
+        }
+    }
+    if (!ans) {
+        cout << -1 << endl;
+    }
+}
+
 void solve8() {
     int n, x;
     cin >> n >> x;
