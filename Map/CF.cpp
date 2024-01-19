@@ -1,5 +1,31 @@
 #include<bits/stdc++.h>
 using namespace std;
+void solve8() {
+    int n, x;
+    cin >> n >> x;
+    int arr[n];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+    
+    sort(arr, arr + n);
+    map<int, int> m;
+    for (int i = 0; i < n; i++)
+        m[arr[i]]++;
+    
+    int ans = 0;
+    for (int i = 0; i < n; i++) {
+        if (m[arr[i]]) {
+            if (m[x * arr[i]]) {
+                m[x * arr[i]]--;
+                m[arr[i]]--;
+            } else {
+                ans++;
+                m[arr[i]]--;
+            }
+        }
+    }
+    cout << ans << "\n";
+}
 void solve9()
 {
     // https://codeforces.com/contest/1702/problem/D
