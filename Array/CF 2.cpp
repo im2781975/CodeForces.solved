@@ -158,3 +158,46 @@ void solve6() {
     delete[] c; 
     return 0;
 }
+void solve7() {
+    int x[12];
+    int size = 12;
+    int y = 0;
+
+    while (y < size)
+        cin >> x[y++];
+
+    cin >> y;
+
+    int min = 22, mini = 0, minj = 0, i = 0, j = 0, po = 0;
+
+    for (i = 0; i < size - 1; i++) {
+        for (j = i + 1; j < size; j++) {
+            if (x[i] + x[j] > y) {
+                po++;
+                if ((i + j) < min) {
+                    min = i + j;
+                    mini = i;
+                    minj = j;
+                }
+            }
+        }
+    }
+    if (po == 0)
+        cout << "NULL";
+    else
+        cout << mini + 1 << " " << minj + 1;
+
+    char str[10];
+    int f = 0, z = 0;
+
+    cin >> str;
+
+    while (z++ < 10)
+        if (str[z - 1] == 'F')
+            f++;
+
+    if (f == 1 || f == 2 || f == 5 || f == 8 || f == 9)
+        cout << "NO" << "\n";
+    else
+        cout << "YES" << "\n";
+}
