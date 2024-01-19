@@ -204,3 +204,20 @@ void solve7() {
     }
     return 0;
 }
+void solve8() {
+    int z, f = 0;
+    sd: while (cin >> z) {
+        for (int y = 2; y < 35; y++) {
+            f = 0;
+            for (int x = 2; x <= y && f < z; x++) {
+                f = pow(x, y) + pow(y, x);
+                if (f == z) {
+                    cout << "YES" << endl << x << " " << y << endl;
+                    goto sd;
+                }
+            }
+        }
+        cout << "NO" << "\n";
+    }
+    return 0;
+}
