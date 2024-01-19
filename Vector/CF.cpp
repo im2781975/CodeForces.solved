@@ -29,6 +29,8 @@ void CountConsecutive()
         cout << vec[i] <<" ";
 }
 void Forbidden_Integer() {
+    //takes three integer inputs (n, k, and x) and performs some operations to determine
+    //if it's possible to represent n as a sum of distinct integers from 1 to k excluding the integer x
     int n, k, x;
     cin >> n >> k >> x;
     vector<int> v(k);
@@ -56,9 +58,8 @@ void Forbidden_Integer() {
     for(int i=0; i<res.size(); i++)
         cout<< res[i] <<" ";
     }
-    else {
+    else
         cout << "\nNO" ;
-    }
 }
 void MaxDiffrence()
 {
