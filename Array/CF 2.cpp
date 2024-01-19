@@ -100,3 +100,47 @@ void solve4() {
     }
     cout << sum << endl;
 }
+#include <iostream>
+using namespace std;
+void solve5() {
+    int x;
+    cin >> x;
+    char *y = new char[x];
+    int *s = new int[x];
+    int *r = new int[x];
+    int z = 0, i = 0, h = 26;
+    char a[] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+    while (z < x)
+        cin >> y[z++];
+
+    for (z = 0; z < x; z++)
+        for (i = 0; i < h; i++)
+            if (y[z] == a[i])
+                s[z] = i + 1;
+
+    i = x;
+
+    for (z = 0; z < x; z++) {
+        int max = 0;
+        for (h = 0; h < x; h++)
+            if (s[h] >= s[max])
+                max = h;
+
+        r[max] = i--;
+        s[max] = 0;
+    }
+
+    z = 1;
+    cout << r[0];
+
+    while (z < x)
+        cout << " " << r[z++];
+
+    cout << "\n";
+
+    delete[] y;
+    delete[] s;
+    delete[] r;
+    return 0;
+}
