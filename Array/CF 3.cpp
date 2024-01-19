@@ -49,4 +49,21 @@ void solve2() {
         cout << od + 1;
     return 0;
 }
+void solve3() {
+    int n, k, z = 0, c = 0;
+    cin >> n >> k;
+    int y[n];
+
+    while (cin >> y[z++]);
+    z = 0;
+    while (z++ < n) {
+        if (y[z - 1] >= y[k - 1]) {
+            if (y[z - 1] > 0)
+                c++;
+        } else {
+            break;
+        }
+    }
+    cout << c;
+}
 
