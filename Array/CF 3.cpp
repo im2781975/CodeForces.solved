@@ -168,3 +168,39 @@ void solve6() {
     cout << x[min];
     return 0;
 }
+void solve7() {
+    int n, v, x, m;
+    cin >> n >> v;
+    
+    int yy[n], d = 0;
+    while (d++ < n)
+        yy[d - 1] = 1;
+
+    for (int i = 0; i < n; i++) {
+        cin >> x;
+        for (int j = 0; j < x; j++) {
+            cin >> m;
+            if (v > m)
+                yy[i] = 0;
+        }
+    }
+    int z = 0, c = 0, r = -1;
+    while (z++ < n) {
+        if (yy[z - 1] == 0)
+            c++;
+        if (c == 1 && r == -1)
+            r = z - 1;
+    }
+    cout << c << endl;
+    if (c > 0) {
+        cout << r + 1;
+        z = 0;
+        while (z++ < n) {
+            if (z - 1 == r)
+                continue;
+            if (yy[z - 1] == 0)
+                cout << " " << z;
+        }
+    }
+    return 0;
+}
