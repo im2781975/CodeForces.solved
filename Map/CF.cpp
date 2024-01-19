@@ -90,3 +90,32 @@ void solve11()
     }
     cout << op << "\n";
 }
+void solve12() {
+    int n, x;
+    cin >> n >> x;
+    int arr[n];
+
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
+
+    sort(arr, arr + n);
+    map<int, int> m;
+
+    for (int i = 0; i < n; i++) {
+        m[arr[i]]++;
+    }
+
+    int ans = 0;
+    for (int i = 0; i < n; i++) {
+        if (m[arr[i]]) {
+            if (m[x * arr[i]]) {
+                m[x * arr[i]]--;
+                m[arr[i]]--;
+            } else {
+                ans++;
+                m[arr[i]]--;
+            }
+        }
+    }
+    cout << ans ;
+}
