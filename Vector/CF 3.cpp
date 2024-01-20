@@ -87,7 +87,7 @@ void DifferentDifferences()
     
     cout << charac(v, v.size()) << "\n";
 }
-void solve5()
+void EveryOneLovesToSleep()
 {
     // https://codeforces.com/contest/1714/problem/A
     int n, h, m, temp = 100;
