@@ -182,7 +182,7 @@ void RestoringTheDurationOfTasks()
     for(int i=0; i<result.size(); i++)
         cout << result[i] << " ";
 }
-int main(){
+void fact(){
     int t;
     cin >> t;
     vector<long long int> fact(1001);
@@ -192,7 +192,6 @@ int main(){
     for(int i = 1; i <= 1000; i++){
         fact[i] = (fact[i-1] * i) % mod;
     }
-    
     while(t){
         int n;
         cin >> n; 
@@ -203,6 +202,5 @@ int main(){
         }
         t--;
     }
-    
     return 0;
 }
