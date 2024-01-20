@@ -87,3 +87,66 @@ int main()
 	}
 	return 0;
 } 
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main()
+{
+	int x1,y1,x2,y2;
+	int x3,y3,x4,y4;
+	cin>>x1>>y1>>x2>>y2;
+	cin>>x3>>y3>>x4>>y4;
+	int n1=max(x4,x2)-min(x1,x3);
+	int n2=max(y2,y4)-min(y1,y3);
+	int n=max(n1,n2);
+	cout<<n*n<<endl;
+	return 0;
+}
+*
+#################   a^b
+#include<iostream>
+using namespace std;
+typedef long long ll;
+ll a,b,p;
+ll q(int a,int b,int p)
+{
+	ll ans=1;
+	while(b)
+	{
+		if(b&1) ans=ans*a%p;
+		a=a*a%p;
+		b>>=1;
+	}
+	return ans;
+}
+int main()
+{
+	cin>>a>>b>>p;
+	cout<<q(a,b,p)<<endl;	
+	return 0;
+}
+
+################   64λ�����˷�
+#include<iostream>
+using namespace std;
+typedef long long ll;
+ll a,b,p;
+ll q(ll a,ll b,ll p)
+{
+	ll ans=0;
+	while(b)
+	{
+	    if(b&1) ans=(ans+a)%p;
+	    b>>=1;
+	    a=a*2%p;
+	}
+	return ans;
+	
+}
+int main()
+{
+	cin>>a>>b>>p;
+	cout<<q(a,b,p)<<endl;	
+	return 0;
+}
