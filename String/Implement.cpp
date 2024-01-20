@@ -70,4 +70,21 @@ int main()
     }
     return 0;
 }
-
+int main()
+{
+	cin>>n;
+	getchar();
+	while(n--)
+	{
+		
+		char s[10000];
+		gets(s);
+		int ans=0;
+		for(int i=0;i<strlen(s);i++) 
+		{
+			if(s[i]<0) ans++; 
+		}
+		cout<<ans/2<<endl;
+	}
+	return 0;
+}
