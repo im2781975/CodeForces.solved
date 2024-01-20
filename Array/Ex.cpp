@@ -139,3 +139,76 @@ int main()
 	}
 	return 0;
 }
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+#include<stdio.h>
+using namespace std;
+int a[101];
+void swap(int &x,int &y)
+{
+	int a=x;
+	x=y;
+	y=a;
+}
+int main()
+{
+	int n;
+	while(scanf("%d",&n)&&n!=0)
+	{
+		for(int i=0;i<n;i++) cin>>a[i];
+		for(int i=0;i<n-1;i++)
+		{
+			for(int j=i+1;j<n;j++)
+			{
+				if(abs(a[i])<abs(a[j]))
+				{
+					swap(a[i],a[j]);
+				}
+			}
+		}
+		for(int i=0;i<n-1;i++) cout<<a[i]<<" ";
+		cout<<a[n-1];
+		cout<<endl;
+	}
+	return 0;
+}
+
+
+
+#include<iostream>
+#include<stdio.h>
+#include<stdio.h>
+using namespace std;
+
+int n;
+
+int main()
+{	
+	while(scanf("%d",&n)!=EOF&&n!=0)
+	{
+		int a[10001];
+		int mp,mn=1000000;
+		for(int i=0;i<n;i++)
+		{
+			cin>>a[i]
+			if(a[i]<mn)
+			{
+				mn=a[i];
+				mp=i;
+			}
+		}
+		if(mp!=0){
+			a[mp]=a[0];
+			a[0]=mp; 
+		}
+		cout<<a[0];
+		for(int i=1;i<n;i++)
+		{
+			cout<<" "<<a[i];
+		}
+		cout<<endl;
+	}
+	return 0;
+} 
+
