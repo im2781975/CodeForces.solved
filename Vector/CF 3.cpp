@@ -59,7 +59,7 @@ void LongLong()
     }
     cout << sum << " " << cnt;
 }
-void solve4()
+void DifferentDifferences()
 {
     //https://codeforces.com/contest/1772/problem/C
     int n, max;
@@ -77,15 +77,15 @@ void solve4()
     }
     while (n > 0)
     {
-      v.push_back(max);
-      max--;
-      n--;
+        v.push_back(max);
+        max--;
+        n--;
     }
     sort(v.begin(), v.end());
     for(int i=0; i<vec.size(); i++)
         cout << vec[i] <<" ";
-    cout << "\n";
-    // cout << charac(v, v.size()) << "\n";
+    
+    cout << charac(v, v.size()) << "\n";
 }
 void solve5()
 {
