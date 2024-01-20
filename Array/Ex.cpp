@@ -211,4 +211,38 @@ int main()
 	}
 	return 0;
 } 
-
+#include<iostream>
+#include<cmath>
+#include<stdio.h>
+using namespace std;
+int main()
+{
+	int n,m;
+	while(scanf("%d%d",&n,&m)!=EOF)
+	{
+		if(n==0&&m==0) break;
+		int a[1000][1000];
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<m;j++)
+			{
+				cin>>a[i][j];
+			}
+		}
+		int ans=a[0][0],x=0,y=0;
+		for(int i=0;i<n;i++)
+		{
+			for(int j=0;j<m;j++)
+			{
+				if(abs(a[i][j])>abs(ans))
+				{
+					ans=a[i][j];
+					x=i+1;
+					y=j+1;
+				} 
+			}
+		}
+		cout<<x<<" "<<y<<" "<<ans<<endl;
+	}
+	return 0;
+}
