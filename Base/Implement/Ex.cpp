@@ -68,3 +68,22 @@ int main()
 	cout<<"NO"<<endl;
 	return 0;
 }
+int main()
+{
+	int n;
+	while(scanf("%d",&n)!=EOF)
+	{
+		int f=1;
+		for(int i=0;i<66;i++)
+		{
+			if((n*i+18)%65==0)
+			{
+				cout<<i<<endl;
+				f=0;
+				break;
+			}
+		}
+		if(f) cout<<"no"<<endl;
+	}
+	return 0;
+} 
