@@ -160,7 +160,7 @@ void ArrayDecrements()
     else
         cout << "NO\n";
 }
-void solve7()
+void RestoringTheDurationOfTasks()
 {
     // https://codeforces.com/contest/1690/problem/C
     int n;
