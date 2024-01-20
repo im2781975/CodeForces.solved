@@ -88,3 +88,131 @@ int main()
 	}
 	return 0;
 }
+#include<iostream>
+#include<stdio.h>
+#include<cstring>
+using namespace std;
+
+int n;
+
+int main()
+{
+	cin>>n;
+	getchar();
+	while(n--)
+	{
+		int a=0,e=0,i=0,o=0,u=0;
+		char s[101];
+		gets(s);
+		for(int j=0;j<strlen(s);j++)
+		{
+			if(s[j]=='a'||s[j]=='A') a++;
+			if(s[j]=='e'||s[j]=='E') e++;
+			if(s[j]=='i'||s[j]=='I') i++;
+			if(s[j]=='o'||s[j]=='O') o++;
+			if(s[j]=='u'||s[j]=='U') u++;
+		}
+		cout<<"a:"<<a<<endl;
+		cout<<"e:"<<e<<endl;
+		cout<<"i:"<<i<<endl;
+		cout<<"o:"<<o<<endl;
+		cout<<"u:"<<u<<endl;
+		if(n) cout<<endl;
+		
+	}
+	
+	return 0;
+}
+*
+
+#include<iostream>
+#include<stdio.h> 
+#include<cstring>
+using namespace std;
+
+char s[105];
+
+int main()
+{
+	while(gets(s))
+	{
+		int len=strlen(s);
+		s[0]-='a'-'A'; 
+		for(int i=1;i<len;i++)
+		{
+			if(s[i]==' ') s[i+1]-='a'-'A';	
+		}
+		cout<<s<<endl;
+	}
+	return 0;
+}
+
+
+#include<iostream>
+#include<stdio.h>
+#include<cstring>
+using namespace std;
+
+int main()
+{
+	char s[10011];
+	while(scanf("%s",&s)!=EOF)
+	{
+		int maxchar=s[0];
+		for(int i=0;i<strlen(s);i++)
+		{
+			if(s[i]>maxchar) maxchar=s[i];
+		}
+		for(int i=0;i<strlen(s);i++)
+		{
+			cout<<s[i];
+			if(s[i]==maxchar)
+			{
+				cout<<"(max)";
+			} 
+		}
+		cout<<endl;
+	}
+	return 0;
+}
+
+
+
+#include<iostream>
+#include<stdio.h>
+#include<cstring>
+using namespace std;
+
+int n;
+char s[100001];
+
+int main()
+{
+	cin>>n;
+	getchar();
+	while(n--)
+	{
+		gets(s);
+		int c=0;
+		int l=strlen(s);
+		if(s[0]>='a'&&s[0]<='z'||s[0]>='A'&&s[0]<='Z'||s[0]=='_')
+		{
+			for(int i=1;i<l;i++)
+			{
+				if((s[i]>='a'&&s[i]<='z')||(s[i]>='A'&&s[i]<='Z')||s[i]=='_'||(s[i]>='0'&&s[i]<='9'))
+				c++;
+				else 
+				{
+					cout<<"no"<<endl;
+					break;
+				}	
+				if(c+1==l) 
+				{
+					cout<<"yes"<<endl;
+				}
+			}			
+		}
+		else cout<<"no"<<endl;
+	}
+	return 0;
+}
