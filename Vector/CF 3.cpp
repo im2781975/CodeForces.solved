@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-void solve1()
+#include<bits/stdc++.h>
+using namespace std;
+void ArrayColoring()
 {
     // https://codeforces.com/contest/1843/problem/A
     int size;
