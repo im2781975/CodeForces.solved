@@ -107,3 +107,35 @@ int main()
 	cout<<m-f[m];
 	return 0;
 }
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+#define lcm(a,b) a/gcd(a,b)*b
+int n;
+long gcd(long m,long n)
+{
+	while(n)
+	{
+		long temp=m%n;
+		m=n;
+		n=temp;
+	}
+	return m;
+}
+
+int main()
+{
+	int a[100001];
+	while(scanf("%d",&n)!=EOF)
+	{
+		int a,x;
+		cin>>a;
+		while(--n)
+		{
+			cin>>x;
+			a=lcm(a,x);
+		}
+		cout<<a<<endl;
+	}
+	return 0;
+}
