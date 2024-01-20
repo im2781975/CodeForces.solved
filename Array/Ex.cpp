@@ -87,3 +87,23 @@ int main()
 	cout<<f[n][t];
 	return 0;
 } 
+#include<iostream>
+using namespace std;
+const int N = 20010;
+int m,n;
+int f[N];
+int main()
+{
+	cin>>m>>n;
+	int x;
+	for(int i=1;i<=n;i++)
+	{
+		cin>>x;
+		for(int j=m;j>=x;j--)
+		{
+		    f[j]=max(f[j-x]+x,f[j]);
+		}
+	}
+	cout<<m-f[m];
+	return 0;
+}
