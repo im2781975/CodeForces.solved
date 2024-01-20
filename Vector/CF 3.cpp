@@ -23,43 +23,41 @@ void ArrayColoring()
     }
     cout << sum - subtracts << "\n";
 }
-void solve2()
+void LongLong()
 {
-    // https://codeforces.com/contest/1843/problem/B
+    //https://codeforces.com/contest/1843/problem/B
     int n;
     cin >> n;
-    vector<int> v(n);
-    int sum = 0;
-    int c = 0;
-    int subarray = 0;
-    bool flag = true;
-    for (int i = 0; i < n; i++)
+    vector<int>vec(n);
+    int sum=0, cnt=0, c=0;
+    bool flag=true;
+    for(int i=0; i<n; i++)
     {
-        cin >> v[i];
-        sum += abs(v[i]);
+        cin >>vec[i];
+        sum+=abs(vec[i]);
     }
-    for (int i = 0; i < n; i++)
+    for(int i=0; i<n; i++)
     {
-        if (v[i] == 0)
+        if(vec[i]==0)
             continue;
-        for (int z = i; z < n; z++)
+        for(int j=i; j<n; j++)
         {
-            if (v[z] <= 0)
+            if(vec[j] < 0)
             {
-                flag = false;
-                i = z;
+                flag=false;
+                i = j;
             }
-            else
+            else  
                 break;
         }
-        if (!flag)
+        if(!flag)
         {
-            subarray++;
-            flag = true;
+            cnt++;
+            flag=true;
             c++;
         }
     }
-    cout << sum << " " << subarray << "\n";
+    cout << sum << " " << cnt;
 }
 void solve4()
 {
