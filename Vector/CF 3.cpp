@@ -121,13 +121,12 @@ void EveryOneLovesToSleep()
     sort(result.begin(), result.end());
     cout << result[0].first << " " << result[0].second << "\n";
 }
-void solve6()
+void ArrayDecrements()
 {
     // https://codeforces.com/contest/1690/problem/B
     int n;
     cin >> n;
     int temp = 0;
-    int count = 0;
     bool f = false;
     vector<pair<int, int>> v(n);
     for (int i = 0; i < n; i++)
