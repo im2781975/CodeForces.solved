@@ -1,7 +1,5 @@
 #include<bits/stdc++.h>
 using namespace std;
-#include<bits/stdc++.h>
-using namespace std;
 void ArrayColoring()
 {
     // https://codeforces.com/contest/1843/problem/A
