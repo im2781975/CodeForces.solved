@@ -50,3 +50,30 @@ int main() {
     cout << ans;
     return 0;
 }
+#include<iostream>
+#include<algorithm>
+#include<unordered_map>
+using namespace std;
+const int N = 1e5+10;
+
+struct edge{
+	int ts,id;
+	bool operator < (const edge x) const {
+		return ts<x.ts;
+	} 
+}edges[N];
+
+int n,m,ti;
+map<int,int> m;
+int main()
+{
+	cin>>n>>m>>ti;
+	
+	for(int i=0;i<m;i++)
+		cin>>edges[i].ts>>edges[i].id;	
+	sort(edges,edges+m);
+	
+	
+	
+	return 0;
+}
