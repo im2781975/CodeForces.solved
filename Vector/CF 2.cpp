@@ -62,6 +62,8 @@ void cowQueue(){
     cout << r;
 }
 void mixMilk() {
+    //simulate a pouring process involving three buckets of milk. The buckets 
+    //represented by two vectors: c (capacity of each bucket) and m (current amount of milk in each bucket).
     vector<int> m(3);
     vector<int> c(3);
     
