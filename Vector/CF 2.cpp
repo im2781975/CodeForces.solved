@@ -186,49 +186,37 @@ void tic_tac_toe() {
     }
     cout << t1 << "\n" << t2;
 }
-void solve(){
+void GameWithArrays() {
     //https://codeforces.com/contest/1859/problem/B
-    int n;
+    int n, tmp, val, final = 0;
+    int maxi = INT_MAX;
     cin >> n;
-    int s;
-    int op = 0;
-    int mn = 1e10;
-    int mx = 0;
-    int f = 0;
-    int sum = 0;
-    int temp = 0;
-    vector<vector<int>>v(n);
-    for(int i = 0 ; i < n ; i++){
-        cin >> s;
-        for(int j = 0 ; j < s ; j++){
+    int x;
+    vector<vector<int>> vec(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> x;
+        for (int j = 0; j < x; j++) {
             int num;
-            cin >> num; 
-            v[i].push_back(num);
-            if(mn > num){
-                mn = num;
-                temp = i;
-                sum = num;
+            cin >> num;
+            vec[i].push_back(num);
+            if (maxi > num) {
+                maxi = num;
+                tmp = i;
+                val = num;
             }
-        } 
+        }
     }
-    for(int i = 0 ; i < n ; i++){
-        sort(v[i].begin() ,v[i].end());
-        sum+= v[i][1];
+    for (int i = 0; i < n; i++) {
+        sort(vec[i].begin(), vec[i].end()); 
+        val += vec[i][0]; 
+        // Use vec[i][0] to get the smallest element after sorting
     }
-    for(int i = 0 ; i < n ; i++){
-        op= max(op , sum - v[i][1]);
+
+    for (int i = 0; i < n; i++) {
+        final = max(final, val - vec[i][0]);
     }
-    cout << op << "\n";
-}
-void solve()
-{
-    int n;
-    cin >> n;
-    vector<int>v(n);
-    for(int i = 0; i < n; i++)
-        cin >> v[i];
-    sort(v.begin(), v.end());
-    cout << v[n-1] - v[0] << "\n";
+    cout << final;
 }
 void solve(){
     int n, k;
