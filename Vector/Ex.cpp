@@ -46,3 +46,37 @@ void findCombination(vector<char> sv,ll dis,ll k,vector<string> &total,string te
     findCombination(sv,dis,k,total,temp,count+1);
     return;
 }
+ll fin(int n,map<vector<vector<int> >,int> &m,vector<vector<int> > a){
+     if(m.count(a)==1){
+         return m[a];
+     }
+     if(n==1){
+         if(a[0][0]==1){
+             m[a]=1;
+            return 1;
+         }else{
+             m[a]=0;
+             return 0;
+         }
+     }
+     for(int i=0;i<n;i++){
+         int sum=0;
+         for(int j=0;j<n;j++){
+             sum+=a[i][j];
+         }
+        if(sum==0){
+             m[a]=0;
+             return 0;
+        }
+     }
+     for(int i=0;i<n;i++){
+         int sum=0;
+         for(int j=0;j<n;j++){
+             sum+=a[j][i];
+        }
+        if(sum==0){
+             m[a]=0;
+            return 0;
+         }
+     }
+}
