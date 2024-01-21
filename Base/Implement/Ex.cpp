@@ -181,3 +181,34 @@ int main()
 	}
 	return 0;
 }
+#include<iostream>
+
+using namespace std;
+
+int n;
+int a,b;
+int is_ans(int x)
+{
+	int ans=1;
+	for(int i=2;i*i<=x;i++)
+	{
+		if(x%i==0)
+		{
+			ans+=i;
+			ans+=x/i;
+		}
+	} 
+	return ans;
+}
+int main()
+{
+	//cout<<is_ans(200);
+	cin>>n;
+	while(n--)
+	{
+		cin>>a>>b;
+		if(is_ans(a)==b&&is_ans(b)==a) cout<<"YES"<<endl;
+		else cout<<"NO"<<endl;
+	}
+	return 0; 
+}
