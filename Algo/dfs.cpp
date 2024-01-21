@@ -1,3 +1,32 @@
+-----
+pair<int,int> dfscount(int node,vector<vector<int> > adj,int visited[]){
+     visited[node]=1;
+     int ve=1;
+     int ed=0;
+     for(int i=0;i<adj[node].size();i++){
+         int child=adj[node][i];
+         ed++;
+         if(!visited[child]){
+             pair<int,int> p=dfscount(child,adj,visited);
+             ve=ve+p.first;
+             ed=ed+p.second;
+         }
+     }
+     return make_pair(ve,ed);
+}
+
+int dfschild(int node,vector<vector<int> > &adj,int visited[]){
+    visited[node]=1;
+    int sum=0;
+    for(int i=0;i<adj[node].size();i++){
+        int child=adj[node][i];
+        if(!visited[child]){
+            int r=dfschild(child,adj,visited);
+            sum+=r+1;
+        }
+    }
+    return sum;
+}
 ll dfs(int node,vector<vector<int> > &adj,int visited[],int parent){
      int count=0;
      for(int i=0;i<adj[node].size();i++){
