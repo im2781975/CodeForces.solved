@@ -475,3 +475,21 @@ void extendgcd(ll a, ll b, ll*v)
     v[0] = x;
     return;//pass an arry of size1 3
 }
+------
+int n ,k;
+     cin>>n>>k;
+     int cnt = 0, arr[n+1];
+    for(ll i = 1 ; i < n+1 ; i++)
+    {
+        cin>>arr[i];
+    }
+
+            for(ll i = 1; i < n+1 ; i++)
+    {
+        if(arr[i]>=arr[k] && arr[i]!=0){
+        cnt++;    
+    }
+  }
+  cout<<cnt;
+
+}
