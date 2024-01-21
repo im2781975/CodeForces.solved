@@ -86,3 +86,18 @@ ll min(ll a, ll b, ll c) {
      if (b <= c && b <= a) return b;
    return c;
 }
+ bool val(ll i, ll j, ll n, ll m) {
+    if (i < 0 || j < 0 || i >= n || j >= m) return false;
+     return true;
+}
+ bool check(ll x, ll n, ll k) {
+ 
+     ll a = k;
+     ll sum = x;
+     while (x / a > 0) {
+         sum += x / a;
+         a *= k;
+     }
+     if (sum >= n) return true;
+     return false;
+}
