@@ -391,3 +391,21 @@ ll pow(ll a,ll x,ll m){
     }
      return count;
  }
+ll geo(ll a,ll x,ll m){
+     if(x==1){
+        return 1;
+
+     }
+     if(x==2){
+         return (1+a)%m;
+     }
+     ll temp=geo(a,x/2,m)%m;
+     ll p=pow(a,x/2,m)%m;
+     ll p1=pow(a,x-1,m)%m;
+      cout<<temp<<endl;    
+     if(x%2==0){
+         return (temp*(1+p))%m;
+     }else{
+         return ((temp*(1+p))%m+p1%m)%m;
+     }
+}
