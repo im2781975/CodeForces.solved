@@ -80,3 +80,66 @@ ll fin(int n,map<vector<vector<int> >,int> &m,vector<vector<int> > a){
          }
      }
 }
+vector<vector<int> > b(n-1,vector<int>(n-1));
+     int x=0;
+     int y=0;
+     for(int i=0;i<n;i++){
+         for(int j=0;j<n;j++){
+             if(a[i][j]==1){
+                 x=i;
+                 y=j;
+                 goto l;
+             }
+         }
+     }
+     l:
+     cout<<x<<y<<endl;
+     for(int i=0;i<n;i++){
+         for(int j=0;j<n;j++){
+             if(i==x || j==y){
+                 continue;
+             }
+
+             if(i<x && j<y){
+                 b[i][j]=a[i][j];
+            }else if(i<x && j>y){
+                 b[i][j-1]=a[i][j];
+             }else if(i>x && j<y){
+                 b[i-1][j]=a[i][j];
+             }else{  
+                 b[i-1][j-1]=a[i][j];
+             }
+         }
+     }
+    a[x][y]=0;
+     ll ans1=fin(n,m,a);
+     ll ans2=fin(n-1,m,b);
+      cout<<m[c]<<endl;
+     a[x][y]=1;
+     m[a]=ans1+ans2;
+     return m[a];
+}
+ void ta(int x,int y,int n,int m,vector<vector<char> > &a,vector<vector<int> > &b,int count,string s,string* c){
+     if(x<0 || y<0 || x>=n || y>=m){
+         return;
+     }
+     if(b[x][y]<=count && b[x][y]!=-1){
+         return;
+     }
+    
+     if(a[x][y]=='#'){
+         b[x][y]=-1;
+         return;
+     }
+     b[x][y]=count;
+
+     if(a[x][y]=='B'){
+         *c=s;
+         return;
+     }
+     ta(x+1,y,n,m,a,b,count+1,s+"D",c);
+     ta(x-1,y,n,m,a,b,count+1,s+"U",c);
+     ta(x,y+1,n,m,a,b,count+1,s+"R",c);
+     ta(x,y-1,n,m,a,b,count+1,s+"L",c);
+     return;
+}
