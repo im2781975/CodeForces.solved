@@ -180,4 +180,57 @@ long long x,y,z,x2,y2,z2,c;
    if(x%z&&y%z) c++;
    cout<<c;
 ------
-
+int main()
+{
+    int h,n,f,c;
+    cin>>n>>h;
+    for(int i=0;i<n;i++)
+    {
+        cin>>f;
+        if(f>h)
+            c+=2;
+        else
+            c+=1;
+    }
+    cout<<c;
+}
+int main()
+{
+    int l,b,count;
+   cin>>l>>b;
+    while(1)
+   {
+       if(l>b)
+        {
+           //count++;
+           break;
+        }
+        else
+        {
+            l=l*3;
+            b=b*2;
+            count++;
+        }
+    }
+    cout<<count;
+}
+int main()
+{
+    int x=0;
+    for(int i=0 ; i<5 ; i++)
+    {
+        for(int j=0 ; j<5 ;j++)
+        {
+            cin>>x;
+            if(x==1)
+                {
+                    cout<<(abs(j-2)+abs(i-2));
+                    return 0;
+                }
+        }
+    }
+}
+int main()
+{
+    
+}
