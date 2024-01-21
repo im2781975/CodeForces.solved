@@ -34,3 +34,15 @@ vector<ll> primeFactors(ll n)
         v.push_back(n);
     return v;
 }
+void findCombination(vector<char> sv,ll dis,ll k,vector<string> &total,string temp,ll count){
+    if(count==dis){
+        if(temp.size()==k){
+            total.push_back(temp);
+        }
+        return;
+    }
+    findCombination(sv,dis,k,total,temp,count+1);
+    temp+=sv[count];
+    findCombination(sv,dis,k,total,temp,count+1);
+    return;
+}
