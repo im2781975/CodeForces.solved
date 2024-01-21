@@ -146,3 +146,71 @@ ll min(ll a, ll b, ll c) {
         a=a-4*(i-1)*(i-2);
       cout<<a<<endl;
     }
+-----
+    int n;
+    cin>>n;
+   ll count=0;
+    ll x=1,a=1;
+    const unsigned int M = 1000000007;
+    cout<<(1<<n)%M<<endl;
+   for(int i=0;i<n;i++)
+   {
+       x=2*x%M;
+   }
+   cout<<x<<endl;
+-----/
+   const unsigned int M = 1000000007;
+   ll t;
+   cin>>t;
+   while(t--)
+   {
+       ll a,b;
+       cin>>a>>b;
+ 
+        while(1)
+       {
+           if(a==0||b==0)
+             break;
+           else if((a+b)%3!=0){
+ 
+            break;
+           }
+           if((a%3==0)&&(b%3==0))
+           {
+               a=0;
+               b=0;
+               break;
+           }
+           else
+          {
+           if(a>b)
+           {
+               a=a-2;
+               b=b-1;
+           }
+           else{
+            a=a-1;
+            b=b-2;
+           }
+           }
+       }
+       if(a==0&&b==0)
+       {
+           cout<<"YES"<<endl;
+       }
+       else
+        cout<<"NO"<<endl;
+ 
+   }
+-------
+   ll t;
+   cin>>t;
+   while(t--)
+   {
+       ll a,b;
+       cin>>a>>b;
+       if((2*a-b)%3==0&&(2*a-b)>=0&&(2*b-a)%3==0&&(2*b-a)>=0)
+        cout<<"YES"<<endl;
+       else
+        cout<<"NO"<<endl;
+   }
