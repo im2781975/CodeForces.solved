@@ -72,4 +72,23 @@ int main() {
 
     return 0;
 }
+-----
+ll traverse(ll a, ll b, ll m,ll n, set<int> s, vector<vector<int> > final){
+     if(s.count(final[a][b])==1){
+         return 0;
+
+     }
+     if(a==m-1 && b==n-1){
+         return 1;
+     }
+     s.insert(final[a][b]);
+     if(a>=m-1){
+         return traverse(a,b+1,m,n,s,final);
+     }
+     if(b>=n-1){
+         return traverse(a+1,b,m,n,s,final);
+     }
+     return traverse(a+1,b,m,n,s,final)+traverse(a,b+1,m,n,s,final);
+ }
+------
 
