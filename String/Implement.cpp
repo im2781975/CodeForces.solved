@@ -237,3 +237,61 @@ int main()
 	}
 	return 0;
 }
+#include<iostream>
+
+using namespace std;
+
+int t;
+char op;
+int y;
+
+int main()
+{
+	cin>>t;
+	while(t--)
+	{
+		cin>>op>>y;
+		if(op>='a'&&op<='z') cout<<-(op-'a'+1)+y<<endl;
+		else cout<<op-'A'+y+1<<endl; 
+	}
+	return 0;
+}
+
+
+#include<iostream>
+#include<stdio.h>
+#include<cstring>
+using namespace std;
+
+char a[40000],b[40000];
+void pop(char *s)
+{
+	int i,len=strlen(s)-1;
+	for(i=len;i>=0;i--)
+	{
+		if(s[i]=='0') len--;
+		else break;
+	}
+	if(s[i]=='.') len--;
+	s[len+1]='\0';
+}
+
+int main()
+{
+	int i;
+	while(scanf("%s%s",a,b)!=EOF)
+	{
+		for(int i=0;i<strlen(a);i++)
+		{
+			if(a[i]=='.') pop(a);
+		}
+		for(int i=0;i<strlen(b);i++)
+		{
+			if(b[i]=='.') pop(b);
+		}
+		if(strcmp(a,b))
+		cout<<"NO"<<endl;
+		else cout<<"YES"<<endl;
+	}
+	return 0;
+}
