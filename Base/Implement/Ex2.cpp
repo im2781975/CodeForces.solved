@@ -21,3 +21,16 @@ ll modinv(ll a, ll m){
         return x;
     }
 }
+int fact(int n)
+ {
+     int b = 1;
+     while (n > 0)
+     {
+         b *= n;
+        n -= 1;
+         if (b >= 998244353)
+            b %= 998244353;
+     }
+
+    return b;
+}
