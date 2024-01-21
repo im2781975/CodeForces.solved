@@ -1,3 +1,19 @@
+ll dfs(int node,vector<vector<int> > &adj,int visited[],int parent){
+     int count=0;
+     for(int i=0;i<adj[node].size();i++){
+         int child=adj[node][i];
+         if(child==parent){
+             continue;
+         }
+         if(visited[child]==0){
+             visited[child]=1;
+             count+=dfs(child,adj,visited,node);
+         }else{
+             count++;
+        }
+     }
+     return count;
+ }
 void dfs(int node,vector<vector<int> > &adj,int visited[],int len[],int in[]){
      for(int i=0;i<adj[node].size();i++){
          int child=adj[node][i];
