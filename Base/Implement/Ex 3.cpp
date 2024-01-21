@@ -70,5 +70,22 @@ int x1, y1, x2, y2;
 }
 int main()
 {
-    
+    int main() {
+
+
+    int n, m;
+
+    scanf("%d %d", &n, &m);
+
+    int cnt = (n + 1) / 2;
+    int ans = (cnt  + m - 1) / m * m;
+
+    if (ans > n) {
+        ans = -1;
+    }
+    printf("%d", ans);
+
+return 0;
+
+}
 }
