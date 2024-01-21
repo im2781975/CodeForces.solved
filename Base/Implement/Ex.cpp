@@ -212,3 +212,120 @@ int main()
 	}
 	return 0; 
 }
+#include<iostream>
+
+using namespace std;
+
+int a,b,c,d,e,f;
+int n;
+int main()
+{	
+	cin>>n;
+	while(n--)
+	{
+		cin>>a>>b>>c>>d>>e>>f;
+		c+=f;
+		if(c>=60) 
+		{
+			b+=c/60;
+			c=c%60;
+		} 
+		//cout<<b<<" "<<c<<endl;
+		b+=e;
+		if(b>=60)
+		{
+			a+=b/60; 
+			b%=60;
+		}
+		cout<<a+d<<" "<<b<<" "<<c<<endl; 
+	}
+	return 0;
+}
+*
+#include<iostream>
+#include<algorithm>
+#include<stdio.h>
+using namespace std;
+
+int n,k;
+double a[101];
+int main()
+{
+	cin>>n;
+	while(n--)
+	{
+		cin>>k;
+		for(int i=0;i<k;i++)
+		{
+			cin>>a[i];
+		}	
+		sort(a,a+k);
+		printf("%.2lf\n",a[k-1]);
+	}
+	return 0;
+}
+
+
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+typedef long long ll;
+ll f(int n)
+{
+	if(n<=1) return n; 
+	ll a=0,b=1;
+	for(int i=1;i<n;i++)
+	{
+		ll c=a+b;
+		a=b;
+		b=c;
+	}
+	return b;
+} 
+
+int main()
+{
+	int n;
+	while(scanf("%d",&n),n!=-1)
+	{
+		cout<<f(n)<<endl;
+	}
+	return 0;
+}
+
+*
+
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main()
+{
+	long long a,b;
+	while(cin>>hex>>a>>b)
+	{
+		if(a+b<0)
+		{
+			cout<<setiosflags(ios::uppercase)<<hex<<"-"<<-(a+b)<<endl;
+		}
+		else cout<<setiosflags(ios::uppercase)<<hex<<a+b<<endl;
+	}
+	return 0;
+}
+*
+#include<iostream>
+
+using namespace std;
+
+int a,b;
+int t;
+int main()
+{
+	cin>>t;
+	while(t--)
+	{
+		cin>>a>>b;
+		if(a%b==0) cout<<"YES"<<endl;
+		else cout<<"NO"<<endl;	
+	}
+	return 0; 
+} 
