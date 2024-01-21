@@ -422,3 +422,70 @@ vector<int> v2 = v1;
  }
      }
  v.push_back(v1);
+-----
+int n,m;
+ 		cin>>n>>m;
+ 		vector<int> a(n);
+ 		vector<int> c(n,0);
+ 		vector<int> b(n+m+1,0);
+             cout<<endl;
+ 		for(int i=0;i<n;i++) cin>>a[i];
+          for (int i = 0; i < a.size(); i++)
+{
+                 cout<<a[i]<<" ";
+             }
+             cout<<endl;
+             cout<<endl;
+
+            for (int i = 0; i < b.size();  i++)
+             {
+                 cout<<b[i]<<" ";
+             }                        cout<<endl; 
+            for (int i = 0; i < c.size(); i++)
+             {
+               cout<<c[i]<<" ";
+            }
+                        cout<<endl;
+
+		for(int i=1;i<=m;i++){
+ 			int x,y;
+ 			cin>>x>>y;
+ 			x--;
+ 			b[a[x]]+=i-c[x];
+ 			c[x]=i;
+ 			a[x]=y;
+             for (int i = 0; i < a.size(); i++)
+             {
+                 cout<<a[i]<<" ";
+             }
+             cout<<endl;
+
+             for (int i = 0; i < b.size();  i++)
+             {
+                 cout<<b[i]<<" ";
+             }
+                 cout<<endl;
+
+             for (int i = 0; i < c.size(); i++)
+             {
+                 cout<<c[i]<<" ";
+             }                        cout<<endl;
+            }
+ 		m++;
+ 		for(int i=0;i<n;i++) b[a[i]]+=m-c[i];
+
+       for (int i = 0; i < b.size();  i++)
+             {
+                 cout<<b[i]<<" ";
+             }
+		int ans=0;
+ 		for(int i=0;i<sz(b);i++){
+ 			ans+=((b[i]*(m-b[i]))+((b[i]*(b[i]-1))/2));
+             cout<<ans<<" ";
+ 		}
+         cout<<endl;
+ 		cout<<ans<<endl;
+        cout<<endl;
+ 	}
+	return 0;
+ }
