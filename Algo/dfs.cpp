@@ -1,3 +1,19 @@
+void dfsdp(int node,vector<vector< int> > &adj,int visited[],int* x){
+    if(*x>=1000000){
+        return;
+    }
+    *x=*x+1;
+    visited[node]=1;
+    for(int i=0;i<adj[node].size();i++){
+        int child=adj[node][i];
+        if(!visited[child]){
+            dfsdp(child,adj,visited,x);
+        }
+        
+    }
+    visited[node]=0;
+    return;
+}
 ll dfsbipartite(ll node,vector<vector<ll> > &adj,ll visited[],ll color[]){
      cout<<node<<endl;
      for(int i=0;i<4;i++){
