@@ -399,3 +399,19 @@ void palindrome(int n)
     else
         cout<<val<<" is not a palindrome"<<endl;
 }
+-----
+string s;
+      cin>>s;
+      if( s.size() > 10)
+      {
+        for(ll i = 0 ; i < s.size() ; i++)
+        {
+            cout<<s[0] << s.size() - 2 << s[s.size()-1]<<ed;
+            break;
+        }
+      }
+      else
+      {
+        cout<<s<<ed;
+      }
+   }
