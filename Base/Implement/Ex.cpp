@@ -409,3 +409,27 @@ ll geo(ll a,ll x,ll m){
          return ((temp*(1+p))%m+p1%m)%m;
      }
 }
+------
+bool plin(int index)
+{
+    ll arr[N];
+    int n;
+    if(index == n)
+    {
+        return 1;
+    }
+    return (arr[index] == arr[n - index -1]) && plin(index + 1);
+ 
+}
+ 
+bool isPrime()
+{
+    int n;
+    if (n <= 1)
+        return false;
+    for (int i = 2; i <= sqrt(n); i++)
+        if (n % i == 0)
+            return false;
+ 
+    return true;
+}
