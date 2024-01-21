@@ -1,0 +1,74 @@
+int main() {
+
+    int n, m, a, b;
+
+    scanf("%d %d %d %d", &n, &m, &a, &b);
+    int price = 0;
+
+    int c=a*m;
+    int d, e, f, g, h, k, l;
+    if(c<b||c==b) printf("%d",a*n);
+    else if(c>b){
+        if(n%m==0) printf("%d", b*(n/m));
+        else if(n%m!=0){
+            d=n/m+1;
+            e=d*b;
+
+            f=n%m;
+            g=f*a;
+            h=n/m;
+            k=h*b;
+            l=g+k;
+            printf("%d",min(e,l));
+        }
+    }
+
+    return 0;
+}
+int main()
+{
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int sum;
+    scanf("%d", &sum);
+
+    if (sum >= 0) {
+        printf("%d",sum);
+    } else {
+        int a = -sum/10%10;
+        int b = -sum%10;
+        printf("%d",a > b ? sum/100*10-b : sum/10);
+    }
+
+    return 0;
+
+
+}
+int main()
+{
+int x1, y1, x2, y2;
+
+    scanf("%d %d %d %d", &x1, &y1, &x2, &y2);
+    if(abs(x1-x2)==abs(y1-y2))
+        printf("%d %d %d %d", x1, y2, x2, y1);
+    else if(x1 == x2 || y1 == y2) {
+
+        float l = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+
+        if(x1==x2) {
+            printf("%d %d %d %d", x1+(int)l, y1, x1+(int)l, y2);
+        } else
+            printf("%d %d %d %d", x1, y1+(int)l, x2, y2+(int)l);
+    } else
+    printf("-1");
+
+    return 0;
+
+}
+int main()
+{
+    
+}
