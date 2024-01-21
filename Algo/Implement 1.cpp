@@ -122,3 +122,51 @@ int main()
 	cout<<mp[1][2021]<<endl;
 	return 0;
 }
+#include<iostream>
+typedef long long ll;
+using namespace std;
+int n,m;
+int g[10][10];
+int st[10][10];
+int dx[4]={-1,0,1,0};
+int dy[4]={0,1,0,-1};
+int ans=100,sum=0;
+int total;
+void dfs(int x,int y,int total,int s)
+{
+	if(total==sum/2)
+	{
+		ans=min(ans,s);
+		return ;
+	}
+	if(total>sum/2) return ;
+	for(int i=0;i<4;i++)
+	{
+		int nx=x+dx[i],ny=y+dy[i];
+		if(st[nx][ny]==0&&nx>=0&&ny>=0&&nx<n&&ny<m) 
+		{
+			st[nx][ny]=1;
+			dfs(nx,ny,total+g[nx][ny],s+1);
+			st[nx][ny]=0;
+		}
+	}
+}
+
+int main()
+{
+	ios::sync_with_stdio(false);
+	cin.tie(0),cout.tie(0);
+	cin>>m>>n;
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<m;j++)
+		{
+			cin>>g[i][j];
+			sum+=g[i][j];
+		}
+	}
+	st[0][0]=1;
+	dfs(0,0,g[0][0],1);
+	if(ans!=100) cout<<ans<<endl;
+	return 0;
+}
