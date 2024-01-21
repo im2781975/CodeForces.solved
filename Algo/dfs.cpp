@@ -1,3 +1,58 @@
+void dfs(int node,vector<vector<int> > &adj,int visited[],int len[],int in[]){
+     for(int i=0;i<adj[node].size();i++){
+         int child=adj[node][i];
+         len[child]=maxi(len[child],len[node]+1);
+         if(visited[child]==0){
+             visited[child]=1;
+             dfs(child,adj,visited,len,in);
+         }
+        
+     }
+}
+ int dfs(int node,vector<vector<int> > &adj,int visited[],int parent,int *sum){
+     *sum=*sum+1;
+     int count=0;
+     int counter=0;
+     for(int i=0;i<adj[node].size();i++){
+        
+                 if(adj[node][i]==node){
+                     count++;
+             continue;
+         }
+         int child=adj[node][i];
+         if(visited[child]==0){
+             visited[child]=1;
+             int a=dfs(child,adj,visited,node,sum);
+            count+=a+1;
+         }else{
+             if(counter==1){
+                 count++;
+             }else{
+                 if(child!=parent){
+                     count++;
+                }else{
+                     counter=1;
+                 }
+             }
+         }
+     }
+     return count;
+}
+int dfs(int node,vector<vector<int> > &adj,int visited[],int dp[]){
+    int count=0;
+    for(int i=0;i<adj[node].size();i++){
+        int child=adj[node][i];
+        if(visited[child]==0){
+            visited[child]=1;
+            int a=dfs(child,adj,visited,dp);
+            count=max(count,a+1);
+        }else{
+            count=max(count,dp[child]+1);
+        }
+    }
+    dp[node]=count;
+    return count;
+}
 void dfsdp(int node,vector<vector< int> > &adj,int visited[],int* x){
     if(*x>=1000000){
         return;
