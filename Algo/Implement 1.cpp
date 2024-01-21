@@ -238,3 +238,17 @@ int binarySearch4(vector<int> arr, int l, int r, int x)
     }
     return result + 1;
 }
+-----
+bool check(ll k, string &s, ll x) {
+     map<char, ll>m;
+     ll n = s.length();
+     for (ll i = 0; i < k; i++) m[s[i]]++;
+     if (m.size() >= x) return true;
+     for (ll i = k; i < n; i++) {
+         m[s[i - k]]--;
+        if (m[s[i - k]] == 0) m.erase(s[i - k]);
+        m[s[i]]++;
+         if (m.size() >= x) return true;
+     }
+    return false;
+}
