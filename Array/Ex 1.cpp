@@ -61,3 +61,87 @@ int arr[]={1,2,3,4,3,2,1};
     display(a);
     cout<<sizeof(int)<<endl;
     cout<<((a<<3)|(a>>(8-3)));
+----
+  int x=0,arr[3]={0},count = 0,result=0;
+    cin>>x;
+    for(int j=0 ; j<x ; j++)
+    {
+        for(int i=0; i<3; i++)
+            {
+                cin>>arr[i];
+                if(arr[i]==1)
+                    count++;
+            }
+            if(count >= 2 )
+                result+=1;
+
+            count=0;
+
+    }
+    cout<<result;
+}
+int main()
+{
+int size=0;
+cin>>size;
+int arr[size];
+for(int i=0; i<size ; i++)
+    {
+        cin>>arr[i];
+    }
+
+sort(arr,arr+size);
+
+    for(int i=0; i<size ; i++)
+        cout<<arr[i]<<" ";
+}
+int main()
+{
+int s ,ser =0 ,dem =0 , left= 0 ,right ;
+bool flag =true ;
+  cin>>s ;
+    int arr[s];
+    right = s ;
+  for(int i = 0 ; i < s ; i++ )
+        {
+            cin>>arr[i];
+        }
+        if(s == 1){
+            cout<<arr[0] <<" " << 0 ;
+            return 0 ;
+        }
+        else {
+              for(int i = 0 ; i < s ; i++ )
+              {
+                  if(flag == true )
+                  {
+                      if(arr[ right -1 ] >= arr[left]){
+                            ser +=arr[right-1];
+                            right-=1;
+                      }
+                      else if(arr[ right -1 ] < arr[left]){
+                            ser +=arr[left];
+                            left+=1 ;
+                          }
+                     flag =false ;
+                     continue ;
+                  }
+
+
+                  if(flag == false )
+                  {
+                      if(arr[ right -1 ] >= arr[left]){
+                            dem +=arr[right-1];
+                            right-=1;
+                      }
+                      else if(arr[ right -1 ] < arr[left]){
+                            dem +=arr[left];
+                            left+=1 ;
+                          }
+                     flag =true ;
+
+                  }
+              }
+        }
+cout<<ser << " " <<dem ;
+}
