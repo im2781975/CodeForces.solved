@@ -77,3 +77,12 @@ ll C(ll n, ll r)
     ll deno = (inv(fact[n-r]) * inv(fact[r])) % mod;
     return (nume * deno) % mod;
 }
+ll ceil(ll i, ll j) {
+    if (i % j == 0) return i / j;
+     return (i / j) + 1;
+}
+ll min(ll a, ll b, ll c) {
+     if (a <= b && a <= c) return a;
+     if (b <= c && b <= a) return b;
+   return c;
+}
