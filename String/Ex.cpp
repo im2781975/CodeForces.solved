@@ -124,3 +124,16 @@ int findSumstr(string str)
     }
     return sum + atoi(temp.c_str());
 }
+void solve( int n , string red , vector<string> red_or_blue)
+{
+    for(ll i = 0 ; i < n ; i++)
+    {
+        if(red_or_blue[i] == red)
+        {
+            cout << "R" <<ed;
+            return;
+        }
+    }
+
+    cout<< "B" <<ed;
+}
