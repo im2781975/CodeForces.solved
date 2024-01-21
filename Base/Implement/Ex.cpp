@@ -370,3 +370,15 @@ int main(){
 	}
 	return 0;
 }
+ll pow(ll a,ll x,ll m){
+    if(x==0){
+        return 1;
+    }
+    ll temp=pow(a,x/2,m)%m;
+    temp=(temp*temp)%m;
+    if(x%2==0){
+        return temp%m;
+    }else{
+        return (temp*a)%m;
+    }
+}
