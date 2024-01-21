@@ -411,3 +411,24 @@ int main(){
     cout<<count<<endl;
     return 0;
 }
+---
+ int cnt = 0;
+int i, j;
+for (i = 0; i < n; i++){
+
+     for (j = i+1; j < n; j++){
+
+        if(v[j]>= v[i]){
+             cnt++;
+             if(j == n-1){
+                cnt--;
+             }
+         }
+         else {
+             i = j;
+             if(cnt > 0){
+                cnt--;
+             }
+             break;
+         }
+ cout<<n-cnt<<endl;
