@@ -143,3 +143,67 @@ vector<vector<int> > b(n-1,vector<int>(n-1));
      ta(x,y-1,n,m,a,b,count+1,s+"L",c);
      return;
 }
+int olusola(int n,int x, int y){
+vector<int> v(4);
+
+v[0] = x;
+v[1] = y;
+v[2] = n+1-x;
+v[3] = n+1-y;
+
+sort(v.begin(),v.end());
+
+return v[0];
+}
+void solve_tc()
+{
+ int n, x1, y1, x2, y2;
+ cin>>n>>x1>>y1>>x2>>y2;
+int n,k; cin>>n>>k;
+vector<int> v(n);
+for(int i=0; i<n; i++) {
+    cin>>v[i];
+}
+sort(v.rbegin(),v.rend());
+
+int me = v[k-1];
+int cnt = 0;
+for (int i = 0; i < n; i++)
+{
+    if(v[i] == 0){
+        continue;
+    }
+    if(v[i] >= me){
+        cnt++;
+    }
+}
+cout<<cnt<<endl;
+-----
+ vector<int> a1 = a;
+ sort(a.begin(),a.end());
+ sort(b.begin(),b.end());
+
+ for (int i = 0; i < n; i++)
+{
+     int index = binarySearch(a, 0, n-1, a1[i]);
+     cout<<b[index]<<" ";
+ }
+cout<<endl;
+--
+ for (int i = 0; i<n; i++){
+    
+     int cnt = 0;
+    for (int j = i; j < n; j++)
+     {
+        if(b[i]<a[j]){
+             cnt++;
+         }
+         else {
+             break;
+         }
+     }
+     ans = ans % 1000000007;
+     cnt = cnt % 1000000007;
+     ans = ans*cnt;
+     }
+ cout<<ans<<endl;
