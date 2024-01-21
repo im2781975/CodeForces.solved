@@ -433,3 +433,11 @@ bool isPrime()
  
     return true;
 }
+void sieve()
+{
+    for(int i=2; i<maxn; i++) isprime[i]=1;
+    for(int i=2; i*i<maxn; i++) if(isprime[i])
+        {
+            for(int j=i*i; j<maxn; j+=i) isprime[j]=0;
+        }
+}
