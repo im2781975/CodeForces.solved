@@ -34,3 +34,15 @@ vector<ll> primeFactors(ll n)
         v.push_back(n);
     return v;
 }
+bool prime[1000000 + 1];
+vector<int> parent(1000000 + 1);
+vector<int> siz(1000000 + 1);
+int find_set(int v) {
+    if (v == parent[v])
+        return v;
+    return parent[v] = find_set(parent[v]);
+}
+void make_set(int v) {
+    parent[v] = v;
+    siz[v] = 1;
+}
