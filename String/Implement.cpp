@@ -416,3 +416,131 @@ string s;
       }
    }
 ------
+int Q12()
+{
+    int s,ca,cd;
+
+  string str;
+    cin>>s;
+    cin>>str;
+    while(s)
+    {
+        s--;
+        if(str[s]=='D')
+            cd+=1;
+        else if(str[s]=='A')
+            ca+=1;
+    }
+       if(cd>ca)
+        cout<<"Danik";
+    else if(ca>cd)
+        cout<<"Anton";
+    else if(ca==cd)
+        cout<<"Friendship";
+}
+int main()
+{
+    string s1,s2;
+ cin>>s1>>s2;
+ for(int i=0; i<s1.length() ; i++ )
+ {
+     s1[i] = tolower(s1[i]);
+     s2[i] = tolower(s2[i]);
+ }
+ if(s1>s2)
+    cout<<"1";
+ else if(s1<s2)
+    cout<<"-1";
+ else
+    cout<<"0";
+}
+int main()
+{
+    int check[26] ={0} , ans = 0 ,len ;
+char str[100] ={'0'};
+//scanf("%s",&str);
+//scanf("%s",&str)==1
+ while(scanf("%s",&str))
+ {
+     int temp = 0 ;
+     len = strlen(str);
+     for(int i=0;i<len;i++)
+     {
+         temp = str[i] - 97 ;
+         check[temp]++ ;
+     }
+
+  for(int j=0 ; j<26 ; j++)
+     {
+         if(check[j]>=1)
+            ans++;
+
+     }
+
+if(ans%2==0)
+     printf("CHAT WITH HER!\n");
+else
+     printf("IGNORE HIM!\n");
+
+    return 0;
+}
+int main()
+{
+    string s ;
+int l=0 , n = 0 ;
+cin >> s ;
+for(int i=0 ; i< s.length() ; i ++ )
+{
+    if(s[i]>= 65 && s[i]<= 90 )
+        l++;
+    else
+        n++;
+}
+if(l>n)
+{   for(int i=0 ; i< s.length() ; i ++ )
+    {
+        s[i]=toupper(s[i]);
+
+    }
+    cout<<s;
+}
+else
+{
+    for(int i=0 ; i< s.length() ; i ++ )
+    {
+        s[i]=tolower(s[i]);
+
+    }
+    cout<<s;
+}
+}
+int main()
+{
+    int s ,c = 0 ;
+string s_old ,s_new ;
+cin >>s ;
+cin>>s_old;
+c=1;
+for(int i = 0 ; i < s-1 ; i++)
+{    cin>>s_new ;
+        if(s_new != s_old)
+        {
+            c++;
+            s_old = s_new ;
+        }
+}
+cout<<c ;
+}
+int main()
+{
+    int x , c = 0;
+string str ;
+cin >> x ;
+cin >> str ;
+for(int i = 0 ; i < (x - 1) ; ++i ){
+    if( str[ i ] == str [ i + 1 ])
+        c++ ;
+}
+
+cout<<c;
+}
