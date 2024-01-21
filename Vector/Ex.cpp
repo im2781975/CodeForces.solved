@@ -207,3 +207,41 @@ cout<<endl;
      ans = ans*cnt;
      }
  cout<<ans<<endl;
+----
+int cnt = 0;
+ int n; cin>>n;
+ vector<int> v(n);
+ for (int i = 0; i < n; i++){
+     cin>>v[i];  
+ }
+cout<<"ME"<<endl;
+int i =0, j = n-1;
+ vector<int> v1;
+
+ int diff = 0, diff1 = 1;
+ while(i <= j){
+     if(v[i] !=v[j]){
+         diff = abs(v[i] - v[j]);
+         diff1 = min(v[i], v[j]);
+         break;
+     }
+     i++; j--;
+ }
+ if(diff == 0){
+    cout<<0<<endl;
+        return;
+}
+-----
+ vector<int> v2(n);
+ vector<int> v3(n);
+ for (int i = 0; i < n; i++)
+ {
+    v2[i] = v[i] % diff;
+     if(diff1 != 0) {
+
+    v3[i] = v[i] % diff1;
+    }
+     else {
+         v3[i] = 0;
+    }
+}
