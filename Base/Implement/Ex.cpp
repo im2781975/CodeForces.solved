@@ -329,3 +329,44 @@ int main()
 	}
 	return 0; 
 } 
+#include<stdlib.h>
+#include<stdio.h>
+using namespace std;
+
+int main()
+{
+	char s[1000];
+	double a,b,ans;
+	while(~scanf("%s",s))
+	{
+		scanf("%lf%lf",&a,&b);
+		ans+=a*b;
+	}
+	printf("%.1lf\n",ans);
+	return 0;
+} 
+*
+#include<iostream>
+
+using namespace std;
+int t;
+int a,b;
+
+int solve(int a,int b)
+{
+	a=a%100;
+	b=b%100;
+	a+=b;
+	return a%100; 
+}
+
+int main(){
+	cin>>t;
+	while(t--)
+	{
+		cin>>a>>b;
+		
+		cout<<solve(a,b)<<endl;
+	}
+	return 0;
+}
