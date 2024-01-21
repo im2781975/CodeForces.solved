@@ -77,3 +77,55 @@ int main()
 	
 	return 0;
 }
+#include<iostream>
+#include<stdio.h>
+#include<algorithm>
+#include<cstring> 
+#include<iomanip>
+using namespace std;
+
+struct Stu{
+	char name[1000];
+	int sn;
+	int st;
+}stu[1000];
+
+int n,m;
+int cmp(Stu x,Stu y)
+{
+	if(x.sn==y.sn) 
+	{
+		return x.st<y.st;
+	}
+	return x.sn>y.sn;
+}
+int main()
+{
+	cin>>n>>m;
+	int p=0;
+	while(cin>>stu[p].name)
+	{
+		for(int i=0;i<n;i++)
+		{
+			char ch;
+			int k,l;
+			cin>>k;
+			if(k<=0) continue;
+			stu[p].sn++;
+			stu[p].st+=k;
+			if(getchar()=='(')
+			{
+				cin>>l;
+				cin>>ch;
+				stu[p].st+=l*m;
+			}
+		}
+		p++;
+	}
+	sort(stu,stu+n,cmp);
+	for(int i=0;i<p;i++)
+	{
+		cout<<left<<setw(10)<<stu[i].name<<" "<<right<<setw(2)<<stu[i].sn<<right<<" "<<setw(4)<<stu[i].st<<endl;
+	}
+	return 0;
+} 
