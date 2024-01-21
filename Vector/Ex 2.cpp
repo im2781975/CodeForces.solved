@@ -195,3 +195,70 @@ ll n;
         for(ll i=0;i<set2.size();i++)
             cout<<set2[i]<<" ";
 }
+------
+void func_A()
+{
+     int n;
+     cin>>n;
+     vector<int> v;
+     for(int i=0;i<n;i++)
+     {
+         int x;
+         //scanf("%d",&x);
+         cin>>x;
+         v.push_back(x);
+     }
+      if(Min(v)==1)
+        cout<<element(v)<<endl;
+     else
+      cout<<Min(v)+1<<endl;
+}
+int n;
+    cin>>n;
+    vector<int> v;
+    for(int i=0;i<n;i++)
+    {
+        ll x;
+        cin>>x;
+        v.push_back(x);
+    }
+    sort(v.begin(),v.end(),greater<int>());
+    ll count=0;
+    ll m=v[0];
+    ll *p;
+    p=new ll[m+1];
+    for(int i=0;i<m+1;i++)
+        p[i]=0;
+    for(ll i=0;i<n;i++)
+    {
+        p[v[i]]++;
+    }
+    for(ll i=0;i<m+1;i++)
+    {
+        if(p[i]!=0)
+        count++;
+    }
+    cout<<count<<endl;*/
+    int t;
+    cin>>t;
+    while(t--)
+    {
+         func_A();
+ 
+    }
+   int n;
+    cin>>n;
+    vector<int> v,v2;
+    for(int i=0;i<n;i++)
+    {
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+    int x=0;
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]%2==0)
+            x=i;
+    }
+    cout<<x<<endl;
