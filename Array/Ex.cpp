@@ -432,3 +432,30 @@ for (i = 0; i < n; i++){
              break;
          }
  cout<<n-cnt<<endl;
+-----
+ while(k>0){
+if(a[i]+a[i-1] < a[j]){
+     i+=2;
+    k--;
+ }
+else if(a[i]+a[i-1] > a[j]){
+     j--;
+    k--;
+}
+ else if(a[i]+a[i-1] == a[j] && k>=2){
+     i+=2;
+    j--;
+     k-=2;
+}
+else {
+    j--;
+     k--;
+}
+}
+ i--;
+ int sum = 0;
+for (int k = i; k <= j; k++)
+{
+   sum += a[k];
+ }
+cout<<sum<<endl;
