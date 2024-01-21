@@ -150,3 +150,34 @@ int main()
 	cout<<q(a,b,p)<<endl;	
 	return 0;
 }
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int n,m;
+vector<int> res; 
+int main()
+{
+	while(cin>>n>>m)
+	{
+		int sum=0;
+		for(int i=1;i<=n;i++)
+		{
+			sum+=i*2;
+			if(i%m==0)
+			{
+				res.push_back(sum/m);
+				sum=0;
+			}
+		}
+		if(n%m!=0) res.push_back(sum/(n%m));
+		cout<<res[0];
+		for(int i=1;i<res.size();i++)
+		{
+			cout<<" "<<res[i];
+		}
+		cout<<endl;
+		res.clear();
+	}
+	return 0;
+}
