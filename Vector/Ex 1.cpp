@@ -23,3 +23,35 @@
  		cout<<ans<<endl;
  	}
 -----
+int n,k;
+	    cin>>n>>k;
+	    vector<ll>vec(n);
+	    for(ll i=0;i<n;i++)
+	        cin >> vec[i];
+	        
+	    sort(all(vec));
+	    reverse(all(vec));
+	    ll val=vec[k-1];
+	   ll i=0;
+	   ll cnt=0;
+	   if(val==0)
+	   {
+	       ll cap=0;
+	       for(ll i=0;i<n;i++)
+	       {
+	           if(vec[i]>0)
+	           cap++;
+	       }
+	       cout << cap << endl;
+	   }
+	   else{
+	   while(vec[i]>=val &&  i<n){
+	       i++;
+	       cnt++;
+	   }
+	    cout << cnt << endl;
+	   }
+	    
+	} 
+    return 0;
+}
