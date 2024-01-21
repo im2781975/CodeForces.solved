@@ -340,3 +340,28 @@ int main()
 	}
 	return 0;
 }
+int countstring(string s){
+    if(s.length()==3){
+        int a=countstring(s.substr(0,s.length()/2));
+        int b=countstring(s.substr(s.length()/2,s.length()-s.length()/2));
+        if(s[0]==s[1]){
+            return a+b+1;
+        }else{
+            return a+b;
+        }
+    }
+    if(s.length()==2){
+        if(s[0]==s[1]){
+            return 1;
+        }else{
+            return 0;
+        }
+    }
+    if(s.length()==1){
+        return 0;
+    }
+    int a=countstring(s.substr(0,s.length()/2));
+    int b=countstring(s.substr(s.length()/2,s.length()-s.length()/2));
+    
+    return a+b;
+}
