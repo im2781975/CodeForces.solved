@@ -382,3 +382,12 @@ ll pow(ll a,ll x,ll m){
         return (temp*a)%m;
     }
 }
+/ ll pri(ll n){
+     ll count=0;
+    for(int i=2;i<=sqrt(n);i++){
+        if(n%i==0){
+             count++;
+         }
+    }
+     return count;
+ }
