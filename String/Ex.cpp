@@ -188,3 +188,19 @@ string s;
 		}
 	}
 	cout<<best<<endl;
+-----
+string s;
+    //getline(cin,s);
+    cin>>s;
+    cout<<s<<endl;
+    int k=s.length();
+    cout<<k<<endl;
+ 
+    bool answer =true;
+    int z=k-1;
+    for(int i=0;i<(k/2);i++)
+    {
+        if(s[i]!=s[z-i])
+            answer=false;
+    }
+    cout<<answer<<endl;
