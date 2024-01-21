@@ -493,3 +493,23 @@ int n ,k;
   cout<<cnt;
 
 }
+int si = 0 , co = 0 , temp = 0 ;
+ cin >> si ;
+ int host [ si ] , guest [ si ] ;
+
+  for(int  i = 0 ; i < si ; i++ )
+      cin >> host [ i ] >> guest [ i ] ;
+
+
+    for(int  i = 0 ; i < si ; i++ ){
+        temp = guest [ i ] ;
+        for(int j = 0 ; j < si ; j++)
+        {
+
+                if( temp == host [j] )
+                    co += 1 ;
+        }
+    }
+
+
+ cout <<co ;
