@@ -405,3 +405,68 @@ int main() {
     return 0;
 }
 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void sort(int* array, int size) {
+
+    int done = 0;
+
+    while(!done) {
+
+        done = 1;
+        for(int i = 0; i < size - 1; i++)
+            if(array[i] > array[i + 1]) {
+
+                int aux = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = aux;
+                done = 0;
+
+            }
+    }
+}
+
+int main() {
+
+
+    int n, v;
+    scanf("%d %d", &n, &v);
+
+    int* array = (int*)malloc(sizeof(int) * 50);
+    int k;
+    int* deals = (int*)malloc(sizeof(int) * 50);
+    int sizeDeals = 0;
+    int done;
+    for(int i = 0; i < n; i++) {
+
+        scanf("%d", &k);
+        done = 0;
+        for(int j = 0; j < k; j++) {
+
+            scanf("%d", &array[j]);
+            if(array[j] < v)
+                done = 1;
+
+        }
+
+        if(done)
+            deals[sizeDeals++] = i + 1;
+        done = 0;
+
+    }
+
+    if(sizeDeals != 0) {
+
+
+        sort(deals, sizeDeals);
+        printf("%d\n", sizeDeals);
+        for(int i = 0; i < sizeDeals; i++)
+            printf("%d ", deals[i]);
+
+    } else
+        printf("0");
+    return 0;
+
+}
