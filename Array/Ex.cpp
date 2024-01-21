@@ -379,3 +379,18 @@ int main()
 	}	
 	return 0;
 } 
+#include<iostream>
+using namespace std;
+int a[55];
+int n,k,m=0;
+int main()
+{
+	cin>>n>>k;
+	for(int i=1;i<=n;i++)
+		cin>>a[i];
+	k=a[k];
+	for(int i=1;i<=n;i++)
+		if(a[i]>=k&&a[i]) m++;
+	cout<<m<<endl;
+	return 0;
+} 
