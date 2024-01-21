@@ -34,3 +34,46 @@ int fact(int n)
 
     return b;
 }
+ll exp(ll a, ll b)
+{
+    ll res=1;
+    while(b)
+    {
+        if(b&1) res=(res*a);
+        a=(a*a);
+        b>>=1;
+    }
+    return res;
+}
+ll modexp(ll a, ll b)
+{
+    ll res=1;
+    while(b)
+    {
+        if(b&1) res=(res*a)%mod;
+        a=(a*a)%mod;
+        b>>=1;
+    }
+    return res;
+}
+ll sqt(ll x)
+{
+    ll start =1;
+    ll end = x;
+    while (end>start)
+    {
+        end = start+(end-start)/2;
+        start = x/end;
+    }
+    return end;
+}
+ll inv(ll a)
+{
+    return modexp(a, mod-2);
+}
+ll C(ll n, ll r)
+{
+    ll nume = fact[n];
+    ll deno = (inv(fact[n-r]) * inv(fact[r])) % mod;
+    return (nume * deno) % mod;
+}
