@@ -55,3 +55,61 @@ int n,k;
 	} 
     return 0;
 }
+-----
+ vector<ll> sieve(ll n)
+{
+     vector<bool> prime(n + 1, true);
+ 
+     prime[0] = false;
+    prime[1] = false;
+     ll m = sqrt(n);
+ 
+     for (ll p = 2; p <= sqrt(n); p++)
+     {
+        if (prime[p])
+        {
+ 
+            for (ll i = p * 2; i <= n; i += p) {
+                prime[i] = false;
+ 
+             }
+        }
+     }
+     vector<ll> ans;
+     for (ll i = 0; i < n; i++)
+         if (prime[i])
+             ans.push_back(i);
+     return ans;
+ }
+ ll findLowerBound(vector<pair<ll, ll> >& arr,pair<ll, ll>& p1)
+{     auto low = upper_bound(arr.begin(), arr.end(), p1);
+ 
+     return low - arr.begin();
+}
+ ll maxvec(vll &v) {
+     ll mx  = LLONG_MIN;
+     ll i;
+     rep(i, 0, v.size() - 1) mx = max(v[i], mx);
+     return mx;
+}
+ ll minvec(vll &v) {
+     ll mn  = LLONG_MAX;
+     ll i;
+    rep(i, 0, v.size() - 1) mn = min(v[i], mn);
+     return mn;
+}
+ ll sumvec(vll &v) {
+    ll sum = 0;
+     ll i;
+     rep(i, 0, v.size() - 1) sum += v[i];
+    return sum;
+}
+bool allequal(vll &v) {
+     ll mx = LLONG_MIN;
+    ll mn = LLONG_MAX;
+     for (ll i = 0; i < v.size(); i++) {
+         mx = max(mx, v[i]);
+        mn = min(mn, v[i]);
+}
+     return mx == mn;
+}
