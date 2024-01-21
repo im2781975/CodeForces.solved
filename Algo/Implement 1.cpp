@@ -170,3 +170,71 @@ int main()
 	if(ans!=100) cout<<ans<<endl;
 	return 0;
 }
+int binarySearch(vector<int>& v, int l, int r, int x)
+{
+    while (l <= r)
+    {
+        int m = (l + r) / 2;
+        if (x == v[m])
+            return m;
+        else if (x < v[m])
+            r = m - 1;
+        else
+            l = m + 1;
+        /* code */
+    }
+    return 0;
+}
+
+int binarySearch6(vector<int> arr, int l, int r, int x)
+{
+    // left
+    int result = -1;
+    while (l <= r)
+    {
+        int m = (l + r) / 2;
+        if (arr[m] == x)
+        {
+            result = m;
+            r = m - 1;
+        }
+        else if (x < arr[m])
+        {
+            result = m;
+            r = m - 1;
+        }
+        else
+        {
+            result = m + 1;
+            l = m + 1;
+        }
+        /* code */
+    }
+    return result + 1;
+}
+
+int binarySearch4(vector<int> arr, int l, int r, int x)
+{
+    int result = -1;
+    while (l <= r)
+    {
+        int m = (l + r) / 2;
+        if (arr[m] == x)
+        {
+            result = m;
+            l = m + 1;
+            return result + 1;
+        }
+        else if (arr[m] < x)
+        {
+            l = m + 1;
+            result = m;
+        }
+        else
+        {
+            r = m - 1;
+            result = m - 1;
+        }
+    }
+    return result + 1;
+}
