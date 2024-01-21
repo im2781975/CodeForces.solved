@@ -145,3 +145,63 @@ bool flag =true ;
         }
 cout<<ser << " " <<dem ;
 }
+int main()
+{
+    int x , c = 0 , h=0 ;
+    cin >> x ;
+    int arr[x];
+        for (int i = 0 ; i < x ; i ++ ){
+            cin >> arr [i] ;
+        }
+        for (int i = 0 ; i < x ; i ++ ){
+            if(arr [ i ] >= 1)
+            {
+                h += arr [ i ] ;
+                continue ;
+            }
+            else if(arr [ i ] < 0 && h >= 1 ){
+                h-- ;
+                continue ;
+            }
+            else if ( arr[ i ] < 0 && h == 0 )
+                c++ ;
+
+        }
+cout<< c ;
+}
+int main()
+{
+    int x , c = 0 , temp = 0 , s = 0 ;
+bool flag = false ;
+
+  cin >> x ;
+
+   for(int  i = 0 ; i < x ; i++){
+
+        cin >> temp ;
+
+
+            if(temp > 0  ){
+                flag = true ;
+                s += temp ;
+                x-=1 ;
+                continue ;
+                }
+   else if( temp < 0 && flag == false ){
+        c++ ;
+        cout<<c <<" " ;
+        x -= 1 ;
+        continue ;
+    }
+    else if( temp < 0 && flag == true)
+      {
+          x -= 1 ;
+          s -= 1 ;
+          if(s == 0 ){
+            flag = false ;
+            continue ;
+          }
+      }
+   }
+cout <<endl <<c ;
+}
