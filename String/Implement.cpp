@@ -365,3 +365,37 @@ int countstring(string s){
     
     return a+b;
 }
+----
+bool isPalindrome(string s)
+ 
+{
+ 
+    int n=s.length();
+ 
+    for(int i=0; i<n/2; i++)
+ 
+    {
+ 
+        if(s[i] != s[n-i-1])
+ 
+            return false;
+ 
+    }
+ 
+    return true;
+ 
+}
+void palindrome(int n)
+{
+    int rev=0,val;
+    val = n;
+    while(n > 0)
+    {
+        rev = rev * 10 + n % 10;
+        n = n / 10;
+    }
+    if(val==rev)
+        cout<<val<<" is a palindrome"<<endl;
+    else
+        cout<<val<<" is not a palindrome"<<endl;
+}
