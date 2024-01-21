@@ -101,3 +101,48 @@ ll min(ll a, ll b, ll c) {
      if (sum >= n) return true;
      return false;
 }
+  int t;
+    cin>>t;
+    while(t--)
+    {
+        ll row,col;
+        cin>>row>>col;
+        ll ans;
+        if(row>col)
+        {
+            if(row%2==0)
+            {
+                ans=(row*row)-col+1;
+            }
+            else
+            {
+                ans=((row-1)*(row-1))+col;
+            }
+        }
+        else
+        {
+            if(col%2==0)
+            {
+                ans=((col-1)*(col-1))+row;
+            }
+            else
+            {
+                ans=(col*col)-row+1;
+            }
+        }
+        cout<<ans<<endl;
+ 
+    }
+-------
+    ll n;
+    cin>>n;
+ 
+    for(ll i=1;i<=n;i++)
+    {
+      ll k=(i*i);
+      ll a=k*(k-1)/2;
+ 
+      if(k>2)
+        a=a-4*(i-1)*(i-2);
+      cout<<a<<endl;
+    }
