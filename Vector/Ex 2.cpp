@@ -59,3 +59,64 @@ ll scndmin(vll &tmp) {
      }
      return mn;
 }
+------
+int  Sum(vector<int> m)
+{
+    int sum=0;
+    for(int i=0;i<m.size();i++)
+       sum+=m[i];
+     return sum;
+}
+int  element(vector<int> d)
+{
+    int maxm = d[0];
+    for(int i=0;i<d.size();i++)
+    {
+        if(maxm<=d[i])
+            maxm=d[i];
+    }
+    return maxm;
+}
+int Min(vector<int> a)
+{
+    return (*min_element(a.begin(),a.end()));
+}
+void func_A()
+{
+     int n;
+     cin>>n;
+     vector<int> v;
+     for(int i=0;i<n;i++)
+     {
+         int x;
+         //scanf("%d",&x);
+         cin>>x;
+         v.push_back(x);
+     }
+      if(Min(v)==1)
+        cout<<element(v)<<endl;
+     else
+      cout<<Min(v)+1<<endl;
+ 
+ 
+     int cnt=0;
+     while(Sum(v)>n)
+     {
+        for(int i=0;i<n;i++)
+         {
+         cout<<v[i]<<" ";
+         }
+         cout<<endl;
+         cout<<Sum(v)<<endl;
+ 
+        int h=Min(v);
+        cout<<h<<endl;
+        for(int j=0;j<n;j++)
+        {
+            if(v[j]>h)
+                v[j]=v[j]-h;
+        }
+        cnt+=1;
+    }
+    cout<<cnt+1<<endl;
+}
