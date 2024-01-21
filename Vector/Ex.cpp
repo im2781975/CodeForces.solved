@@ -284,3 +284,58 @@ if(v1[0] == v1[v1.size()-1]) {
  }
 
 }
+void solve_me()
+{
+int n;
+cin >> n;
+     vector<int> v(n);
+     int n1 = ceil(double(n) / 2);
+
+    int a = n1;
+    for (int i = 0; i < n; i += 2)
+{
+        v[i] = a;
+         a--;
+     }
+     int b = n;
+    for (int i = 1; i < n; i += 2)
+     {
+        v[i] = b;
+         b--;
+    }
+
+     f0r(i, n)
+     {
+         cout << v[i] << " ";
+     }
+     cout << endl;
+    return;
+}
+
+ void solve()
+ {
+ int n;
+ cin>>n;
+ vector<int> v(n);
+vector<int> v1(n);
+ for(int i = 0; i<n; i++){
+     cin>>v[i];
+ }
+int ans = 0;
+ for(int i = 0; i<n; i++){
+     cin>>v1[i];
+}
+ int i = n-1, j = n-1;
+ while(i>=0){
+    int temp = v1[j];
+if(temp != v[i]){
+    i--;
+}
+else if(temp == v1[j]){
+    ans++;
+     j--;
+    i--;
+}
+ }
+ cout<<n-ans<<endl;
+}
