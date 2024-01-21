@@ -215,5 +215,63 @@ int x,z=0,y;
       }
   }
 -----
+#define INT_BITS 32
+void display(int a)
+{
+     for(int k=32;k>=0;k--)
+    {
+        if(a&(1<<k))
+            cout<<"1";
+        else
+            cout<<"0";
+    }
+    cout<<endl;
+ 
+}
+int EuclidGCD(int a,int b)
+{
+    int rem;
+    if(b ==0)
+        return a;
+    else
+    {
+        rem = a % b;
+        return EuclidGCD(b,rem);
+    }
+}
+int main()
+{
+    int x=-2147483647;
+    unsigned int y=x;
+    cout<<x<<endl;
+    cout<<y<<endl;
+    unsigned int z;
+    z=4294967296;
+    cout<<z<<endl;
+    cout<<z-(-x)<<endl;
 
-	
+    int x,y;
+    int x;
+    cin>>x;
+    for(int k=31;k>=0;k--)
+    {
+        if(x&(1<<k))
+            cout<<"1";
+        else
+            cout<<"0";
+    }
+    int x=(1<<1)|(1<<3)|(1<<4)|(1<<8);
+    int y=(1<<3)|(1<<6)|(1<<8)|(1<<9);
+    int z=x|y;
+ 
+    for(int i=0;i<32;i++)
+    {
+        if(z&(1<<i))
+            cout<<i<<" ";
+ 
+    }
+     for(int b=0;b<(1<<31);b++)
+    {
+        cout<< b <<" ";
+    }
+}
