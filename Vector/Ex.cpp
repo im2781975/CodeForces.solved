@@ -395,3 +395,30 @@ vector<int> v2 = v1;
  cout<<ans<<endl;
 
  }
+-----
+ int pos, value;
+ vector<int> vTemp(2);
+ vTemp[0] = v1[pos-1]; vTemp[1] = value;
+ v3.push_back(vTemp);
+
+ cin>>pos>>value;
+ vector<int> v2 = v1;
+
+ v2[(v3[cnt][0])-1] = v3[cnt][1];
+ v2[pos-1] = value;
+
+ for (int i = 0; i < k; i++)
+ {
+    for (int j = i+1; j < k+1; j++)
+    {
+    set<int> op;
+     for(int me : v1) {
+       op.insert(me);
+    }
+         for(int me : v2) {
+       op.insert(me);
+    }
+   ans += op.size();
+ }
+     }
+ v.push_back(v1);
