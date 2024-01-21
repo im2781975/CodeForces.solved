@@ -30,3 +30,32 @@
      }
     return sum;
 }
+----
+ ll helper(ll i, ll j, vector<vector<char>>&v, vector<vector<ll>>&vis) {
+     ll cnt = 0;
+     for (; cnt < v.size() - i; cnt++) {
+         for (ll k = j - cnt; k <= j + cnt; k++) {
+             if (k >= v[0].size() || k < 0 || v[i + cnt][k] != '*') return cnt;
+        }
+ 
+    }
+     return cnt ;
+}
+ll scndmin(vll &tmp) {
+     ll ind = -1, mn = LLONG_MAX;
+     for (ll i = 0; i < tmp.size(); i++) {
+         if (tmp[i] < mn) {
+             ind = i;
+            mn = tmp[i];
+         }
+     }
+    ind = -1, mn = LLONG_MAX;
+     for (ll i = 0; i < tmp.size(); i++) {
+         if (i == ind) continue;
+         if (tmp[i] < mn) {
+             ind = i;
+             mn = tmp[i];
+         }
+     }
+     return mn;
+}
