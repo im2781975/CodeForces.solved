@@ -295,3 +295,48 @@ int main()
 	}
 	return 0;
 }
+#include<iostream>
+#include<sstream>
+#include<string>
+#include<set>
+using namespace std;
+
+string s,w;
+
+int main()
+{
+	while(getline(cin,s),s!="#")
+	{
+		set<string> ans;
+		istringstream str(s);
+		while(str>>w)
+		{
+			ans.insert(w);
+		}
+		cout<<ans.size()<<endl;
+	}
+	return 0;
+} 
+*
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int n,x;
+//int a[11];
+
+int main()
+{
+	cin>>n;
+	while(n--)
+	{
+		string s;
+		cin>>s;
+		string ans;
+		ans=s.substr(6,5);
+		ans="6"+ans;
+		cout<<ans<<endl;
+	}
+	return 0;
+}
