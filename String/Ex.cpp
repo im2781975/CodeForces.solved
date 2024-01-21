@@ -137,3 +137,54 @@ void solve( int n , string red , vector<string> red_or_blue)
 
     cout<< "B" <<ed;
 }
+string s;
+	cin>>s;
+	int count=0;
+	int best=0;
+	int i=0;
+	int j=0;
+	//cout<<s.size()<<endl;
+	while(i<(s.size()-1))
+	{
+		if(s[i]==s[i+1])
+		{
+			count+=1;
+			best=(best>count)?best:count;
+			i++;
+		}
+		else{
+			count=1;
+			best=(best>count)?best:count;
+			i++;
+		}
+       j++;
+ 
+	}
+ 
+	cout<<best<<endl;
+	*/
+	/*string s;
+	cin>>s;
+	//cout<<s.size()<<endl;
+	int n=s.size();
+	int count=0;int best=0;
+	int i=0;
+	while(i<n)
+	{
+ 
+		if(s[i]==s[i+1])
+		{
+ 
+			count+=1;
+			best=max(best,count);
+			i+=1;
+		}
+		else{
+            if(s[i]==s[i-1]){
+            count+=1;
+			best=max(best,count);
+			i++;
+            }
+		}
+	}
+	cout<<best<<endl;
