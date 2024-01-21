@@ -120,3 +120,78 @@ void func_A()
     }
     cout<<cnt+1<<endl;
 }
+------
+ll n;
+    cin>>n;
+    ll sum=n*(n+1)/2;
+    if(sum%2!=0)
+        cout<<"NO"<<endl;
+    else
+    {
+ 
+        vector<ll> v;
+        for(ll i=1;i<=n;i++)
+            v.push_back(i);
+        for(ll i=0;i<v.size();i++)
+            cout<<v[i]<<" ";
+        cout<<"\n";
+        ll a = Sum(v)/2;
+        vector<ll> set1;
+        vector<ll> set2;
+ 
+ 
+       if(n%2!=0)
+       {
+        set1.push_back(v[n-1]);
+        v.pop_back();
+        set2.push_back(v[n-2]);
+        v.pop_back();
+        for(ll i=0;i<v.size();i++)
+        {
+             if(Sum(set1)==a||Sum(set2)==a){
+                    break;
+            }
+            set2.push_back(element(v));
+            v.pop_back();
+            set1.push_back(element(v));
+            v.pop_back();
+        }
+ 
+        if(Sum(set1)!=a){
+            for(int i=0;i<v.size();i++)
+                set1.push_back(v[i]);
+        }
+        if(Sum(set2)!=a){
+            for(int i=0;i<v.size();i++)
+                set2.push_back(v[i]);
+        }
+        }
+        else{
+        ll turn = 1;
+        ll start = 1;
+        ll last = n;
+        while (start < last) {
+ 
+            if (turn) {
+                set1.push_back(start);
+                set1.push_back(last);
+                turn = 0;
+            }
+            else {
+                set2.push_back(start);
+                set2.push_back(last);
+                turn = 1;
+            }
+            start++;
+            last--;
+        }
+        }
+        cout<<"YES"<<endl;
+        cout<<set1.size()<<endl;
+        for(ll i=0;i<set1.size();i++)
+            cout<<set1[i]<<" ";
+        cout<<endl;
+        cout<<set2.size()<<endl;
+        for(ll i=0;i<set2.size();i++)
+            cout<<set2[i]<<" ";
+}
