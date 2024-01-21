@@ -339,3 +339,59 @@ else if(temp == v1[j]){
  }
  cout<<n-ans<<endl;
 }
+void solve_tc()
+{
+ int n, k;
+ cin>>n>>k;
+ vector<int> v1(n);
+ vector<vector<int>> v;
+ int ans = 0;
+ for (int i = 0; i < n; i++)
+ {
+   cin>>v1[i];
+ }
+ v.push_back(v1);
+ vector<vector<int>> v3(k+1, vector<int>(2));
+
+ int k1 = k;
+ int cnt1 = 1;
+ v3[0][0] = 1;
+ v3[0][1] = v1[0];
+
+  while(k1--){
+     cin>>v3[cnt1][0]>>v3[cnt1][1];
+     cnt1++;
+ }
+ int ans = 0;
+ int k2 = k+1;
+ int cnt = 0;
+
+ while(cnt < (k)){
+ v1[(v3[cnt][0])-1] = v3[cnt][1];
+
+ int cnt2 = cnt+1;
+ int k;
+ vector<int> v2 = v1;
+ while(cnt2<(k+1)){
+vector<int> v2 = v1; 
+
+ v2[(v3[cnt2][0])-1] = v3[cnt2][1];
+ set<int> op;
+
+        for(int me : v1) {
+       op.insert(me);
+    }
+         for(int me : v2) {
+      op.insert(me);
+    }
+    ans += op.size();
+    cnt2++;
+ }
+
+ cnt++;
+ cnt1++;
+ cnt++;
+}
+ cout<<ans<<endl;
+
+ }
