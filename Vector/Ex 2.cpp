@@ -262,3 +262,82 @@ int n;
             x=i;
     }
     cout<<x<<endl;
+int  Sum(vector<int> m)
+{
+    int sum=0;
+    for(int i=0;i<m.size();i++)
+       sum+=m[i];
+     return sum;
+}
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n,k;
+        cin>>n>>k;
+        vector<int> v;
+        for(int i=0;i<n;i++)
+        {
+            int x;
+            cin>>x;
+            v.push_back(x);
+ 
+        }
+       int cnt=-1;
+ 
+       while(element(v)<=k)
+       {
+ 
+           sort(v.begin(),v.end());
+           v[1]+=v[0];
+           cnt+=1;
+       }
+       cout<<cnt<<endl;
+    }
+------
+ int  Sum(vector<int> m)
+{
+    int sum=0;
+    for(int i=0;i<m.size();i++)
+       sum+=m[i];
+     return sum;
+}
+   int n;
+    cin>>n;
+    int cont=0;
+    while(n--)
+    {
+        vector<int> v;
+        int x;
+        int a=0;
+        for(int i=0;i<3;i++)
+        {
+            cin>>x;
+           v.push_back(x);
+           a+=x;
+        }
+        int a=Sum(v);
+        if(a>=2)
+            cont+=1;
+ 
+    }
+    cout<<cont<<endl;
+    int n,k;
+    cin>>n>>k;
+    vector<int> v;
+    for(int i=0;i<n;i++)
+    {
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+    int a=v[k-1];
+    int cont=0;
+    for(int i=0;i<n;i++)
+    {
+        if(v[i]>=a && v[i]>0)
+            cont+=1;
+    }
+    cout<<cont<<endl;
+   return 0;
+}
