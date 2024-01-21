@@ -246,3 +246,29 @@ int main()
 	}
 	return 0;
 }
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+
+int main()
+{
+	int n,m,a[100001];
+	while(cin>>n>>m,(n||m))
+	{
+		int x;
+		for(int i=0;i<n;i++)
+		{
+			cin>>a[i];
+		}
+		a[n]=m;
+		sort(a,a+n+1);
+		cout<<a[0];
+		for(int i=1;i<=n;i++)
+		{
+			cout<<" "<<a[i]; 
+		}
+		cout<<endl;
+	}
+	return 0;
+} 
