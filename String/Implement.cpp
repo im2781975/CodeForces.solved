@@ -544,3 +544,67 @@ for(int i = 0 ; i < (x - 1) ; ++i ){
 
 cout<<c;
 }
+int main()
+{
+string str ;
+int  s[4] ={0} , c = 0, temp = 0;
+for (int i = 0 ; i < 4 ; i ++ ) {
+    cin >> s[ i ] ;
+}
+cin >> str ;
+for (int i = 0 ; i < str.length() ; i ++ ){
+
+    if (str[ i ] == '\0') break ;
+
+  temp =  str[i] - '0' ;
+    c+= s[temp - 1];
+}
+cout << c  ;
+}
+int main()
+{
+char ch='a' ;
+int c = 0 ;
+string  str ;
+cin >>str ;
+    for (int i = 0 ; i < str.length() ; ++i ){
+     //    cout<<"character number "<< i << " " <<(ch - str [ i ]) <<endl ;
+         if ((ch - str [ i ])<= -13 ){  // -25 < -13
+                c+= 26 + (ch - str [ i ]) ;
+                ch = str[ i ] ;
+         }
+         else if ((ch - str [ i ])> -13 && (ch - str [ i ]) <= -1 ){  //   -13 < (ch - str [ i ]) <= -1
+                c+=(ch - str [ i ]) *-1 ;
+                ch = str[ i ] ;
+         }
+         else if ((ch - str [ i ]) > 13 ){
+
+                c+= 26 - (ch - str [ i ]);
+                ch = str[ i ] ;
+         }
+         else {
+                c+= (ch - str [ i ]);
+                ch = str[ i ] ;
+         }
+
+
+
+    }
+    cout << c ;
+}
+int main()
+{
+    string s;
+    char p='a';
+    int cnt=0;
+    cin>>s;
+    for(int i=0; i<s.size(); i++)
+    {
+        if((abs(s[i]-p))>13)
+            cnt+=(26%(abs(s[i]-p)));
+        else
+            cnt+=(abs(s[i]-p));
+        p=s[i];
+    }
+    cout<<cnt;
+}
