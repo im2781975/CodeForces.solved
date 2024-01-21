@@ -1,3 +1,37 @@
+#include<iostream>
+
+using namespace std;
+const int N = 100001;
+int a[N];
+int n;
+void swap(int &x,int &y)
+{
+	int a=x;
+	x=y;
+	y=a;
+}
+int main()
+{
+	while(cin>>n,n)
+	{
+		for(int i=0;i<n;i++)
+			cin>>a[i];
+		int min_index=0,num=a[0];
+		for(int i=1;i<n;i++)
+		{
+			if(a[i]<num)
+			{
+				num=a[i];
+				min_index=i;
+			}
+		}
+		swap(a[min_index],a[0]);
+		cout<<a[0];
+		for(int i=1;i<n;i++) cout<<" "<<a[i];
+		cout<<endl;
+	}
+	return 0;
+}
 #include<bits/stdc++.h>
 using namespace std;
 
