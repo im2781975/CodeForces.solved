@@ -245,3 +245,42 @@ int i =0, j = n-1;
          v3[i] = 0;
     }
 }
+ i =0, j = n-1;
+
+bool og1 = false, og2 = false;
+ while(i<=j){
+    if(v2[i] != v2[j]){
+        og1 = true;
+    }
+    if(v3[i]!= v3[j]){
+         og2 = true;
+     }
+     i++; j--;
+}
+
+ if(og1 && og2){
+     cout<<1<<endl; 
+     return;
+}
+ else if(og1){
+     cout<<diff1<<endl;
+ }
+ else if(og2){
+     cout<<diff<<endl;
+ }
+ while(i <= j){
+if((v1[i] % diff) != )
+
+ }
+sort(v1.begin(), v1.end());
+
+if(v1[0] == v1[v1.size()-1]) {
+ cout<<v1[0]<<endl;
+    return;
+}
+ else {
+   cout<<1<<endl;
+    return;
+ }
+
+}
