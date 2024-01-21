@@ -343,3 +343,39 @@ int main()
 	}
 	return 0;
 }
+#include<iostream>
+
+using namespace std;
+
+int a,b;
+int n[1000001];
+
+int main()
+{
+	n[0]=1;
+	for(int i=1;i<1000002;i++)
+	{
+		int m=i,f=1;
+		while(m)
+		{
+			if(m%10==4) 
+			{
+				f=0;
+				break;
+			}
+			else if(m%10==2&&m%100/10==6) 
+			{
+				f=0;
+				break;
+			}
+			m/=10;
+		}
+		if(f) n[i]=n[i-1]+1;
+		else n[i]=n[i-1];
+	}	
+	while(cin>>a>>b,(a||b))
+	{
+		cout<<n[b]-n[a-1]<<endl;
+	}	
+	return 0;
+} 
