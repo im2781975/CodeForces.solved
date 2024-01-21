@@ -205,3 +205,203 @@ bool flag = false ;
    }
 cout <<endl <<c ;
 }
+void sort(int** matrix, int n) {
+
+    int done = 0;
+
+    while(!done) {
+
+        done = 1;
+
+        for(int i = 0; i < n -1; i++) {
+
+            if((float) matrix[i][1] / matrix[i][0] < (float) matrix[i + 1][1] / matrix[i + 1][0]) {
+
+                int aux1 = matrix[i][0];
+                int aux2 = matrix[i][1];
+
+                matrix[i][0] = matrix[i + 1][0];
+                matrix[i][1] = matrix[i + 1][1];
+
+                matrix[i + 1][0] = aux1;
+                matrix[i + 1][1] = aux2;
+
+                done = 0;
+
+            }
+        }
+    }
+}
+
+int main() {
+
+    int n, strength;
+
+    scanf("%d %d", &strength, &n);
+
+    int** matrix = (int**)malloc(sizeof(int*) * n);
+
+    for(int i = 0; i < n; i++)
+        matrix[i] = (int*)malloc(4 * 2);
+
+    for(int i = 0; i < n; i++)
+        scanf("%d %d", &matrix[i][0], &matrix[i][1]);
+
+    sort(matrix, n);
+
+    for(int j = 0; j < n; j++)
+        for(int i = 0; i < n; i++) {
+
+            if(strength > matrix[i][0] && matrix[i][0] != -1) {
+
+                strength += matrix[i][1];
+                matrix[i][0] = -1;
+
+            }
+        }
+
+    int finish = 0;
+
+
+    for(int i = 0; i < n; i++)
+        if(matrix[i][0] != -1)
+            finish = 1;
+
+    if(!finish)
+        printf("YES");
+    else
+        printf("NO");
+    return 0;
+
+}
+int main()
+{
+    int min(int a, int b) {
+
+    return (a > b) ? b : a;
+
+}
+
+int main() {
+
+    int n;
+    scanf("%d", &n);
+
+    int array[n + 1];
+
+    int m1 = 0, m2 = 0, m3 = 0;
+
+    for(int i = 1; i <= n; i++) {
+
+        scanf("%d", &array[i]);
+
+        switch(array[i]) {
+
+        case 1:
+            m1++;
+            break;
+
+        case 2:
+            m2++;
+            break;
+
+        case 3:
+            m3++;
+            break;
+
+        }
+    }
+    int minim = min(m1, m2);
+    minim = min(minim, m3);
+
+    int aux[4];
+    int k = 0;
+
+    printf("%d\n", minim);
+
+    for(int i = 0; i < minim; i++) {
+
+        k=1;
+
+        for(int j = 1; k < 4; j++) {
+
+            if(j == n + 1)
+                j = 1;
+
+            if(array[j] == k) {
+
+                aux[k++] = j;
+                array[j] = -1;
+
+            }
+        }
+
+        for(int j = 1; j < k; j++)
+            printf("%d ", aux[j]);
+        printf("\n");
+
+
+    }
+    return 0;
+}
+}
+int main()
+{
+void sort(int n, int array[n]) {
+
+    int done = 0;
+
+    while(!done) {
+
+        done = 1;
+
+        for(int i = 0; i < n - 1; i++) {
+
+            if(array[i] > array[i + 1]) {
+
+                int aux = array[i];
+                array[i] = array[i + 1];
+                array[i + 1] = aux;
+                done = 0;
+
+            }
+        }
+    }
+}
+int main() {
+
+    int n, d;
+    scanf("%d %d", &n, &d);
+
+    int array[n];
+    int sum = 0;
+    for(int i = 0; i < n; i++) {
+
+        scanf("%d", &array[i]);
+        sum += array[i];
+
+    }
+
+    sum += 10 * (n - 1);
+
+    if(sum > d)
+        printf("-1");
+    else {
+
+        //sort(n, array);
+
+        int ct = 2 * (n - 1);
+        while(sum + 5 <= d) {
+
+            ct++;
+            sum+=5;
+
+        }
+        printf("%d", ct);
+
+    }
+
+
+    return 0;
+}
+}
