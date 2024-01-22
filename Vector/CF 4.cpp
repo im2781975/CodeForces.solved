@@ -32,3 +32,32 @@ void solve()
     }
     cout << ans << "\n"
 }
+void solve2() {
+    int n, k;
+    cin >> n >> k;
+    vector<int> vec(n);
+
+    for (int i = 0; i < n; i++)
+        cin >> vec[i];
+
+    sort(vec.begin(), vec.end(), greater<int>());
+
+    int val = vec[k - 1];
+    int i = 0;
+    int cnt = 0;
+
+    if (val == 0) {
+        int cap = 0;
+        for (int i = 0; i < n; i++) {
+            if (vec[i] > 0)
+                cap++;
+        }
+        cout << cap << endl;
+    } else {
+        while (vec[i] >= val && i < n) {
+            i++;
+            cnt++;
+        }
+        cout << cnt << "\n";
+    }
+}
