@@ -326,3 +326,72 @@ int main() {
     return 0;
 
 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <limits.h>
+
+int main() {
+
+    int x, y;
+    scanf("%d %d", &x, &y);
+    int s = 0;
+    if(y>x && x>=-y) {
+
+        printf("a");
+        s=-2+y*4;
+
+    }
+
+    if(y<x && x<=-y+1) {
+
+        printf("b");
+        s=-y*4;
+
+    }
+
+    if(y<=x && x>-y+1) {
+
+        printf("c");
+        s=-3+x*4;
+
+    }
+
+    if(y>=x && x<-y) {
+
+        printf("d");
+        s=-1-4*x;
+
+    }
+
+    printf("%d", s);
+
+
+    return 0;
+
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <limits.h>
+
+int max(int a, int b) {
+
+    return (a > b) ? a : b;
+
+}
+
+int main() {
+
+    int a, b, c, d;
+
+    scanf("%d %d %d %d", &a, &b, &c, &d);
+
+    printf("%d %d %d", 2-(a==c||b==d), ((a+b)%2==(c+d)%2)*(2-(a-b==c-d||a+b==c+d)), max(abs(c-a),abs(d-b)));
+    return 0;
+
+} 
