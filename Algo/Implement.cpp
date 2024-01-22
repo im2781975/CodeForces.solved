@@ -129,3 +129,56 @@ int main()
 	}
 	return 0;
 } 
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <climits>
+using namespace std;
+
+#define ll long long
+#define vll vector<ll>
+#define ff first
+#define ss second
+
+typedef pair<ll, ll> pi;
+
+vector<ll> dijkstra(ll V, vector<vector<pair<ll, ll>>> adj, ll s, vll &par) {
+    priority_queue<pi, vector<pi>, greater<pi>> pq;
+    pq.push({0, s});
+    vector<ll> dist(V, LLONG_MAX);
+    par.assign(V, -1);
+    dist[s] = 0;
+
+    while (!pq.empty()) {
+        ll dis = pq.top().first;
+        ll ind = pq.top().second;
+        pq.pop();
+
+        for (auto it : adj[ind]) {
+            if (dist[it.ff] > dis + it.ss) {
+                par[it.ff] = ind;
+                dist[it.ff] = dis + it.ss;
+                pq.push({dist[it.ff], it.ff});
+            }
+        }
+    }
+
+    return dist;
+}
+
+int main() {
+    // Example usage
+    ll V = 5;
+    vector<vector<pair<ll, ll>>> adj(V);
+
+    // Populate the adjacency list with edges and weights
+
+    ll sourceNode = 0;
+    vll parent(V, -1);
+
+    vector<ll> distances = dijkstra(V, adj, sourceNode, parent);
+
+    // Process distances or parent array as needed
+
+    return 0;
+}
