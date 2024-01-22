@@ -197,3 +197,52 @@ int main() {
     return 0;
 
 }
+
+void merge(int left, int right, int* array, int n) {
+
+    int mid;
+
+    if(left < right) {
+
+        mid = (left + right) / 2;
+        merge(left, mid, array, n);
+        merge(mid + 1, right, array, n);
+        mergeSort(left, mid, right, array, n);
+
+    }
+}
+
+int main() {
+
+    int devices, sockets, supply;
+
+    scanf("%d %d %d", &supply, &devices, &sockets);
+    int array[supply];
+
+    for(int i = 0; i < supply; i++)
+        scanf("%d", &array[i]);
+
+    merge(0, supply - 1, array, supply);
+
+    if(devices <= sockets)
+        printf("0");
+    else {
+
+        int i = 0;
+        while(sockets < devices && i < supply) {
+
+            sockets += array[i] - 1;
+            i++;
+
+        }
+
+        if(i != supply)
+            printf("%d", i);
+        else if(sockets >= devices)
+            printf("%d", i);
+        else
+            printf("-1");
+    }
+    return 0;
+
+}
