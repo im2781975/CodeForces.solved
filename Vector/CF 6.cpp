@@ -89,7 +89,9 @@ int main() {
 
 using namespace std;
 
-int ll_fin(int n, map<vector<vector<int>>, int> &m, vector<vector<int>> a) {
+typedef long long ll;
+
+ll fin(int n, map<vector<vector<int>>, int> &m, vector<vector<int>> a) {
     if (m.count(a) == 1) {
         return m[a];
     }
@@ -122,20 +124,61 @@ int ll_fin(int n, map<vector<vector<int>>, int> &m, vector<vector<int>> a) {
             return 0;
         }
     }
+
+    vector<vector<int>> b(n - 1, vector<int>(n - 1));
+    int x = 0;
+    int y = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (a[i][j] == 1) {
+                x = i;
+                y = j;
+                goto l;
+            }
+        }
+    }
+    l:
+    cout << x << " " << y << endl;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == x || j == y) {
+                continue;
+            }
+
+            if (i < x && j < y) {
+                b[i][j] = a[i][j];
+            } else if (i < x && j > y) {
+                b[i][j - 1] = a[i][j];
+            } else if (i > x && j < y) {
+                b[i - 1][j] = a[i][j];
+            } else {
+                b[i - 1][j - 1] = a[i][j];
+            }
+        }
+    }
+
+    a[x][y] = 0;
+    ll ans1 = fin(n, m, a);
+    ll ans2 = fin(n - 1, m, b);
+
+    cout << m[a] << endl;
+
+    a[x][y] = 1;
+    m[a] = ans1 + ans2;
+    return m[a];
 }
 
 int main() {
-    int n; // Assuming you get the value of n from somewhere
-    vector<vector<int>> a(n, vector<int>(n, 0)); // Initialize a 2D vector of size n x n, you can modify this based on your requirements
+    int n;
+    // Assuming 'n' is input by the user or obtained in some way
+    // Also, assuming 'c' is defined somewhere in your code
 
-    // Populate the 2D vector 'a' with values, you can modify this based on your requirements
-
-    map<vector<vector<int>>, int> memo; // Memoization map
-
-    int result = ll_fin(n, memo, a);
-
+    // Example usage:
+    vector<vector<int>> c(n, vector<int>(n));
+    map<vector<vector<int>>, int> memo;
+    ll result = fin(n, memo, c);
     cout << "Result: " << result << endl;
 
     return 0;
 }
-
