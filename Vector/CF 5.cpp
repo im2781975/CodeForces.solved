@@ -20,8 +20,8 @@ int sum(const vector<int>& vec)
 }
 int main()
 {
-    int n;
-    cin >> n;
+    int n, k;
+    cin >> n >> k;
 
     vector<int> vec(n);
     for (int i = 0; i < n; i++)
@@ -30,7 +30,21 @@ int main()
         cin >> x;
         vec[i] = x;
     }
-
+    int x =0, ans = -1;
+    while(maximum(vec) <= k)
+    {
+        sort(vec.begin(), vec.end());
+        vec[1] += vec[0];
+        ans+=1;
+        k--;
+    }
+    cout << ans<< " ";
+    for( int i=0; i<=n; i++)
+    {
+        if(vec[i]%2==0)
+            x =i;
+    }
+    cout << x;
     sort(vec.begin(), vec.end());
 
     if (minimum(vec) != 1)
@@ -175,3 +189,25 @@ void solve() {
     delete[] p;
     return 0;
 }
+int main() {
+    int n;
+    cin >> n;
+    int cont = 0;
+    while (n--) {
+        vector<int> v;
+        int x;
+        int a = 0;
+        for (int i = 0; i < 3; i++) {
+            cin >> x;
+            v.push_back(x);
+            a += x;
+        }
+
+        int sumOfElements = sum(v);
+        if (sumOfElements >= 2)
+            cont += 1;
+    }
+    cout << cont << std::endl;
+    return 0;
+}
+
