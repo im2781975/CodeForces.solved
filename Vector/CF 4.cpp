@@ -83,3 +83,20 @@ void AllEqual()
         cout << "No";
     return 0;
 }
+void solve(){
+    int i = 1, j = 2;
+    vector<vector<char>> v = {{'.', '*', '.'}, {'*', '*', '*'}, {'.', '*', '.'}};
+    vector<vector<int>> vis(v.size(), vector<int>(v[0].size(), 0));
+
+    int cnt = 0;
+    for (; cnt < v.size() - i; cnt++) {
+        for (int k = j - cnt; k <= j + cnt; k++) {
+            if (k >= v[0].size() || k < 0 || v[i + cnt][k] != '*') {
+                cout << cnt;
+                return 0;
+            }
+        }
+    }
+    cout << cnt;
+    return 0;
+}
