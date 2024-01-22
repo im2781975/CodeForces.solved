@@ -62,3 +62,24 @@ void greater() {
         cout << cnt << "\n";
     }
 }
+void AllEqual()
+    bool flag = false;
+    vector<int> vec{1, 1, 1, 1, 1};
+    int maxi = INT_MIN;
+    int mini = INT_MAX;
+    for (int i = 0; i < vec.size(); i++)
+    {
+        maxi = max(maxi, vec[i]);
+        mini = min(mini, vec[i]);
+        cout << maxi << " ";
+        if (maxi == mini)
+        {
+            flag = true;
+            cout << "Yes";
+            break;
+        }
+    }
+    if (!flag)
+        cout << "No";
+    return 0;
+}
