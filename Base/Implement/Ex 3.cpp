@@ -167,3 +167,128 @@ int main()
         printf("%d", pos1);
     return 0;
 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main() {
+
+    int n, k;
+
+    scanf("%d %d", &n, &k);
+    int maximum = (-1) * (1 << 31);
+
+    for(int i = 0; i < n; i++) {
+
+        int fi, ti;
+
+        scanf("%d %d", &fi, &ti);
+
+        if(k >= ti) {
+
+            if(fi > maximum)
+                maximum = fi;
+
+
+        } else {
+
+            if((fi - (ti - k)) > maximum)
+                maximum = fi - (ti - k);
+
+        }
+
+    }
+
+    printf("%d", maximum);
+
+
+    return 0;
+
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main() {
+
+    int n;
+    scanf("%d", &n);
+
+    for(int i = 0; i < n; i++) {
+
+        int price, quality;
+        scanf("%d %d", &price, &quality);
+
+        if(price != quality) {
+
+            printf("Happy Alex");
+            return 0;
+        }
+    }
+
+    printf("Poor Alex");
+
+    return 0;
+
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main() {
+
+    int friends, bottles, milliliters, limes, slices, salt, nl, np;
+    scanf("%d %d %d %d %d %d %d %d", &friends, &bottles, &milliliters, &limes, &slices, &salt, &nl, &np);
+
+    int allMilliliters = bottles * milliliters / nl / friends;
+    int allSalt = salt / np / friends;
+    int allLimes = limes * slices / friends;
+
+    int minim = -1;
+
+    minim = (allLimes < allMilliliters) ? allLimes : allMilliliters;
+    minim = (minim < allSalt) ? minim : allSalt;
+
+    printf("%d", minim);
+    return 0;
+
+}
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main() {
+
+    int dice1, dice2;
+    scanf("%d %d", &dice1, &dice2);
+
+    int dice1Wins = 0;
+    int draw = 0;
+    int dice2Wins = 0;
+
+    for(int i = 1; i <= 6; i++) {
+
+        if(abs(dice1 - i) > abs(dice2 - i))
+            dice2Wins++;
+        else if(abs(dice1 - i) < abs(dice2 - i))
+            dice1Wins++;
+        else
+            draw++;
+
+    }
+
+    printf("%d %d %d", dice1Wins, draw, dice2Wins);
+
+    return 0;
+
+}
