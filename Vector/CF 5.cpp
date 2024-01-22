@@ -143,3 +143,35 @@ int main() {
     }
     return 0;
 }
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> v;
+
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        v.push_back(x);
+    }
+    sort(v.begin(), v.end(), greater<int>());
+
+    int count = 0;
+    int m = v[0];
+    int *p;
+    p = new int[m + 1];
+
+    for (int i = 0; i < m + 1; i++)
+        p[i] = 0;
+
+    for (int i = 0; i < n; i++) {
+        p[v[i]]++;
+    }
+
+    for (int i = 0; i < m + 1; i++) {
+        if (p[i] != 0)
+            count++;
+    }
+    cout << count << endl;
+    delete[] p;
+    return 0;
+}
