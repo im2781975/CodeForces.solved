@@ -100,3 +100,19 @@ void solve(){
     cout << cnt;
     return 0;
 }
+void SecondMin()
+{
+    vector<int>vec{1, 2, 3, 4, 5};
+    int idx=-1, mini=INT_MAX;
+    for(int i=0; i<vec.size(); i++)
+    {
+        if(i == idx)
+            continue;
+        if(vec[i] < mini)
+        {
+            mini = vec[i];
+            idx = i;
+        }
+    }
+    cout << idx;
+}
