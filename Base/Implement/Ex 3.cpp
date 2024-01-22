@@ -292,3 +292,37 @@ int main() {
     return 0;
 
 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+
+int cmmdc(int a, int b) {
+
+    int r;
+
+    while(b != 0) {
+
+        r = a % b;
+        a = b;
+        b = r;
+
+    }
+
+    return a;
+}
+
+int main() {
+
+    long int l, r;
+
+    scanf("%ld %ld", &l, &r);
+    printf("%d", sizeof(long int));
+    if(r - (l += l%2) < 2)
+        printf("-1");
+    else
+        printf("%d %d %d", l, l + 1, l + 2);
+    return 0;
+
+}
