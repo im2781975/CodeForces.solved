@@ -246,3 +246,40 @@ int main() {
     return 0;
 
 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+#include <limits.h>
+
+int main() {
+
+    int n, k;
+    scanf("%d %d", &n, &k);
+
+    int array[n + 1];
+    int ct = 0;
+
+    for(int i = 1; i <= n; i++) {
+
+        scanf("%d", &array[i]);
+
+        if(i <= k) {
+
+            if(array[i] > 0)
+                ct++;
+
+        } else {
+
+            if(array[i] >= array[k] && array[i] > 0)
+                ct++;
+
+        }
+
+    }
+
+    printf("%d", ct);
+
+    return 0;
+
+}
