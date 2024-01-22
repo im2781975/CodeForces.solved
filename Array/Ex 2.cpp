@@ -99,4 +99,101 @@ int main() {
     return 0;
 
 }
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
 
+int main() {
+
+    int n;
+    scanf("%d", &n);
+
+    char matrix[n][n];
+
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < n; j++)
+            scanf("%c", &matrix[i][j]);
+
+    char diagonal = matrix[0][0];
+
+    for(int i = 0; i < n; i++)
+        if(matrix[i][i] != diagonal) {
+
+            printf("NO");
+            return 0;
+
+        }
+    printf("aaa");
+    for(int i = n; i >= 0; i--)
+        if(matrix[i][n - i] != diagonal) {
+
+            printf("NO");
+            return 0;
+
+        }
+    printf("aaa");
+
+    char notDiag = matrix[0][1];
+
+    for(int i = 0; i < n; i++)
+        for(int j = 0; j < n; j++) {
+
+            if(i == j || i + j == n -1)
+                j++;
+            else {
+
+                if(matrix[i][j] != notDiag) {
+
+                    printf("NO");
+                    return 0;
+
+                }
+            }
+        }
+
+    printf("YES");
+    return 0;
+
+}
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main() {
+
+    int n, m;
+    scanf("%d %d", &n, &m);
+
+    char** matrix = (char**)malloc(sizeof(char*) * n);
+    for(int i = 0; i < n; i++)
+        matrix[i] = malloc(m);
+
+    getchar();
+
+    for(int i = 0; i < n; i++) {
+
+        gets(matrix[i]);
+        for(int j = 0; j < m; j++)
+            if(matrix[i][j] == '.') {
+                if((i + j) % 2 == 0)
+                    matrix[i][j] = 'B';
+                else
+                    matrix[i][j] = 'W';
+
+            }
+
+    }
+
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < m; j++)
+            printf("%c", matrix[i][j]);
+        printf("\n");
+
+
+    }
+    return 0;
+
+}
