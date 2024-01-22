@@ -32,7 +32,8 @@ void solve()
     }
     cout << ans << "\n"
 }
-void solve2() {
+void greater() {
+    //count greater values from specific idx
     int n, k;
     cin >> n >> k;
     vector<int> vec(n);
