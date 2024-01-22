@@ -204,3 +204,38 @@ string s;
             answer=false;
     }
     cout<<answer<<endl;
+-----
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+int main() {
+
+    int n;
+
+    scanf("%d", &n);
+
+    char* string = malloc(101);
+    char* string1 = malloc(10000);
+    char* string2 = malloc(10000);
+
+    for(int i = 0; i <= n; i++) {
+
+        gets(string);
+        strcat(string1, string);
+
+    }
+
+    strcpy(string2, string1);
+    strrev(string2);
+
+    if(strncmp(string1 + 1, string2, strlen(string2) - 2) == 0)
+        printf("YES");
+    else
+        printf("NO");
+
+
+    return 0;
+
+}
