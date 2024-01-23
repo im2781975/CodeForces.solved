@@ -334,3 +334,28 @@ void solve_me()
     for(int i=0; i<vec.size(); i++)
         cout << vec[i] <<" ";
 }
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    vector<int> v1(n);
+    for(int i = 0; i < n; i++)
+        cin >> v[i];
+    for(int i = 0; i < n; i++) 
+        cin >> v1[i];
+    int ans = 0;
+    int i = n-1, j = n-1;
+
+    while(i >= 0) {
+        int temp = v1[j];
+
+        if(temp != v[i])
+            i--;
+        else if(temp == v1[j]) {
+            ans++;
+            j--;
+            i--;
+        }
+    }
+    cout << n - ans << endl;
+}
