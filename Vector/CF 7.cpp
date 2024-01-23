@@ -51,3 +51,86 @@ int main() {
         cout << total[i] << " ";
     return 0;
 }
+int fin(int n, map<vector<vector<int>>, int> &m, vector<vector<int>> a) {
+    if (m.count(a) == 1) {
+        return m[a];
+    }
+    if (n == 1) {
+        if (a[0][0] == 1) {
+            m[a] = 1;
+            return 1;
+        } else {
+            m[a] = 0;
+            return 0;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        int sum = 0;
+        for (int j = 0; j < n; j++) {
+            sum += a[i][j];
+        }
+        if (sum == 0) {
+            m[a] = 0;
+            return 0;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        int sum = 0;
+        for (int j = 0; j < n; j++) {
+            sum += a[j][i];
+        }
+        if (sum == 0) {
+            m[a] = 0;
+            return 0;
+        }
+    }
+    vector<vector<int>> b(n - 1, vector<int>(n - 1));
+    int x = 0;
+    int y = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (a[i][j] == 1) {
+                x = i;
+                y = j;
+                goto l;
+            }
+        }
+    }
+    l:
+    cout << x << " " << y << endl;
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == x || j == y) {
+                continue;
+            }
+
+            if (i < x && j < y) {
+                b[i][j] = a[i][j];
+            } else if (i < x && j > y) {
+                b[i][j - 1] = a[i][j];
+            } else if (i > x && j < y) {
+                b[i - 1][j] = a[i][j];
+            } else {
+                b[i - 1][j - 1] = a[i][j];
+            }
+        }
+    }
+    a[x][y] = 0;
+    int ans1 = fin(n, m, a);
+    int ans2 = fin(n - 1, m, b);
+
+    cout << m[a] << endl;
+    a[x][y] = 1;
+    m[a] = ans1 + ans2;
+    return m[a];
+}
+int main() {
+    int n;
+    cin >> n;
+    vector<vector<int>> c(n, vector<int>(n));
+    map<vector<vector<int>>, int> memo;
+    int result = fin(n, memo, c);
+    cout << "Result: " << result << endl;
+    return 0;
+}
