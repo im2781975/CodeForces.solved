@@ -243,3 +243,74 @@ void solve()
     }
     cout << ans;
 }
+void solve1() {
+    int cnt = 0;
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; i++)
+        cin >> v[i];
+
+    cout << "ME" << endl;
+    int i = 0, j = n - 1;
+    vector<int> v1;
+
+    int diff = 0, diff1 = 1;
+    while (i <= j) {
+        if (v[i] != v[j]) {
+            diff = abs(v[i] - v[j]);
+            diff1 = min(v[i], v[j]);
+            break;
+        }
+        i++;
+        j--;
+    }
+    if (diff == 0) {
+        cout << 0 << endl;
+        return 0;
+    }
+    vector<int> v2(n);
+    vector<int> v3(n);
+
+    for (int i = 0; i < n; i++) {
+        v2[i] = v[i] % diff;
+        if (diff1 != 0)
+            v3[i] = v[i] % diff1;
+        else
+            v3[i] = 0;
+    }
+    i = 0;
+    j = n - 1;
+    bool og1 = false, og2 = false;
+    while (i <= j) {
+        if (v2[i] != v2[j])
+            og1 = true;
+        if (v3[i] != v3[j])
+            og2 = true;
+        i++;
+        j--;
+    }
+    if (og1 && og2) {
+        cout << 1 << endl;
+        return 0;
+    } else if (og1) {
+        cout << diff1 << endl;
+        return 0;
+    } else if (og2) {
+        cout << diff << endl;
+        return 0;
+    }
+    for (int i = 0; i < n; i++) {
+        if ((v[i] % diff) != 0) {
+            cnt++;
+        }
+    }
+    sort(v.begin(), v.end());
+    if (v[0] == v[v.size() - 1]) {
+        cout << v[0] << endl;
+        return 0;
+    } else {
+        cout << 1 << endl;
+        return 0;
+    }
+}
