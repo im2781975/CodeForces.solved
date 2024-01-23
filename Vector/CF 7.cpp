@@ -314,3 +314,23 @@ void solve1() {
         return 0;
     }
 }
+void solve_me()
+{
+    int n;
+    cin >> n;
+    vector<int>vec(n);
+    int a=ceil(double(n)/2);
+    for(int i=0; i<n; i+=2)
+    {
+        vec[i]=a;
+        a--;
+    }
+    int b=n;
+    for(int i=0; i<n; i+=2)
+    {
+        vec[i]=b;
+        b--;
+    }
+    for(int i=0; i<vec.size(); i++)
+        cout << vec[i] <<" ";
+}
