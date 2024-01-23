@@ -35,7 +35,7 @@ int main() {
 #include <vector>
 #include <string>
 
-void findCombination(std::vector<char> sv, int dis, int k, std::vector<std::string> &total, std::string temp, int count) {
+void findCombination(vector<char> sv, int dis, int k, vector<string> &total, string temp, int count) {
     if (count == dis) {
         if (temp.size() == k) {
             total.push_back(temp);
@@ -47,22 +47,18 @@ void findCombination(std::vector<char> sv, int dis, int k, std::vector<std::stri
     findCombination(sv, dis, k, total, temp, count + 1);
     return;
 }
-
 int main() {
-    std::vector<char> sv = {'a', 'b', 'c'}; // Example character vector
-    int dis = sv.size(); // Example distance
-    int k = 2; // Example length
-    std::vector<std::string> total;
-    std::string temp = "";
+    vector<char> sv = {'a', 'b', 'c'}; 
+    int dis = sv.size(); 
+    int k = 2; 
+    vector<string> total;
+    string temp = "";
     int count = 0;
 
     findCombination(sv, dis, k, total, temp, count);
 
-    // Displaying the combinations
-    for (const std::string &str : total) {
-        std::cout << str << " ";
-    }
-
+    for (const string &str : total)
+        cout << str << " ";
     return 0;
 }
 #include <iostream>
