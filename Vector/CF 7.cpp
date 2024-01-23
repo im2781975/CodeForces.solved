@@ -134,3 +134,49 @@ int main() {
     cout << "Result: " << result << endl;
     return 0;
 }
+void ta(int x, int y, int n, int m, vector<vector<char>> &a, vector<vector<int>> &b, int count, string s, string *c) {
+    if (x < 0 || y < 0 || x >= n || y >= m)
+        return;
+    if (b[x][y] <= count && b[x][y] != -1)
+        return;
+
+    if (a[x][y] == '#') {
+        b[x][y] = -1;
+        return;
+    }
+    b[x][y] = count;
+    if (a[x][y] == 'B') {
+        *c = s;
+        return;
+    }
+    ta(x + 1, y, n, m, a, b, count + 1, s + "D", c);
+    ta(x - 1, y, n, m, a, b, count + 1, s + "U", c);
+    ta(x, y + 1, n, m, a, b, count + 1, s + "R", c);
+    ta(x, y - 1, n, m, a, b, count + 1, s + "L", c);
+    return;
+}
+int main() {
+    int n, m;
+    cout << "Enter the number of rows and columns: ";
+    cin >> n >> m;
+    vector<vector<char>> a(n, vector<char>(m));
+    vector<vector<int>> b(n, vector<int>(m, -1));
+
+    cout << "Enter the grid:\n";
+    for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < m; ++j) {
+            cin >> a[i][j];
+        }
+    }
+    int startX, startY;
+    cout << "Enter the starting position (x, y): ";
+    cin >> startX >> startY;
+
+    string result;
+    ta(startX, startY, n, m, a, b, 0, "", &result);
+    if (result.empty())
+        cout << "No path found to the destination 'B'.\n";
+    else 
+        cout << "Path to destination 'B': " << result << "\n";
+    return 0;
+}
