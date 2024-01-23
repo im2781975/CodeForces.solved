@@ -1,51 +1,33 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
+#include <bits/stdc++.h>
 using namespace std;
-using ll = long long;
 
-vector<ll> primeFactors(ll n) {
-    vector<ll> v;
-    int counter = 0;
+int main() {
+    int n, cnt = 0;
+    cin >> n;
+    vector<int> prime;
 
     while (n % 2 == 0) {
-        if (counter == 0) {
-            v.push_back(2);
-        }
-        n = n / 2;
-        counter = 1;
+        if (cnt == 0)
+            prime.push_back(2);
+        n /= 2;
+        cnt = 1;
     }
 
-    for (ll i = 3; i <= sqrtl(n); i = i + 2) {
-        counter = 0;
+    for (int i = 3; i * i <= n; i = i + 2) {
+        cnt = 0;
         while (n % i == 0) {
-            if (counter == 0) {
-                v.push_back(i);
-            }
-            counter = 1;
+            if (cnt == 0)
+                prime.push_back(i);
+            cnt = 1;
             n = n / i;
         }
     }
 
-    if (n > 2) {
-        v.push_back(n);
-    }
+    if (n > 2)
+        prime.push_back(n);
 
-    return v;
-}
-
-int main() {
-    ll num;
-    cout << "Enter a number: ";
-    cin >> num;
-
-    vector<ll> factors = primeFactors(num);
-
-    cout << "Prime factors of " << num << " are: ";
-    for (ll factor : factors) {
-        cout << factor << " ";
-    }
+    for (int i = 0; i < prime.size(); i++)
+        cout << prime[i] << " ";
 
     return 0;
 }
