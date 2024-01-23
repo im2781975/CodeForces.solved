@@ -408,3 +408,41 @@ void solve_tc() {
     }
     cout << ans << endl;
 }
+int performOperations(const vector<int>& v1, vector<vector<int>>& v3, int k) {
+    vector<int> v2 = v1;
+    int ans = 0;
+
+    for (int cnt = 0; cnt < v3.size(); cnt++) {
+        int pos = v3[cnt][0];
+        int value = v3[cnt][1];
+
+        v2[pos - 1] = value;
+        v2[(v3[cnt][0]) - 1] = v3[cnt][1];
+
+        for (int i = 0; i < k; i++) {
+            for (int j = i + 1; j < k + 1; j++) {
+                set<int> op;
+                for (int me : v1) {
+                    op.insert(me);
+                }
+                for (int me : v2) {
+                    op.insert(me);
+                }
+                ans += op.size();
+            }
+        }
+    }
+    return ans;
+}
+int main() {
+    int pos, value, k;
+    vector<int> v1; 
+    vector<vector<int>> v3;
+    cin >> pos >> value >> k;
+    
+    vector<vector<int>> v;
+    int result = performOperations(v1, v3, k);
+    cout << "Result: " << result << endl;
+
+    return 0;
+}
