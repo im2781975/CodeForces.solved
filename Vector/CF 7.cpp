@@ -196,3 +196,29 @@ int main() {
     cin >> n >> x >> y;
     cout << olusola(n, x, y);
 }
+int binarySearch(vector<int>& arr, int low, int high, int key) {
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == key)
+            return mid;
+        else if (arr[mid] < key)
+            low = mid + 1;
+        else
+            high = mid - 1;
+    }
+    return -1;
+}
+int main() {
+    vector<int> a = { 2, 3, 4 };
+    vector<int> b = { 5, 6, 7};
+    int n = a.size();
+    vector<int> c = a;
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
+
+    for (int i = 0; i < n; i++) {
+        int index = binarySearch(a, 0, n - 1, c[i]);
+        cout << b[index] << " ";
+    }
+    return 0;
+}
