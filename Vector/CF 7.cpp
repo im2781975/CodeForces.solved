@@ -25,3 +25,29 @@ void PrimeFactor() {
         cout << prime[i] << " ";
     return 0;
 }
+void FindCombination(vector<char> ch, int n, int k, vector<string> &total, string temp, int count) {
+    if (count == n) {
+        if (temp.size() == k) {
+            total.push_back(temp);
+        }
+        return;
+    }
+    FindCombination(ch, n, k, total, temp, count + 1);
+    temp += sv[count];
+    FindCombination(ch, n, k, total, temp, count + 1);
+    return;
+}
+int main() {
+    vector<char> ch = {'a', 'b', 'c'}; 
+    int n = ch.size(); 
+    int k = 2; 
+    vector<string> total;
+    string temp = "";
+    int count = 0;
+
+    FindCombination(ch, n, k, total, temp, count);
+
+    for(int i=0; i<total.size(); i++)
+        cout << total[i] << " ";
+    return 0;
+}
