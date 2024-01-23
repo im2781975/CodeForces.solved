@@ -222,3 +222,24 @@ int main() {
     }
     return 0;
 }
+void solve()
+{
+    int n, cnt = 0, ans = 1;
+    int a[]{2, 3, 4, 5, 6};
+     n = sizeof(a) / sizeof(a[0]);
+    int b[]{6, 5, 4, 3, 2};
+    for (int i = 0; i < n; i++)
+    {
+        cnt = 0;
+        for (int j = i; j < n; j++)
+        {
+            if (b[i] < a[j])
+                cnt++;
+            else
+                break;
+        }
+        cout <<cnt << " ";
+        ans = ans * cnt;
+    }
+    cout << ans;
+}
