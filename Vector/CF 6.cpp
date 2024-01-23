@@ -608,3 +608,130 @@ int main() {
     solve_tc();
     return 0;
 }
+#include <iostream>
+#include <vector>
+#include <set>
+
+using namespace std;
+
+// Function to perform the required operations
+int performOperations(const vector<int>& v1, vector<vector<int>>& v3, int k) {
+    vector<int> v2 = v1;
+    int ans = 0;
+
+    for (int cnt = 0; cnt < v3.size(); cnt++) {
+        int pos = v3[cnt][0];
+        int value = v3[cnt][1];
+
+        v2[pos - 1] = value;
+        v2[(v3[cnt][0]) - 1] = v3[cnt][1];
+
+        for (int i = 0; i < k; i++) {
+            for (int j = i + 1; j < k + 1; j++) {
+                set<int> op;
+                for (int me : v1) {
+                    op.insert(me);
+                }
+                for (int me : v2) {
+                    op.insert(me);
+                }
+                ans += op.size();
+            }
+        }
+    }
+
+    return ans;
+}
+
+int main() {
+    int pos, value, k;
+
+    // Assuming v1 is declared and initialized before this point
+    vector<int> v1; 
+
+    // Assuming v3 is declared and initialized before this point
+    vector<vector<int>> v3;
+
+    cin >> pos >> value >> k;
+    
+    // Assuming v is declared and initialized before this point
+    vector<vector<int>> v;
+
+    // Perform necessary operations
+    int result = performOperations(v1, v3, k);
+
+    // Print the result or use it as needed
+    cout << "Result: " << result << endl;
+
+    return 0;
+}
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n);
+    vector<int> c(n, 0);
+    vector<int> b(n + m + 1, 0);
+
+    cout << endl;
+
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+
+    for (int i = 0; i < a.size(); i++)
+        cout << a[i] << " ";
+    cout << endl;
+    cout << endl;
+
+    for (int i = 0; i < b.size(); i++)
+        cout << b[i] << " ";
+    cout << endl;
+
+    for (int i = 0; i < c.size(); i++)
+        cout << c[i] << " ";
+    cout << endl;
+
+    for (int i = 1; i <= m; i++) {
+        int x, y;
+        cin >> x >> y;
+        x--;
+        b[a[x]] += i - c[x];
+        c[x] = i;
+        a[x] = y;
+
+        for (int i = 0; i < a.size(); i++)
+            cout << a[i] << " ";
+        cout << endl;
+
+        for (int i = 0; i < b.size(); i++)
+            cout << b[i] << " ";
+        cout << endl;
+
+        for (int i = 0; i < c.size(); i++)
+            cout << c[i] << " ";
+        cout << endl;
+    }
+
+    m++;
+    for (int i = 0; i < n; i++)
+        b[a[i]] += m - c[i];
+
+    for (int i = 0; i < b.size(); i++)
+        cout << b[i] << " ";
+
+    int ans = 0;
+    for (int i = 0; i < b.size(); i++) {
+        ans += ((b[i] * (m - b[i])) + ((b[i] * (b[i] - 1)) / 2));
+        cout << ans << " ";
+    }
+
+    cout << endl;
+    cout << ans << endl;
+    cout << endl;
+
+    return 0;
+}
