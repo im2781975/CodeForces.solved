@@ -239,3 +239,182 @@ int main() {
     return 0;
 
 }
+int main()
+{
+	#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define ss second
+#define ff first
+int main(void)
+{
+        
+       /*ll a,b,i,c=0,d=0;
+       cin>>a>>b;
+       string s;
+       for(i=0;i<b;i++)
+       {
+              cin>>s;
+              ll f=0;
+              for(char x : s)
+              if(x=='0')
+              {
+                f=1;
+                break;
+              }
+              if(f)
+              c++;
+              else
+              {
+                d=max(c,d);
+                c=0;
+              }
+       }
+       d=max(c,d);
+       cout<<d<<endl; */
+
+           /*ll n,i,j=0;
+           cin>>n;
+           string s[101];
+           for(i=0;i<n;i++)
+           {
+                if(i==n/2)
+                s[0]+='D';
+                else
+                s[0]+='*';
+          }
+          ll c=3;
+          for(i=1;i<n/2+1;i++)
+          {
+                ll f=0,c1=0;
+                for(j=0;j<n;j++)
+                {
+                        if(s[i-1][j+1]=='D')
+                        f=1;
+                        
+                        if(f)
+                        {
+                        s[i]+='D';
+                        c1++;
+                        }
+                        else
+                        s[i]+='*';
+                        if(c1==c)
+                        f=0;
+                        
+                        
+               }
+               c+=2;
+        }
+        for(i=0;i<n/2+1;i++)
+        cout<<s[i]<<endl;
+        for(i=n/2-1;i>=0;i--)
+        cout<<s[i]<<endl;*/
+        
+        /
+
+     /* */
+
+        /*ll i,j,n;
+        string s;
+        cin>>s;
+        s+="WUB";
+        n=s.length();
+        
+        for(i=0;i<n;i++)
+        {
+                if(s[i]=='W' && s[i+1]=='U' && s[i+2]=='B')
+                i+=2;
+                else
+                {
+                        string p;
+                        while(i<n && !(s[i]=='W' && s[i+1]=='U' && s[i+2]=='B'))
+                        {
+                                p+=s[i];
+                                i++;
+                         } 
+                         i+=2;
+                     cout<<p<<" ";
+                }
+       }
+       cout<<endl;  */
+
+     
+      /*ll i,j=0,n;
+      string s;
+      cin>>s;
+      n=s.length();
+      for(i=0;i<n/2;i++)
+      {
+           if(s[i]!=s[n-1-i])
+           j++;
+      }
+      if(!((n%2!=0 && j<=1) || (n%2==0 && j==1)))
+      cout<<"NO"<<endl;
+      else
+      cout<<"YES"<<endl; */
+      /*string a,b;
+      cin>>a;
+      for(char x : a)
+      {
+        char p=x;
+                if((x-'0')>4)
+                {
+                      p=('0'+('9'-x));
+                }
+                b+=p;
+      }
+      ll i=0;
+      for(char x : b)
+      {
+                if(x!='0')
+                {
+                i=1;
+                
+                }
+                else
+                {
+                        if(i==0)
+                        {
+                                cout<<9;
+                                i=1;
+                                continue;
+                         }
+                }                
+                if(i)
+                cout<<x;
+      }*/
+      
+                /*string s;
+                cin>>s;
+                ll i,j=0,k=0,n;
+                n=s.length();
+                if(n%2)
+                {
+                        cout<<-1<<endl;
+                        continue;
+                }
+                for(char x : s)
+                {
+                     if(x=='0')
+                     j++;
+                     else
+                     k++;
+                }
+                cout<<abs(j-k)/2<<endl;      */
+                 */
+        
+        ll t;
+        cin>>t;
+        while(t--)
+        {
+                string s;
+                cin>>s;
+                ll n=s.length();
+                if(n>10)
+                cout<<s[0]<<(n-2)<<s[n-1]<<endl;
+                else
+                cout<<s<<endl;
+        }               
+      
+}              
