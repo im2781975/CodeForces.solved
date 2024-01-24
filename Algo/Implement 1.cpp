@@ -252,3 +252,92 @@ bool check(ll k, string &s, ll x) {
      }
     return false;
 }
+int main()
+{
+    string s;
+        map<char,ll> av;
+        cin>>s;
+        for(char x: s)
+        av[x]++;
+        if(av.size()%2)
+        cout<<"IGNORE HIM!"<<endl;
+        else
+        cout<<"CHAT WITH HER!"<<endl;
+}
+int main()
+{
+ll a,b=0,n,i;
+       cin>>n;
+       map<ll,ll> z;
+       for(i=0;i<n;i++)
+       {
+                cin>>a;
+                z[a]++;
+                b=max(b,z[a]);
+       }
+       cout<<b<<" "<<z.size()<<endl;
+}
+int main()
+{
+ll n=6,x,i,f=0;
+      map<ll,ll> mp;
+      for(i=0;i<n;i++)
+      {
+                cin>>x;
+                mp[x]++;
+                f=max(f,mp[x]);
+                
+      }
+      if((mp.size()==2 && f==4) || (mp.size()==1))
+      cout<<"Elephant"<<endl;
+      else if((mp.size()==3 && f==4) || (mp.size()==2 && f==5))
+      cout<<"Bear"<<endl;
+      else
+      cout<<"Alien"<<endl; 
+}
+int main()
+{
+    ll i,n,x=0;
+     map<string,ll> mp;
+     string s;
+     cin>>n;
+     while(n--)
+     {
+        cin>>s;
+        mp[s]++;
+     }
+     for(auto it : mp)
+     {
+           if(it.second>x)
+           {
+                x=it.second;
+                s=it.first;
+           }
+     }
+     cout<<s<<endl;
+}
+int main()
+{
+      ll n,m,i,j,a;
+      map<ll,ll> mp;
+      ll x=INT_MAX,y;
+      y=x;
+      a=y;
+      cin>>n>>m;
+      while(n--)
+      {
+                cin>>j;
+                mp[j]++;
+                x=min(x,j);
+       }
+       while(m--)
+       {
+                cin>>j;
+                if(mp[j]!=0)
+                {
+                        a=min(a,j);
+                }
+                y=min(y,j);
+        }
+        cout<<min({a,x*10+y,y*10+x})<<endl;    
+}
