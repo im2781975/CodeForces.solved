@@ -418,3 +418,140 @@ int main(void)
         }               
       
 }              
+// Bits ++
+#include <iostream>
+#include <string>
+
+
+using namespace::std;
+int main()
+{
+   
+    int n,X=0;
+    
+    cin >> n;
+
+    string s1="++X",s2="X++",s3="--X",s4="X--";
+    
+    while (n--)
+    {
+        string s;
+
+        cin >> s;
+        
+        if (s==s1 || s==s2)
+        {
+            X=X+1;
+        }
+        else if (s==s3 || s==s4)
+        {
+            X=X-1;
+        }
+        
+    }
+    
+    cout << X << endl;
+    
+    return 0;
+}
+
+//Black Square
+/*
+#include <iostream>
+#include<set>
+#include<map>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<cstdlib>
+#include<iostream>
+#include<algorithm>
+
+using namespace::std;
+int main()
+{
+    
+    int i,a[4],sum=0,n;
+    
+    for (i=0; i<4; i++)
+    {
+        cin >> a[i];
+    }
+    
+    string s;
+    
+    cin >> s;
+    
+    n=s.length();
+    
+    for (i=0; i<n; i++)
+    {
+        if (s[i]=='1')
+        {
+            sum=sum+a[0];
+        }
+        else if (s[i]=='2')
+        {
+            sum=sum+a[1];
+        }
+        else if (s[i]=='3')
+        {
+            sum=sum+a[2];
+        }
+        else if (s[i]=='4')
+        {
+            sum=sum+a[3];
+        }
+    }
+    
+    cout << sum;
+    
+    
+}
+#include <iostream>
+#include<set>
+#include<map>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<cstdlib>
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+
+using namespace::std;
+int main()
+{
+    int t,i,n;
+    
+    cin >> t;
+    
+    n=t;
+    
+    while (t--)
+    {
+        
+        string s,s1;
+        
+        cin >> s;
+        
+        int a=s.length();
+        
+        if (a>10)
+        {
+            s1=s[0]+to_string(a-2)+s[a-1];
+        }
+        else if(a<=10)
+        {
+            s1=s;
+        }
+        
+        cout << s1 << endl;
+    }
+}
