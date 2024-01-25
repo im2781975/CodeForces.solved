@@ -214,3 +214,178 @@ ll min(ll a, ll b, ll c) {
        else
         cout<<"NO"<<endl;
    }
+//Bear and Big Brother
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int a,b,count=0;
+    
+    cin >> a >> b;
+    
+year:
+    if (a>=b)
+    {
+        count++;
+        goto end;
+    }
+    else
+    {
+       a=3*a;
+       b=2*b;
+        
+    if (a>b)
+    {
+        goto year;
+    }
+    else
+    {
+        count++;
+        goto year;
+    }
+    }
+end:
+
+    cout << count;
+
+}
+//Vasya the Hipster
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int a,b,c;
+    
+    cin >> a >> b;
+    
+    if (a<=b)
+    {
+        c=a;
+        cout << c << " ";
+    }
+    else
+    {
+        c=b;
+        cout << c << " ";
+    }
+    
+    cout << (a+b-2*c)/2;
+}
+//Elephent
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,a,count=0;
+    
+    cin >> n;
+    
+    a=n/5;
+    
+    if (n%5!=0)
+    {
+        a++;
+    }
+    
+    cout << a;
+}
+//Wrong Subtraction
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    long long int n;
+    int k,i;
+    
+    cin >> n >> k;
+    
+    for (i=0; i<k; i++)
+    {
+        if (n%10==0)
+        {
+            n=n/10;
+        }
+        else if (n%10!=0)
+        {
+            n--;
+        }
+    }
+    cout << n;
+}
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    long long int n;
+    int count=0,r;
+    
+    cin >> n;
+    
+    while (n!=0)
+    {
+        r=n%10;
+        n=n/10;
+        if (r==4 || r==7)
+        {
+            count++;
+        }
+    }
+    
+    if (count==4 || count==7 )
+    {
+        cout << "YES";
+    }
+    else
+        cout << "NO";
+}
+//. Phoenix and Balance
+#include <iostream>
+#include<set>
+#include<map>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<cstdlib>
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+#include<climits>
+
+using namespace::std;
+int main()
+{
+    int i,t;
+    
+    cin >> t;
+    
+    while (t--)
+    {
+        int n;
+        
+        cin >> n;
+        
+        long long int x = 0;
+        
+        for (i=0; i<=n; i++)
+        {
+            if (n==2)
+            {
+                x=2;
+            }
+            else if (n==i)
+            {
+                x=2*(i-1)-2;
+            }
+        }
+        cout << x << endl;
+    }
+
+}
