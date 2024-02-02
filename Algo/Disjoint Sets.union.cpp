@@ -1,3 +1,4 @@
+// https://codeforces.com/edu/course/2/lesson/7/1/practice
 #include<bits/stdc++.h>
 using namespace std;
 const int maxn=1e5;
