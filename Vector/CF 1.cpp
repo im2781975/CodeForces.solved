@@ -174,3 +174,33 @@ void solveDiv4C()
     }
     cout << finalResult << "\n";
 }
+#include<vits/stdc++.h>
+using namespace std;
+int main()
+{
+    //1823/A
+    int n, k;
+    cin >> n >> k;
+    vector<int>v;
+    for(int i=1; i<=n; i++)
+        v.push_back(1);
+    int pos=n, neg = 0, total = 0;
+    for(int i=0; i<n; i++)
+    {
+        total = (pos*(pos - 1)/2)+(neg*(neg - 1 )/2);
+        if(total== k)
+            break;
+        v[i]*=-1;
+        pos--;
+        neg++;
+    }
+    if(total==k)
+    {
+        cout << "Yes";
+        for(auto val:v)
+            cout << val << " ";
+        cout << "\n";
+    }
+    else 
+        cout << "No";
+}
