@@ -90,4 +90,33 @@ int main()
 
     return 0;
 }
-
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    //https://codeforces.com/problemset/problem/1823/B
+    int n, k;
+    cin >> n >> k;
+    map<int, int>mp;
+    for(int i=1; i<=n; i++)
+    {
+        int in;
+        cin >> in;
+        map[in] = i;
+    }
+    int cnt = 0;
+    for(auto val:mp)
+    {
+        int cur, currect;
+        cur = val.second;
+        currect = val.first;
+        if(abs(cur - currect) % k! =0)
+            cnt++;
+    }
+    if(cnt==0)
+        cout << 0;
+    else if(cnt==2)
+        cout << 1;
+    else 
+        cout << -1;
+}
