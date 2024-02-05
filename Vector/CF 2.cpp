@@ -250,3 +250,28 @@ bool check(vector<int>v , int k){
     }
     return true;
 }
+https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/V
+#include<bits/stdc++.h>
+using namespace std;
+bool targetSum(vector<int>v, int size, int sum, int trg)
+{
+    if(size == 0)
+    {
+        if(sum == trg)
+            return true;
+        return false;
+    }
+    return targetSum(v, size-1, sum- v[size-1], trg) || targetSum(v, size-1, sum + v[size -1], trg);
+}
+int main()
+{
+    int n, x;
+    cin >> n >> x;
+    vector<int>v(n);
+    for(int i=0; i<n; i++)
+        cin >> v[i];
+    if(targetSum(v, n, 0, x) == true)
+        cout << "Yes";
+    else
+        cout << "No";
+}
