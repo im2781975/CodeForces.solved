@@ -58,3 +58,23 @@ void BasedCondition()
             cout <<(max(x, y) -1)*2 -1;
     }
 }
+#include<bits/stdc++.h>
+using namespace std;
+https://codeforces.com/group/MWSDmqGsZm/contest/223339/problem/W
+bool reach(int cur, int trg)
+{
+    if(cur==trg)
+        return true;
+    if(cur > trg)
+        return false;
+    return reach(cur*10, trg) || reach(cur*20, trg);
+}
+int main()
+{
+    int n;
+    cin >> n;
+    if(reach(1, n))
+        cout << "Yes";
+    else
+        cout << "No";
+}
