@@ -179,3 +179,144 @@ void rec(int a, int b)
 			return;
 		}
 	}
+int primeFactors(int n)
+{
+    int c=0;
+    while (n % 2 == 0)
+    {
+        c++;
+        n = n/2;
+    }
+    for (int i = 3; i <= sqrt(n); i = i + 2)
+    {
+        while (n % i == 0)
+        {
+            c++;
+            n = n/i;
+        }
+    }
+    if (n > 2)
+    {
+        c++;
+    }
+    return c;
+}
+ll gcd(ll a, ll b)
+{
+    if (b > a)
+    {
+        return gcd(b, a);
+    }
+    if (b == 0)
+    {
+        return a;
+ 
+    }
+    return gcd(b, a % b);
+}
+void extendgcd(ll a, ll b, ll*v)
+{
+    if (b == 0)
+    {
+        v[0] = 1;
+        v[1] = 0;
+        v[2] = a;
+        return ;
+    }
+    extendgcd(b, a % b, v);
+    ll x = v[1];
+    v[1] = v[0] - v[1] * (a / b);
+    v[0] = x;
+    return;//pass an arry of size1 3
+}
+void palindrome(int n)
+{
+    int rev=0,val;
+    val = n;
+    while(n > 0)
+    {
+        rev = rev * 10 + n % 10;
+        n = n / 10;
+    }
+    if(val==rev)
+        cout<<val<<" is a palindrome"<<endl;
+    else
+        cout<<val<<" is not a palindrome"<<endl;
+}
+bool isPrime()
+{
+    int n;
+    if (n <= 1)
+        return false;
+    for (int i = 2; i <= sqrt(n); i++)
+        if (n % i == 0)
+            return false;
+ 
+    return true;
+}
+bool isEven()
+{
+    int n;
+    return (n % 2 == 0);
+}
+void check_X0r(ll a, ll b)
+{
+    cout<<"a = " << a <<","<< " b = " << b <<endl;
+    cout << "a & b = " << (a & b) << endl;
+    cout << "a | b = " << (a | b) << endl;
+    cout << "a ^ b = " << (a ^ b) << endl;
+    cout << "~a = " << (~a) << endl;
+    cout<<"b << 1" <<" = "<< (b << 1) <<endl;
+    cout<<"b >> 1 "<<"= " << (b >> 1 )<<endl;
+ 
+}
+{
+    for(int i=2; i<maxn; i++) isprime[i]=1;
+    for(int i=2; i*i<maxn; i++) if(isprime[i])
+        {
+            for(int j=i*i; j<maxn; j+=i) isprime[j]=0;
+        }
+}
+ll exp(ll a, ll b)
+{
+    ll res=1;
+    while(b)
+    {
+        if(b&1) res=(res*a);
+        a=(a*a);
+        b>>=1;
+    }
+    return res;
+}
+ll modexp(ll a, ll b)
+{
+    ll res=1;
+    while(b)
+    {
+        if(b&1) res=(res*a)%mod;
+        a=(a*a)%mod;
+        b>>=1;
+    }
+    return res;
+}
+ll sqt(ll x)
+{
+    ll start =1;
+    ll end = x;
+    while (end>start)
+    {
+        end = start+(end-start)/2;
+        start = x/end;
+    }
+    return end;
+}
+ll inv(ll a)
+{
+    return modexp(a, mod-2);
+}
+ll C(ll n, ll r)
+{
+    ll nume = fact[n];
+    ll deno = (inv(fact[n-r]) * inv(fact[r])) % mod;
+    return (nume * deno) % mod;
+}
