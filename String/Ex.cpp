@@ -555,3 +555,80 @@ int main()
         cout << s1 << endl;
     }
 }
+bool isPalindrome(string s)
+ 
+{
+ 
+    int n=s.length();
+ 
+    for(int i=0; i<n/2; i++)
+ 
+    {
+ 
+        if(s[i] != s[n-i-1])
+ 
+            return false;
+ 
+    }
+ 
+    return true;
+ 
+}
+int findSumstr(string str)
+{
+    string temp = "";
+    int sum = 0;
+    for (char ch : str)
+    {
+        if (isdigit(ch))
+            temp += ch;
+        else
+        {
+            sum += atoi(temp.c_str());
+            temp = "";
+        }
+    }
+    return sum + atoi(temp.c_str());
+}
+void solve( int n , string red , vector<string> red_or_blue)
+{
+    for(ll i = 0 ; i < n ; i++)
+    {
+        if(red_or_blue[i] == red)
+        {
+            cout << "R" <<ed;
+            return;
+        }
+    }
+
+    cout<< "B" <<ed;
+}
+int main()
+{
+  code();
+    int cnt = 0; 
+   tc
+    {
+       string s;
+       cin>>s ;
+      
+        if(s[0] == '+')
+        {
+            ++cnt;
+        }
+              if(s[2] == '+')
+        {
+            cnt++;
+        }
+                if(s[0] == '-')
+        {
+            --cnt;
+        }
+              if(s[2] == '-')
+        {
+            cnt--;
+        }
+     }
+     cout<<cnt;
+
+}
