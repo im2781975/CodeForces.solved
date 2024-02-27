@@ -119,3 +119,53 @@ void solve()
 cout<<maxi;
 //cout<<a[0];
 }
+void solve()
+{
+    int main()
+{
+  code();
+ 
+  // tc
+    {
+       string s, m[N] ;
+       cin>>s;
+       int cnt=0  , cnt2=0  , cnt3=0   ;
+       for(int i = 0 ; i <s.size() ; i++)
+       {
+        if(s[i] == '1')
+        {
+            cnt++;
+        }
+        else if(s[i] == '2')
+        {
+           cnt2++;
+        }
+        else if(s[i] == '3')
+        {
+           cnt3++;
+        }
+
+       }
+       int i =0;
+       while (cnt--)
+       {
+       m[i]='1';
+       m[i+1]='+';
+       i+=2;
+     }
+     while(cnt2--){
+     m[i]='2';
+       m[i+1]='+';
+       i+=2;
+     }
+     while(cnt3--){
+        m[i]='3';
+       m[i+1]='+';
+       i+=2;
+     }
+     for(int j = 0 ; j <s.size() ; j++)
+       cout<<m[j];
+     }
+
+
+}
