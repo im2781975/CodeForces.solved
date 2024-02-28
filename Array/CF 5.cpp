@@ -188,3 +188,68 @@ int main()
 	cout<<ans<<endl;
 	return 0;
 }
+void solve()
+{
+    const unsigned int Size = 20;
+    unsigned int matrix[Size][Size];
+
+    // read from console
+    for (unsigned int y = 0; y < Size; y++)
+    for (unsigned int x = 0; x < Size; x++)
+        cin >> matrix[x][y];
+
+    unsigned int best = 0;
+    // walk through all cells of the matrix
+    for (unsigned int y = 0; y < Size; y++)
+        for (unsigned int x = 0; x < Size; x++)
+    {
+        // three more horizontal cells (right)
+        if (x + 3 < Size)
+        {
+            unsigned int current = matrix[x][y] * matrix[x+1][y] * matrix[x+2][y] * matrix[x+3][y];
+            if (best < current)
+                best = current;
+        }
+        // three more vertical cells available (down)
+        if (y + 3 < Size)
+        {
+            unsigned int current = matrix[x][y] * matrix[x][y+1] * matrix[x][y+2] * matrix[x][y+3];
+            if (best < current)
+                best = current;
+        }
+        // three more diagonal cells (right-down)
+        if (x + 3 < Size && y + 3 < Size)
+        {
+            unsigned int current = matrix[x][y] * matrix[x+1][y+1] * matrix[x+2][y+2] * matrix[x+3][y+3];
+            if (best < current)
+                best = current;
+        }
+        // three more diagonal cells (left-down)
+        if (x + 3 < Size && y >= 3)
+        {
+            unsigned int current = matrix[x][y] * matrix[x+1][y-1] * matrix[x+2][y-2] * matrix[x+3][y-3];
+            if (best < current)
+                best = current;
+        }
+    }
+    cout << best << endl;
+}
+void solve()
+{
+    long long int num = 1,num1 = 1,num2 = 1,num3 = 1,num4 = 1,maxi = 1;
+    for(int i = 0;i<=19;i++){
+        for(int j = 0;j<=19;j++){
+                num = a[i][j]*a[i+1][j+1]*a[i+2][j+2]*a[i+3][j+3];
+                num1 = a[i][j]*a[i+1][j]*a[i+2][j]*a[i+3][j];
+                num2 = a[i][j]*a[i][j+1]*a[i][j+2]*a[i][j+3];
+                if (num>maxi)
+                    maxi = num;
+                if (num1>maxi)
+                    maxi = num1;
+                if (num2>maxi)
+                    maxi = num2;
+
+        }
+    }
+    cout<<maxi;
+}
