@@ -82,3 +82,97 @@ if(pos == -1){
      dq.pop_back();
     
      cnt++;
+-----
+
+	int BinarySearch(vector<long long> v, int item)
+	{
+		int low = 0;
+		int high = v.size() - 1;
+		int mid = NULL;
+		int count = 0;
+		while (low <= high)
+		{
+			mid = (low + high) / 2;
+
+			if (v[mid] == item)
+			{
+				return mid + 1;
+			}
+			if (v[mid] > item)
+			{
+				high = mid - 1;
+			}
+			else
+			{
+				low = mid + 1;
+			}
+		}
+		return NULL;
+	}
+
+	
+
+	
+
+	
+
+	
+	
+	
+
+	string s = "987";
+
+	long long counte = 0;
+	
+	bool b = true;
+	vector<bool> used(1000, false);
+
+	void recu(int ind,int length,int maxnum,vector<char> v,char arr[])
+	{
+		if (ind == length)
+		{
+			string a = "";
+			for (int i = 0; i < length; i++)
+				a += v[i];
+			if (a == s)
+			{
+				cout << "Success";
+				b = false;
+			}
+			return;
+		}
+		for (int i = 0; (i < maxnum)&&b; i++)
+		{
+			v[ind] = arr[i];
+			recu(ind + 1, length, maxnum, v, arr);
+		}
+	}
+
+	int k;
+	vector<char> c;
+	int q;
+	int p;
+	bool be = true;
+
+	void Scobka(int ind, int bal) 
+	{
+		if (ind == k)
+		{
+			if (bal == 0)
+			{
+					string a;
+					for (int i = 0; i < k; i++)
+						a += c[i];
+					cout << a << endl;
+			}
+			return;
+		}
+ 		c[ind] = '(';
+		Scobka(ind + 1, bal + 1);
+		if (bal == 0)
+			return ;
+		c[ind] = ')';
+		Scobka(ind + 1, bal - 1);
+	}
+
+	
