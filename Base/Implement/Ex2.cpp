@@ -442,3 +442,51 @@ bool IsStep(int x)
 		}
 		return true;
 	}
+ll power(ll x,ll y,ll q)
+{
+	x%=q;
+	if(y==0)return 1;
+	if(y%2==0)return power(x%q*x%q,y/2,q)%q;
+	return x%q*(power(x*x%q,y/2,q)%q)%q;
+}
+void exgcd(ll a,ll b,ll &x,ll &y)
+//ax+by==1(mod b) xa%b=1 
+{
+	if(!b)x=1,y=0;
+	else exgcd(b,a%b,y,x),y-=a/b*x;
+}
+int create(int i)
+{
+	int x;
+	cin>>x;
+	if(x==0)return 0;
+	a[i]=x;
+	create(2*i);
+	create(2*i+1);
+	return x;
+}
+void f(int x)
+{
+	if(!a[x])return ;
+	cout<<a[x]<<" ";
+	f(x*2);
+	f(x*2+1);
+}
+int main()
+{
+	create(1);
+	f(1);
+	string x=""+char(127);
+	cout<<x<<endl;
+}
+int main()
+{
+	int n,x,y,z,s=0;
+	cin>>n;
+	for(int i=0;i<n;i++)
+	{
+		cin>>x>>y>>z;
+		if(x+y+z>=2)s++;
+	}
+	cout<<s<<endl;
+}
