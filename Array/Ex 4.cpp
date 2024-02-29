@@ -112,3 +112,89 @@ bool plin(int index)
     return (arr[index] == arr[n - index -1]) && plin(index + 1);
  
 }
+void quicksort(int *mas, int first, int last)
+	{
+		int mid, count;
+		int f = first, l = last;
+		mid = mas[(f + l) / 2]; //���������� �������� ��������
+		do
+		{
+			while (mas[f] < mid) f++;
+			while (mas[l] > mid) l--;
+			if (f <= l) //������������ ���������
+			{
+				count = mas[f];
+				mas[f] = mas[l];
+				mas[l] = count;
+				f++;
+				l--;
+			}
+		} while (f < l);
+		if (first < l) quicksort(mas, first, l);
+		if (f < last) quicksort(mas, f, last);
+	}
+
+	
+
+	void sorte(int **arr, int size)
+	{
+		int temp;
+		int temp2;
+		for (int i = 0; i < size - 1; i++) {
+			for (int j = 0; j < size - i - 1; j++) {
+				if (arr[j][0] > arr[j + 1][0]) {
+					// ������ �������� �������
+					temp = arr[j][0];
+					temp2 = arr[j][1];
+					arr[j][0] = arr[j + 1][0];
+					arr[j][1] = arr[j + 1][1];
+					arr[j + 1][0] = temp;
+					arr[j + 1][1] = temp2;
+				}
+			}
+		}
+	}
+
+	bool IsSortedArr(int arr[], int right)
+	{
+		int temp;
+		for (int i = 0; i < right; i++) {
+			for (int j = 0; j < right - i; j++) {
+				if (arr[j] > arr[j + 1]) {
+					return false;
+					temp = arr[j];
+					arr[j] = arr[j + 1];
+					arr[j + 1] = temp;
+				}
+			}
+		}
+		return true;
+	}
+
+	
+	bool arIsEmpty(int arr[], int n)
+	{ 
+		int a = arr[0];
+		for (int i = 1; i < n; i++)
+			if (arr[i] != a)
+				return false;
+		return true;
+	}
+void Swap(int arr[], int right, int left)
+	{
+		if (left != right)
+		{
+			int temp = arr[left];
+			arr[left] = arr[right];
+			arr[right] = temp;
+		}
+	}
+bool IsZero(int arr[], int n)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (arr[j] != 0)
+				return false;
+		}
+		return true;
+	}
