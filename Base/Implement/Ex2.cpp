@@ -389,3 +389,56 @@ int main()
     }
 
 }
+bool IsStep(int x)
+	{
+		for (int i = 0; i <= x; i++)
+		{
+			if (pow(2, i) == x)
+				return true;
+		}
+		return false;
+	}
+	bool IsDiff(int n)
+	{
+		for (int i = 0; i < 4; i++)
+			for (int j = 0; j < 4; j++)
+				if ((n / (int)pow(10, i)) % 10 == (n / (int)pow(10, j)) % 10&&j!=i)
+					return false;
+		return true;
+	}
+	bool IsPol(long long n)
+	{
+		int a[1000];
+		int c = 0;
+		while (n > 0)
+		{
+			a[c] = n % 10;
+			c++;
+			n /= 10;
+		}
+		if (c % 2 == 0)
+		{
+			int i = 0;
+			int j = c - 1;
+			while (i < j)
+			{
+				if (a[i] != a[j])
+					return false;
+				i++;
+				j--;
+			}
+		}
+		else
+		{
+			int i = c / 2;
+			int j = c / 2;
+			while (i>=0&&j<c)
+			{
+				if (a[i] != a[j])
+					return false;
+				i--;
+				j++;
+			}
+		}
+		return true;
+	}
