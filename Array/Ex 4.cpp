@@ -198,3 +198,83 @@ bool IsZero(int arr[], int n)
 		}
 		return true;
 	}
+
+const int n=1e7+10;
+bool is_prime[n];
+int prime[n/10],phi[n],from[n];
+void init() {
+	fill(&is_prime[0],&is_prime[0]+n,1);
+	int cnt = 0;
+	is_prime[1] = 0;
+	phi[1] = 1;
+	for (int i = 2; i <= n; i++) {
+		if (is_prime[i]) 
+			prime[++cnt] = i,phi[i] = i - 1;
+		for (int j = 1; j <= cnt && i * prime[j] <= n; j++){
+			from[i*prime[j]]=prime[j];
+			is_prime[i * prime[j]] = 0;
+			if (i % prime[j])
+				phi[i * prime[j]] = phi[i] * phi[prime[j]];
+			else {
+				phi[i * prime[j]] = phi[i] * prime[j];
+				break;
+			}
+		}
+	}
+}
+void change(Complex y[], int len) {
+	int i, j, k;
+	for (int i = 1, j = len / 2; i < len - 1; i++) {
+		if (i < j) std::swap(y[i], y[j]);
+		k = len / 2;
+		while (j >= k) {
+			j = j - k;
+			k = k / 2;
+		}
+
+		if (j < k) j +
+-----
+void fft(Complex y[], int len, int on) {
+	change(y, len);
+	for (int h = 2; h <= len; h <<= 1) {
+		Complex wn(cos(2 * PI / h), sin(on * 2 * PI / h));
+		for (int j = 0; j < len; j += h) {
+			Complex w(1, 0);
+			for (int k = j; k < j + h / 2; k++) {
+				Complex u = y[k];
+				Complex t = w * y[k + h / 2];
+				y[k] = u + t;
+				y[k + h / 2] = u - t;
+				w = w * wn;
+			}
+		}
+	}
+	if (on == -1) {
+		for (int i = 0; i < len; i++) {
+			y[i].x /= len;
+		}
+	}
+}
+ll r[N],a[N],b[N],c[N];
+void ntt(ll *x, ll lim, ll opt) {
+	ll i, j, k, m, gn, g, tmp;
+	for (i = 0; i < lim; ++i)
+		if (r[i] < i) swap(x[i], x[r[i]]);
+	for (m = 2; m <= lim; m <<= 1) {
+	    k = m >> 1;
+		gn = qpow(3, (P - 1) / m);
+		for (i = 0; i < lim; i += m) {
+			g = 1;
+			for (j = 0; j < k; ++j, g = 1ll * g * gn % P) {
+				tmp = 1ll * x[i + j + k] * g % P;
+				x[i + j + k] = (x[i + j] - tmp + P) % P;
+				x[i + j] = (x[i + j] + tmp) % P;
+			}
+		}
+	}
+	if (opt == -1) {
+		reverse(x + 1, x + lim);
+		ll inv = qpow(lim, P - 2);
+		for (i = 0; i < lim; ++i) x[i] = 1ll * x[i] * inv % P;
+	}
+}
