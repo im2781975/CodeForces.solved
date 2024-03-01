@@ -86,3 +86,66 @@ void solve()
         cout<<endl;
     }
     cout<<a[19][18]<<endl;
+vector<int> kmp(string s) {
+	int n = (int)s.length();
+	vector<int> pi(n);
+	for (int i = 1; i < n; i++) {
+		int j = pi[i - 1];
+		while (j > 0 && s[i] != s[j]) j = pi[j - 1];
+		if (s[i] == s[j]) j++;
+		pi[i] = j;
+	}
+	return pi;
+}
+vector<int> t(string s)
+{
+	vector<int> kp=kmp(s),res(s.size());
+	for(int i=0;i<s.size();i++)res[i]=i+1-kp[i];
+	return res;
+}
+vector<int> q(string s)
+{
+	vector<int> pi=kmp(s),ans(s.size() + 1);
+	for (int i = 0; i < s.size(); i++) ans[pi[i]]++;
+	for (int i = s.size() - 1; i > 0; i--) ans[pi[i - 1]] += ans[i];
+	for (int i = 0; i <= s.size(); i++) ans[i]++;
+	return ans;
+}
+vector<int> find(string text, string pattern) {
+	string cur = pattern + '#' + text;
+	int sz1 = text.size(), sz2 = pattern.size();
+vector<int> v,lps = kmp(cur);
+	for(int i = sz2 + 1; i <= sz1 + sz2; i++)
+		if(lps[i] == sz2)
+			v.push_back(i - 2 * sz2);
+	return v;
+}
+void print(vector<int>&a)
+{
+	for(int i=0;i<a.size();i++)cout<<a[i]<<" ";
+	cout<<endl;
+}
+void f(int n)
+{
+	while(from[n])
+	{
+		cout<<from[n]<<" ";
+		n/=from[n];
+	}
+	cout<<n<<endl;
+}
+void slove()
+{
+		string _�ַ���="�ַ���";
+	cout<<_�ַ���<<endl;
+	string s;
+	while(getline(cin,s))
+		system(s.c_str());
+}
+int main()
+{
+	int t=1;
+	cin>>t;
+	while(t--)
+		slove();
+}
