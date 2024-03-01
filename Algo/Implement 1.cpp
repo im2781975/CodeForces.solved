@@ -341,3 +341,85 @@ int main()
         }
         cout<<min({a,x*10+y,y*10+x})<<endl;    
 }
+class segmentTree{
+public:
+	vector<int> a,c,lazy;
+	segmentTree(int n)
+	{
+		//this->n=n;
+		lazy.resize(4*(n+5),0);
+		a.resize(4*(n+5));
+		c.resize(n+5);
+	}
+	void bulid(int s=1,int e=n,int p=1)
+	{
+		if(s==e){
+			a[p]=c[s];
+			return ;
+		}
+		int m=(s+e)/2;
+		bulid(s,m,p*2);
+		bulid(m+1,e,p*2+1);
+	}
+	void change(int s,int e,int x,int ss=1,int ee=4*n,int p=1)
+	{
+		if(s<=ss&&ee<=e){
+			a[ss]+=x*(ee-ss+1),lazy[p]+=x;
+			return ;
+		}
+		int m = ss + ((ee - ss) >> 1);
+		if (lazy[p] && ss != ee) {
+			a[p * 2] += lazy[p] * (ee - ss + 1), a[p * 2 + 1] += lazy[p] * (ee - m);
+			lazy[p * 2] += lazy[p], lazy[p * 2 + 1] += lazy[p]; 			lazy[p] = 0; 	
+		}
+		if (s <= m) change(s, e, x, ss, m, p * 2);
+		if (e > m)  change(s, e, x, m + 1, ee, p * 2 + 1);
+		a[p] = a[p * 2] + a[p * 2 + 1];
+	}
+	int getsum(int s,int e,int ss=1,int ee=4*n,int p=1)
+	{
+		if (ss <= s && ee <= e) return a[p];
+		int m = ss + ((ee - ss) >> 1);
+		if (lazy[p]) {
+			a[p * 2] += lazy[p] * (ee - ss + 1), a[p * 2 + 1] += lazy[p] * (ee - m);
+			lazy[p * 2] += lazy[p], a[p * 2 + 1] += lazy[p]; 			lazy[p] = 0;     
+		}
+		int sum = 0;
+		if (s <= m) sum = getsum(s, e, ss, m, p * 2);
+		if (e > m) sum += getsum(s, e, m + 1, ee, p * 2 + 1);
+		return sum;
+	}
+};
+class trie
+{
+public:
+	trie* c[128];
+	int val;
+	trie()
+	{
+		for(int i=0;i<128;i++)c[i]=NULL;
+		val=0;
+	}
+	int find(string s)
+	{
+		trie *p=this;
+		for(int i=0;i<s.size();i++)
+		{
+			if(!p->c[s[i]])
+				return 0;
+			p=p->c[s[i]];
+		}
+		return p->val;
+	}
+	void insert(string s)
+	{
+		trie *p=this;
+		for(int i=0;i<s.size();i++)
+		{
+			if(!p->c[s[i]])
+				p->c[s[i]]=new trie();
+			p=p->c[s[i]];
+		}
+		p->val++;
+	}
+};
