@@ -88,3 +88,25 @@ void Decreasing(){
     }
     (flag)?cout << "Yes":cout << "No";
 }
+
+//find and print the absolute difference between consecutive elements, 
+//the absolute difference between each element and the max & min values in the sequence, 
+//& finally, the difference between the minimum and maximum values in the sequence.
+void AbsoluteDiff(){
+    int x = 1e10, y = 1e10;
+    x = x * (-1);
+    int n, val; cin >> n;
+    vector <int> vec;
+    for(int i = 0; i < n; i++){
+        cin >> val;
+        vec.push_back(val);
+        x = max(x, val); y = min(y, val);
+    }
+    cout << abs(vec[0] - vec[1]) << "\n";
+    cout << abs(vec[1] - x) << "\n";
+    for(int i = 1; i < n -1; i++){
+        cout << min(abs(vec[i] - vec[i - 1]), abs(vec[i] - vec[i + 1])) << "\n";
+        cout << max(abs(vec[i] - x), abs(vec[i] - y)) << "\n";
+    }
+    cout << abs(vec[n -1] - vec[n - 2]) << "\n" << y - x;
+}
