@@ -110,3 +110,27 @@ void AbsoluteDiff(){
     }
     cout << abs(vec[n -1] - vec[n - 2]) << "\n" << y - x;
 }
+
+//count sequences of consecutive 'B's in a given string and output 
+//the number of such sequences along with their lengths.
+void CountConsecutive(){
+    int n, cnt = 0; 
+    cin >> n;
+    string str; cin >> str;
+    vector <int> vec;
+    for(int i = 0; str[i]; i++){
+        if(str[i] == 'B')
+            cnt++;
+        else {
+            if(cnt !=0)
+                vec.push_back(cnt);
+                cnt = 0;
+        }
+    }
+    if(cnt !=0)
+        vec.push_back(cnt);
+    cout << vec.size() << " ";
+    for(int i = 0; i < vec.size(); i++){
+        cout << vec[i] << " ";
+    }
+}
