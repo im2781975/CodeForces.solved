@@ -59,3 +59,32 @@ void CalculateLength(){
     int res = 0;
     cout << "Diff between upper & lower bound is: " << max(res, dist2 - dist1 + 1);
 }
+
+//Determine weither a vector decreasing or not
+void Decreasing(){
+    vector <int> vec, cev;
+    int n, m, k;
+    cin >> n >> m;
+    for(int i = 0; i < n; i++){
+        cin >> k; 
+        vec.push_back(k);
+    }
+    for(int i = 0; i < m; i++){
+        cin >> k; 
+        cev.push_back(k);
+    }
+    sort(cev.begin(), cev.end());
+    reverse(cev.begin(), cev.end());
+    int cnt = 0, flag = 0;
+    for(int i = 0; i < n; i++){
+        if(vec[i] == 0){
+            if(vec[i] == cev[i])
+                cnt++;
+        }
+    }
+    for(int i = 1; i < n; i++){
+        if(vec[i] < vec[i - 1])
+            flag = 1; break;
+    }
+    (flag)?cout << "Yes":cout << "No";
+}
