@@ -38,3 +38,24 @@ void MinimumLargest(){
     }
     cout << "\nCount Elements are: " << cnt;
 }
+
+//calculates the length of the longest contiguous subarray that excludes the minimum and maximum values. 
+void CalculateLength(){
+    int n, val, dist1, dist2;
+    cin >> n;
+    vector <int> vec;
+    for(int i = 0; i < n; i++){
+        cin >> val;
+        vec.push_back(val);
+    }
+    sort(vec.begin(), vec.end());
+    auto it = upper_bound(vec.begin(), vec.end(), vec[0]);
+    dist1 = it - vec.begin();
+    it = lower_bound(vec.begin(), vec.end(), vec[vec.size() - 1]);
+    //Decrementing this iterator (it--) makes it point to the element before, 
+    //which is just before the first occurrence of large value.
+    it--;
+    dist2 = it - vec.begin();
+    int res = 0;
+    cout << "Diff between upper & lower bound is: " << max(res, dist2 - dist1 + 1);
+}
