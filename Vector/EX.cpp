@@ -39,7 +39,7 @@ void MinimumLargest(){
     cout << "\nCount Elements are: " << cnt;
 }
 
-//calculates the length of the longest contiguous subarray that excludes the minimum and maximum values. 
+//calculates the length of the longest contiguous subarray that excludes the min & max values. 
 void CalculateLength(){
     int n, val, dist1, dist2;
     cin >> n;
