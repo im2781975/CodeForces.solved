@@ -134,3 +134,27 @@ void CountConsecutive(){
         cout << vec[i] << " ";
     }
 }
+
+//counts consecutive zeros and outputs the length of the 
+//longest such consecutive zero sequence for each test case
+void CountConsecutive(){
+    int n, x; cin >> n;
+    int cnt = 0;
+    vector<int>vec(n);
+    for(int i = 0; i < n; i++){
+        cin >> x;
+        if(x == 0)
+            cnt++;
+        else {
+            if(cnt > 0){
+                vec.push_back(cnt);
+                cnt = 0;
+            }
+        }
+    }
+    if(cnt > 0)
+        vec.push_back(cnt);
+    sort(vec.begin(), vec.end());
+    for(int i = 0; i < vec.size(); i++)
+        cout << vec[i] << " ";
+}
