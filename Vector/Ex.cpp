@@ -76,28 +76,6 @@ int main()
 }
 int main()
 {
-       ll i,j=0,n,k,s=0;
-           vector<ll> z;
-           cin>>n;
-           for(i=0;i<n;i++)
-           {
-                cin>>k;
-                z.push_back(k);
-                s+=k;
-           }
-           sort(z.begin(),z.end());
-           k=0;
-           for(i=n-1;i>=0;i--)
-           {
-                j+=z[i];
-                k++;
-                if(j>(s-j))
-                break;
-           }
-           cout<<k<<endl;  */
-}
-int main()
-{
     vector<ll> z;
         ll i,j,a,n;
         cin>>n;
