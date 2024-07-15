@@ -119,29 +119,3 @@ int main()
         cout<<it<<" ";
         cout<<endl;
 }
-int main()
-{
-     ll i,j,c=0;
-     ll n;
-     vector<ll> x;
-     string s;
-     cin>>n;
-     cin>>s;
-     for(char pp : s)
-     {
-             if(pp=='B')
-             c++;
-             else
-             {
-                if(c!=0)
-                x.push_back(c);
-                c=0;
-            }
-           // cout<<c<<endl;
-      }
-      if(c!=0)
-      x.push_back(c);
-      cout<<x.size()<<endl;
-      for(auto it : x)
-      cout<<it<<" ";
-}
