@@ -145,26 +145,3 @@ int main()
       for(auto it : x)
       cout<<it<<" ";
 }
-int main()
-{
-ll i,j,x,y;
-        x=1e10;
-        x*=-1;
-        y=1e10;
-        ll n;
-        vector<ll> z;
-        cin>>n;
-        for(i=0;i<n;i++)
-        {
-                cin>>j;
-                x=max(x,j);
-                y=min(y,j);
-                z.push_back(j);
-        }
-        cout<<abs(z[0]-z[1])<<" "<<abs(z[0]-x)<<endl;
-        for(i=1;i<n-1;i++)
-        {
-                cout<<min(abs(z[i]-z[i-1]),abs(z[i]-z[i+1]))<<" "<<max(abs(z[i]-x),abs(z[i]-y))<<endl;
-        }
-        cout<<abs(z[n-1]-z[n-2])<<" "<<abs(y-x)<<endl;
-}
