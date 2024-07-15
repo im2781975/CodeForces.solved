@@ -76,63 +76,6 @@ int main()
 }
 int main()
 {
-    vector<ll> z;
-        ll i,j,a,n;
-        cin>>n;
-        for(i=0;i<n;i++)
-        {
-                cin>>j;
-                z.push_back(j);
-        }
-        sort(z.begin(),z.end());
-        auto it=upper_bound(z.begin(),z.end(),z[0]);
-        a=it-z.begin();
-      it=lower_bound(z.begin(),z.end(),z[z.size()-1]);
-        it--;
-        j=it-z.begin();
-        n=0;
-        cout<<max(n,j-a+1)<<endl;
-}
-int main()
-{
-       vector<ll> a,b;
-        ll n,m,i,j,k,c=0,f=0;
-        cin>>n>>m;
-        for(i=0;i<n;i++)
-        {
-                cin>>k;
-                a.push_back(k);
-        }
-        for(i=0;i<m;i++)
-        {
-                cin>>k;
-                b.push_back(k);
-       }
-       sort(b.begin(),b.end());
-       reverse(b.begin(),b.end());
-       j=0;
-       for(i=0;i<n;i++)
-       {
-                if(a[i]==0)
-                {
-                        a[i]=b[j];
-                        j++;
-                }
-      }
-      for(i=1;i<n;i++)
-      {
-        if(a[i]<a[i-1])
-        {
-                f=1;
-                break;
-        }}        
-      if(f)
-      cout<<"Yes"<<endl;
-      else
-      cout<<"No"<<endl; 
-}
-int main()
-{
     
       ll a,b,n,x=0,y=0;
       cin>>n;
@@ -225,4 +168,3 @@ ll i,j,x,y;
         }
         cout<<abs(z[n-1]-z[n-2])<<" "<<abs(y-x)<<endl;
 }
-
