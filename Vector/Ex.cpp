@@ -1,15 +1,5 @@
 int main()
 {
-    ll n;
-        cin>>n;
-        vector<ll> z(n);
-        for(auto&it : z)
-        cin>>it;
-        sort(z.begin(),z.end());
-        cout<<min(z[z.size()-1]-z[1],z[z.size()-2]-z[0])<<endl;
-}
-int main()
-{
     ll i,j,t,x,y,c=0,n;
         cin>>t;
         while(t--)
