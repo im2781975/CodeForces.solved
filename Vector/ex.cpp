@@ -52,3 +52,25 @@ void VerifyPair(){
     }
     (cnt >0)?cout << "Yes":cout << "No";
 }
+
+void BasedCondition(){
+    int n; cin >> n;
+    vector <int> vec(n);
+    vector <int> check(n -1);
+    bool a = false, b = false, c = false, d = false;
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    for(int i = 0; i < n; i++){
+        if(vec[i] > 0){
+            (vec[i] % 2 == 0)? b = true: a = true;
+        }
+    }
+    for(int i = 0; i < n -1; i++)
+        check[i] = abs(vec[i] - vec[i+1]);
+    for(int i = 0; i < n - 1; i++){
+        if(check[i] > 0){
+            (check[i] % 2 == 0)?c = true: d = true;
+        }
+    }
+    (a || b || c || d)?cout << "Yes":cout << "No";
+}
