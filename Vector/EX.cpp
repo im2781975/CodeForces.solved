@@ -214,3 +214,42 @@ void SplitString() {
     } else 
         cout << "-";
 }
+
+void FindMinMax(){
+    int x, n;
+    int cnt = 0, tmp = 0;
+    cin >> n;
+    vector <int> vec;
+    for(int i = 0; i < n; i++){
+        cin >> x;
+        if(x > 0) {
+            if(cnt == 0)
+                cnt = x;
+            else
+                vec.push_back(x);
+        }
+        else if(x < 0) {
+            if(tmp == 0)
+                tmp = x;
+            else
+                vec.push_back(x);
+        }
+        else
+            vec.push_back(x);
+    }
+    sort(vec.begin(), vec.end());
+    reverse(vec.begin(), vec.end());
+    cout << 1 << cnt << " ";
+    if(tmp !=0)
+        cout << 1 << tmp << " ";
+    else {
+        int a =vec[vec.size() - 1];
+        int b = vec[vec.size() - 2];
+        vec.pop_back();
+        vec.pop_back();
+        cout << 2 << " " << a << " " << b << "\n";
+    }
+    cout << vec.size();
+    for(int i = 0; i < vec.size(); i++)
+        cout << vec[i] << "\n";
+}
