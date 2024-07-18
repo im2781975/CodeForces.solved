@@ -158,3 +158,59 @@ void CountConsecutive(){
     for(int i = 0; i < vec.size(); i++)
         cout << vec[i] << " ";
 }
+
+// Determines whether it is possible to split a given string of digits into 
+//two increasing subsequences. If possible, the program outputs a vector indicating which
+//subsequence each digit belongs to (1 or 2). If not possible, it outputs "-".
+void SplitString() {
+    string str, a, b;
+    int n; 
+    // Read the length of the string and the string itself
+    cin >> n;
+    cin >> str;
+    vector<int> vec;
+    int flag, found = 0;
+    for (int i = 0; i <= 9; i++) {
+        vec.clear();
+        a.clear(); b.clear();
+        flag = 0;
+        bool added = false;
+        for (int j = 0; j < n; j++) {
+            int cur = str[j] - '0';
+            if (cur > i) {
+                if (!a.empty() && a.back() > str[j]) {
+                    flag = 1;
+                    break;
+                }
+                vec.push_back(2);
+                a += str[j];
+                added = true;
+            } else if (cur < i) {
+                if (!b.empty() && b.back() > str[j]) {
+                    flag = 1;
+                    break;
+                }
+                vec.push_back(1);
+                b += str[j];
+            } else {
+                if (added) {
+                    vec.push_back(1);
+                    b += str[j];
+                } else {
+                    vec.push_back(2);
+                    a += str[j];
+                    added = true;
+                }
+            }
+        }
+        if (flag == 0) {
+            found = 1;
+            break;
+        }
+    }
+    if (found) {
+        for (int i = 0; i < vec.size(); i++)
+            cout << vec[i] << " ";
+    } else 
+        cout << "-";
+}
