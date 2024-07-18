@@ -31,3 +31,24 @@ void MultMaxInteger(){
     int y = vec[0] * vec[1];
     (x >= y)?cout << x :cout << y;
 }
+
+//determine whether there exists at least one pair of indices (i,j) such that 
+//the elements of the vector vec at those indices are equal (vec[i]==vec[j]),
+//but the corresponding elements of the vector cev are different (cev[i]!=cev[j]). 
+//If such a pair is found, the code outputs "Yes", otherwise it outputs "No".
+void VerifyPair(){
+    int n, cnt = 0; cin >> n;
+    vector<int> vec(n), cev(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    for(int i = 0; i < n; i++)
+        cin >> cev[i];
+    for(int i = 0; i < n; i++){
+        int tmp = vec[i], trv = cev[i];
+        for(int j = 0; j < n; j++){
+            if(tmp == vec[j] && cev[j] !=trv)
+                cnt++;
+        }
+    }
+    (cnt >0)?cout << "Yes":cout << "No";
+}
