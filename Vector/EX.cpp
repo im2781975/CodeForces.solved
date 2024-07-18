@@ -253,3 +253,32 @@ void FindMinMax(){
     for(int i = 0; i < vec.size(); i++)
         cout << vec[i] << "\n";
 }
+
+//takes three integer inputs and performs some operations to determine
+//if it's possible to represent sum of distinct integers from 1 to n excluding the integer x
+void ForbiddenInteger(){
+    int sum, n, x;
+    cin >> sum >> n >> x;
+    vector <int> vec(n);
+    vector <int> res;
+    if(sum < 0 || n < 2 || x < 1 || x > sum){
+        cout << "Invalid Input";
+        return 0;
+    }
+    for(int i = 0; i < n; i++)
+        vec[i] = i + 1;
+    sort(vec.begin(), vec.end());
+    for(int j = 0; j < n; j++){
+        while(sum >= vec[j] && vec[j] !=x){
+            sum -= vec[j];
+            res.push_back(vec[j]);
+        }
+    }
+    if(sum == 0){
+        cout << "Yes,size is: " << res.size() << "\n";
+        for(int i = 0; i < res.size(); i++)
+            cout << res[i] << " ";
+    }
+    else
+        cout << "No";
+}
