@@ -179,7 +179,7 @@ void solveDiv4C()
 using namespace std;
 int main()
 {
-    //1823/A
+    You are given a problem where you need to determine if it's possible to create an array of size n containing only 1 and -1, such that the sum of the counts of pairs of positive numbers and pairs of negative numbers is exactly k. If possible, the program should print "Yes" followed by the array, otherwise, it should print "No".
     int n, k;
     cin >> n >> k;
     vector<int>v;
