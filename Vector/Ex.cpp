@@ -70,6 +70,7 @@ void PrimeFactor(){
         cout << prime[i] << " ";
 }
 
+//****//
 //Determine combination
  FindComb(vector <char> &vec, string tmp, vector <string> &res, int k, int cnt, int n){
     if(cnt == n){
@@ -82,8 +83,6 @@ void PrimeFactor(){
     FindComb(vec, tmp, res, k, cnt + 1, n);
     return;
 }
-
-//Determine Combination
 void DetermineCombination(){
     vector <char> vec{'a', 'b', 'c'};
     int k = 2, cnt = 0;
