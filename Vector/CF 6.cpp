@@ -41,6 +41,7 @@ int main() {
     vector<char> ch = {'a', 'b', 'c'}; 
     int n = ch.size(); 
     int k = 2; 
+    The size of each combination to be generated.
     vector<string> total;
     string temp = "";
     int count = 0;
