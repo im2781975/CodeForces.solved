@@ -51,6 +51,7 @@ void Manipulate(){
     cout << "\ncnt: " << cnt + 1;
 }
 //****//
+
 //finding the minimum sum of two integers first corresponds to the "01" in the string &
 //the other corresponds "10" in the string. If both occurrences are found, 
 //it calculates & prints the minimum sum & compare with other string "11". otherwise, it prints -1.
