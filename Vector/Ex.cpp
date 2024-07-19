@@ -69,3 +69,28 @@ void PrimeFactor(){
     for(int i = 0; i < prime.size(); i++)
         cout << prime[i] << " ";
 }
+
+//Determine combination
+ FindComb(vector <char> &vec, string tmp, vector <string> &res, int k, int cnt, int n){
+    if(cnt == n){
+        if(tmp.size() == k)
+            res.push_back(tmp);
+        return;
+    }
+    FindComb(vec, tmp, res, k, cnt + 1, n);
+    tmp += vec[cnt];
+    FindComb(vec, tmp, res, k, cnt + 1, n);
+    return;
+}
+
+//Determine Combination
+void DetermineCombination(){
+    vector <char> vec{'a', 'b', 'c'};
+    int k = 2, cnt = 0;
+    int n = vec.size();
+    string tmp = "";
+    vector <string> res;
+    FindComb(vec, tmp, res, k, cnt, n);
+    for(int i = 0; i < res.size(); i++)
+        cout << res[i] << " ";
+}
