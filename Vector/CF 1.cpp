@@ -1,32 +1,4 @@
-#include<bits/stdc++.h>
-using namespace std;
-checks if the vector is sorted in non-decreasing order. If the vector is sorted, it calculates the minimum difference between consecutive elements and outputs half of this difference plus one. If the vector is not sorted, it outputs 0.
-void solveDiv2A()
-{
-    int n;
-    bool flag=true;
-    int tmp=INT_MAX;
-    cin >>n;
-    vector<int>vec(n);
-    for(int i=0; i<n; i++)
-        cin >> vec[i];
-    for(int i=1; i<n; i++)
-    {
-        if(vec[i]< vec[i-1])
-        {
-            flag=false;
-            break;
-        }
-    }
-    if(flag)
-    {
-        for(int i=1; i<n; i++)
-            tmp=min(tmp, vec[i]-vec[i-1]);
-        cout <<tmp/2 +1;
-    }
-    else
-        cout << 0;
-}
+
 void solveContest1790ProblemB()
 {
     int n, s, r, temp = 0, temp2 = 1;
