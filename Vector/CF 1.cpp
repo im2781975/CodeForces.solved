@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+checks if the vector is sorted in non-decreasing order. If the vector is sorted, it calculates the minimum difference between consecutive elements and outputs half of this difference plus one. If the vector is not sorted, it outputs 0.
 void solveDiv2A()
 {
     int n;
