@@ -164,6 +164,8 @@ void FindPath(int x, int y, int row, int col, vector <vector<char>>&cev, vector 
     if(vec[x][y] <= cnt && vec[x][y] != -1)
         return;
     if(cev[x][y] == '#'){
+        //vec[x][y] = -1: Marks the cell in the vec grid as -1 to indicate 
+        //it is an obstacle and should not be revisited.
         vec[x][y] = -1;
         return;
     }
