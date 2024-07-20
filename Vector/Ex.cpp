@@ -75,30 +75,6 @@ void DetermineCombination(){
         cout << res[i] << " ";
 }
 
-// checks if the vector is sorted in increasing order. If it is, calculates the minimim diff 
-//between consecutive elements and outputs half of this difference plus one. If not sorted, outputs 0.
-void ConsecutiveDiff(){
-    int n; cin >> n;
-    vector <int> vec(n);
-    bool flag = true;
-    int tmp = INT_MAX;
-    for(int i = 0; i < n; i++)
-        cin >> vec[i];
-    for(int i = 1; i < n; i++){
-        if(vec[i] < vec[i-1]){
-            flag = false;
-            break;
-        }
-    }
-    if(flag){
-        for(int i = 1; i < n; i++)
-            tmp = min(tmp, vec[i] - vec[i - 1]);
-        cout << tmp/2 + 1;
-    }
-    else
-        cout << 0;
-}
-
 //****//
 //recursively checks subgrids by removing rows and columns that contain 1s and counts how many valid configurations exist.
 int Combinatorial(int n, vector <vector <int> >&vec, map<vector <vector<int>>, int>&mp){
