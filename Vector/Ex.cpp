@@ -195,3 +195,47 @@ void CountConfigur(){
     map<vector <vector<int>>, int> mp;
     cout << Combinatorial(n, vec, mp);
 }
+
+//This portion of the code defines and uses a function to search for 
+//a path in a grid from a starting point to a destination marked by the character 'B'. 
+void FindPath(int x, int y, int row, int col, vector <vector<char>>&cev, vector <vector <int> > &vec, int cnt, string str, string *res){
+    if(x < 0 || y < 0 || x >= row || y >= col)
+        return;
+    //cnt: Counter for the steps taken so far.
+    //str: Current path as a string of directions.
+    //res: Pointer to the result string that stores the final path.
+    if(vec[x][y] <= cnt && vec[x][y] != -1)
+        return;
+    if(cev[x][y] == '#'){
+        vec[x][y] = -1;
+        return;
+    }
+    vec[x][y] = cnt;
+    if(cev[x][y] == 'B'){
+        *res = str;
+        return;
+    }
+    FindPath(x + 1, y, row, col, cev, vec, cnt + 1, str + "D", res);
+    FindPath(x - 1, y, row, col, cev, vec, cnt + 1, str + "U", res);
+    FindPath(x , y + 1, row, col, cev, vec, cnt + 1, str + "R", res);
+    FindPath(x , y - 1, row, col, cev, vec, cnt + 1, str + "L", res);
+}
+void SearchPath(){
+    int row, col;
+    cin >> row >> col;
+    vector <vector <char> >cev(row, vector<char> (col));
+    vector <vector <int> >vec(row, vector <int>(col, INT_MAX));
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++)
+            cin >> cev[i][j];
+    }
+    //starting position
+    int x, y;
+    cin >> x >> y;
+    string res;
+    FindPath(x, y, row, col, cev, vec, 0, "", &res);
+    if (res.empty())
+        cout << "No path found to the destination 'B'.\n";
+    else 
+        cout << "Path to destination 'B': " << res << "\n";
+}
