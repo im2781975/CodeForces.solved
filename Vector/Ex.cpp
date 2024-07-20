@@ -120,7 +120,7 @@ void ConsecutiveDiff(){
 
 //****//
 //recursively checks subgrids by removing rows and columns that contain 1s and counts how many valid configurations exist.
-void Combinatorial(int n, vector <vector <int> >&vec, map<vector <vector<int>>, int>&mp){
+int Combinatorial(int n, vector <vector <int> >&vec, map<vector <vector<int>>, int>&mp){
     //Checks if the current grid configuration a is already in the memoization map m.
     if(mp.count(vec) == 1)
         return mp[vec];
@@ -141,7 +141,7 @@ void Combinatorial(int n, vector <vector <int> >&vec, map<vector <vector<int>>, 
     for(int i = 0; i < n; i++){
         int colSum = 0;
         for(int j = 0; j < n; j++)
-            colSum += vec[i][j];
+            colSum += vec[j][i];
         if(colSum == 0){
             mp[vec] = 0;
             return 0;
@@ -156,6 +156,7 @@ void Combinatorial(int n, vector <vector <int> >&vec, map<vector <vector<int>>, 
             }
         }
     }
+    cout << "\nCo-ordinates which contain 1 is: " << x << "," << y << "\n";
     //construct a new grid from the original grid excluding the row & column
     vector<vector<int> >remain(n-1, vector <int> (n-1));
     //remain is the row index for the new grid
@@ -174,16 +175,17 @@ void Combinatorial(int n, vector <vector <int> >&vec, map<vector <vector<int>>, 
 //Calls the function recursively with the modified grid where the element 
 //at (x, y) is set to 0.ans1 stores the result of this recursive call, which represents the 
 //number of ways to process the grid a with the specific 1 at (x, y) removed.
-    int ans1 = Combinatorial(n, vec, mp)
+    int ans1 = Combinatorial(n, vec, mp);
 //Restores the original grid a by setting the element at position (x, y) back to 1.
     vec[x][y] = 1;
 //Calls the remain function recursively with the smaller grid
 //ans2 stores the result of this recursive call, representing the number of ways to process the smaller grid.
     int ans2 = Combinatorial(n - 1, remain, mp);
+   // vec[x][y] = 1;
     mp[vec] = ans1 + ans2;
     return mp[vec];
 }
-void CountConfigaration(){
+void CountConfigur(){
     int n; cin >> n;
     vector<vector <int> >vec(n, vector <int> (n));
     for(int i = 0; i < n; i++){
@@ -193,4 +195,3 @@ void CountConfigaration(){
     map<vector <vector<int>>, int> mp;
     cout << Combinatorial(n, vec, mp);
 }
-//****//
