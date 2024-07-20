@@ -40,3 +40,19 @@ void ConsecutiveDiff(){
     else
         cout << 0;
 }
+
+//determine to finds the shortest  from the point (x, y) to any of the four edges of the grid.
+int FindMinEdge(int n, int x, int y){
+    vector <int> vec(4);
+    vec[0] = x;
+    vec[1] = y;
+    vec[2] = n + 1 - x;
+    vec[3] = n + 1 - y;
+    sort(vec.begin(), vec.end());
+    return vec[0];
+}
+void MinEdge(){
+    int n, x, y;
+    cin >> n >> x >> y;
+    cout << FindMinEdge(n, x, y);
+}
