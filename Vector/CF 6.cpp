@@ -1,19 +1,3 @@
-int olusola(int n, int x, int y) {
-    vector<int> v(4);
-    v[0] = x;
-    v[1] = y;
-    v[2] = n + 1 - x;
-    v[3] = n + 1 - y;
-
-    sort(v.begin(), v.end());
-    return v[0];
-}
-int main() {
-    int n, x, y;
-    cout << "Enter the three values: ";
-    cin >> n >> x >> y;
-    cout << olusola(n, x, y);
-}
 int binarySearch(vector<int>& arr, int low, int high, int key) {
     while (low <= high) {
         int mid = low + (high - low) / 2;
