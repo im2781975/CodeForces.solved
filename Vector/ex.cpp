@@ -42,6 +42,7 @@ void ConsecutiveDiff(){
 }
 
 //determine to finds the shortest  from the point (x, y) to any of the four edges of the grid.
+// find and print the minimum distance from a given point (x, y) to any edge of an n x n grid.
 int FindMinEdge(int n, int x, int y){
     vector <int> vec(4);
     vec[0] = x;
