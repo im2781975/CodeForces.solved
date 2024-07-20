@@ -1,4 +1,5 @@
 int fin(int n, map<vector<vector<int>>, int> &m, vector<vector<int>> a) {
+    map checks if a specific key (in this case, the 2D vector a) exists in the map.
     if (m.count(a) == 1) {
         return m[a];
     }
