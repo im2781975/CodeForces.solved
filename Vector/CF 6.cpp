@@ -1,50 +1,3 @@
-int binarySearch(vector<int>& arr, int low, int high, int key) {
-    while (low <= high) {
-        int mid = low + (high - low) / 2;
-        if (arr[mid] == key)
-            return mid;
-        else if (arr[mid] < key)
-            low = mid + 1;
-        else
-            high = mid - 1;
-    }
-    return -1;
-}
-int main() {
-    vector<int> a = { 2, 3, 4 };
-    vector<int> b = { 5, 6, 7};
-    int n = a.size();
-    vector<int> c = a;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-
-    for (int i = 0; i < n; i++) {
-        int index = binarySearch(a, 0, n - 1, c[i]);
-        cout << b[index] << " ";
-    }
-    return 0;
-}
-void solve()
-{
-    int n, cnt = 0, ans = 1;
-    int a[]{2, 3, 4, 5, 6};
-     n = sizeof(a) / sizeof(a[0]);
-    int b[]{6, 5, 4, 3, 2};
-    for (int i = 0; i < n; i++)
-    {
-        cnt = 0;
-        for (int j = i; j < n; j++)
-        {
-            if (b[i] < a[j])
-                cnt++;
-            else
-                break;
-        }
-        cout <<cnt << " ";
-        ans = ans * cnt;
-    }
-    cout << ans;
-}
 void solve1() {
     int cnt = 0;
     int n;
@@ -115,51 +68,6 @@ void solve1() {
         cout << 1 << endl;
         return 0;
     }
-}
-void solve_me()
-{
-    int n;
-    cin >> n;
-    vector<int>vec(n);
-    int a=ceil(double(n)/2);
-    for(int i=0; i<n; i+=2)
-    {
-        vec[i]=a;
-        a--;
-    }
-    int b=n;
-    for(int i=0; i<n; i+=2)
-    {
-        vec[i]=b;
-        b--;
-    }
-    for(int i=0; i<vec.size(); i++)
-        cout << vec[i] <<" ";
-}
-void solve() {
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    vector<int> v1(n);
-    for(int i = 0; i < n; i++)
-        cin >> v[i];
-    for(int i = 0; i < n; i++) 
-        cin >> v1[i];
-    int ans = 0;
-    int i = n-1, j = n-1;
-
-    while(i >= 0) {
-        int temp = v1[j];
-
-        if(temp != v[i])
-            i--;
-        else if(temp == v1[j]) {
-            ans++;
-            j--;
-            i--;
-        }
-    }
-    cout << n - ans << endl;
 }
 void solve_tc() {
     int n, k;
