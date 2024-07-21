@@ -135,3 +135,54 @@ void CountDismatch(){
     }
     cout << n - ans;
 }
+
+//Determine Is the programme palindromic
+void IsPalindrome(){
+    int n; cin >> n;
+    vector <int> vec(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    int cnt = 0, diff = 0, mini = 1;
+    int i = 0, j = n -1;
+    while(i <= j){
+        if(vec[i] !=vec[j]){
+            diff = abs(vec[i] - vec[j]);
+            mini = min(vec[i], vec[j]);
+            break;
+        }
+        i++, j--;
+    }
+    if(diff == 0) {
+        cout << 0;
+        return 0;
+    }
+    vector <int> cev(n), tor(n);
+    for(int i = 0; i < n; i++){
+        cev[i] = vec[i] % diff;
+        tor[i] =(mini !=0) ? (vec[i] % mini) : 0;
+    }
+    
+    i = 0, j = n -1;
+    bool flag = false, band = false;
+    while(i <= j) {
+        if(cev[i] !=cev[j])
+            flag = true;
+        else if(tor[i] !=tor[j])
+            band = true;
+        i++; j--;
+    }
+    if(flag && band)
+        cout << 1;
+    else if(flag)
+        cout << mini;
+    else if(band)
+        cout << diff;
+    else {
+        for(int i = 0; i < n; i++){
+            if(vec[i]% diff != 0)
+                cnt++;
+        }
+        sort(vec.begin(), vec.end());
+        (vec[0] == vec[n - 1])? cout << vec[0] : cout << 1;
+    }
+}
