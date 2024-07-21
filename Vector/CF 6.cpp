@@ -1,6 +1,7 @@
 
 void solve_tc() {
     int n, k;
+    k = number of updates
     cin >> n >> k;
     vector<int> v1(n);
     for (int i = 0; i < n; i++) 
