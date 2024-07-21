@@ -57,3 +57,26 @@ void MinEdge(){
     cin >> n >> x >> y;
     cout << FindMinEdge(n, x, y);
 }
+
+//Display vector Based Other Vector
+int BSearch(vector <int> &vec, int low, int high, int key){
+    while(low <= high){
+        int mid = low + (high - low)/2;
+        if(vec[mid] == key)
+            return mid;
+        else if(vec[mid] > key)
+            high = mid -1;
+        else if(vec[mid] < key)
+            low = mid + 1;
+    }
+    return -1;
+}
+void BasedOtherVector(){
+    vector <int> a{2, 3, 4};
+    vector <int> b{5, 6, 7};
+    vector <int> c = a;
+    for(int i = 0; i < a.size(); i++){
+        int idx = BSearch(a, 0, a.size() - 1, c[i]);
+        cout << b[idx] << " ";
+    }
+}
