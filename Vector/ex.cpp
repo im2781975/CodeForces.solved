@@ -98,3 +98,19 @@ void Count(){
     ans *= cnt;
     cout << ans;
 }
+
+//determine a array where pair diffrence is samw
+void PairDiff(){
+    int n; cin >> n;
+    vector <int> vec(n);
+    int a = ceil(double(n) /2);
+    for(int i = 0; i < n; i+= 2){
+        vec[i] = a; a--;
+    }
+    int b = n;
+    for(int i = 1; i < n; i+= 2){
+        vec[i] = b; b--;
+    }
+    for(int i = 0; i < vec.size(); i++)
+        cout << vec[i] << " ";
+}
