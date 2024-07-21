@@ -114,3 +114,24 @@ void PairDiff(){
     for(int i = 0; i < vec.size(); i++)
         cout << vec[i] << " ";
 }
+
+//determine How many elements didn't match in the sequence
+void CountDismatch(){
+    int n; cin >> n;
+    vector <int> vec(n), cev(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    for(int i = 0; i < n; i++)
+        cin >> cev[i];
+    int ans = 0, i = n -1, j = n-1;
+    while(i >= 0) {
+        int tmp = cev[i];
+        if(tmp !=vec[i])
+            i--;
+        else if(tmp == vec[i]) {
+            ans++;
+            i--; j--;
+        }
+    }
+    cout << n - ans;
+}
