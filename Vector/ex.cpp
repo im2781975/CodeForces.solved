@@ -80,3 +80,21 @@ void BasedOtherVector(){
         cout << b[idx] << " ";
     }
 }
+
+//Count How many Elements are less than other array
+void Count(){
+    int a[]{2, 3, 4, 5, 6};
+    int b[]{6, 5, 4, 3, 2};
+    int n = sizeof(a)/sizeof(a[0]);
+    int cnt = 0, ans = 1;
+    for(int i = 0; i < n; i++){
+        for(int j = i; j < n; j++){
+            if(b[i] < a[j])
+                cnt++;
+            else
+                break;
+        }
+    }
+    ans *= cnt;
+    cout << ans;
+}
