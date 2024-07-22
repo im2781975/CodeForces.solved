@@ -222,3 +222,24 @@ void Distribute(){
     for(int i = 0; i < n; i++)
         cout << result[i] << " ";
 } 
+
+//Count Diffrence of smallest pair
+void Diff(){
+    int n, k, cnt = 0;
+    cin >> n >> k;
+    for(int i = 0; i < n; i++){
+        int a = n, b = n - i;
+        for(int j = 2; j < k; j++){
+            int diff = a - b;
+            if(diff >= 0 && a >= b)
+                cnt++;
+            if(diff >= 2) {
+                a = b; b = diff;
+            }
+            else 
+                break;
+            cout << diff << " " << a << " " << b << " " << cnt << "\n";
+        }
+    }
+    cout << "\n" << cnt;
+}
