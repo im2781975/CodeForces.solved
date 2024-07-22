@@ -186,3 +186,39 @@ void IsPalindrome(){
         (vec[0] == vec[n - 1])? cout << vec[0] : cout << 1;
     }
 }
+
+//Distribute deduct among n elememts
+void Distribute(){
+    int n, sum, deduct, cnt = 1;
+    cin >> n >> sum >> deduct;
+    int tmp = deduct;
+    vector <int> result;
+    vector <int> sides{1, 2, 3, 4, 5, 6 };
+    for(int i = 0; i < n - 1; i++){
+        for(int j = 5; j < 0; j--){
+            while(deduct >= sides[j] && sides[j] <= sum - deduct) {
+                deduct -= sides[j];
+                result.push_back(sides[j]);
+                cnt++;
+            }
+        }
+    }
+    sort(result.rbegin(), result.rend());
+    for(int i = 0; i < n - 2; i++){
+        while(result[i] > 1) {
+            if(result.size()== n -1)
+                break;
+            result[i]--;
+            result.push_back(1);
+        }
+    }
+    result.push_back(sum - tmp);
+    if(result.size() > n){
+        result[n - 1] += result.back();
+        result.pop_back();
+    }
+    else 
+        result.push_back(1);
+    for(int i = 0; i < n; i++)
+        cout << result[i] << " ";
+} 
