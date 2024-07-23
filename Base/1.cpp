@@ -63,3 +63,30 @@ main(){
     int n; cin >> n;
     cout << "Total 1s is: " << hex(n);
 }
+
+//determine maximum, minimum & subarray sum
+void SubArraySum(){
+    int n; cin >> n;
+    int arr[n + 2];
+    int i = 1;
+    while(i++ < n)
+        cin >> arr[i -1];
+    int query; cin >> query;
+    while(query--){
+        int x, y, sum = 0;
+        cin >> x >> y;
+        if(x > y)
+            swap(x, y);
+        int first = x - 1;
+        int last = y - 1;
+        int maxi = first, mini = first;
+        for(int i = first; i <= last; i++) {
+            sum += arr[i];
+            if(arr[i] > arr[maxi])
+                maxi = i;
+            if(arr[i] < arr[mini])
+                mini = i;
+        }
+        cout << arr[maxi] <<  " " << arr[mini] << " " << sum;
+    }
+}
