@@ -90,3 +90,14 @@ void SubArraySum(){
         cout << arr[maxi] <<  " " << arr[mini] << " " << sum;
     }
 }
+
+// Convert Binary To Decimal
+void BinaryToDeciaml(){
+    int n, sum = 0, i = 0;
+    cin >> n;
+    while(n > 0) {
+        sum += (n % 10) * pow(2, i++);
+        n /= 10;
+    }
+    cout << sum;
+}
