@@ -101,3 +101,24 @@ void BinaryToDeciaml(){
     }
     cout << sum;
 }
+
+//transform a given string into a palindrome with the minimum number of
+//character changes & then output the number of changes
+void Transform(){
+    int n; cin >> n;
+    char *arr = new char[n + 1];
+    cin >> arr;
+    int i = 0, cnt = 0, last = n -1;
+    while(i++ < n /2){
+        if(arr[i] != arr[last]){
+            cnt++;
+            if(arr[i] < arr[last])
+                arr[last] = arr[i];
+            else
+                arr[i] = arr[last];
+        }
+        i++; last--;
+    }
+    cout << cnt <<  " " << arr;
+    delete []arr;
+}
