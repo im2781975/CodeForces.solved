@@ -56,18 +56,6 @@ int x;
 		}
 		cout<<"Average T(a) = "<<suma/x<<"\n and average T(w) = "<<sumw/x<<endl;
 	    }
-----
-// 4A
-    int x;
-     cin>>x;
-     for(int i=2;i<x;i+=2)
-    	 if((x-i)%2==0)
-    	 {
-    		 cout<<"YES";
-    		 return 0;
-    	 }
-     cout<<"NO";
------
 //231A
     int x=0,c=0,i=0,d=0,y=0,z=0;
     cin>>x;
