@@ -40,3 +40,26 @@ void Reverse(){
     }
     cout << rev;
 }
+
+//Count 1's in Binary
+int Binary(int x) {
+    int cnt = 0;
+    while(x > 0){
+        if(x % 2 == 1)
+            cnt++;
+        x /= 2;
+    }
+    return cnt;
+}
+int hex(int n){
+    int x = 0, cnt = 0;
+    while(n > 0){
+        x += (n % 10) * pow(16 ,  cnt++);
+        n /= 10;
+    }
+    return Binary(x);
+}
+main(){
+    int n; cin >> n;
+    cout << "Total 1s is: " << hex(n);
+}
