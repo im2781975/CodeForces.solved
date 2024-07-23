@@ -122,3 +122,33 @@ void Transform(){
     cout << cnt <<  " " << arr;
     delete []arr;
 }
+
+//Subtract n among a & b.in which player n will be zero,He will 
+//be win.If neg another player will be win
+void Distribute(){
+    int a, b, n;
+    cin >> a >> b >> n;
+    while(true) {
+        if(n  >= __gcd(a, n))
+            n -= __gcd(a, n);
+        else {
+            cout << "Second Player wins";
+            break;
+        }
+        if(n == 0) {
+            cout << "First Player wins";
+            break;
+        }
+        if(n >= __gcd(b, n))
+            n -= __gcd(b, n);
+        else {
+            cout << "First Player win";
+            break;
+        }
+        if(n == 0) {
+            cout << "Second Player Wins";
+            break;
+        }
+    }
+    return 0;
+}
