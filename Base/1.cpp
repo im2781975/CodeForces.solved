@@ -152,3 +152,16 @@ void Distribute(){
     }
     return 0;
 }
+
+// Determine x can be written as the sum of two even numbers.
+//If such a pair is found,print 'Yes' else 'No'.
+void IsEven(){
+    int x; cin >> x;
+    for(int i = 2; i < x; i+= 2){
+        if((x - i) % 2 == 0){
+            cout << "Yes";
+            return 0;
+        }
+    }
+    cout << "No";
+}
