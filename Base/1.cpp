@@ -320,3 +320,37 @@ void RoundRobin(){
     delete []RemainExecution;
     delete []CompletionTime;
     delete []ready;
+}
+
+//Seperate into Even & Odd, and sort them.
+void Seperate(){
+    int n, x, Ec = -1, Oc = -1;
+    cin >> n;
+    int *Even = new int[n];
+    int *Odd = new int[n];
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x % 2 == 0)
+            Even[++Ec] = x;
+        else 
+            Odd[++Oc] = x;
+    }
+    if(Oc > -1){
+        for(int i = Oc; i >= 0; i--){
+            cout << Odd[i];
+            if(i > 0)
+                cout << " ";
+        }
+    }
+    if(Oc > -1 && Ec > -1)
+        cout << " ";
+    if(Ec > -1){
+        for(int i = 0; i <= Ec; i++){
+            cout << Even[i];
+            if(i < Ec)
+                cout << " ";
+        }
+    }
+    delete []Odd;
+    delete []Even;
+}
