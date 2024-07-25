@@ -255,3 +255,68 @@ void Simulate() {
     delete[] executeTime;
     return 0;
 }
+
+//mix of round-robin and shortest remaining time first (SRTF) principles. 
+void RoundRobin(){
+    int num; cin >> num;
+    float *arrTime = new float[num];
+    float *ExecutionTime = new float[num];
+    float *RemainExecution = new float[num];
+    //used to keep track of how much execution time is left for each process 
+    //at any given moment in the simulation. Initially, this will be set equal to the 
+    //execution times, and it will be decremented as the processes execute.
+    float *CompletionTime = new float[num];
+    //used to store the completion times of each process.initially will be set -1
+    bool *ready = new bool[num];
+    //creates a boolean array to track whether each process is ready to execute
+    for(int i = 0; i < num; i++){
+        cin >> arrTime[i];
+        cin >> ExecutionTime[i];
+        RemainExecution[i] = ExecutionTime[i];
+        ready[i] = false;
+        //Completion times are initialized to -1, indicating that no process has completed yet.
+        CompletionTime[i] = -1;
+    }
+    //time quantum is the maximum amount of time a process can run before the scheduler moves on to the next process in the queue.
+    int Quantum; cin >> Quantum;
+    float TotalExecuteTime = 0;
+    for(int i = 0; i < num; i++){
+        TotalExecuteTime += ExecutionTime[i];
+    }
+    int CurTime = 0;
+    while(CurTime < TotalExecuteTime){
+        for(int i = 0; i < num; i++){
+            if(arrTime[i] <= CurTime && CompletionTime[i] == -1)
+                ready[i] = true;
+        }
+        int minIdx = -1;
+        for(int i = 0; i < num; i++){
+            if(ready[i] == true &&(minIdx == -1 || RemainExecution[i] < RemainExecution[minIdx]))
+                minIdx = i;
+        }
+        if(minIdx == -1){
+            CurTime++;
+            continue;
+        }
+        if(RemainExecution[minIdx] > Quantum){
+            RemainExecution[minIdx] -= Quantum;
+            CurTime+= Quantum;
+        }
+        else {
+            CurTime += RemainExecution[minIdx];
+            RemainExecution[minIdx] = 0;
+            CompletionTime[minIdx] = CurTime;
+            ready[minIdx] = false;
+        }
+    }
+    for(int i = 0; i < num; i++){
+        float TurnTime = (CompletionTime[i] - arrTime[i]);
+        float WaitTime = TurnTime - ExecutionTime[i];
+        cout << "T(a) of p" << i + 1 << " = " << TurnTime << endl;
+        cout << "T(w) of p" << i + 1 << " = " << WaitTime << endl;
+    }
+    delete []arrTime;
+    delete []ExecutionTime;
+    delete []RemainExecution;
+    delete []CompletionTime;
+    delete []ready;
