@@ -354,3 +354,91 @@ void Seperate(){
     delete []Odd;
     delete []Even;
 }
+
+//prints the Manhattan distance from the position of 1 to the center of the matrix (5 * 5 matrix)(which is at coordinates (2, 2)), and then exits.
+void CountDst(){
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            int x; cin >> x;
+            if(x == 1){
+                cout << abs(i - 2) + abs(j -2);
+                return 0;
+            }
+        }
+    }
+}
+//determine how many iterations it takes for the length to become greater than the breadth
+//if, in each iteration, the length is tripled and the breadth is doubled
+void MakeEqual(){
+    int length, breadth, cnt = 0;
+    cin >> length >> breadth;
+    while(true){
+        if(length > breadth)
+            break;
+        else {
+            lenth *= 3;
+            breadth *= 2;
+            cnt++;
+        }
+    }
+    cout << cnt;
+}
+//calculates the total width required for n people to pass through a checkpoint 
+//based on their heights. Each person either takes 1 unit or 2 units of width depending on 
+//whether they are taller than a specified height limit. The final total width is then output.
+void CalculateWidth(){
+    int num, heightLimit, width = 0;
+    cin >> num >> heightLimit;
+    for(int i = 0; i < num; i++){
+        int height; cin >> height;
+        if(height > heightLimit)
+            width += 2;
+        else
+            width += 1;
+    }
+    cout << width;
+}
+//calculate how many sub-blocks of size z * z can fit into a larger grid of size x * y, and to account for any additional blocks needed if there are leftover spaces along the edges of the grid.
+void CalculateSubBlock(){
+    int x, y, z;
+    //x*y represent the grid & z*z represent the sub-block
+    cin >> x >> y >> z;
+    int a = x / z;
+    int b = y / z;
+    int cnt = a * b;
+    if(x % z !=0)
+        cnt += y;
+    if(y % z !=0)
+        cnt += x;
+    if(x % z !=0 && y % z !=0)
+        cnt+= 1;
+    cout << cnt;
+}
+// determine if the total sums of three series of integers are all zero
+void CheckSum(){
+    int n, suma = 0, sumb = 0, sumc = 0; 
+    cin >> n;
+    for(int i =0; i < n; i++){
+        int a, b, c; cin >> a >> b >>c;
+        suma += a;
+        sumb += b;
+        sumc += c;
+    }
+    (suma == 0 && sumb == 0 && sumc == 0)?cout << "Yes":cout << "No";
+}
+//determine how many test cases satisfy a specific condition related to 
+//counting occurrences of the integer 1 among three given numbers for each test case. 
+void CountOnes(){
+    int n, cnt = 0; cin >> n;
+    for(int i = 0; i < n; i++){
+        int OneCnt = 0;
+        for(int j = 0; j < 3; j++){
+            int x; cin >> x;
+            if(x == 1)
+                ++OneCnt;
+        }
+        if(OneCnt > 1)
+            cnt++;
+    }
+    cout << cnt;
+}
