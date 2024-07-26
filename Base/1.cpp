@@ -442,3 +442,44 @@ void CountOnes(){
     }
     cout << cnt;
 }
+
+//Count '+' in the char arr.if found '-' cnt will be decreament
+void CountPositive(){
+    int n, cnt = 0; 
+    cin >> n;
+    char ch;
+    for(int i = 0; i < n; i++){
+        cin >> ch;
+        if(ch== '+')
+            cnt++; 
+        if(ch == '-')
+            cnt--;
+    }
+    /*
+    char arr[3];
+    for(int i = 0; i < n; i++){
+        cin >> arr;
+        int Ind = 0;
+        while(Ind < 2){
+            if(arr[Ind] == '+'){
+                cnt++; 
+                break;
+            }
+            if(arr[Ind] == '-'){
+                cnt--;
+                break;
+            }
+            Ind++;
+        }
+    }
+    //**
+    string str;
+    for(int i = 0; i < n; ++i){
+        cin >> str;
+        if(str.find('+') !=string::npos)
+            cnt++;
+        else if(str.find('-') != string::npos)
+            cnt--;
+    }*/
+    cout << cnt;
+}
