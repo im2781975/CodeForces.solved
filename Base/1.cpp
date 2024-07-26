@@ -455,7 +455,9 @@ void CountPositive(){
         if(ch == '-')
             cnt--;
     }
-    /*
+    cout << cnt;
+    //*****//
+    int n, cnt = 0;
     char arr[3];
     for(int i = 0; i < n; i++){
         cin >> arr;
@@ -472,7 +474,9 @@ void CountPositive(){
             Ind++;
         }
     }
-    //**
+    cout << cnt;
+    //****//
+    int n, cnt = 0;
     string str;
     for(int i = 0; i < n; ++i){
         cin >> str;
@@ -480,7 +484,7 @@ void CountPositive(){
             cnt++;
         else if(str.find('-') != string::npos)
             cnt--;
-    }*/
+    }
     cout << cnt;
 }
 
