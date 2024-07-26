@@ -492,3 +492,44 @@ void IsEqual(){
     int y = 0.5 * r * r;
     (x <= y) ? cout << "Yes":cout << "No";
 }
+
+//calculates the max length of the Collatz sequence for a range of numbers
+void collatzLength(int num){
+    int length = 1;
+    while(num > 1){
+        if(num % 2 != 0)
+            num = 3 *num + 1;
+        else
+            num /= 2;
+        length++;
+    }
+    return length;
+}
+main(){
+    int start, end, maxL = -1;
+    cin >> start >> end;
+    for(int i = start; i < end; i++){
+        int length = collatzLength(i);
+        if(length > maxL)
+            maxL = length;
+    }
+    cout << maxL;
+    //****//
+    int x, y, maxi = 1, cnt = 0;
+    cin >> x >> y;
+    int tmp = x;
+    while(tmp <= y){
+        x = tmp;
+        cnt = 1;
+        while(x > 1){
+            if(x % 2 !=0)
+                x = 3 * x +1;
+            else
+                x /= 2;
+            cnt++;
+        }
+        if(cnt > maxi)
+            maxi = cnt;
+    }
+    cout << maxi;
+}
