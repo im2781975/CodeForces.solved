@@ -483,3 +483,12 @@ void CountPositive(){
     }*/
     cout << cnt;
 }
+
+//determine if the square of the value l is less than or equal to half the square of the value r.
+void IsEqual(){
+    int l, r;
+    cin >> l >> r;
+    int x = l * l;
+    int y = 0.5 * r * r;
+    (x <= y) ? cout << "Yes":cout << "No";
+}
