@@ -406,3 +406,28 @@ void CntBox(){
         red += 1;
     cout << blue + green+ red;
 }
+
+//determine how many of these scores fall into specific ranges
+//and then calculate and display the percentages of scores
+void CalculatePercentage(){
+    int n; cin >> n;
+    int Top = 0, Avg = 0;
+    int x;
+    for(int i = 0; i < n; i++){
+        cin >> x;
+        if(x > 85){
+            Top++; 
+            Avg++;
+        }
+        else if(x >= 60 && x < 85)
+            Avg++;
+    }
+    double b = (Top /(n * 1.0))*100;
+    double c = (Avg /(n * 1.0))*100;
+    //((b - int(b)) >= 0.5) ? Top = int(b) + 1 : Top = int(b);
+    //((c - int(c)) >= 0.5) ? Avg = int(c) + 1 : Avg = int(c);
+    Top = round(b);
+    Avg = round(c);
+    cout << Top << '%' << "\n";
+    cout << Avg << '%' << "\n";
+}
