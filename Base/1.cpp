@@ -280,3 +280,129 @@ void BubbleSort(){
         cout << arr[i] << " ";
     delete []arr;
 }
+
+//computes the binomial coefficient C(n,r) using a recursive approach
+int factorial(int n, int r, vector <vector<int> >dp){
+    if(r > n)
+        return 0;
+    if(r == 0 || r == 1)
+        return 1;
+    if(dp[n][r] != -1)
+        return dp[n][r];
+    // Use the recursive relation: nCr = (n-1)Cr + (n-1)C(r-1)
+    dp[n][r] = factorial(n - 1, r, dp) + factorial(n -1, r - 1, dp);
+    return dp[n][r];
+}
+main(){
+    int n, r;
+    cin >> n >> r;
+    vector <vector <int> >dp(n + 1, vector <int> (r + 1, -1));
+    int res = factorial(n, r, dp);
+    cout << res;
+}
+
+//compute the result of raising a base a to an exponent b under a modulus c
+int powermod(int a, int b, int c){
+    if(b == 0)
+        return 1;
+    int k = powermod(a, b / 2, c);
+    k *= k;
+    k %= c;
+    if(b & 1)
+        k = (k * a) % c;
+    return k;
+}
+main(){
+    int a, b, c;
+    //a present base, b present exponential, c present modulo
+    cin >> a >> b >> c;
+    cout << powermod(a, b, c);
+}
+
+void Sqrt(){
+    int x; cin >> x;
+    int ans = 0;
+    //i start with 2^30.
+    for(long long i = 1 << 30; i!= 0; i/=2){
+        if((ans + i)*(ans + i) <= x)
+            ans += i;
+    }
+    cout << ans;
+}
+
+//partition an number into two nearly equal parts.
+void MakePartition(){
+    int n; cin >> n;
+    //In Bitwise And operation if n becomes odd looo returns true(0011 & 0001 = 0001)
+    if(n & 1)
+        cout << n/2 << " " << n/2 + 1 << "\n";
+    else
+        cout << n /2 << "\n";
+}
+
+void PrimeFactor(){
+    int n; cin >> n;
+    int cnt = 0;
+    while (n % 2 == 0){
+        cnt++;
+        n /= 2;
+    }
+    for(int i = 3; i <= sqrt(n); i += 2){
+        while(n % i == 0){
+            cnt++;
+            n /= i;
+        }
+    }
+    if(n > 2)
+        cnt++;
+    cout << cnt;
+}
+
+//implementation of Kadane's Algorithm, which is used to 
+//find the maximum sum of a contiguous subarray in an array
+int maxSubArraySum(int arr[], int n){
+    int maxi = INT_MIN; curSum = 0;
+    //CurSum will accumulate the sum of the cur subarray being evaluated.
+    for(int i = 0; i < n; i++){
+        curSum = curSum + arr[i];
+        if(curSum > maxi)
+            maxi = curSum;
+        if(curSum < 0)
+            curSum = 0;
+    }
+    return maxi;
+}
+
+//find GCD
+void gcd(int a, int b){
+    if(b > a)
+        return gcd(b, a);
+    if(b == 0)
+        return a;
+    return (b, a % b);
+}
+
+//determine the minimum number of boxes required to store a certain number of balls of 
+//three different colors: blue, green, and red. Each type of ball has a specific quantity 
+//requirement based on a given integer n, and the boxes have a capacity of k balls.
+void CntBox(){
+//n represents a base quantity used to calculate the number of balls of each color.
+//k represents the capacity of each box (i.e., how many balls a single box can hold).
+    int n, k;
+    cin >> n >> k;
+    int blue, green, red;
+   /* blue = (8 * n + k -1)/k;
+    green = (5 * n + k - 1)/k;
+    red = (2 * n + k -1)/k;
+    cout << blue + green + red; */
+    blue = (8 * n)/k;
+    green = (5 * n)/k;
+    red = (2 * n)/k;
+    if(8 * n % k != 0)
+        blue += 1;
+    if(5 * n % k != 0)
+        green += 1;
+    if(2 * n % k != 0)
+        red += 1;
+    cout << blue + green+ red;
+}
