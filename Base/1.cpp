@@ -5,6 +5,7 @@ struct X{
 main(){
     int n; cin >> n;
     struct X arr[100];
+    //reads a character & integer from the array
     for(int i = 0; i < n; i++)
         cin >> arr[i].r >> arr[i].a;
     char ch; cin >> ch;
