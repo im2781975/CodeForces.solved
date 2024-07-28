@@ -17,6 +17,34 @@ main(){
     cout << cnt;
 }
 
+//Count hididng places & positions in a grid which is represent by '#'
+void CountHiding(){
+    int row; cin >> row;
+    int cnt = 0;
+    if(row <= 0){
+        cout << "Invalid Input";
+        return 0;
+    }
+    vector <string> grid(row);
+    //row wise it will take take string not char
+    for(int i = 0; i < row; i++){
+        cin >> grid[i];
+        if(grid[i].length() !=row){
+            cout << "Row didn't match";
+            return 0;
+        }
+    }
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < row; j++){
+            if(grid[i][j] == '#'){
+                cout << i + 1 << " " << j + 1 << "\n";
+                cnt++;
+            }
+        }
+    }
+    (cnt == 0)?cout << "No Hiding places":cout << "Hiding places are: " << cnt;
+}
+
 //Print elements in vector
 void Print(){
     const int MAX = 1001;
