@@ -1,3 +1,21 @@
+//calculates the sum of the integers a for which the corresponding string r starts with the character ch and prints this sum.
+struct X{
+    char r[100], int a;
+}
+main(){
+    int n; cin >> n;
+    struct X arr[100];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i].r >> arr[i].a;
+    char ch; cin >> ch;
+    int cnt = 0;
+    for(int i = 0; i < n; i++){
+        if(arr[i].r[0] == ch)
+            cnt += arr[i].a;
+    }
+    cout << cnt;
+}
+
 //Print elements in vector
 void Print(){
     const int MAX = 1001;
