@@ -17,6 +17,39 @@ main(){
     cout << cnt;
 }
 
+#include<iostream>
+using namespace std;
+//manipulate the values of x and y through a series of recursive calls.
+int cnt = 0, odd = 0;
+int request(int x, int y){
+    if(y == 1)
+        return x;
+    if(x + y + 1 == y)
+        return (pow(2, cnt - 1) + odd);
+    if(x + odd == y)
+        return pow(2, cnt);
+    if(x == y)
+        return pow(pow(2, cnt) + odd);
+    if(x <= y && odd > y)
+         return (pow(2, cnt) + odd / y + (odd % y));
+    if(x <= y && odd > y)
+        return (pow(2, cnt) + 1);
+    if(x % 2 == 0){
+        x /= 2;
+        cnt++;
+    }
+    else {
+        x = (x + 1)/2;
+        cnt++; odd++;
+    }
+    return request(x, y);
+}
+main(){
+    int x, y;
+    cin >> x >> y;
+    cout << request(x, y);
+}
+
 //checks if a given number is prime using a probabilistic method similar to the Fermat primality test.
 bool powermod(int a, int b, int n){
     if(b == 0)
