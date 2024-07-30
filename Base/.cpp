@@ -170,3 +170,27 @@ void process(){
             cout << "\n";
     }
 }
+
+void BitManipulation(){
+    int x = -2147483647;
+    long z = 4294967296U;
+    ui y = static_cast <ui>(x);
+    cout << "x: " << x << "\nY: " << y;
+    cout << "\nz: " << z << "\nz - (-x): " << z - (-x) << "\n";
+    cin >> x;
+    for(int i = 31; i >= 0; i--){
+        if(x & (1 << i))
+            cout << "1";
+        else 
+            cout << "0";
+    }
+    cout << "\n";
+    int a = (1 << 1) | (1 << 3) | (1 << 4) | (1 << 8);
+    int b = (1 << 3) | (1 << 6) | (1 << 8) | (1 << 9);
+    int c = a | b;
+    for(int i = 0; i < 32; i++){
+        if(c & (1 << i))
+            cout << i << " ";
+    }
+    cout << "\n";
+}
