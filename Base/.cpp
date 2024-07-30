@@ -147,3 +147,26 @@ void CntRunAvg(){
     double avg = double(sum)/double(n);
     cout << "Average is: " << avg << "\nMaximum is: " << maxi << "\nMinimum is: " << mini;
 }
+
+//process a list of arithmetic operations and output their 
+//results in a simplified fraction format. 
+void process(){
+    int n; cin >> n;
+    for(int i = 0; i < n; i++){
+        int x, y;
+        char ch;
+        cin >> x >> y >> ch;
+        if(x % y == 0)
+            cout << x / y;
+        else{
+            if(y == 1)
+                cout << x;
+            else{
+                int divisor =__gcd(x, y);
+                cout << x / divisor << " " << ch << " " << y / divisor;
+            }
+        }
+        if(i < n -1)
+            cout << "\n";
+    }
+}
