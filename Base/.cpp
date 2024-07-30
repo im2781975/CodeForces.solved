@@ -15,3 +15,14 @@ void CountTime(){
     }
     cout << TotalTime;
 }
+
+void CntMin(){
+    int cnt = 0;
+    for(int i = 1922; i <= 2020; i++){
+        if((i % 4 == 0 && i % 100 !=0) || (i % 400 == 0))
+            cnt += 366;
+        else
+            cnt += 365;
+    }
+    cout << cnt * 24 * 60;
+}
