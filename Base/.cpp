@@ -194,3 +194,193 @@ void BitManipulation(){
     }
     cout << "\n";
 }
+void Perform(){
+    int a, b; cin >> a >> b;
+    a = a % 100;
+    b = b % 100;
+    a += b;
+    cout << a % 100;
+}
+// Fibonacci count
+void Fibonacci(){
+    int n; cin >> n;
+    int a = 0, b = 1, c;
+    for(int i = 0; i < n; i++){
+        c = a + b;
+        a = b; b = c;
+    }
+    cout << c;
+}
+//Perform time Addition
+void TimeAdd(){
+    int Hrs, Min, Sec;
+    int AddHrs, AddMin, AddSec;
+    cin >> Hrs >> Min >> Sec >> AddHrs >> AddMin >> AddSec;
+    Sec += AddSec;
+    if(Sec >= 60){
+        Min += Sec/60;
+        Sec = Sec % 60;
+    }
+    Min += AddMin;
+    if(Min >= 60){
+        Hrs += Min/60;
+        Min = Min % 60;
+    }
+    Hrs += AddHrs;
+    cout << "\nHours: " << Hrs << "\nMinutes: " << Min << "\nSecond: " << Sec;
+}
+//determine if two numbers a & b form an amicable pair. Amicable numbers are 
+//two different numbers so related that the sum of the proper divisors 
+//(excluding the number itself) of each is equal to the other number.
+int IsAmicable(int x){
+    int ans = 1;
+    for(int i = 2; i * i <= x; i++){
+        if(x % i == 0){
+            ans += i ;
+            if(i !=x /i)
+                ans += x/i;
+        }
+    }
+    return ans;
+}
+int main(){
+    int a, b;
+    cin >> a >> b;
+    (IsAmicable(a) == b && IsAmicable(b) == a)?cout << "Yes": cout << "No";
+}
+//wether sum of the three num less than two
+void Smaller(){
+    int ans = 0;
+    int n; cin >> n;
+    for(int i = 0; i < n; i++){
+        int a, b, c; 
+        cin >> a >> b >> c;
+        if(a + b + c <= 2)
+            ans++;
+    }
+    cout >> ans;
+}
+//implementation of the modular exponentiation algorithm, which efficiently computes (a^b) % c
+void Exponentiation(){
+    int a, b, c;
+    cin >> a >> b >> c;
+    int ans = 1;
+    a = a % c;
+    while(b){
+        if(b & 1)
+            ans =(ans * b) % c;
+        a = (a * a) % c;
+        b >> 1;
+    }
+    cout << ans;
+}
+//calculates the area of the smallest square that can completely cover two given rectangles on a 2D plane. 
+void SmallestSquare(){
+    int x1, x2, x3, x4;
+    int y1, y2, y3, y4;
+    cin >> x1 >> x2 >> x3 >> x4;
+    cin >> y1 >> y2 >> y3 >> y4;
+    int a = max(x2, x4) - min(x1, x3);
+    int b = max(y2, y4) - min(y1, y3);
+    int c = max(a, b);
+    cout << c * c;
+}
+#include<bits/stdc++.h>
+using namespace std;
+//determine whether there exists an integer i [0, 65] such that the expression (n * i + 18) % 65 == 0
+void verify(){
+    int n; cin >> n;
+    bool flag = true;
+    for(int i = 0; i < 66; i++){
+        if((n * i + 18) % 65 == 0){
+            cout << i << " ";
+            flag = false;
+            break;
+        }
+    }
+    (flag == true) ?cout << "Yes": cout << "No";
+}
+#include<bits/stdc++.h>
+using namespace std;
+void BubbleSort(){
+    int n; cin >> n;
+    int arr[n + 3];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1; j < n; j++){
+            if(abs(arr[i]) > abs(arr[j]))
+                swap(arr[i], arr[j]);
+        }
+    }
+    for(int i = 0; i < n - 1; i++)
+        cout << arr[i] << " ";
+    cout << arr[n - 1];
+}
+//Divide n in even pair
+void DivideEven(){
+    int n; cin >> n;
+    for(int i = 2; i < n; i+=2){
+        if((n - i) % 2 == 0){
+            cout << "Yes";
+            return 0;
+        }
+    }
+    cout << "No";
+}
+//check if all numbers in the range [x,y], when transformed by the function f(i)=i^2 + i + 41 
+//result in prime numbers. If all such numbers are prime, it outputs "ok"; else  "Break out".
+bool IsPrime(int x){
+    if(x <= 1)
+        return false;
+    for(int i = 2; i * i <= x; i++){
+        if(x % i == 0)
+            return false;
+    return true;
+}
+main(){
+    int x, y;
+    while(cin >> x >> y && x !=0 && y !=0){
+        bool flag = true;
+        for(int i = x; i <= y; i++){
+            if(!IsPrime(i * i + i + 41)){
+                cout << "Break out";
+                flag = false;
+                break;
+            }
+        }
+        if(flag == true)
+            cout << "ok";
+    }
+}
+//counts the number of pairs of integers within the range [1, 2020] 
+//that are coprime (they share no common divisors other than 1).
+int gcd(int a, int b){
+    if(a % b == 0)
+        return b;
+    return gcd(b, a % b);
+}
+main(){
+    int cnt = 0;
+    for(int i = 1; i <= 2020; i++){
+        for(int j = 1; j <= 2020; j++){
+            if(gcd(i, j) == 1)
+                cnt++;
+        }
+    }
+    cout << cnt;
+}
+//Count the number of times the digit '2' appears in the integers from 1 to 2020.
+void count(){
+    int ans = 0;
+    for(int i = 1; i <= 2020; i++){
+        int tmp = i;
+        while(tmp){
+            cout << tmp << " ";
+            if(tmp % 10 == 2)
+                ans++;
+            tmp /= 10;
+        }
+    }
+    cout << ans;
+}
