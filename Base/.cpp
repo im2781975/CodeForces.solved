@@ -1,3 +1,36 @@
+//calculating the binomial coefficient 
+#define ll long long
+#define MOD 998244353
+ll fact(ll n){
+    int res = 1;
+    while(n !=0){
+        res = (res * n) % MOD;
+        n--;
+    }
+    return res;
+}
+ll modExp(ll a, ll b){
+    int res = 1;
+    while(b){
+        if(b & 1)
+            res = (res * a) % MOD;
+        a = (a * a) % MOD;
+        b >>= 1;
+    }
+    return res;
+}
+ll Inverse(ll a){
+    return modExp(a, MOD - 2);
+}
+ main(){
+    int n, r; cin >> n >> r;
+    if(r < 0 || r > n)
+        return 0;
+    ll nume = fact(n);
+    ll denom = (fact(n - r) * fact(r)) % MOD;
+    ll res = (nume * Inverse(denom)) % MOD;
+    cout << res;
+}
 //compute the modular inverse of a number num modulo mod using the Extended Euclidean Algorithm. 
 int ExtendedGcd(int num, int mod, int x, int y){
     //num * x + mod * y = gcd(num, mod)
@@ -416,4 +449,28 @@ void count(){
         }
     }
     cout << ans;
+}
+void CountCeil(){
+    int a, b; cin >> a >> b;
+    (a % b == 0) ? cout << a /b: cout << a/b + 1;
+}
+void FindSqrt(){
+    int n; cin >> n;
+    int l = 1, r = n;
+    while(r > l){
+        r = l + (r - l)/2;
+        l = n / r;
+    }
+    cout << r;
+}
+void Exponential(){
+    int a, b, res = 1;
+    cin >> a >> b;
+    while(b){
+        if(b & 1)
+            res *= a;
+        a *= a;
+        b >>= 1;
+    }
+    cout << res;
 }
