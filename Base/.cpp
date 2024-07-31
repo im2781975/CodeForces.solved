@@ -1,3 +1,36 @@
+//compute the modular inverse of a number num modulo mod using the Extended Euclidean Algorithm. 
+int ExtendedGcd(int num, int mod, int x, int y){
+    //num * x + mod * y = gcd(num, mod)
+    if(num == 0){
+        x = 1; y = 0;
+        return num;
+    }
+    int a, b;
+   // mod * a + (num % mod) * b = gcd(num, num % mod)
+    int gcd = ExtendedGcd(mod, num % mod, a, b);
+    x = b;
+    y = a - b *(num/mod);
+    return gcd;
+}
+int modInverse(int num, int mod){
+    int x, y;
+    int gcd = ExtendedGcd(num, mod, x, y);
+    if(gcd != 1)
+        return -1;
+    else {
+        x = (x % mod + mod) % mod;
+        return x;
+    }
+}
+main(){
+    int num, mod; cin >> num >> mod;
+    int Inverse = modInverse(num, mod);
+    if(Inverse == -1)
+        cout << "Doesn't Exits";
+    else 
+        cout << "Modular Inverse of " << num << " mod " << mod << " is " << Inverse;
+}
+
 // Count production Time
 void CountTime(){
     int n = 10000, UMP = 600 / 60;
