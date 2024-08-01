@@ -7,7 +7,20 @@
 #include <valarray>
 #include <cmath>
 #include <numeric>
-
+#include <iostream>
+#include<set>
+#include<map>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<cstdlib>
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+#include<climits>
 #define forI(n) for(ll i = 0; i < n; ++i)
 #define forJ(n) for(ll j = 0; j < n; ++j)
 #define forR(n) for(ll i = n - 1; i >= 0; --i)
