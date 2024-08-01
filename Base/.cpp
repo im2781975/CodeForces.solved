@@ -1,3 +1,38 @@
+//find the minimum integer x such that the sum of the series 
+//x+ x/k + x/k^2 + x/k^3..... +… is at least n
+bool check(int x, int n, int k){
+    int a = k;
+    int sum = x;
+    while(x / a > 0){
+        sum += x / a;
+        a *= k;
+    }
+    if(sum >= n)
+        return true;
+    return false;
+}
+int FindMin(){
+    int low = 1, high = INT_MAX, mid;
+    while(low < high){
+        mid = low + (high - low)/2;
+        if(check(mid, n, k))
+            high = mid;
+        else
+            low = mid + 1;
+    }
+    return low;
+}
+main(){
+    int n, k; cin >> n >> k;
+    //x + x/(1)^i……… will be infinie loop
+    if(k == 1){
+        cout << "The minimum x such that the sum of the series is at least " << n << " is: " << n << "\n";
+        return 0;
+    }
+    int res = FindMin(n, k);
+    cout <<…"The minimum x such that the sum of the series is at least " << n << " is: " << result << "\n";
+}
+
 //calculating the binomial coefficient 
 #define ll long long
 #define MOD 998244353
