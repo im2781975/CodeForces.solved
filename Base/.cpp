@@ -518,3 +518,35 @@ void Condition() {
         }
     }
 }
+
+void Operation(){
+    int n; cin >> n;
+    int tmp = n;
+    int mult = 1, sum = 0, cnt = 0;
+    while(tmp > 0){
+        cnt++;
+        mult *= tmp % 10;
+        sum += tmp % 10;
+        tmp /= 10;
+    }
+    cout << "Multipication is: " << mult << "\nSum is: " << sum << "\nAmount Of Number is: " << cnt;
+    //Count Zero
+    tmp = n; cnt = 0;
+    while(tmp > 0){
+        if(tmp % 10 == 0)
+             cnt++;
+        tmp/= 10;
+    }
+    cout << "\nCount of Zero is: " << cnt;
+    
+    //Reverse
+    tmp = n;
+    int rev = 0;
+    while(tmp > 0){
+        rev += tmp % 10;
+        rev *= 10;
+        tmp /= 10;
+    }
+    rev /= 10;
+    cout << "\nReverse is: " << rev;
+}
