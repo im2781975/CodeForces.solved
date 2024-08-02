@@ -14,6 +14,84 @@ void knightAttack(){
     }
 }
 
+//compute GeoSeries
+int ModPow(int a, int b, int mod){
+    if(b == 0)
+        return 1;
+    int tmp = ModPow(a, b/2, mod) % mod;
+    tmp = (tmp * tmp) % mod;
+    if(b % 2 == 0)
+        return tmp;
+    else
+        return (tmp * a) % mod;
+}
+int Divisors(int n){
+    int cnt = 0;
+    for(int i = 2; i <= sqrt(n); i++){
+        if(n % i == 0)
+            cnt++;
+    }
+    return cnt;
+}
+int GeoSeries(int a, int b, int mod){
+    if(b == 1)
+        return 1;
+    if(b == 2)
+        return (1 + a) % mod;
+    int tmp = GeoSeries(a, b/2, mod) % mod;
+    int x = ModPow(a, b/2, mod) % mod;
+    int y = ModPow(a, b - 1, mod) % mod;
+    if(b % 2 == 0)
+        return (tmp *(1 + x)) % mod;
+    else
+        return ((tmp *(1 + x)) % mod + y % mod) % mod;
+}
+main(){
+    int a, b, mod;
+    cin >> a >> b >> mod;
+    //Modular Exponent
+    cout << "ModPower is: " << ModPow(a, b, mod);
+    int n; cin >> n;
+    //Divisor
+    cout << "\nNumber of divisors: " << Divisors(n);
+    //geometric series
+    cout << "\nGeometric series is: " << GeoSeries(a, b, mod);
+}
+
+//Count Letter
+int LetterCount(int n){
+    if(n < 0 || n > 999)
+        return 0;
+    string units[] = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    string teens[] = {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+    string tens[] = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+    string hundred = "hundred";
+    int cnt = 0;
+    if(n >= 100){
+        cnt += units[n / 100].length() + hundred.length();
+        if(n % 100 !=0)
+            cnt += 3;
+        n %= 100;
+    }
+    if(n >= 20){
+        cnt += tens[n / 10].length();
+        n %= 10;
+    }
+    if(n >= 10)
+        cnt += teens[n - 10].length();
+    else
+        cnt += units[n].length();
+    return cnt;
+}
+main(){
+    int d = 11;
+    cout << "Letter count is: " << LetterCount(911) << "\n";
+    for(int i = 1; i <= 999; i++){
+        d += LetterCount(i);
+    }
+    cout << "Total Letter: " << d;
+}
+
 //construct a binary tree from user input
 vector<int>vec(100, 0);
 int create(int i){
@@ -235,4 +313,118 @@ void PairSame(){
         }
     }
     (a == 0 && b == 0)?cout << "Yes":cout << "NO";
+}
+
+bool IsPalindrome(int idx, int *arr, int n){
+    if(idx >= n/2)
+        return true;
+    return (arr[idx] == arr[n - idx - 1]) && IsPalindrome(idx + 1, arr, n);
+}
+void Seive(){
+    const int Maxn = 1e7;
+    bool IsPrime
+    for(int i = 2; i <= Maxn; i++)
+        IsPrime[i] = true;
+    for(int i < 2; i <= Maxn; i++){
+        if(IsPrime[i]){
+            for(int j = i*i; j < maxn; j+=i)
+                IsPrime[j] = false;
+        }
+    }
+    IsPrime[0] = IsPrime[1] = false;
+}
+main(){
+    int arr[]{1, 2, 3, 3, 2, 1};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    (IsPalindrome(0, arr, n)) ? cout << "Yes":cout << "No";
+}
+
+void SumOf(){
+    int a, b, ans = 0;
+    char ch; cin >> ch;
+    while(cin >> a >> b && ch !='e')
+        ans += a + b;
+    cout << ans;
+}
+
+//read pairs of hexadecimal integers from the standard input, 
+//sum them, and then output the result in uppercase hexadecimal format. 
+void ConvertHex(){
+    int a, b;
+    while(cin >> hex >> a >> b){
+        int sum = a + b;
+        if(sum < 0)
+            cout << hex << uppercase << "-" << -sum;
+        else
+            cout << hex << uppercase << sum;
+        /*if(a + b < 0)
+			cout << setiosflags(uppercase) << hex << "-" << -(a + b) << endl;
+		else 
+            cout << setiosflags(uppercase) << (a + b) << endl; */
+    }
+}
+//read pairs of integers n and m. compute the average of every m consecutive numbers in the 
+//sequence of the first n even numbers, and print these averages.
+void countGroupAvg(){
+    int n, m;
+    vector <int> res;
+    while(cin >> n >> m){
+        int sum = 0;
+        for(int i = 1; i <= n; i++){
+            sum += i * 2;
+            if(i % m == 0){
+                res.push_back(sum/m);
+                sum = 0;
+            }
+        }
+        if(n % m !=0)
+            res.push_back(sum /(n % m));
+        if(!res.empty()){
+            cout << res[0];
+            for(int i = 1; i < res.size(); i++)
+                cout << " " << res[i];
+        }
+    }
+}
+//checks if an input integer n can be decomposed into a sum of two even integers.
+//If n is even and greater than 2, it prints "YES"; otherwise, it prints "NO".
+void DivideEven(){
+    int n; cin >> n;
+    if(n % 2 == 0 && n != 2)
+        cout << "Yes";
+    if(n % 2 == 1 || n == 2)
+        cout << "No";
+}
+
+//calculate and print the minimum number of square tiles of size a x a needed to cover a rectangular area of size x * y
+void MinTile(){
+    int x, y, a;
+    cin >> x >> y >> a;
+    int r1 = x / a;
+    int r2 = y / a;
+    if(x % a !=0)
+        r1++;
+    if(y % a !=0)
+        r2++;
+    cout << r1 * r2;
+}
+void Condition() {
+    int n;
+    while (cin >> n) {
+        int x = n;
+        if (n == 1) {
+            cout << 1 << endl;
+        } else if (n == 2) {
+            cout << 4 << endl;
+        } else {
+            while (n--) {
+                if (n == 2) {
+                    x *= 2;
+                    break;
+                } else
+                    x = (x + 1) * 2 + 1;
+            }
+            cout << x << endl;
+        }
+    }
 }
