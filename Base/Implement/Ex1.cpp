@@ -1,51 +1,4 @@
-
-int MultOfNumbers(int n)
-	{
-		int mult = 1;
-		while (n > 0)
-		{
-			mult *= n % 10;
-			n /= 10;
-		}
-		return mult;
-	}
-
-	int SumOfNumbers(int n)
-	{
-		int sum = 0;
-		while (n > 0)
-		{
-			sum += n % 10;
-			n /= 10;
-		}
-		return sum;
-	}
-
-	int AmountOfNumbers(int n)
-	{
-		int sum = 0;
-		while (n > 0)
-		{
-			sum++;
-			n /= 10;
-		}
-		return sum;
-	}
-
-
-	double min(double a, double b)
-	{
-		double min = a < b ? a : b;
-		return min;
-	}
-
-	double max(double a, double b)
-	{
-		double max = a > b ? a : b;
-		return max;
-	}
-
-	double mini(double a, double b, double c)
+double mini(double a, double b, double c)
 	{
 		double min = a < b ? a < c ? a : c : b < c ? b : c;
 		return min;
@@ -58,19 +11,6 @@ int NOD(long long a, long long b)
 			else
 				b %= a;
 		return a + b;
-	}
-int AmountOfZero(int n)
-	{
-		int sum = 0;
-		while (n > 0)
-		{
-			if (n % 10 != 0)
-				return sum;
-			if (n % 10 == 0)
-				sum++;
-			n /= 10;
-		}
-		return sum;
 	}
 int ReverseNumber(long long num)
 	{
