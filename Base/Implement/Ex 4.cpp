@@ -1,45 +1,5 @@
 int main()
 {
-    ll a,b,c,d,e;
-       cin>>a>>b>>c>>d>>e;
-       b*=a;
-       b+=2*d;
-       c*=a;
-       c+=2*e;
-       if(b>c)
-       cout<<"Second"<<endl;
-       else if(c>b)
-       cout<<"First"<<endl;
-       else
-       cout<<"Friendship"<<endl;
-}
-int main()
-{
-ll a,b,c;
-        cin>>a>>b>>c;
-        cout<<min({a+b+c,2*a+2*b,2*a+2*c,2*b+2*c})<<endl;
-}
-int main()
-{
-     ll x,y;
-      cin>>x>>y;
-      if(y==1)
-      {
-        if(x==0)
-        cout<<"YES"<<endl;
-        else
-        cout<<"NO"<<endl;
-        return 0;
-     }   
-      y-=1;
-      x-=y;
-      if( y>=0 && x>=0 && x%2==0)
-      cout<<"Yes"<<endl;
-      else
-      cout<<"No"<<endl;
-}
-int main()
-{
          
       ll i,j,x=0,y=0,n,k=0;
       cin>>n>>j;
