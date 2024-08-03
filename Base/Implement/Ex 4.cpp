@@ -55,38 +55,3 @@ ll i,j=0,a,b;
       }
       cout<<c<<endl;     
 }
-int main()
-{
-      ll a=0,b=0,c=-1,n,y;
-      cin>>n;
-       while(n--)
-       {
-        cin>>y;
-        if(y==5)
-        a++;
-        else
-        b++;
-      }
-      if(b==0)
-      {
-                cout<<-1<<endl;
-      }
-      else
-      {
-                if(a/9==0)
-                cout<<0<<endl;
-                else
-                {       
-                        y=a/9*9;
-                        while(y--)
-                        {
-                                cout<<5;
-                        }
-                        while(b--)
-                        {
-                                cout<<0;
-                         }
-                         cout<<endl;
-                 }
-      }
-}
