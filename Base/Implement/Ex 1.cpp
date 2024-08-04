@@ -236,31 +236,10 @@ vector<CompressedLetter> processCompressedStr(const string &str) {
 
     return res;
 }
-
-ll calcNumLength(ll n) {
-    ll res = 0;
-    while (n > 0) {
-        n /= 10;
-        res++;
-    }
-
-    return res;
-}
-
 ll minValInArray(const vector<ll> &nums) {
     return nums[minPosInArray(nums)];
 }
 
 ll maxValInArray(const vector<ll> &nums) {
     return nums[maxPosInArray(nums)];
-}
-
-ll calcDigitSum(ll n) {
-    ll sum = 0;
-    while (n > 0) {
-        sum += n % 10;
-        n /= 10;
-    }
-
-    return sum;
 }
