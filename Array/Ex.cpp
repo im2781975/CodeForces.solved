@@ -20,21 +20,6 @@ int si = 0 , co = 0 , temp = 0 ;
  cout <<co ;
 void solve()
 {
-int a[15][15];
-    for (int i =0;i<15;i++){
-        for (int j= 0;j<15;j++){
-                cin>>a[i][j];
-        }
-    }
-    for (int i =0;i<15;i++){
-        for (int j = 0;j<15;j++){
-                if (a[i][j]!=0)
-                    cout<<a[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-void solve()
-{
     unsigned long long int s = a[0][0],maxi = 1,z=0;
     for (int i = 0;i<=1;i++){
         for (int j = i;j<=2;j++){
