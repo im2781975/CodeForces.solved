@@ -497,3 +497,27 @@ void RemainCap(){
     }
     cout << m - arr[m];
 }
+
+void DivisibleByTen(){
+    int n; cin >> n;
+    int *arr = new int[n];
+    int k = 0, r = 0;
+    //k -> Count of numbers divisible by 10
+    //r-> Count of digits in numbers not divisible by 10
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x % 10 == 0)
+            arr[k++] = x;
+        else {
+            tmp = x;
+            while(tmp != 0){
+                r++;
+                tmp /= 10;
+            }
+        }
+    }
+    cout << "Numbers Divisible by 10: ";
+    for(int i = 0; i < k; i++)
+        cout << arr[i] << " ";
+    cout << "\nNumber Divisible not by 10 is: " << r;
+}
