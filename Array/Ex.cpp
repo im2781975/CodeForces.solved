@@ -106,32 +106,6 @@ void solve()
     }
     cout<<maxi;
 }
-int maxSubArraySum(int a[], int size)
-{
-    int max_so_far = INT_MIN, max_ending_here = 0;
- 
-    for (int i = 0; i < size; i++)
-    {
-        max_ending_here = max_ending_here + a[i];
-        if (max_so_far < max_ending_here)
-            max_so_far = max_ending_here;
- 
-        if (max_ending_here < 0)
-            max_ending_here = 0;
-    }
-    return max_so_far;
-}
-bool plin(int index)
-{
-    ll arr[N];
-    int n;
-    if(index == n)
-    {
-        return 1;
-    }
-    return (arr[index] == arr[n - index -1]) && plin(index + 1);
- 
-}
 void quicksort(int *mas, int first, int last)
 	{
 		int mid, count;
