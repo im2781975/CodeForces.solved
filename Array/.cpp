@@ -70,6 +70,25 @@ __main() {
     power2(exponent);
     return 0;
 }
+//0/1 knapsack
+const int N = 1010;
+int w, n;
+int weight[N], item[N];
+int dp[N][N];
+void Knapsack(){
+    cin >> w >> n;
+    for(int i = 1; i <= n; i++)
+        cin >> weight[i] << item[i];
+    for(int i = 1; i <= n; i++){
+        for(int j = 0; j <= w; j++){
+            dp[i][j] = dp[i - 1][j];
+            if(j >= weight[j])
+                dp[i][j] = max(dp[i][j], dp[i - 1][j - weight[i] + item[i]]);
+        }
+    }
+    cout << dp[n][w];
+}
+
 //Print & sum the prime number
 const int N = 1e7;
 bool mark[N];
