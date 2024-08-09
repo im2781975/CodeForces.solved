@@ -292,3 +292,354 @@ __main(){
     }
     (cnt == 0)?cout << "Become the Guy" : cout << "No one";
 }
+
+
+void CheckDiagonal(){
+    int n; cin >> n;
+    vector <vector <char> >matrix(n, vector <char> (n));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++)
+            cin >> matrix[i][j];
+    }
+    char diagonal = matrix[0][0];
+    for(int i = 0; i < n; i++){
+        if(matrix[i][i]!= diagonal || matrix[i][n - i -1] != diagonal){
+            cout << "No";
+            return 0;
+        }
+    }
+    char NotDiagonal = matrix[0][1];
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(i != j && i + j != n - 1){
+                if(matrix[i][j] != NotDiagonal){
+                    cout << "No";
+                    return 0;
+                }
+            }
+        }
+    }
+    cout << "Yes";
+    return 0;
+}
+// fill a matrix with alternating 'B' and 'W' characters, starting from the given positions marked with a dot ('.'). 
+void FillChar(){
+    int n, m; cin >> n >> m;
+    vector <string> matrix(n);
+    for(int i = 0; i < n; i++){
+        getline(cin, matrix[i]);
+        for(int j = 0; j < m; j++){
+            if(matrix[i][j] == '.'){
+                if((i + j) % 2 == 0)
+                    matrix[i][j] = 'B';
+                else
+                    matrix[i][j] = 'W';
+            }
+        }
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++)
+            cout << matrix[i][j] << " ";
+        cout << "\n";
+    }
+}
+//an array representing the number of additional sockets available from various devices. 
+//Each device can contribute a certain number of additional sockets.
+//determine how many of these devices you need to use to ensure that you have enough sockets to accommodate a given number of devices.
+void mergeSort(int *arr, int l, int mid, int r){
+    int n1 = mid - l + 1;
+    int n2 = right - mid;
+    int leftarr[n1], rightarr[n2];
+    for(int i = 0; i < n1; i++)
+        leftarr[i] = arr[l + i];
+    for(int i = 0; i < n2; i++)
+        rightarr[i] = arr[mid + 1 + i];
+    int i = 0, j = 0, k = mid;
+    while(i < n1 && j < n2){
+        if(leftarr[i] <= rightarr[j]){
+            arr[k] = leftarr[i];
+            i++;
+        }
+        else{
+            arr[k] = rightarr[j];
+            j++;
+        }
+        k++;
+    }
+    while(i < n1){
+        arr[k] = leftarr[i];
+        i++; k++;
+    }
+    while(j < n2){
+        arr[k] = rightarr[j];
+        j++; k++;
+    }
+}
+void merge(int *arr, int l, int r, int n){
+    if(l < r){
+        int mid = (left + right)/2;
+        merge(arr, l, mid);
+        merge(arr, mid + 1, r);
+        mergeSort(arr, l, mid, r);
+    }
+}
+__main(){
+    int supply, device, socket;
+    //supply :The number of devices (or array elements) available.
+     // devices: The total number of devices you need to accommodate.
+      // sockets: The initial number of available sockets.
+    cin >> supply >> device >> socket;
+    int arr[supply];
+    //each integer arr[i] represents the number of additional sockets that the i-th device can contribute.
+    for(int i = 0; i < supply ; i++)
+        cin >> arr[i];
+    merge(arr, 0, supply - 1, supply);
+    if(device <= socket)
+        cout << "0";
+    else {
+        int i = 0;
+        while(socket < device && i < supply){
+            socket += arr[i] - 1;
+            i++;
+        }
+        if(i != supply)
+            cout << i;
+        else if(device <= socket)
+            cout << i;
+        else
+            cout << -1;
+    }
+}
+//Count Consecutive Duplicate & count the number of distinct contiguous segments in an array of integers
+void CountDup(){
+    int n; cin >> n;
+    int arr[n], cnt = 0, cont = 0
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n - 1; i++){
+        if(arr[i] == arr[i + 1])
+            cnt++;
+        if(arr[i]!= arr[i + 1])
+            cont++;
+    }
+    cout << "Consecutive Duplicate: " << cnt << "\nUnique element is: " << cont + 1;
+}
+//count the number of times the x value from one input pair matches the
+//y value from another input pair, excluding when they are at the same index. 
+void MatchPair(){
+    int n; cin >> n;
+    int arr[n], tmp[n], cnt = 0;
+    for(int i = 0; i < n; i++){
+        int x, y; cin >> x >> y;
+        arr[i] = x; tmp[i] = y;
+    }
+    for(int i = 0, j = 0; i < n, j < n; i++, j++){
+        if(arr[i] == tmp[j] && i != j)
+            cnt++;
+    }
+    cout << cnt;
+}
+// Find the maximum sub array length
+void SubarrLength(){
+    int n; cin >> n;
+    int arr[n], cnt = 1, maxLength = 1;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int diff = abs(arr[1] - arr[0]);
+    for(int i = 1; i < n - 1; i++){
+        int tmp = abs(arr[i + 1] - arr[i]);
+        if(diff == tmp){
+            cnt++;
+            if(cnt > maxLength)
+                maxLength = cnt;
+        }
+        else{
+            diff = tmp; cnt = 1;
+        }
+    }
+    cout << "Length Of the SubArray with Consistent diff is: " << maxLength;
+}
+//determine how dynamic the array is in terms of new highs and lows as you traverse it 
+//from start to end. By counting the number of times the max and min values change,
+//the program gives an insight into how the values fluctuate.
+void cntMinMax(){
+    int n; cin >> n;
+    int arr[n], cntMin = 0, cntMax = 0;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int maxi = arr[0], mini = arr[0];
+    for(int i = 1; i < n; i++){
+        if(arr[i] > maxi){
+            maxi = arr[i];
+            cntMax++;
+        }
+        if(arr[i] < mini){
+            mini = arr[i];
+            cntMin++;
+        }
+    }
+    cout << cntMax + cntMin;
+}
+// calculate the sum of the first two integers in each triplet, store these sums
+//in an array, and then find and print the largest sum decreased by 1.
+void MaxSum(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++){
+        int a, b, c; cin >> a >> b >> c;
+        c = a + b;
+        arr[i] = c;
+    }
+    int maxi = arr[0];
+    for(int i = 1; i < n; i++){
+        if(maxi < arr[i])
+            maxi = arr[i];
+    }
+    cout << maxi - 1;
+}
+void MaxSum(){
+    int n; cin >> n;
+    int a[n], b[n], c[n], sum = 0;
+    for(int i = 0; i < n; i++)
+        cin >> a[i] >>b[i];
+    for(int i = 0; i < n; i++){
+        sum -= (a[i] + b[i]);
+        c[i] = sum;
+    }
+    int maxi = c[0];
+    for(int i = 1; i < n; i++){
+        if(maxi < c[i])
+            maxi = c[i];
+    }
+    cout << maxi;
+}
+//find the maximum gap between adjacent elements in an array after removing
+//one element in a way that minimizes the maximum gap between the remaining adjacent elements. 
+void MaxGap(){
+    int n; cin >> n;
+    int *arr = new int[n];
+    int mini = INT_MAX, pos = -1;
+    for(int i = 2; i < n; i++){
+        if(arr[i] - arr[i - 2] < mini){
+            mini = arr[i] - arr[i - 2];
+            pos = i - 1;
+        }
+    }
+    mini = -(1 << 28)
+    for(int i = 0; i < n - 1; i++){
+        if(i + 1 == pos){
+            if(arr[i + 2] - arr[i] > mini){
+                mini = arr[i + 2] - arr[i];
+                i++;
+            }
+            else{
+                if(arr[i + 1] - arr[i] > mini)
+                    mini = arr[i + 1] - arr[i];
+            }
+        }
+    }
+    delete []arr;
+    cout << mini;
+}
+//calculate the total exercise done for each muscle group over the n days 
+//and determine which muscle group has the maximum exercise.
+void Exercise(){
+    int n; cin >> n;
+    int *execise = new int[n];
+    for(int i = 0; i < n; i++)
+        cin >> exercise[i];
+    int chest = 0, biceps = 0, back = 0;
+    switch(i % 3){
+        case 0:
+            chest += exercise[i]; break;
+        case 1:
+            biceps += exercise[i]; break;
+        case 2:
+            back += exercise[i]; break;
+    }
+    if(chest > biceps && chest > back)
+        cout << "chest: " << chest;
+    else if(back > biceps && back > chest)
+        cout << "back: " << back;
+    else
+        cout << "biceps: " << biceps;
+}
+//count and print the number of positive integers
+void Count(){
+    int n, k; cin >> n >> k;
+    int arr[n + 1];
+    if(k < n)
+        return 1;
+    int cnt = 0;
+    for(int i = 0; i < n; i++){
+        cin >> arr[i];
+        if(arr[i] > 0 && (i <= k || arr[i] >= arr[k]))
+            cnt++;
+    }
+    cout << cnt;
+}
+void PrintAvg(){
+    int n; cin >> n;
+    int arr[n], sum = 0;
+    for(int i = 0; i < n; i++)
+        sum += arr[i];
+    for(int i = 0; i < n; i++)
+        sum += arr[i];
+    cout << sum/n;
+}
+// count how many times the cumulative sum of the elements in the array becomes negative,
+//while also keeping the cumulative sum within the range of -1 to 1 during the process.
+void NegSum(){
+    int n; cin >> n;
+    int arr[n], cnt = 0, sum = 0;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        sum += arr[i];
+        if(sum < 0)
+            cnt++;
+        if(sum < -1)
+            sum = -1;
+        else if(sum > 1)
+            sum = 1;
+    }
+    cout << cnt;
+}
+// count how many times the cumulative sum of the array elements becomes negative.
+void NegSum(){
+    int n; cin >> n;
+    int arr[n], cnt = 0, sum = 0;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        sum += arr[i];
+        if(sum < 0){
+            cnt++; sum = 0;
+        }
+    }
+    cout << cnt;
+}
+// determine whether an array of integers contains any 1s. If it does, output "Hard"; otherwise, "Easy".
+void HardEasy(){
+    int n; cin >> n;
+    int arr[n], cnt = 0;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        if(arr[i] == 1)
+            cnt++;
+    }
+    (cnt == 0) ? cout << "Easy": cout << "Hard";
+}
+void Manhatten(){
+    int arr[5][5];
+    int row = -1, col = -1;
+    for(int i = 0, j = 0, i < 5, j < 5; i++, j++){
+        cin >> arr[i][j];
+        if(arr[i][j] = 1){
+            row = i; col = j;
+        }
+    }
+    int Distance = abs(row - 2) + abs(col - 2);
+    cout << Distance;
+}
