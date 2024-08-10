@@ -49,27 +49,7 @@
         if(c==0) cout<<"-1"<<endl;
         else cout<<c<<" "<<po<<endl;
         //----------------------------------------------------
-    }*/
-      /*int x;
-      cin>>x;
-      int z=0;
-      char *y=new char[x];
-       double *f=new double[x+1];
-      while(z++<x) cin>>y[z-1];
-      z=0;
-      while(z++<=x) cin>>f[z-1];
-      z=0;
-      while(z++<x)
-      {
-          switch(y[z-1]){
-          case('+'): f[z]=f[z-1]+f[z]; break;
-          case('-'): f[z]=f[z-1]-f[z]; break;
-          case('*'): f[z]=f[z-1]*f[z]; break;
-          case('/'): f[z]=f[z-1]/f[z]; break;
-          }
-      }
-      printf("%0.2f\n",f[x]);*/
-//-------------------------------------------------------------
+    }
       /*char x[10][10],y;
       int c=0;
       for(int i=0;i<10;i++)
@@ -92,21 +72,7 @@
             }
       cout<<"NO\n";*/
 //----------------------------------------------------------------
-      /* int m,s=0,w=0;
-       char r;
-       cin>>m;
-       struct x f[1000];
-       while(s++<m)
-       {
-           cin>>f[s].y>>f[s].z;
-       }
-       cin>>r;
-       s=0,w=0;
-       while(s++<m)
-       {
-           if(f[s].y[0]==r) w+=f[s].z;
-       }
-       cout<<w<<endl;*/
+      
 //------------------------------------------------------------
       /* int x,z,f,c=0,h=100001;
        cin>>x;
