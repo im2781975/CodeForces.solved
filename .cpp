@@ -31,38 +31,6 @@
         cout<<y[0];
         while(x-->1) cout<<" "<<y[f++];
         cout<<endl<<c<<endl;
-    }*/
-    //--------------------------------------------
-    /*int x=0,z=0,m=0,c=0;
-    cin>>x;
-    z=x;
-    char *y=new char[x];
-    while(z-->0&&++m)
-    {
-        int f=0,s=x;
-        while(s-->0) {cin>>y[f++]; if(y[f-1]=='#') {cout<<m<<" "<<f<<endl; c++;}}
-    }
-    if(c==0) cout<<"No hiding places"<<endl;
-    else cout<<c<<endl;*/
-    //-----------------------------------------------
-    /*unsigned long long z,x,y,c,m,s;
-    cin>>x;
-    while(x-->0)
-    {
-        cin>>y;
-        c=0;
-        m=1;
-        s=y;
-        while(y-->0)
-        {
-            cin>>z;
-            if(z%2==0&&m%2==0) c++;
-            if(z%2!=0&&m%2!=0) c++;
-            m++;
-        }
-        if(c==s) cout<<"YES\n";
-        else cout<<"NO\n";
-    }*/
     //------------------------------------------
     /*int n,m,z,c,f,po;
     while(cin>>n>>m&&n>0&&m>0)
