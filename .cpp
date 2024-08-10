@@ -1,26 +1,3 @@
-/***************************    A. Free Ice Cream    ************************/
-long long n, x , d, c1=0;
- char ch ;
- cin >> n >> x ;
- for(int i =0 ; i < n ; i ++)
- {
-      cin >> ch >>d;
-    if(ch == '+'){
-        x+=d;
-
-    }
-    else{
-        if(x>=d)
-            x-=d;
-        else
-            c1+=1;
-    }
-
- }
-
- cout<<x <<" "<<c1;
- */
-
 /***************************    A. Helpful Maths    ************************/
 /*
 char s[100],str[100],ch;
