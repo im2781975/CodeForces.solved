@@ -1,23 +1,3 @@
-/***************************    A. Helpful Maths    ************************/
-/*
-char s[100],str[100],ch;
-int j=0;
-    cin>>s;
-for(int  i = 0 ; s[i]!= '\0' ; i++)
-{
-    if(s[i]!='+'){
-        str[j] = s[i];
-        ++j;
-    }
-}
-str[j]='\0';
-
-sort(str,str+j);
-int i;
-for( i = 0 ; i < j -1 ; i++)
-    cout<<str[i]<<"+";
-cout<<str[i];
-*/
 /***************************    A. Team Olympiad    ************************/
 /*int n ,c=0 ,s=0;
 cin >> n ;
