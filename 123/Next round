@@ -8,49 +8,6 @@
 include <iostream>
 #include <set>
  
-
-
-using namespace std;
-signed main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-}
------
-ll a,b,c;
-            cin >> a >> b >> c;
-            cout<<(a / c + (a % c != 0)) * (b / c + (b % c != 0));
------
-int main()
-{
-    ll n,m,a; cin >> n >> m >> a;
- 
-    if(a>=n && a>=m)
-    {
-        cout << 1 << endl;
-    }
-    else if(n%a==0 && m%a==0)
-    {
-        cout << (n/a)*(m/a) << endl;
-    }
-    else if(n%a!=0 && m%a!=0)
-    {
-        cout << (n/a+1)*(m/a+1) << endl;
-    }
-    else if(n%a==0 && m%a!=0)
-    {
-        cout << (n/a)*(m/a+1) << endl;
-    }
-    else if(n%a!=0 && m%a==0)
-    {
-        cout << (n/a+1) * m/a << endl;
-    }
-}
-#include<bits/stdc++.h>
-using namespace std;
-int main()
-{ long long a,b,c;cin>>a>>b>>c;cout<<(a / c + (a % c != 0)) * (b / c + (b % c != 0));}
-/*
-*/
 using namespace std;
 #define int long long
 #define pb push_back
@@ -58,14 +15,6 @@ using namespace std;
 #define f first
 #define pii pair<int,int>
  
-void solve()
-{
-    int n,m,a;
-    cin >> n >> m >> a;
-    n = (n+a-1)/a;
-    m = (m+a-1)/a;
-    cout << n*m << endl;
-}
 #include <iostream>
 #include <string>
 #include <algorithm>
@@ -90,11 +39,7 @@ int main()
 	
 
 	//************************************************************** 
-	                       // 50 : A. Theatre Square
-	long long n, m, a;
-	cin >> n >> m >> a;
-	cout << ((m + a - 1) / a) * ((n + a - 1) / a) << endl;
-	//************************************************************** */
+	                
 
 
 
