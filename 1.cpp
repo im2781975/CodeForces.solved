@@ -1,3 +1,105 @@
+//classify and count sets of color information based on specific conditions, 
+void CountColor() {
+    int numSets;
+    cin >> numSets;
+    char colors[1000][3];
+    char *results = new char[numSets];
+    int resultsIndex = 0, greenCount = 0, pinkCount = 0, greenTotal = 0, pinkTotal = 0;
+    for (int i = 0; i < numSets; i++) {
+        for (int j = 0; j < 3; j++) {
+            cin >> colors[i][j];
+        }
+    }
+    for (int i = 0; i < numSets; i++) {
+        int greenInSet = 0, blueInSet = 0;
+        // Check if pink or green count has reached 5
+        if (pinkCount == 5) {
+            results[resultsIndex++] = 'g';
+            greenTotal++;
+            pinkCount = 0;
+            i--; // Don't skip the current set
+            continue;
+        }
+        if (greenCount == 5) {
+            results[resultsIndex++] = 'p';
+            pinkTotal++;
+            greenCount = 0;
+            i--;
+            continue;
+        }
+        // Check the conditions for green or pink
+        for (int j = 0; j < 3; j++) {
+            if (colors[i][j] == 'G') {
+                greenInSet++;
+                break;
+            }
+            if (colors[i][j] == 'B')
+                blueInSet++;
+        }
+        if (greenInSet == 1) {
+            results[resultsIndex++] = 'g';
+            greenCount++;
+            greenTotal++;
+        } else if (blueInSet == 3) {
+            results[resultsIndex++] = 'p';
+            pinkCount++;
+            pinkTotal++;
+        }
+    }
+    cout << pinkTotal * 3 << " " << greenTotal * 3 << endl;
+    for (int i = 0; i < resultsIndex; i++) {
+        if (results[i] == 'g')
+            cout << "Green" << endl;
+        else if (results[i] == 'p')
+            cout << "Pink" << endl;
+    }
+    delete[] results;
+    return 0;
+}
+
+void Operation(){
+    int n = 3, res = 0;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int Idx = 0;
+    int minIdx = 0;
+    while(Idx < 3){
+        if(arr[Idx] < arr[minIdx])
+            minIdx = Idx;
+        Idx++;
+    }
+    int Factor = 0;
+    float smallest = arr[minIdx], base = 10;
+    while(smallest > 10){
+        smallest /= 10;
+        Factor++;
+    }
+    smallest = pow(base, Factor - 1);
+    Idx = 0;
+    while(Idx < 3){
+        arr[Idx] -= smallest;
+        Idx++;
+    }
+    while(true){
+        if(arr[0] == arr[1] && arr[0] == arr[2]){
+            res += arr[0];
+            break;
+        }
+        sort(arr, arr + n);
+        if(arr[0] == 0 && arr[1] == 0)
+            break;
+        if(arr[0] + arr[1] + arr[2] > 3){
+            arr[2] -= 2; arr[1] -= 1;
+            res++;
+            break;
+        }
+        else 
+            break;
+    }
+    cout << smallest + res;
+}
+
 void RoundNum(){
     int n; cin >> n;
     int res[n], cnt = 0;
@@ -55,6 +157,60 @@ void OathOfTheNightWatch(){
         cnt += 1;
     cout << cnt;
 }
+// its a variation of the knapsack problem which tries to maximize the number of items 
+//included in a knapsack without exceeding its capacity, while minimizing the total weight.
+void Knapsack(){
+    int n;cin >> n;
+    while(n-- > 0){
+        int cap, NumItem;
+        cin >> cap >> NumItem;
+        int *weight = new int[NumItem];
+        int TotalWeight = 0, ItemCnt = 0, ItemInclude = 0;
+        for(int i = 0; i < NumItem; i++)
+             cin >> weight[i];
+        for(int i = 0; i < NumItem; i++){
+            int minIdx = i;
+            for(int j = i + 1; j < NumItem; j++){
+                if(weight[j] < weight[minIdx])
+                    minIdx = j;
+            }
+            swap(weight[minIdx], weight[i]);
+        }
+        for(int i = 0; i < NumItem; i++){
+            if(TotalWeight + weight[i] <= cap ){
+                TotalWeight += weight[i];
+                ItemInclude++;
+            }
+            else 
+                break;
+        }
+        cout << TotalWeight << " " << ItemInclude << "\n";
+    }
+}
+// find the position of the nearest 'E' (for example, an 'E' might represent an "Emergency" or an "Element") in a 2D grid. 
+void FindPos(){
+    int row, col, cnt = 0, mini = INT_MAX, MinRow = -1, MinCol = -1;
+    cin >> row >> col;
+    char arr[row][col];
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j <col; j++)
+            cin >> arr[i][j];
+    }
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++){
+            if(arr[i][j] == 'E'){
+                int dist = i + j;
+                if(distance < mini){
+                    //convert to 1-Based Idx
+                    MinRow = i + 1;
+                    MinCol = j + 1;
+                }
+                cnt++;
+            }
+        }
+    }
+    (cnt == 0)?cout << -1 : cout << MinRow << " " << MinCol;
+}
 void FindTrgIdx(){
     int n, TrgIdx, cnt = 0;
     cin >> n >> TrgIdx;
@@ -83,6 +239,54 @@ void FindTrgIdx(){
         cout << arr[TrgIdx] << "\n";
     else
         cout << "Idx OutOfBound";
+}
+
+//output the sequence of unique number
+const int MAX = 1001;
+void Unique(){
+    int n, cnt = 0, arr[MAX] = {0};
+    cin >> n;
+    int Unique[n];
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(arr[x] == 0)
+            arr[x] = 1;
+        Unique[cnt++] = x;
+    }
+    for(int i = 0; i < cnt; i++)
+        cout << Unique[i] << " ";
+}
+
+void ChangePos(){
+    int n; cin >> n;
+    char ch[26];
+    vector <char> arr(n);
+    vector <int> tmp(n);
+    vector <bool> used(n, false);
+    vector <int> res(n);
+    for(int i = 0; i < 26; i++)
+        ch[i] = 'a' + i;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < 26; j++){
+            if(arr[i] == ch[j]){
+                tmp[i] = j + 1;
+                break;
+            }
+        }
+    }
+    for(int i = 0; i < n; i++){
+        int minIdx = -1;
+        for(int j = 0; j < n; j++){
+            if(!used[j] && (minIdx == - 1 || tmp[j] < tmp[minIdx]))
+                minIdx = j;
+        }
+        res[minIdx] = n - i;
+        used[minIdx] = true;
+    }
+    for(int i = 0; i < n; i++)
+        cout << res[i] << " ";
 }
 
 // determine process a list of integers representing the positions of 
@@ -380,4 +584,51 @@ void UpperToLower(){
             str[i] -= 32;
     }
     cout << str;
+}
+
+//check if the count of the character 'F' in a given array of characters is one of the specific values (1, 2, 5, 8, or 9).
+void CountChar(){
+    int n, cnt = 0; cin >> n;
+    char arr[n];
+    for(int i = 0; i < n; i++){
+        cin >> arr[i];
+        if(arr[i] == 'F')
+            cnt++;
+    }
+    (cnt == 1 || cnt == 2 || cnt == 5 || cnt == 8 || cnt == 9)? cout << "No": cout << "Yes";
+}
+// find and print the indices (1-based) of the pair of elements in the array whose 
+//sum is greater than trg and has the smallest combined index sum
+void MinIdxSum(){
+    int arr[15], trg;
+    cin >> trg;
+    for(int i = 0; i < 12; i++)
+        cin >> arr[i];
+    int MinSumIdx = 1e2, idx = 0, idx1 = 0, PairCnt = 0;
+    for(int i = 0; i < 11; i++){
+        for(int j = i + 1; j < 12; j++){
+            if(arr[i] + arr[j] > trg){
+                PairCnt++;
+                if((i + j) < MinSumIdx)
+                    MinSumIdx = i + j;
+                    idx = i; idx1 = j;
+            }
+        }
+    }
+    (PairCnt == 0)?cout << "NULL": cout << idx + 1 << " " << idx1 + 1;
+}
+void Find3rdSmallest(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < 5; i++){
+        int minIdx= i;
+        for(int j = i + 1; j < 5; j++){
+            if(arr[j] < arr[minIdx])
+                minIdx = j;
+        }
+        swap(arr[minIdx], arr[i]);
+    }
+    cout << arr[2];
 }
