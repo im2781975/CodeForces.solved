@@ -1,3 +1,4 @@
+/*** 1A ***/
 //a rectangular shape with the size n × m meters.pave the Square with square granite Tile
 //.which are is a * a.Count the least number of Tile to cover the square
 void TheatreSquare(){
