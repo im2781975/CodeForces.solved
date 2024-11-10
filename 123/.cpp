@@ -127,3 +127,10 @@ void ChewbaсcaAndNumber(){
     for(int i = 1; i < str.size(); i++)
         cout << (str[i] < '5' ? str[i] : '9' - (str[i] - '0'));
 }
+using namespace std;
+void BoredLife(){
+    int a, b, fact = 1; cin >> a >> b;
+    for(int i = 1; i <= min(a, b); i++)
+        fact *= i;
+    cout << fact;
+}
