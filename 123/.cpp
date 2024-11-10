@@ -147,3 +147,11 @@ void NextRound(){
     }
     cout << cnt;
 }
+using namespace std;
+void LongestUncommonSubsequence(){
+    string a, b; cin >> a >> b;
+    if(a == b)
+        cout << "-1";
+    else
+        cout << max(a.size(), b.size());
+}
