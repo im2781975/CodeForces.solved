@@ -55,3 +55,28 @@ void LunchRush(){
     }
     cout << mx;
 }
+using namespace std;
+void AmusingJoke(){
+    string a, b, c, str = " ";
+    cin >> a >> b >> c;
+    str = a + b;
+    if(str.size() > c.size()){
+        cout << "No";
+        return 0;
+    }
+    sort(c.begin(), c.end());
+    sort(str.begin(), str.end());
+    //(str == c) ? cout << "Yes" : cout << "No";
+    int arr[26] = {0}, tmp[26] = {0};
+    for(int i = 0; i < str.size(); i++)
+        arr[str[i] - 'A']++;
+    for(int i = 0; i < c.size(); i++)
+        tmp[c[i] - 'A']++;
+    for(int i = 0; i < 26; i++){
+        if(arr[i] != tmp[i]){
+            cout << "No";
+            return 0;
+        }
+    }
+    cout << "Yes";
+}
