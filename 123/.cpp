@@ -97,3 +97,12 @@ void CandyBags(){
     for(int i = 1, j = n * n; i <= j; i++, j--)
         cout << i << " " << j << "\n";
 }
+using namespace std;
+void LLPS(){
+    string str; cin >> str;
+    int freq[26] = {0};
+    for(int i = 0; i < str.size(); i++)
+        freq[str[i] - 'a']++;
+    while(freq[str[str.size() - 1] - 'a']--)
+        cout << str[str.size() - 1];
+}
