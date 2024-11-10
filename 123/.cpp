@@ -91,3 +91,9 @@ void SystemEquation(){
     }
     cout << cnt;
 }
+using namespace std;
+void CandyBags(){
+    int n; cin >> n;
+    for(int i = 1, j = n * n; i <= j; i++, j--)
+        cout << i << " " << j << "\n";
+}
