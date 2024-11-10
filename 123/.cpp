@@ -42,3 +42,16 @@ void LuckyTicket(){
     }
     (sum1 == sum2) ? cout << "Yes" : cout << "No";
 }
+using namespace std;
+void LunchRush(){
+    int n, k, mx = INT_MIN;
+    cin >> n >> k;
+    while(n--){
+        int x, y; cin >> x >> y;
+        if(y > k) 
+            mx = max(mx, x - (y - k));
+        else
+            mx = max(mx, x);
+    }
+    cout << mx;
+}
