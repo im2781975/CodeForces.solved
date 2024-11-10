@@ -80,3 +80,14 @@ void AmusingJoke(){
     }
     cout << "Yes";
 }
+using namespace std;
+void SystemEquation(){
+    int n, m, cnt = 0; cin >> n >> m;
+    for(int i = 0; i <= mac(m, n); i++){
+        for(int j = 0; j <= max(m, n); j++){
+            if((i * i + j == n) && (j * j + i == m))
+                cnt++;
+        }
+    }
+    cout << cnt;
+}
