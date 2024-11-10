@@ -134,3 +134,16 @@ void BoredLife(){
         fact *= i;
     cout << fact;
 }
+using namespace std;
+void NextRound(){
+    int n, k, cnt = 0; cin >> n >> k;
+    k--;
+    vector <int> vec(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    for(int i = 0; i < n; i++){
+        if(vec[i] && vec[i] >= vec[k])
+            cnt++;
+    }
+    cout << cnt;
+}
