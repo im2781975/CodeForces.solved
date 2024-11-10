@@ -106,3 +106,24 @@ void LLPS(){
     while(freq[str[str.size() - 1] - 'a']--)
         cout << str[str.size() - 1];
 }
+using namespace std;
+void ChewbaсcaAndNumber(){
+    string str; cin >> str;
+    if(str[0] != '9' && str[0] >= 5)
+        str[0] = '9' - str[0] + '0';
+    cout << str[0];
+    for(int i = 1; i < str.size(); i++){
+        if(str[i] >= 5)
+            str[i] = '9' - str[i] + '0';
+        cout << str[i];
+    }
+}
+void ChewbaсcaAndNumber(){
+    string str; cin >> str;
+    if(str[0] == '9')
+        cout << str[0];
+    else
+        cout << (str[0] < '5' ? str[0] : '9' - (str[0] - '0'));
+    for(int i = 1; i < str.size(); i++)
+        cout << (str[i] < '5' ? str[i] : '9' - (str[i] - '0'));
+}
