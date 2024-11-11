@@ -1,3 +1,1488 @@
+//
+//  main.cpp
+//  Codeforces_PS
+//
+//  Created by Harsh on 09/04/22.
+//
+
+// Bits ++
+
+ #include <iostream>
+ #include<set>
+ #include<map>
+ #include<stack>
+ #include<queue>
+ #include<vector>
+ #include<cstdio>
+ #include<string>
+ #include<cstring>
+ #include<cstdlib>
+ #include<iostream>
+ #include<algorithm>
+ #include<cmath>
+/*
+using namespace::std;
+int main()
+{
+   
+    int n,X=0;
+    
+    cin >> n;
+
+    string s1="++X",s2="X++",s3="--X",s4="X--";
+    
+    while (n--)
+    {
+        string s;
+
+        cin >> s;
+        
+        if (s==s1 || s==s2)
+        {
+            X=X+1;
+        }
+        else if (s==s3 || s==s4)
+        {
+            X=X-1;
+        }
+        
+    }
+    
+    cout << X << endl;
+    
+    return 0;
+}
+*/
+
+//Beautiful Matrix
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int i,j,count=0;
+    int a[5][5];
+    
+    for (i=0; i<5; i++)
+    {
+        for (j=0; j<5; j++)
+        {
+            cin >> a[i][j];
+        }
+    }
+    
+    for (i=0; i<5; i++)
+    {
+        for (j=0; j<5; j++)
+        {
+            if (a[i][j]==1)
+            {
+                if (i==2 && j==2)
+                {
+                    count=0;
+                }
+                else if ((i+j==3 || i+j==5) && ((i-j==1) || (j-i==1)))
+                {
+                    count=1;
+                }
+                else if (i-j==2 || j-i==2 || (i+j==2*i && i!=0 && j!=0 && i!=4 && j!=4))
+                {
+                    count=2;
+                }
+                else if ((i+j==1 && (i==0 || j==0)) || (i+j==3 && (i==0 || j==0)) || (i+j==5 && (i==1 || j==1)) || (i+j==7 && (i==3 || j==3)))
+                {
+                    count=3;
+                }
+                else
+                    count=4;
+            }
+        }
+    }
+    
+    cout << count;
+    
+}
+*/
+
+//Stones on the Table
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,i,count=0;
+    
+    cin >> n;
+    
+    char a[n];
+    
+    for (i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+    
+    for (i=0; i<n-1; i++)
+    {
+        if (a[i]==a[i+1])
+        {
+            count++;
+        }
+    }
+    
+        cout << count;
+   
+}
+*/
+
+//Bear and Big Brother
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int a,b,count=0;
+    
+    cin >> a >> b;
+    
+year:
+    if (a>=b)
+    {
+        count++;
+        goto end;
+    }
+    else
+    {
+       a=3*a;
+       b=2*b;
+        
+    if (a>b)
+    {
+        goto year;
+    }
+    else
+    {
+        count++;
+        goto year;
+    }
+    }
+end:
+
+    cout << count;
+
+}
+*/
+
+//Magnets
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,i,count=0;
+    
+    cin >> n;
+    
+    int a[n];
+    
+    for (i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+    
+    for (i=0; i<n-1; i++)
+    {
+        if (a[i]!=a[i+1])
+        {
+            count++;
+        }
+    }
+    
+    cout << count+1;
+    
+}
+*/
+
+//Games
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,i,j,count=0;
+    
+    cin >> n;
+    
+    int a[n],b[n];
+    
+    for (i=0; i<n; i++)
+    {
+        int p,q;
+        
+        cin >> p >> q;
+        
+        a[i]=p;
+        b[i]=q;
+    }
+    
+    for (i=0; i<n ; i++)
+    {
+        for (j=0; j<n; j++)
+        {
+            if (a[i]==b[j] && i!=j)
+            {
+                count++;
+            }
+        }
+    }
+    
+    cout << count;
+    
+}
+*/
+
+//Candies and Two Sisters
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int m,t;
+    
+    long long int count=0;
+    
+    cin >> t;
+    
+    long long int ans[t];
+    m=t;
+    
+    
+    while (t--)
+    {
+        long long int n,a,b;
+        
+        cin >> n;
+        
+        a=(n+1)/2;
+        
+        ans[t]=a-1;
+    
+    }
+    
+    while (m--)
+    {
+        cout << ans[m] << endl;
+    }
+    
+    
+}
+*/
+
+// I_love_%username%
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,i,count=1,b;
+    
+    cin >> n;
+    
+    int a[n];
+    
+    for (i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+    
+    
+    for (i=0; i<n-1; i++)
+    {
+        int temp=0;
+        temp=a[i+1]-a[i];
+        
+        if (temp<0)
+        {
+            temp=-(temp);
+        }
+        
+        
+        
+    }
+}
+*/
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,i,count_min=0,count_max=0,b;
+    
+    cin >> n;
+    
+    int a[n];
+    
+    for (i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+    
+    int max=a[0];
+    int min=a[0];
+    
+    for (i=1; i<n; i++)
+    {
+        if (a[i]>max)
+        {
+            count_max++;
+            max=a[i];
+        }
+        if (a[i]<min)
+        {
+            count_min++;
+            min=a[i];
+        }
+    }
+    
+    cout << count_max + count_min;
+}
+*/
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,i,count=0;
+    
+    cin >> n;
+    
+    int a[n];
+    
+    for (i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+    
+    for (i=0; i<n; i++)
+    {
+        if (a[i]==1)
+        {
+            count++;
+        }
+    }
+    
+    string s1="EASY",s2="HARD";
+    
+    if (count==0)
+    {
+        cout << s1;
+    }
+    else
+        cout << s2;
+}
+*/
+
+//A. Police Recruits
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,i;
+    
+    cin >> n;
+    
+    int a[n];
+    
+    for (i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+    
+    int sum=0,count=0;
+    
+    for (i=0; i<n; i++)
+    {
+        sum=sum+a[i];
+        
+        if ((sum=0))
+        {
+            count=0;
+        }
+        else if ((sum<0))
+        {
+            count++;
+        }
+        
+        if (sum<-1)
+        {
+            sum=-1;
+            goto h;
+        }
+        else if (sum>1)
+        {
+            sum=1;
+        }
+        
+    }
+    
+    cout << count;
+    
+   
+}
+*/
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,i,sum=0,count=0;
+    
+    cin >> n;
+    
+    int a[n];
+    
+    for (i=0; i<n ; i++)
+    {
+        cin >> a[i];
+    }
+    
+    for (i=0; i<n ; i++)
+    {
+        sum=sum+a[i];
+        if (sum<0)
+        {
+            count++;
+            sum=0;
+        }
+    }
+    
+    cout << count;
+    
+}
+*/
+
+//tram
+
+/*
+
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,p=0,t;
+    
+    cin >> n;
+    
+    int ans[n];
+    t=n;
+    
+    while (n--)
+    {
+        int a,b,c;
+        
+        cin >> a >> b;
+        
+        p=b-a;
+        
+        c=a+b;
+        
+        
+        ans[n]=c;
+    }
+    
+    int max=ans[0];
+    
+    while (t--)
+    {
+        if (ans[t]>max)
+        {
+            max=ans[t];
+        }
+    }
+    
+    cout << max-1;
+}
+*/
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,i,sum=0;
+    
+    cin >> n;
+    int c[n];
+    
+    int a[n],b[n];
+    
+    for (i=0; i<n; i++)
+    {
+        cin >> a[i] >> b[i];
+    }
+    
+    for (i=0; i<n; i++)
+    {
+        sum=sum-a[i]+b[i];
+        c[i]=sum;
+    }
+    
+    int max=c[0];
+    
+    for (i=0; i<n; i++)
+    {
+        if (max<=c[i])
+        {
+            max=c[i];
+        }
+    }
+    
+    cout << max;
+}
+*/
+
+//Vasya the Hipster
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int a,b,c;
+    
+    cin >> a >> b;
+    
+    if (a<=b)
+    {
+        c=a;
+        cout << c << " ";
+    }
+    else
+    {
+        c=b;
+        cout << c << " ";
+    }
+    
+    cout << (a+b-2*c)/2;
+}
+*/
+
+
+//Sum of Round Numbers
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,k=0,r=0;
+    
+    cin >> n;
+    
+    int ans[n];
+    
+    while (n--)
+    {
+        int a;
+        
+        cin >> a;
+        
+        if (a%10==0)
+        {
+            k++;
+            ans[n]=a;
+        }
+        else if (a%10!=0)
+        {
+            while (a!=0)
+            {
+                r=a%10;
+                a=a/10;
+                k++;
+                
+
+            }
+            
+            
+        }
+        
+    }
+}
+*/
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,k=0,r=0,m;
+    
+    cin >> n;
+    
+    int ans[n];
+    m=n;
+    
+    while (n--)
+    {
+        int a;
+        
+        cin >> a;
+        
+        if (a/10000!=0)
+        {
+            k++;
+            ans[n]=(a/10000)*10000;
+            n=n-ans[n];
+        }
+        else if (a/1000!=0)
+        {
+            k++;
+            ans[n]=(a/1000)*1000;
+            n=n-ans[n];
+        }
+        else if (a/100!=0)
+        {
+            k++;
+            ans[n]=(a/100)*100;
+            n=n-ans[n];
+        }
+        else if (a/10!=0)
+        {
+            k++;
+            ans[n]=(a/10)*10;
+            n=n-ans[n];
+        }
+    }
+    while (m--)
+    {
+        cout << k << endl;
+        cout << ans[m] << endl;
+    }
+}
+*/
+
+/*
+ #include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+
+    cin >> t;
+
+    while (t--)
+    {
+        int n, count = 0, i = 0;
+        int a[4];
+
+        cin >> n;
+
+        if (n / 1000 != 0)
+        {
+            count++;
+            a[i] = (n / 1000) * 1000;
+            n -= a[i];
+            i++;
+        }
+        if (n / 100 != 0)
+        {
+            count++;
+            a[i] = (n / 100) * 100;
+            n -= a[i];
+            i++;
+        }
+        if (n / 10 != 0)
+        {
+            count++;
+            a[i] = (n / 10) * 10;
+            n -= a[i];
+            i++;
+        }
+        if (n != 0)
+        {
+            count++;
+            a[i] = n;
+        }
+
+        cout << count << endl;
+        for (i = 0; i < count; i++)
+        {
+            cout << a[i] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+*/
+
+//Drinks
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,i;
+    float sum;
+    
+    cin >> n;
+    
+    int a[n];
+    
+    for (i=0; i<n; i++)
+    {
+        cin >> a[i];
+    }
+    
+    for (i=0; i<n; i++)
+    {
+        sum=sum+a[i];
+    }
+    
+    cout << sum/n;
+}
+*/
+
+//I Wanna Be the Guy
+/*
+#include <iostream>
+
+using namespace::std;
+
+int remove_duplicate_elements(int arr[], int n)
+{
+
+    if (n==0 || n==1)
+        return n;
+
+    int temp[n];
+
+    int j = 0;
+    int i;
+    for (i=0; i<n-1; i++)
+    {
+        if (arr[i] != arr[i+1])
+        {
+            temp[j++] = arr[i];
+            temp[j++] = arr[n-1];
+        }
+    }
+    
+    for (i=0; i<j; i++)
+            arr[i] = temp[i];
+
+return j;
+}
+
+int main()
+{
+    int n,i,j;
+    
+    cin >> n;
+    
+    int a,b;
+    
+    cin >> a;
+    int x[a];
+    for (i=0; i<a; i++)
+    {
+        cin >> x[i];
+    }
+    
+    remove_duplicate_elements(&x[a], a);
+    
+    cin >> b;
+    int y[b];
+    for (i=0; i<b; i++)
+    {
+        cin >> y[i];
+    }
+    
+    remove_duplicate_elements(&y[b], b);
+    
+    int count=n;
+    
+    for (i=0; i<a; i++)
+    {
+        for (j=0; j<n; j++)
+        {
+            if (x[i]==j)
+            {
+                count--;
+            }
+        }
+    }
+    
+    for (i=0; i<b; i++)
+    {
+        for (j=0; j<n; j++)
+        {
+            if (y[i]==j)
+            {
+                count--;
+            }
+        }
+    }
+    
+    if (count==0)
+    {
+        cout << "I become the guy.";
+    }
+    else
+        cout << "Oh, my keyboard!";
+
+}
+
+*/
+
+//Elephant
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int n,a,count=0;
+    
+    cin >> n;
+    
+    a=n/5;
+    
+    if (n%5!=0)
+    {
+        a++;
+    }
+    
+    cout << a;
+    
+}
+*/
+
+//Wrong Subtraction
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    long long int n;
+    int k,i;
+    
+    cin >> n >> k;
+    
+    for (i=0; i<k; i++)
+    {
+        if (n%10==0)
+        {
+            n=n/10;
+        }
+        else if (n%10!=0)
+        {
+            n--;
+        }
+    }
+    cout << n;
+}
+ */
+
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    long long int n;
+    int count=0,r;
+    
+    cin >> n;
+    
+    while (n!=0)
+    {
+        r=n%10;
+        n=n/10;
+        if (r==4 || r==7)
+        {
+            count++;
+        }
+    }
+    
+    if (count==4 || count==7 )
+    {
+        cout << "YES";
+    }
+    else
+        cout << "NO";
+}
+*/
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    long int i;
+    long int a[9000],w,x,y,z,year[5000];
+    
+    for (i=1000; i<=9000; i++)
+    {
+        w=i%10;
+        i=i/10;
+        
+        x=i%10;
+        i=i/10;
+        
+        y=i%10;
+        i=i/10;
+        
+        z=i%10;
+        
+        if (w==x || w==y ||  w==z || x==y || x==z || y==z)
+        {
+            year[i]=i;
+        }
+    }
+    
+    long int count=0;
+    long int n;
+    
+    cin >> n;
+    
+    for (i=1000; i<=9000; i++)
+    {
+        if (n==year[i])
+        {
+            count=year[i];
+        }
+        else
+            n++;
+            continue;
+    }
+    
+    cout << count;
+}
+*/
+
+//The new year : meeting friends
+
+
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int i,j,a[3];
+    
+    
+    for (i=0; i<3; i++)
+    {
+        cin >> a[i];
+    }
+    
+    for (i=0; i<2; i++)
+    {
+        for (j=0; j<2; j++)
+        {
+            int temp;
+            if (a[j]>a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+    }
+    
+    for (i=0; i<3; i++)
+    {
+        if (a[i]<0)
+        {
+            a[i]=-(a[i]);
+        }
+    }
+    
+    int x=a[1]-a[0];
+    int y=a[2]-a[1];
+    
+    if (x<0)
+    {
+        x=-(x);
+    }
+    else if (y<0)
+    {
+        y=-(y);
+    }
+    
+    cout << x+y;
+}
+*/
+
+
+//Add Odd or Subtract Even
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    
+    int m,t;
+    
+    cin >> t;
+    
+    m=t;
+    int ans[t];
+    
+    while (t--)
+    {
+        long long int a,b,c;
+        
+        cin >> a >> b;
+        
+        int count=0;
+        
+        if (a>b)
+        {
+            c=a-b;
+            
+            if (c%2==0)
+            {
+                count++;
+            }
+            else
+                count+=2;
+        }
+        else if (a<b)
+        {
+            c=b-a;
+            if (c%2==0)
+            {
+                count+=2;
+            }
+            else
+                count++;
+        }
+        else
+                count=0;
+        
+        ans[t]=count;
+    }
+    
+    while (m--)
+    {
+        cout << ans[m] << endl;
+    }
+}
+*/
+
+//Spy Detected!
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int t,m,i;
+    
+    cin >> t;
+    
+    m=t;
+    int ans[t];
+    
+    while (t--)
+    {
+        int n;
+        
+        cin >> n;
+        
+        int a[n],count=0;
+        
+        for (i=0; i<n; i++)
+        {
+            cin >> a[i];
+        }
+        
+        for (i=0; i<n-1; i++)
+        {
+            if (a[i]!=a[i+1] && i!=0)
+            {
+                count=i+1;
+                break;
+            }
+            else if (a[i]!=a[i+1] && (i==0 || i==1))
+            {
+                count=i;
+            }
+                
+        }
+        
+        ans[t]=count+1;
+        
+        
+    }
+    
+    while (m--)
+    {
+        cout << ans[m] << endl;
+    }
+    
+}
+*/
+
+/*
+#include <iostream>
+
+using namespace::std;
+int main()
+{
+    int t,m,i;
+    
+    cin >> t;
+    
+    m=t;
+    int ans[t];
+    
+    while (t--)
+    {
+        int n;
+        
+        cin >> n;
+        
+        int a[n],count=0;
+        
+        for (i=0; i<n; i++)
+        {
+            cin >> a[i];
+        }
+        
+        for (i=0; i<n-1; i++)
+        {
+            if (a[i] != a[i + 1] && a[i + 1] != a[i + 2])
+            {
+                cout << i + 2 << endl;
+                break;
+            }
+            if (a[i] != a[i + 1] && a[i + 1] == a[i + 2])
+            {
+                cout << i + 1 << endl;
+                break;
+            }
+        }
+        
+        ans[t]=count+1;
+        
+        
+    }
+    
+    while (m--)
+    {
+        cout << ans[m] << endl;
+    }
+    
+}
+*/
+
+//Maximum GCD
+/*
+#include <iostream>
+#include<set>
+#include<map>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<cstdlib>
+#include<iostream>
+#include<algorithm>
+
+using namespace::std;
+int main()
+{
+    
+    int t,m;
+    
+    cin >> t;
+    
+    m=t;
+    long long int ans[t];
+    
+    while (t--)
+    {
+        long long int n;
+        
+        cin >> n;
+        
+        long long int x=n/2;
+        
+        ans[t]=x;
+        
+    }
+    
+    while (m--)
+    {
+        cout << ans[m] << endl;
+    }
+    
+    
+    
+}
+*/
+
+//Black Square
+/*
+#include <iostream>
+#include<set>
+#include<map>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<cstdlib>
+#include<iostream>
+#include<algorithm>
+
+using namespace::std;
+int main()
+{
+    
+    int i,a[4],sum=0,n;
+    
+    for (i=0; i<4; i++)
+    {
+        cin >> a[i];
+    }
+    
+    string s;
+    
+    cin >> s;
+    
+    n=s.length();
+    
+    for (i=0; i<n; i++)
+    {
+        if (s[i]=='1')
+        {
+            sum=sum+a[0];
+        }
+        else if (s[i]=='2')
+        {
+            sum=sum+a[1];
+        }
+        else if (s[i]=='3')
+        {
+            sum=sum+a[2];
+        }
+        else if (s[i]=='4')
+        {
+            sum=sum+a[3];
+        }
+    }
+    
+    cout << sum;
+    
+    
+}
+*/
+
+//. Phoenix and Balance
+/*
+#include <iostream>
+#include<set>
+#include<map>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<cstdlib>
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+#include<climits>
+
+using namespace::std;
+int main()
+{
+    int i,t;
+    
+    cin >> t;
+    
+    while (t--)
+    {
+        int n;
+        
+        cin >> n;
+        
+        long long int x = 0;
+        
+        for (i=0; i<=n; i++)
+        {
+            if (n==2)
+            {
+                x=2;
+            }
+            else if (n==i)
+            {
+                x=2*(i-1)-2;
+            }
+        }
+        cout << x << endl;
+    }
+
+}
+*/
+/*
+#include <iostream>
+#include<set>
+#include<map>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<cstdlib>
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+
+using namespace::std;
+int main()
+{
+    int t,i,n;
+    
+    cin >> t;
+    
+    n=t;
+    
+    while (t--)
+    {
+        
+        string s,s1;
+        
+        cin >> s;
+        
+        int a=s.length();
+        
+        if (a>10)
+        {
+            s1=s[0]+to_string(a-2)+s[a-1];
+        }
+        else if(a<=10)
+        {
+            s1=s;
+        }
+        
+        cout << s1 << endl;
+    }
+}
+*/
+/*
+#include <iostream>
+#include<set>
+#include<map>
+#include<stack>
+#include<queue>
+#include<vector>
+#include<cstdio>
+#include<string>
+#include<cstring>
+#include<cstdlib>
+#include<iostream>
+#include<algorithm>
+#include<cmath>
+
+using namespace::std;
+int main()
+{
+    double n,m,a;
+    
+    cin >> n >> m >> a;
+    
+    cout << (long long)ceil(n/a)*(long long)ceil(m/a) << endl;
+}
+ 
+*/
+//Petya and strings
+/*
+using namespace::std;
+int main()
+{
+    string s1,s2;
+    
+    cin >> s1 >> s2 ;
+    
+    transform(s1.begin(), s1.end(), s1.begin(), ::tolower);
+    transform(s2.begin(), s2.end(), s2.begin(), ::tolower);
+    
+    int a=s1.compare(s2);
+    
+    if (a>0)
+    {
+        cout << "1";
+    }
+    else if (a<0)
+    {
+        cout << "-1";
+    }
+    else
+        cout << "0";
+}
+
+*/
+
+//
+
+using namespace::std;
+int main()
+{
+    int i,j;
+    string s;
+    
+    cin >> s;
+    
+    int a=s.length();
+    
+    for (i=0; i<a-1; i++)
+    {
+        for (j=0; j<a-i-1; j++)
+        {
+            if (s[j]!='+')
+            {
+                if (s[j]>s[j+2])
+                {
+                    char temp;
+                    temp=s[j];
+                    s[j]=s[j+2];
+                    s[j+2]=temp;
+                }
+            }
+        }
+    }
+    
+    cout << s;
+    
+    
+}
 //************************************************************** 
 	                   // 37 : A. Oath of the Night's Watch
 	int n, c = 0;
