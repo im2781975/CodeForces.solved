@@ -155,3 +155,20 @@ void LongestUncommonSubsequence(){
     else
         cout << max(a.size(), b.size());
 }
+using namespace std;
+//1453A
+void CancelTheTrain(){
+    int m, n, cnt = 0; cin >> m >> n;
+    int bottom[n], left[m];
+    for(int i = 0; i < n; i++)
+        cin >> bottom[i];
+    for(int i = 0; i < m; i++)
+        cin >> left[i];
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            if(bottom[i] == left[j])
+                cnt++;
+        }
+    }
+    cout << cnt;
+}
