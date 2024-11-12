@@ -156,6 +156,35 @@ void LongestUncommonSubsequence(){
         cout << max(a.size(), b.size());
 }
 using namespace std;
+//1450B
+void BallsOfSteel(){
+    int n, k; cin >> n >> k;
+    int x[n], y[n];
+    for(int i = 0; i < n; i++)
+        cin >> x[i] >> y[i];
+    bool found = false;
+    for(int i = 0; i < n; i++){
+        bool withDist = true;
+        for(int j = 0; j < n; j++){
+            if(i != j){
+                long long dist = abs(x[i] - x[j]) + abs(y[i] - y[j]);
+                if(d > k){
+                    withDist = false;
+                    break;
+                }
+            }
+        }
+        if(withDist){
+            found = true;
+            break;
+        }
+    }
+    if(found)
+        cout << 1;
+    else
+        cout << -1;
+}
+using namespace std;
 //1453A
 void CancelTheTrain(){
     int m, n, cnt = 0; cin >> m >> n;
