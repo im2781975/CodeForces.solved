@@ -1,4 +1,74 @@
 using namespace std;
+//1659A
+//distribute a given number of ('R') & ('B') characters across a sequence of specified length as@
+//evenly as possible, with the goal of minimizing large clusters of 'R's between each 'B'.
+void DistributeChar(){
+    int n, r, b; cin >> n >> r >> b;
+    int segment = r / (b + 1);
+    int extraRed = r % (b + 1);
+    string res = " ";
+    for(int i = 0; i < b + 1; i++){
+        res += string(segment + (extraRed > 0 ? 1 : 0), 'R');
+        if(extraRed > 0)
+            extraRed--;
+        if(i < b)
+            res += 'B';
+    }
+    cout << res;
+}
+using namespace std;
+//352B
+void JeffAndPeriod(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    unordered_map<int, int> idx;
+    for(int i = 0; i < n; i++){
+        if(idx.find(arr[i]) != idx.end()){
+            int dist = i - idx[arr[i]];
+            cout << "Distance between repeated element " << arr[i] << " id " << dist;
+        }
+        idx[arr[i]] = i;
+    }
+}
+using namespace std;
+//977C
+void LessOrEqual(){
+    int n, k; cin >> n >> k;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    if(k == 0){
+        int res = arr[0] - 1;
+        cout << (res > 0) ? res : -1;
+    }
+    else if(k == n)
+        cout << arr[n - 1];
+    else{
+        if(arr[k - 1] == arr[k])
+            cout << -1;
+        else
+            cout << arr[k - 1];
+    }
+}
+using namespace std;
+//1325B
+void CopyCopy(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    sort(arr, arr + n);
+    int cnt = n;
+    for(int i = 0; i < n - 1; i++){
+        if(arr[i] == arr[i + 1])
+            cnt--;
+    }
+    cout << cnt;
+}
+using namespace std;
 void AlyonaAndNumbers(){
     int n, m; cin >> n >> m;
     int arr[5] = {0}, tmp[5] = {0};
