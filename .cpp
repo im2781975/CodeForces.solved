@@ -271,3 +271,164 @@ void CancelTheTrain(){
     }
     cout << cnt;
 }
+using namespace std;
+void Games(){
+    int n, cnt = 0;
+    cin >> n;
+    int arr[n], tmp[n];
+    for(int i = 0; i < n; i++){
+        int x, int y; cin >> x >> y;
+        arr[i] = x; 
+        tmp[i] = y;
+    }
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(arr[i] == tmp[j] && i != j)
+                cnt++;
+        }
+    }
+    cout << cnt;
+}
+using namespace std;
+void Megnets(){
+    int n, cnt = 0;
+    cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n - 1; i++){
+        if(arr[i] != arr[i - 1])
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
+void BitsPlus(){
+    int n, cnt = 0;
+    cin >> n;
+    string a = "++X", b = "X++", c = "--X", d = "X--";
+    while(n--){
+        string str; cin >> str;
+        if(str == a || str == b)
+            cnt++;
+        else if(str == c || str == d)
+            cnt--;
+    }
+    cout << cnt;
+}
+using namespace std;
+void BeautifulMatrix(){
+    int x, y;
+    int arr[5][5];
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++)
+            cin >> arr[i][j];
+    }
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            if(arr[i][j] == 1){
+                x = i; y = j;
+        }
+    }
+    cout >> abs(x - 2) + abs(y - 2);
+}
+using namespace std;
+void StoneOnTable(){
+    int n, cnt = 0; cin >> n;
+    char arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n - 1; i++){
+        if(arr[i] == arr[i + 1])
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
+void BearAndBigBrother(){
+    int a, b, cnt = 0;
+    cin >> a >> b;
+    while(a <= b){
+        a *= 3;
+        b *= 2;
+        cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
+void candiesAndASisters(){
+    int t; cin >> t;
+    int res[t];
+    for(int i = 0; i < t; i++){
+        int candies; cin >> candies;
+        res[i] = (candies - 1)/2;
+    }
+    for(int i = 0; i < t; i++)
+        cout << res[i] << " ";
+}
+using namespace std;
+void loveUsername(){
+    int n, cnt = 0;
+    cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n - 1; i++){
+        int tmp = abs(arr[i + 1] - arr[i]);
+        if(tmp > 1)
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
+int main(){
+    int n, cntMin = 0, cntMax = 0;
+    cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int maxi = arr[0];
+    int mini = arr[0];
+    for(int i = 1; i < n; i++){
+        if(arr[i] > maxi){
+            cntMax++;
+            maxi = arr[i];
+        }
+        if(arr[i] < mini){
+            cntMin++;
+            mini = arr[i];
+        }
+    }
+    cout << cntMax + cntMin;
+}
+using namespace std;
+int main(){
+    int n, cnt = 0; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        if(arr[i] == 1)
+            cnt++;
+    }
+    (cnt == 0) ? cout << "Easy" : cout << "Hard";
+}
+using namespace std;
+void PoliceRecruits(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    int available = 0, crimes = 0;
+    for(int i = 0; i < n; i++){
+        if(arr[i] > 0)
+            available += arr[i];
+        else{
+            if(available > 0)
+                available--;
+            else
+                crimes++;
+        }
+    }
+    cout << crimes;
+}
