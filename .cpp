@@ -432,3 +432,162 @@ void PoliceRecruits(){
     }
     cout << crimes;
 }
+using namespace std;
+int removeDup(int arr[], int n){
+    if(n == 0 || n == 1)
+        return n;
+    int j = 0;
+    for(int i = 0; i < n - 1; i++){
+        if(arr[i] != arr[i + 1])
+            arr[j++] = arr[i];
+    }
+    arr[j++] = arr[n - 1];
+    return j;
+}
+void WannaGuy(){
+    int n; cin >> n;
+    int a, b; cin >> a >> b;
+    int arr[a], tmp[b];
+    for(int i = 0; i < a; i++)
+        cin >> arr[i];
+    for(int i = 0; i < b; i++)
+        cin >> tmp[i];
+    removeDup(&arr[a], a);
+    removeDup(&arr[b], b);
+    int cnt = n;
+    for(int i = 0; i < a; i++){
+        for(int j = 0; j < n; j++){
+            if(arr[i] == j)
+                cnt--;
+        }
+    }
+    for(int i = 0; i < b; i++){
+        for(int j = 0; j < n; j++){
+            if(tmp[i] == j)
+                cnt--;
+        }
+    }
+    (cnt == 0) ? cout << "Wann be guy" : cout << "Oh! keyboard";
+}
+
+using namespace std;
+void Drinks(){
+    int n; cin >> n;
+    float sum = 0;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++)
+        sum += arr[i];
+    cout << sum / n;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    vector <int> vec;
+    int val = 1;
+    while(n > 0){
+        int dig = n % 10;
+        if(dig != 0)
+            vec.push_back(dig * val);
+        n /= 10;
+        val *= 10;
+    }
+    cout << vec.size();
+    for(int i = 0; i < vec.size(); i++)
+        cout << vec[i] << " ";
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int res[10000], cnt = 0;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        while(x > 0){
+            int pos = 1;
+            while(pos * 10 <= x){
+                pos *= 10;
+            }
+            res[cnt++] = pos;
+            x -= pos;
+        }
+    }
+    cout << cnt << "\n";
+    for(int i = 0; i < cnt; i++)
+        cout << res[i] << " ";
+}
+using namespace std;
+void sumOfRound(){
+    int n; cin >> n;
+    int ans[n], cnt = 0;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        ans[i] = 0;
+        if(x % 10 == 0){
+            cnt++;
+            ans[i] = x;
+        }
+        else{
+            while(x != 0){
+                cnt++;
+                x /= 10;
+            }
+        }
+    }
+    cout << "Count of Operation: " << cnt << "\n";
+    for(int i = 0; i < n; i++)
+        cout << ans[i] << " ";
+}
+using namespace std;
+void VasyaTheHipster(){
+    int a, b, c; cin >> a >> b;
+    if(a <= b)
+        c = a;
+    else
+        c = b;
+    cout << c << " " << (a + b - 2 * c) / 2;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int arr[n], tmp[n];
+    int cur = 0, maxi = 0;
+    for(int i = 0; i < n; i++)
+        cin >> arr[i] >> tmp[i];
+    for(int i = 0; i < n; i++){
+        cur -= arr[i] + tmp[i];
+        if(cur > maxi)
+            maxi = cur;
+    }
+    cout << maxi;
+}
+using namespace std;
+void Tram(){
+    int n; cin >> n;
+    int ans[n];
+    for(int i = 0; i < n; i++){
+        int a, b; cin >> a >> b;
+        ans[i] = a + b;
+    }
+    int maxi = ans[0];
+    for(int i = 1; i < n; i++){
+        if(ans[i] > maxi)
+            maxi = ans[i];
+    }
+    cout << maxi - 1;
+}
+using namespace std;
+void main(){
+    int n, sum = 0, cnt = 0, cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        sum += arr[i];
+        if(sum < 0){
+            cnt++; 
+            sum = 0;
+        }
+    }
+    cout << cnt;
+}
