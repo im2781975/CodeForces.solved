@@ -1,4 +1,167 @@
 using namespace std;
+void main(){
+    string str; cin >> str;
+    int x = str.length();
+    for(int i = 0; i < x - 1; i++){
+        for(int j = 0; j < x - i - 1; j++){
+            if(str[j] != '+'){
+                char tmp = str[j];
+                str[j] = str[j + 2]; 
+                str[j + 2] = tmp;
+            }
+        }
+    }
+    cout << str;
+}
+using namespace std;
+void PetyaString(){
+    string str, tmp; cin >> str >> tmp;
+    transform(str.begin(), str.end(), str.begin(), ::tolower);
+    transform(tmp.begin(), tmp.end(), tmp.begin(), ::tolower);
+    int x = str.compare(tmp);
+    if(x > 0)
+        cout << "1";
+    else if(x < 0)
+        cout << "-1";
+    else
+        cout << "0";
+}
+using namespace std;
+void main(){
+    string str, res; cin >> str;
+    int len = str.length();
+    if(len > 10)
+        res = str[0] + to_string(len - 2) + str[len - 1];
+    else
+        res = str;
+    cout << res;
+}
+using namespace std;
+void PhoenixAndBalance(){
+    int n; cin >> n;
+    int x = 0;
+    for(int i = 0; i <= n; i++){
+        if(n == 2)
+            x = 2;
+        else if(n == i)
+            x = 2 * (i - 1) - 2;
+    }
+    cout << x;
+}
+using namespace std;
+void BlackSqr(){
+    int arr[5], sum = 0;
+    for(int i = 0; i < 4; i++)
+        cin >> arr[i];
+    string str; cin >> str;
+    for(int i = 0; i < str.length(); i++){
+        if(str[i] >= '1' && str[i] <= '4')
+            sum += arr[str[i] - '1'];
+        else{
+            cerr << "Invalid";
+            return 1;
+        }
+    }
+    cout << sum;
+}
+using namespace std;
+void main(){
+    int n; cin >> n;
+    int arr[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n - 2; i++){
+        if(arr[i] != arr[i + 1] && arr[i + 1] != arr[i + 2]){
+            cout << i + 2;
+            break;
+        }
+        if(arr[i] != arr[i + 1] && arr[i + 1] == arr[i + 2])
+            cout << i + 1;
+            break;
+    }
+}
+using namespace std;
+void spyDetect(){
+    int n, cnt = 0; cin >> n;
+    int arr[n], res[n];
+    for(int i = 0; i < n; i++)
+        cin >> arr[i];
+    for(int i = 0; i < n; i++){
+        if((i > 0 && arr[i] != arr[i - 1] && (i == n - 1 || arr[i] != arr[i + 1])) || (i == 0 && arr[i] != arr[i + 1])){
+                    cnt = i + 1;
+                    break;
+        }
+    }
+    for(int i = 0; i < n; i++)
+        res[i] = cnt;
+    for(int i = 0; i < n; i++)
+        cout << res[i] << " ";
+}
+using namespace std;
+void NewYearMeeting(){
+    int arr[3];
+    for(int i = 0; i < 2; i++){
+        for(int j = 0; j < 2 - i; j++){
+            if(arr[j] > arr[j + 1]){
+                int tmp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = tmp;
+            }
+        }
+    }
+    cout << abs(arr[1] - arr[0]) + abs(arr[2] - arr[1]);
+}
+using namespace std;
+void main(){
+    int num; cin >> num;
+    int cnt = 0;
+    while(num != 0){
+        int rem = num % 10;
+        num /= 10;
+        if(rem == 4 || rem == 7)
+            cnt++;
+    }
+    if(cnt == 4 || cnt == 7)
+        cout << "Yes";
+    else
+        cout << "No";
+}
+using namespace std;
+void WrongSubtraction(){
+    int n, k; cin >> n >> k;
+    for(int i = 0; i < k; i++){
+        if(n % 10 == 0)
+            n /= 10;
+        else
+            n--;
+    }
+    cout << n;
+}
+using namespace std;
+void Elephent(){
+    int n; cin >> n;
+    int x = n / 5;
+    if(n % 5 != 0)
+        x++;
+    cout << x;
+}
+using namespace std;
+void addOddOrSubtractEven(){
+    int a, b; cin >> a >> b;
+    int cnt = 0;
+    if(a > b){
+        int c = a - b;
+        (c % 2 == 0) ? cnt = 1 :  cnt = 2;
+    }
+    else if(a < b){
+        int c = b - a;
+        (c % 2 == 0) ? cnt = 2 : cnt = 1;
+    }
+    else 
+        cnt = 0;
+    cout << cnt;
+}
+using namespace std;
 //1659A
 //distribute a given number of ('R') & ('B') characters across a sequence of specified length as@
 //evenly as possible, with the goal of minimizing large clusters of 'R's between each 'B'.
