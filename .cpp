@@ -209,6 +209,12 @@ void NewYearMeeting(){
     }
     cout << abs(arr[1] - arr[0]) + abs(arr[2] - arr[1]);
 }
+void NewYearMeeting(){
+    vector <int> vec(3);
+    for(int i = 0; i < 3; i++)
+        cin >> vec[i];
+    cout << *max_element(vec.begin(), vec.end()) - *min_element(vec.begin(), vec.end());
+}
 using namespace std;
 void main(){
     int num; cin >> num;
@@ -242,6 +248,10 @@ void Elephent(){
     if(n % 5 != 0)
         x++;
     cout << x;
+}
+void Elefent(){
+    float n; cin >> n;
+    cout << ceil(n / 5);
 }
 using namespace std;
 void addOddOrSubtractEven(){
