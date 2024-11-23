@@ -666,6 +666,28 @@ void PoliceRecruits(){
         }
     }
     cout << crimes;
+	
+}
+using namespace std;
+void PoliceRecruite(){
+    int n; cin >> n;
+    int police = 0, crime = 0, cnt = 0;
+    vector <int> vec(n);
+    for(int i = 0; i < n; i++){
+        cin >> vec[i];
+        if(vec[i] < 0){
+            crime++;
+            if(police == 0)
+                cnt++;
+            else if(police && crime){
+                police--;
+                crime--;
+            }
+        }
+        else
+            police += vec[i];
+    }
+    cout << cnt;
 }
 using namespace std;
 int removeDup(int arr[], int n){
