@@ -1,4 +1,76 @@
 using namespace std;
+void BrainsPhoto(){
+    int n, m, freq[26]{0}; cin >> n >> m;
+    char ch;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            cin >> ch;
+            freq[ch - 'A']++;
+        }
+    }
+    //('C', cyan), ('M', magenta), ('Y', yellow), ('W', white), ('G', grey), ('B', black)
+	if ((freq['C' - 'A']) || (freq['M' - 'A']) || (freq['Y' - 'A']))
+		cout << "#Color" << endl;
+	else
+		cout << "#Black&White" << endl;
+}
+using namespace std;
+void ArpasExam(){
+    int n; cin >> n;
+    if(n == 0)
+        cout << "1";
+    else{
+        int res;
+        if(n % 4 == 0) res = 6;
+        else if(n % 4 == 1) res = 8;
+        else if(n % 4 == 2) res = 4;
+        else res = 2;
+    }
+    cout << res;
+}
+using namespace std;
+void SecondOrderStatics(){
+    int n; cin >> n;
+    set <int> st;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        st.insert(x);
+    }
+    set <int> ::iterator it = st.begin();
+    if(st.size() == 1)
+        cout << "No";
+    else{
+        advance(it, 1);
+        cout << *it << " ";
+    }
+}
+using namespace std;
+void GoodContest(){
+    int n, l, r; cin >> n;
+    string str;
+    for(int i = 0; i < n; i++){
+        cin >> str >> l >> r;
+        if(r >= 2400 && l > r){
+            cout << "Yes";
+            return 0;
+        }
+    }
+    cout << "No";
+}
+using namespace std;
+void OathOfNightWatch(){
+    int n, cnt = 0; cin >> n;
+    vector <int> vec(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    sort(vec.begin(), vec.end());
+    for(int i = 1; i < n; i++){
+        if(vec[i] > vec[0] && vec[n - 1] > vec[i])
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
 void main(){
     string str; cin >> str;
     int x = str.length();
