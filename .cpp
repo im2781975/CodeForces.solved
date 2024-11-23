@@ -1,4 +1,156 @@
 using namespace std;
+void SirajaAndDima(){
+    int n; cin >> n;
+    deque <int> dq(n);
+    int siraj = 0, Dima = 0;
+    for(int i = 0; i < n; i++)
+        cin >> dq[i];
+    for(int i = 0; i < n; i++){
+        if(i % 2 == 0){
+            if(dq.back() > dq.front()){
+                siraj += dq.back();
+                dq.pop_back();
+            }
+            else{
+                siraj += dq.front();
+                dq.pop_front();
+            }
+        }
+        else{
+            if(dq.back() > dq.front()){
+                Dima += dq.back();
+                dq.pop_back();
+            }
+            else{
+                Dima += dq.front();
+                dq.pop_front();
+            }
+        }
+    }
+    cout << siraj << " " << Dima;
+}
+using namespace std;
+void Pangram(){
+    int n; cin >> n;
+    if(n < 26){
+        cout << "No";
+        return 0;
+    }
+    set <char> st;
+    for(int i = 0; i < n; i++){
+        char ch; cin >> ch;
+        if(ch >= 'A' && ch <= 'Z')
+            ch += 32;
+        st.insert(ch);
+    }
+    (st.size() == 26) ? cout << "Yes" : cout << "No";
+}
+using namespace std;
+void wrongSubtract(){
+    int n, k; cin >> n >> k;
+    while(k--){
+        if(n % 10 == 0)
+            n /= 10;
+        else
+            n--;
+    }
+    cout << n;
+}
+using namespace std;
+void ultraFast(){
+    string str, tmp;
+    cin >> str >> tmp;
+    for(int i = 0; i < str.size(); i++){
+        if(str[i] != tmp[i])
+            cout << "1";
+        else
+            cout << "0";
+    }
+}
+using namespace std;
+void EqualCandies(){
+    int n; cin >> n;
+    vector <int> vec(n);
+    int sum = 0;
+    for(int i = 0; i < n; i++)
+        cin >> vec[i];
+    int mini = *min_element(vec.begin(), vec.end());
+    for(int i = 0; i < n; i++){
+        vec[i] -= mini;
+        sum += vec[i];
+    }
+    cout << sum;
+}
+using namespace std;
+void colorfulStone(){
+    string str, tmp; cin >> str >> tmp;
+    int pos = 0;
+    for(int i = 0; i < tmp.size(); i++){
+        if(str[pos] == tmp[i])
+            pos++;
+    }
+    cout << pos + 1;
+}
+using namespace std;
+void GresWorkout(){
+    int n; cin >> n;
+    vector <int> vec(n);
+    int chest = 0, biceps = 0, back = 0;
+    for(int i = 0; i < n; i++){
+        cin >> vec[i];
+        if(i % 3 == 0)
+            chest += vec[i];
+        else if(i % 3 == 1)
+            biceps += vec[i];
+        else
+            back += vec[i];
+    }
+    if(chest >= biceps && chest >= back)
+        cout << "chest";
+    else if(biceps >= chest && biceps >= back)
+        cout << "biceps";
+    else
+        cout << "back";
+}
+using namespace std;
+void SoldierAndBanana(){
+    int k, n, w; cin >> k >> n >> w;
+    int total = 0;
+    for(int i = 1; i <= w; i++)
+        total += i * k;
+    if(total <= n)
+        cout << "0";
+    else
+        cout << abs(total - n);
+}
+using namespace std;
+void Flag(){
+    int n, m; cin >> n >> m;
+    bool Isvalid = true;
+    char c1 = '#', c2 = '@';
+    string str;
+    for(int i = 0; i < n; i++){
+        cin >> str;
+        for(int j = 0; j < str.size() - 1; j++){
+            if(str[j]!= str[j + 1]){
+                cout << "No";
+                return 0;
+            }
+        }
+        if(i % 2 == 0)
+            c1 = str[0];
+        else
+            c2 = str[0];
+        if(c1 == c2)
+            Isvalid = false;
+        if(!Isvalid){
+            cout << "No";
+            return 0;
+        }
+    }
+    cout << "Yes";
+}
+using namespace std;
 void IsItRated(){
     int n; cin >> n;
     vector <int> vec(n), tmp(n);
