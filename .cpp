@@ -713,6 +713,22 @@ void Games(){
     cout << cnt;
 }
 using namespace std;
+void Game(){
+    int n, cnt = 0; cin >> n;
+    vector <int> vec(n), tmp(n);
+    for(int i = 0; i < n; i++)
+        cin >> vec[i] >> tmp[i];
+    sort(vec.begin(), vec.end());
+    sort(tmp.begin(), tmp.end());
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            if(vec[i] == tmp[j])
+                cnt++;
+        }
+    }
+    cout << cnt;
+}
+using namespace std;
 void Megnets(){
     int n, cnt = 0;
     cin >> n;
