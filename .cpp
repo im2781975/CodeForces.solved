@@ -1,4 +1,30 @@
 using namespace std;
+void IsItRated(){
+    int n; cin >> n;
+    vector <int> vec(n), tmp(n);
+    bool flag = false, bandi = false;
+    for(int i = 0; i < n; i++)
+        cin >> vec[i] >> tmp[i];
+    for(int i = 0; i < n; i++){
+        if(vec[i] != tmp[i]){
+            flag = true;
+            break;
+        }
+    }
+    for(int i = 0; i < n - 1; i++){
+        if(vec[i] < vec[i + 1]){
+            bandi = true;
+            break;
+        }
+    }
+    if(flag)
+        cout << "rated";
+    else if(bandi)
+        cout << "Unrated";
+    else
+        cout << "maybe";
+}
+using namespace std;
 void BrainsPhoto(){
     int n, m, freq[26]{0}; cin >> n >> m;
     char ch;
