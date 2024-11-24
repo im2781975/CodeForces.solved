@@ -1,4 +1,14 @@
 using namespace std;
+void Team(){
+    int n, cnt = 0; cin >> n;
+    while(n--){
+        int x, y, z; cin >> x >> y >> z;
+        if(x + y + z > 1)
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
 void AntonAndLetter(){
     string str, res; cin >> str;
     for(int i = 0; i < str.size(); i++){
