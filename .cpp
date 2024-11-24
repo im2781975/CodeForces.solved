@@ -1,4 +1,87 @@
 using namespace std;
+void HelpfulMath(){
+    string str, ans, res; cin >> str;
+    if(str.size() == 1){
+        cout << str;
+        return 0;
+    }
+    for(int i = 0; i < str.size(); i++){
+        if(str[i] == '+')
+            res += str[i];
+        else
+            ans += str[i];
+    }
+    sort(ans.begin(), ans.end());
+    for(int i = 0; i < ans.size(); i++){
+        cout << ans[i];
+        if(i == ans.size() - 1)
+            return 0;
+        else
+            cout << '+';
+    }
+}
+using namespace std;
+void WannaBeTheGuy(){
+    int n, p, q; cin >> n >> p >> q;
+    int freq[101]{0};
+    vector <int> vec(p), tmp(q);
+    for(int i = 0; i < p; i++){
+        cin >> vec[i];
+        freq[vec[i]]++;
+    }
+    for(int i = 0; i < q; i++){
+        cin >> tmp[i];
+        freq[tmp[i]]++;
+    }
+    bool flag = false;
+    for(int i = 1; i <= n; i++){
+        if(freq[i] == 0){
+            flag = false;
+            break;
+        }
+    }
+    (flag)? cout << "Become the guy" : cout << "Oh, no";
+}
+using namespace std;
+void BalckSqr(){
+    int a, b, c, d; cin >> a >> b >> c >> d;
+    string str; cin >> str;
+    int calorie = 0;
+    for(int i = 0; i < str.size(); i++){
+        if(str[i] - '0' == 1)
+            calorie += a;
+        else if(str[i] - '0' == 2)
+            calorie += b;
+        else if(str[i] - '0' == 3)
+            calorie += c;
+        else
+            calorie += d;
+    }
+    cout << calorie;
+}
+using namespace std;
+void GoodNumber(){
+    int n, k; cin >> n >> k;
+    int cnt = 0;
+    while(n--){
+        string str; cin >> str;
+        sort(str.begin(), str.end());
+        int freq[10]{0};
+        bool flag = true;
+        for(int i = 0; i < str.size(); i++)
+            freq[str[i] - '0']++;
+        for(int i = 0; i <= k; i++){
+            if(freq[i] == 0 && i <= k){
+                flag = false;
+                break;
+            }
+        }
+        if(flag)
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
 void Team(){
     int n, cnt = 0; cin >> n;
     while(n--){
