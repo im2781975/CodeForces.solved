@@ -1,4 +1,104 @@
 using namespace std;
+void AntonAndLetter(){
+    string str, res; cin >> str;
+    for(int i = 0; i < str.size(); i++){
+        if(str[i] >= 'a' && str[i] <= 'z')
+            res += str[i];
+    }
+    sort(res.begin(), res.end());
+    int cnt = 0;
+    for(int i = 0; i < res.size(); i++){
+        if(res[i] != res[i + 1])
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
+void AntonAndPolyhedron(){
+    int n; cin >> n;
+    int cnt = 0;
+    string str;
+    while(n--){
+        cin >> str;
+        if(str == "Tetrahedron") cnt += 4;
+        else if(str == "Cube") cnt += 6;
+        else if(str == "Octahedron") cnt += 8;
+        else if(str == "Dodecahedron") cnt =+ 12;
+        else if(str == "Icosahedron") cnt += 20;
+    }
+    cout << cnt;
+}
+using namespace std;
+void BuyShovel(){
+    int k, r; cin >> k >> r;
+    for(int i = 1; i <= 1000; i++){
+        int shovel = i * k;
+        if(shovel % 10 == r || shovek % 10 == 0){
+            cout << i << " ";
+            return 0;
+        }
+    }
+}
+using namespace std;
+void BoyOrGirl(){
+    string str; cin >> str;
+    vector <int> freq(26);
+    int cnt = 0;
+    for(int i = 0; i < str.size(); i++)
+        freq[str[i] - 'a']++;
+    for(int i = 0; i < 26; i++){
+        if(freq[i])
+            cnt++;
+    }
+    (cnt % 2 == 0)? cout << "chat with her" : cout << "Ignore him";
+}
+using namespace std;
+void FreeIceCreem(){
+    int n, x; cin >> n >> x;
+    int cnt = 0, sum = x;
+    char ch;
+    while(n--){
+        cin >> ch >> x;
+        if(ch == '+')
+            sum += x;
+        else{
+            if(sum - x < 0)
+                cnt++;
+            else
+                sum -= x;
+        }
+    }
+    cout << sum << " " << cnt;
+}
+using namespace std;
+void HorseShoweOnHoof(){
+    int arr[4], cnt = 0;
+    for(int i = 0; i < 4; i++)
+        cin >> arr[i];
+    sort(arr, arr + 4);
+    for(int i = 0; i < 3; i++){
+        if(arr[i] == arr[i + 1])
+            cnt++;
+    }
+    cout << cnt;
+}
+using namespace std;
+void Juicer(){
+    int n, b, d;cin >> n >> b >> d;
+    vector <int> vec(n);
+    int sum = 0, cnt = 0;
+    for(int i = 0; i < n; i++){
+        cin >> vec[i];
+        if(vec[i] <= b)
+            sum += vec[i];
+        if(sum > d){
+            cnt++;
+            sum = 0;
+        }
+    }
+    cout << cnt;
+}
+using namespace std;
 void VanyaAndFence(){
     int n, h; cin >> n >> h;
     int res = 0;
