@@ -1,4 +1,17 @@
 using namespace std;
+void VanyaAndFence(){
+    int n, h; cin >> n >> h;
+    int res = 0;
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(x <= h)
+            res++;
+        else
+            res += 2;
+    }
+    cout << res;
+}
+using namespace std;
 void Juicer(){
     int n, b, d; cin >> n >> b >> d;
     vector <int> vec(n);
